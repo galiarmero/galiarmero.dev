@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "galiarmero.dev",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Gali Armero's personal website",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "gatsby": "^2.10.0",
     "gatsby-source-filesystem": "^2.1.2",
+    "gatsby-transformer-remark": "^2.6.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -23,9 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/galiarmero/galiarmero.dev"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/galiarmero/galiarmero.dev/issues"
   }
 }
