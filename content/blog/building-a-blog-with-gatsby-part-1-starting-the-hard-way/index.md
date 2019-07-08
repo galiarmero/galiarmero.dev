@@ -9,15 +9,17 @@ I decided to start this blog. It's the perfect medium to share and solidify my u
 
 ## What's Gatsby?
 
-You might already know that Gatsby is a React-based static site generator. What this means is that instead of rendering web pages on the server or client side, they are _pre_-generated at deploy time.
+You might already know that Gatsby is a React-based static site generator. With static sites, pages are _pre_-generated at deploy time instead of rendering them on-demand on the server or client side.
 
-Imagine queueing in a well-hyped [Tiger Sugar](https://tigersugar.com/) joint. The staff could start crafting your cup of boba as soon as you order it. The wait can range from seconds to a couple of minutes, depending on the influx of orders and the staff's level of motivation. You still get to enjoy your cup, regardless. 
+Imagine living in a world where the only way to know the menu of a fastfood restaurant is to ask the cashier. The cashier, unaware of what's available, asks the chef back at the kitchen. The chef then shouts all the available items. The cashier lists all of them in a piece of paper and shows it to you. This buffoonery is repeated for every customer coming in. WTF, right?
 
-_Or_, they could start making a shitload of milk tea cups minutes before they open. That way, by the time you order, a premade cup is ready to be served _sari-sari_ store style. Brilliant.
+In the real world, that's exactly what happens with dynamic websites. You request for a page. The server or the client fetches data from a source and renders the page.
 
-You would probably argue that your milk tea is already lukewarm and not-so-fresh when you get it. You're right because that was a bad analogy. Web pages are not milk tea, but you get the idea. 
+This approach is great for content that changes frequently. Stock prices, airline seats, NBA scores. But for fastfood menu? Not so much.
 
-Instead of waiting to generate pages when requested, Gatsby builds pages as static files, ready to be deployed. This is ideal for sites with content that doesn't change frequently (i.e. no real-time data) like business landing pages, eCommerce catalogs, documentation, blogs, [etc](https://www.gatsbyjs.org/showcase/). (Gatsby is working every release to improve its )
+Going back to our fake world, the staff could have just written the menu from the moment they opened. And then whenever something changed, they could just rewrite a new menu. This way, a lot of time is saved and whatever menu they show you is always updated.
+
+This is how static site generators like Gatsby operate. Instead of re-rendering a page for every request, Gatsby builds pages as static files, ready to be deployed. Pages can be rendered again once there are changes in content, data or appearance. This is ideal for sites with content that doesn't change frequently (i.e. no real-time data) like business landing pages, eCommerce catalogs, documentation, blogs, [etc](https://www.gatsbyjs.org/showcase/). (As long as the time it takes to build and deploy pages is shorter than the rate at which the data changes, this approach is still ideal. Gatsby builds are fast and getting faster.)
 
 
 ## How it works
