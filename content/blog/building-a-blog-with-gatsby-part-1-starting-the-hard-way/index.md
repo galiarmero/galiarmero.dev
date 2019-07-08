@@ -19,7 +19,7 @@ This approach is great for content that changes frequently. Stock prices, airlin
 
 Going back to our fake world, the staff could have just written the menu from the moment they opened. And then whenever something changed, they could just rewrite a new menu. This way, a lot of time is saved and whatever menu they show you is always updated.
 
-This is how static site generators like Gatsby operate. Instead of re-rendering a page for every request, Gatsby builds pages as static files, ready to be deployed. Pages can be rendered again once there are changes in content, data or appearance. This is ideal for sites with content that doesn't change frequently (i.e. no real-time data) like business landing pages, eCommerce catalogs, documentation, blogs, [etc](https://www.gatsbyjs.org/showcase/). (As long as the time it takes to build and deploy pages is shorter than the rate at which the data changes, this approach is still ideal. Gatsby builds are fast and getting faster.)
+This is how static site generators like Gatsby operate. Instead of re-rendering a page for every request, Gatsby builds pages as static files, ready to be deployed. Pages can be rendered again once there are changes in content, data or appearance. This is ideal for sites with content that doesn't change frequently (i.e. no real-time data) like business landing pages, eCommerce catalogs, docs, blogs, [etc](https://www.gatsbyjs.org/showcase/). (As long as the time it takes to build and deploy pages is shorter than the rate at which the data changes, this approach is still ideal. Gatsby builds are fast and [getting](https://www.slideshare.net/Gatsbyjs/gatsby-v2-faster-build-times-guessjs-and-more) [faster](https://image.slidesharecdn.com/gatsbyv2webinarpresentation-181003000041/95/gatsby-v2-faster-build-times-guessjs-and-more-55-638.jpg?cb=1538525078).)
 
 
 ## How it works
@@ -28,16 +28,20 @@ This nice illustration from the [Gatsby](https://www.gatsbyjs.org/) homepage sum
 
 ![How Gatsby Works](how-gatsby-works.png)
 
-Your data that can come from pretty much any source: Markdown files, APIs, [headless CMS](https://headlesscms.org) (basically a frontend-less CMS), and even a combination of multiple sources. During build, Gatsby pulls them from those sources, transforms them into a usable form if you want to, and makes the data available for access via [GraphQL](https://graphql.org/).
+Your data can come from pretty much any source: Markdown files, APIs, [headless CMS](https://headlesscms.org) (basically a frontend-less CMS), and even a combination of multiple sources. During build, Gatsby pulls them from those sources, transforms them into a usable form if you want to, and makes the data available for access via [GraphQL](https://graphql.org/).
 
 Then, you define expressive GraphQL queries to get the data you need and use them to create pages the way you like it using HTML, CSS and [React](https://reactjs.org/). Gatsby generates static pages based on these and you can deploy them to your favorite static web host. They are awesome and they worry about maintenance, security and [content delivery](https://en.wikipedia.org/wiki/Content_delivery_network), making deployment a walk in the park.
 
 
 ## Why I chose Gatsby
 
-The static site approach brings a lot of benefits to the table. Apart from the obvious performance advantages, potential intruders have small surface of attack since there is no running server or database. It is also more SEO-friendly since static pages are easily crawled by search engine bots. 
+The static site approach brings a lot of benefits to the table. Apart from the obvious performance advantages, potential intruders have small surface of attack since there is no running server or database. It is also more SEO-friendly as static pages are easily crawled by search engine bots. 
 
 For this blog, going with a static site was a no-brainer. But there are [a lot](https://www.staticgen.com/) of static site generators to choose from. The decision all boiled down to personal preference.
+
+### Built for speed
+
+When I started learning Gatsby, I watched this terrific [talk](https://www.youtube.com/watch?v=U6SWCTrPtn8&) by [Kyle Mathews](https://twitter.com/kylemathews), founder of Gatsby. What stuck to me was the obsession with website speed.
 
 ### Tech stack
 
