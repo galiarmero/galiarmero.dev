@@ -3,12 +3,15 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
+    // TODO: Use /blog as path prefix
     return (
         <Layout>
             <h1>Blog</h1>
             {data.allMarkdownRemark.edges.map(({ node }, index) => (
                 <div key={index}>
-                  <h1>{node.frontmatter.title}</h1>
+                  <a href={node.fields.slug}>
+                    <h1>{node.frontmatter.title}</h1>
+                  </a>
                   <h5>{node.frontmatter.datePublished}</h5>
 
                   <p>
@@ -21,19 +24,20 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-query {
-  allMarkdownRemark {
-    edges {
-      node {
-        timeToRead
-        fileAbsolutePath
-        frontmatter {
-          teaser
-          datePublished
-          title
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___datePublished], order: DESC }) {
+      edges {
+        node {
+          frontmatter {
+            teaser
+            datePublished
+            title
+          }
+          fields {
+            slug
+          }
         }
       }
     }
   }
-}
 `
