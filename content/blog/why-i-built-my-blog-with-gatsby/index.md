@@ -1,10 +1,10 @@
 ---
 title: 'Why I Built My Blog with Gatsby'
 datePublished: '2019-07-14 18:01:00 +0800'
-teaser: And why you would probably love it too.
+teaser: It *might* be the future of website development.
 ---
 
-I decided to start this blog. It's the perfect medium to share and solidify my understanding of the things I learn. It's also an awesome way to learn [Gatsby](https://www.gatsbyjs.org/). I'm breaking it in by sharing what Gatsby is about and why I picked it to build this personal space.
+I decided to start this blog. It's the perfect medium to share and solidify my understanding of the things I learn. It's also an awesome way to learn [Gatsby](https://www.gatsbyjs.org/). I'm breaking it in by sharing what Gatsby is about and why I picked it to build my personal space.
 
 ## What's Gatsby?
 
