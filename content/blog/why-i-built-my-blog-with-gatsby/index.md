@@ -66,7 +66,7 @@ What I love the most, though, is being able to see my changes take effect instan
 When I started learning about Gatsby, I read some blogs, browsed the [site](https://www.gatsbyjs.org/), and watched a couple of videos like this terrific [talk](https://www.youtube.com/watch?v=Gtd-Ht-D0sg) by [Kyle Mathews](https://twitter.com/kylemathews), founder of Gatsby. What stuck to me was the obsession with website speed.
 
 ![F1 Car Speed](f1-car-speed.jpg)
-_Gatsby is engineered like an F1 car. Photo by [chuttersnap](https://unsplash.com/@chuttersnap?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+_Gatsby is engineered like an F1 car. Photo by [chuttersnap](https://unsplash.com/@chuttersnap) on [Unsplash](https://unsplash.com)_
 
 People have little patience with slow, crappy websites. This directly affects ad viewability, bounce rates and the amount of time people spend on websites.
 
