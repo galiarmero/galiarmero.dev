@@ -10,6 +10,20 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 750,
+              quality: 100,
+            }
+          }
+        ]
+      },
+    },
+    `gatsby-plugin-sharp`,
   ],
 }
