@@ -20,10 +20,11 @@ module.exports = {
               maxWidth: 750,
               quality: 100,
             }
-          }
+          },
         ]
       },
     },
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-twitter`,
   ],
 }

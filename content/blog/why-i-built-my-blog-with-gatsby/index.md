@@ -58,7 +58,8 @@ GraphiQL, the in-browser GraphQL IDE, also comes with the Gatsby development env
 
 What I love the most, though, is being able to see my changes take effect instantly when I code. Gatsby watches files when running on development environment. When a file is saved, all changes are automatically reflected on the browser. No need to refresh!
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Don’t mean to overhype it, and note it has its warts. But <a href="https://twitter.com/gatsbyjs?ref_src=twsrc%5Etfw">@gatsbyjs</a> blog authoring experience is incredible. Hot reloading feels instant. I write posts and tweak styles or layout, and see my changes reflected in real time. This was my dream.</p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1068884262273933312?ref_src=twsrc%5Etfw">December 1, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Don’t mean to overhype it, and note it has its warts. But <a href="https://twitter.com/gatsbyjs?ref_src=twsrc%5Etfw">@gatsbyjs</a> blog authoring experience is incredible. Hot reloading feels instant. I write posts and tweak styles or layout, and see my changes reflected in real time. This was my dream.</p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1068884262273933312?ref_src=twsrc%5Etfw">December 1, 2018</a></blockquote>
 
 
 ### Built for speed
