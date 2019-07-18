@@ -4,7 +4,13 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `content/blog` })
+    if (!node.fileAbsolutePath.includes('content/')) {
+      throw Exception("Markdowns expected to be in content/")
+    }
+
+    // Get the Markdown's parent dir through `content/{}` and use it as page's prefix
+    const prefix = node.fileAbsolutePath.match(/content\/(.*?)\//)[1] || ''
+    const slug = prefix + createFilePath({ node, getNode, basePath: `content` })
     createNodeField({
       node,
       name: `slug`,
