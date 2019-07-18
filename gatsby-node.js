@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     // Get the Markdown's parent dir through `content/{}` and use it as page's prefix
-    const prefix = node.fileAbsolutePath.match(/content\/(.*?)\//)[1] || ''
+    const prefix = node.fileAbsolutePath.match(/content(.+?)\//)[1] || ''
     const slug = prefix + createFilePath({ node, getNode, basePath: `content` })
     createNodeField({
       node,
