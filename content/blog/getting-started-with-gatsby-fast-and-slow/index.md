@@ -12,12 +12,14 @@ To start, you need:
 Getting a site running with Gatsby is as fast as following these two steps:
 
 1. Pull up a starter
-```
+
+```bash
 gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
 ```
 
 2. Navigate to the project's directory and start the site up.
-```
+
+```bash{2}
 cd my-hello-world-starter/
 gatsby develop
 ```
