@@ -1,7 +1,7 @@
 ---
-title: 'Why My Blog Is Built with Gatsby'
-datePublished: '2019-07-14 18:01:00 +0800'
-teaser: It *might* be the future of website development.
+title: "Why My Blog Is Built with Gatsby"
+datePublished: "2019-07-14 18:01:00 +0800"
+teaser: "It *might* be the future of website development."
 ---
 
 I decided to start this blog. It's the perfect medium to share and solidify my understanding of the things I learn. It's also an awesome way to learn [Gatsby](https://www.gatsbyjs.org/). I'm breaking it in by sharing what Gatsby is about and why I picked it to build my personal space.
@@ -85,24 +85,3 @@ I am creating my personal site for fun and learning, I elected to build it with 
 Most importantly, I like Gatsby's thoughtful focus on making the fastest websites. Performance is central to Gatsby. It enables sites to have an app-like feel with zero configuration. It just works.
 
 For these reasons, it's easy to see why many people think of Gatsby as the future of website development. I'm excited that it is just [getting started](https://www.youtube.com/watch?v=1tjvFldRg6A).
-
-
-<!--
-    Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
-        - allFile
-        - directory
-        - file
--->
-
-<!-- 
-    Doing a GraphQL query in a page
--->
-
-<!--
-Source plugins pull data from a data source into the Gatsby data system.
-Transformer plugins transform this raw data into something more usable
--->
-
-<!--
-
--->

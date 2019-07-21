@@ -25,9 +25,9 @@ fs.mkdirSync(postPath)
 fs.writeFile(
   `${postPath}/index.${postExtension}`,
   `---
-title: '${title}'
-datePublished: '${datePublished}' <!-- Don't forget to edit before publishing! -->
-teaser: 'Some post teaser'
+title: "${title}"
+datePublished: "${datePublished} // Don't forget to edit before publishing!"
+teaser: "Some post teaser"
 ---
 
 `,
