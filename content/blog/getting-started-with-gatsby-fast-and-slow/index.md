@@ -4,22 +4,28 @@ datePublished: "2019-07-21 16:34:04 +0800  (Don't forget to edit before publishi
 teaser: "Get a website up and running quickly with Gatsby while understanding what makes it tick"
 ---
 
-Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. For Gatsby, the first step can take a matter of seconds (provided that you have npm/Yarn and Git).
+Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. Fortunately, for Gatsby, the first step can take a matter of seconds.
 
 > If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I picked it to run my site.
 
 # Up and running in seconds
 
-Getting a site running with Gatsby is as fast as running the commands in this block:
+Provided that you have Git and npm already installed, getting a site running with Gatsby is as fast as running the commands in this block:
 
 ```bash{1,2,4}
 npm install -g gatsby-cli
-gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+gatsby new my-hello-world-site https://github.com/gatsbyjs/gatsby-starter-hello-world
 cd my-hello-world-starter/
 gatsby develop
 ```
 
-First, you need to install `gatsby-cli`, the tool for basically anything you need, from getting up and running, to starting a dev server, to deployment.
+First, we install `gatsby-cli`, the tool for basically anything you need to develop a Gatsby site, from getting boilerplate code, to starting a dev server, to deployment.
+
+Next, we create a new Gatsby project in a directory called `my-hello-world-site`. The project is cloned from a 'starter'. Starters are just Git projects created and maintained by the community to help people jump-start their development quickly. They already contain an initial working code for a website that you can further tweak to your liking. There are starters for all sorts of purposes, such as blogs, portfolios, docs and eCommerce. If you plan on making a specific website, chances are there are already starters for your use case in the [Starter Library](https://www.gatsbyjs.org/starters/?v=2).
+
+For the sample above, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter. It just shows a '[Hello world!](https://gatsby-starter-hello-world-demo.netlify.com/)' on the homepage.
+
+The last step is to just run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. We can then start making changes to the code and see the changes reflected on the website.
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
