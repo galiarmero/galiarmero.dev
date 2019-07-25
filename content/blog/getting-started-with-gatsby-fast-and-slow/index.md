@@ -23,9 +23,18 @@ First, we install `gatsby-cli`, the tool for basically anything you need to deve
 
 Next, we create a new Gatsby project in a directory called `my-hello-world-site`. The project is cloned from a 'starter'. Starters are just Git projects created and maintained by the community to help people jump-start their development quickly. They already contain an initial working code for a website that you can further tweak to your liking. There are starters for all sorts of purposes, such as blogs, portfolios, docs and eCommerce. If you plan on making a specific website, chances are there are already starters for your use case in the [Starter Library](https://www.gatsbyjs.org/starters/?v=2).
 
-For the sample above, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter. It just shows a '[Hello world!](https://gatsby-starter-hello-world-demo.netlify.com/)' on the homepage.
+For the sample above, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows 'Hello world!' on the homepage.
 
-The last step is to just run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. We can then start making changes to the code and see the changes reflected on the website.
+The last step is to just run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. You can then open this URL in the browser to see changes reflected whenever you tweak the code.
+
+With those easy steps, you are pretty much all set to start developing.
+
+
+# Adding pages
+
+The most straightforward way to add pages is to create React components inside `src/pages`. Gatsby core automatically renders them into pages with the path based on the filename. For example, a component in `src/pages/blog.js` turns into a page in `/blog`.
+
+
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
