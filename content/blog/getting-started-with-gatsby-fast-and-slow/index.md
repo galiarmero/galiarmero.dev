@@ -67,6 +67,33 @@ When the contents of your pages need to be fetched from some source, you'll most
 
 For our problem, `gatsby-source-filesystem` is the one. It just pulls data from the local filesystem. Let's play with it.
 
+First step is to install it.
+
+```shell
+npm install gatsby-source-filesystem
+```
+
+Next, you have to declare your intent to use it by adding it as a plugin in `gatsby-config.js`. Below, we are also instructing the plugin to read files in the `content/blog` directory.
+
+```js{3-9}
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+  ],
+}
+```
+
+In its bootstrapping process, Gatsby loads plugins listed in `gatsby-config.js`. It will then use source plugins to pull data into a GraphQL schema.
+
+GraphQL manages the data system for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner when we create our pages. Note that it only exists at build-time, not when the site is already live.
+
+With that being said, run `gatsby develop` to initiate the bootstrapping sequence. Then, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE.
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
