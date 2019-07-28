@@ -40,7 +40,7 @@ The most straightforward way to add pages is to create React components inside `
 
 Here's a sample React component.
 
-```jsx
+```jsx{5,6}
 import React from "react"
 
 export default () => (
@@ -53,7 +53,7 @@ export default () => (
 
 If you are not familiar with the syntax, this is just JavaScript at its core. It uses an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) that returns a React element in [JSX](https://reactjs.org/docs/introducing-jsx.html) syntax.
 
-Copy this to `src/pages/blog.js`. If you aren't already, run `gatsby develop` and check out [http://localhost:8000/blog](http://localhost:8000/blog). You should see a page that looks exactly like the way we wanted it in the HTML-like portion of `blog.js`.
+Copy this to `src/pages/blog.js`. If you haven't yet, run `gatsby develop` and check out [http://localhost:8000/blog](http://localhost:8000/blog). You should see a page that looks exactly like the way we wanted it in the HTML-like portion of `blog.js`.
 
 ![/blog](welcome-to-my-blog.png)
 
@@ -73,7 +73,7 @@ First step is to install it.
 npm install gatsby-source-filesystem
 ```
 
-Next, you have to declare your intent to use it by adding it as a plugin in `gatsby-config.js`. Below, we are also instructing the plugin to read files in the `content/blog` directory.
+Next, you have to declare your intent to use it by adding it as a plugin in `gatsby-config.js`. In the code below, we are also instructing the plugin to read files inside `content/blog` directory.
 
 ```js{3-9}
 module.exports = {
@@ -89,11 +89,15 @@ module.exports = {
 }
 ```
 
-In its bootstrapping process, Gatsby loads plugins listed in `gatsby-config.js`. It will then use source plugins to pull data into a GraphQL schema.
+During bootstrapping, Gatsby loads plugins listed in `gatsby-config.js`. It will then use source plugins to pull data into a GraphQL schema.
 
 GraphQL manages the data system for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner when we create our pages. Note that it only exists at build-time, not when the site is already live.
 
 With that being said, run `gatsby develop` to initiate the bootstrapping sequence. Then, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE.
+
+![First look at GraphiQL](graphiql-first-look.png)
+
+In the Explorer section on the right are the available _schemas_ that can be queried. Highlighted in green are the schemas that were created by `gatsby-source-filesystem`.
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
