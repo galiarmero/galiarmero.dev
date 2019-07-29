@@ -51,15 +51,15 @@ export default () => (
 )
 ```
 
-If you are not familiar with the syntax, this is just JavaScript at its core. It uses an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) that returns a React element in [JSX](https://reactjs.org/docs/introducing-jsx.html) syntax.
+If you are not familiar with the syntax, this is just JavaScript at its core. It has an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) that returns a React element in [JSX](https://reactjs.org/docs/introducing-jsx.html) syntax.
 
-Copy this to `src/pages/blog.js`. If you haven't yet, run `gatsby develop` and check out [http://localhost:8000/blog](http://localhost:8000/blog). You should see a page that looks exactly like the way we wanted it in the HTML-like portion of `blog.js`.
+Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby develop` and check out [http://localhost:8000/blog](http://localhost:8000/blog). You should see a page that looks exactly like the way we wanted it in the HTML-like portion of `blog.js`.
 
 ![/blog](welcome-to-my-blog.png)
 
 
 
-# Creating pages out of a Markdown source
+# Creating pages out of Markdown files
 
 What if you wanted to write thousands of blog posts as Markdown files? You somehow need to read the contents and convert them to HTML so that they can be rendered as pages. In this case, the previous approach of creating React components in `src/pages` is no longer ideal.
 
@@ -89,15 +89,27 @@ module.exports = {
 }
 ```
 
-During bootstrapping, Gatsby loads plugins listed in `gatsby-config.js`. It will then use source plugins to pull data into a GraphQL schema.
+Of course, we have to create `content/blog` directory. We'll put Markdown files there later.
 
-GraphQL manages the data system for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner when we create our pages. Note that it only exists at build-time, not when the site is already live.
+Run `gatsby develop` to initiate the bootstrapping sequence. Part of what happens in this process are, in order:
 
-With that being said, run `gatsby develop` to initiate the bootstrapping sequence. Then, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE.
+  1. Gatsby loads plugins listed in `gatsby-config.js`
+  2. Source plugins that were loaded are invoked to pull data into GraphQL
+
+GraphQL manages the data system for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner before we supply them to our pages. Note that it only exists at build-time, not when the site is already live.
+
+After `gatsby develop` is done, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE.
+
+In the Explorer section on the left section are the available _schemas_ that can be queried. Highlighted in green are the schemas that were created by `gatsby-source-filesystem`.
 
 ![First look at GraphiQL](graphiql-first-look.png)
 
-In the Explorer section on the right are the available _schemas_ that can be queried. Highlighted in green are the schemas that were created by `gatsby-source-filesystem`.
+You can use Explorer to view schemas, and the properties that can be queried. In this example, we are querying for the `birthTime` and `publicURL` of all the file nodes gathered by `gatsby-source-filesystem`, which it stores in `allFile` schema.
+
+![GraphQL query for allFile](graphql_sample_query.gif)
+
+As we click the properties in Explorer, the query is being formed for us. We just have to hit the ▶️ button to execute the query. As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
+
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
