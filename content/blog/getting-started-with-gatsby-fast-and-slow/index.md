@@ -51,9 +51,9 @@ export default () => (
 )
 ```
 
-If you are not familiar with the syntax, this is just JavaScript at its core. It has an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) that returns a React element in [JSX](https://reactjs.org/docs/introducing-jsx.html) syntax.
+If you are not familiar with the syntax, this is just JavaScript at its core. It uses an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) that returns a React element in [JSX](https://reactjs.org/docs/introducing-jsx.html) syntax.
 
-Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby develop` and check out [http://localhost:8000/blog](http://localhost:8000/blog). You should see a page that looks exactly like the way we wanted it in the HTML-like portion of `blog.js`.
+Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby develop`. You'll see in [http://localhost:8000/blog](http://localhost:8000/blog) the rendered version of the React component.
 
 ![/blog](welcome-to-my-blog.png)
 
@@ -61,7 +61,7 @@ Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby deve
 
 # Creating pages out of Markdown files
 
-What if you wanted to write thousands of blog posts as Markdown files? You somehow need to read the contents and convert them to HTML so that they can be rendered as pages. In this case, the previous approach of creating React components in `src/pages` is no longer ideal.
+What if you wanted to create thousands of blog posts from Markdown files? You somehow need to read the contents and convert them to HTML so that they can be rendered as pages. You would also prefer using a single template for the structure and appearance of a page and just plug in contents for each post. This requires a different approach.
 
 When the contents of your pages need to be fetched from some source, you'll most likely need a _source plugin_. If you need to fetch from the Wordpress API, there's a Wordpress source plugin. If you need to pull data from a MongoDB collection, theres a MongoDB source plugin. You can search the [Gatsby Plugin Library](https://www.gatsbyjs.org/plugins/) for the plugin that will do the job. Just search _'gatsby-source-'_, as this is the convention for naming source plugins.
 
@@ -96,11 +96,11 @@ Run `gatsby develop` to initiate the bootstrapping sequence. Part of what happen
   1. Gatsby loads plugins listed in `gatsby-config.js`
   2. Source plugins that were loaded are invoked to pull data into GraphQL
 
-GraphQL manages the data system for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner before we supply them to our pages. Note that it only exists at build-time, not when the site is already live.
+GraphQL manages the data for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner before we supply them to our pages. Note that it only exists at build-time, not when the site is already live.
 
-After `gatsby develop` is done, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE.
+After `gatsby develop` is done, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE, where we can explore available data and run queries.
 
-In the Explorer section on the left section are the available _schemas_ that can be queried. Highlighted in green are the schemas that were created by `gatsby-source-filesystem`.
+In the Explorer section on the left side are the available _schemas_ that can be queried. The schemas highlighted in green are those created by `gatsby-source-filesystem`.
 
 ![First look at GraphiQL](graphiql-first-look.png)
 
@@ -108,8 +108,25 @@ You can use Explorer to view schemas, and the properties that can be queried. In
 
 ![GraphQL query for allFile](graphql_sample_query.gif)
 
-As we click the properties in Explorer, the query is being formed for us. We just have to hit the ▶️ button to execute the query. As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
+As you click the properties in Explorer, the query is already being formed. You just have to hit the 'Play' ▶️ button to execute the query. As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
 
+Let's add a Markdown file in `content/blog` and name it `first-post.md`.
+
+```md
+---
+title: My First Post
+date: 02 August 2019
+excerpt: Hi. I'm new to this blogging thing.
+---
+
+Hi. I'm new to this blogging thing.
+
+But did you know that _blog_ is short for _weblog_?
+```
+
+Running the previous query in GraphiQL would now yield a result containing data about `first-post.md`.
+
+![GraphQL query for allFile](graphql_query_first-post.png)
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
