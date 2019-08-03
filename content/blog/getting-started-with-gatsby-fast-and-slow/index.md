@@ -8,7 +8,7 @@ Over the past weeks, I've been ~~building my personal site to play with Gatsby~~
 
 > If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I picked it to run my site.
 
-# Up and running in seconds
+## Up and running in seconds
 
 Provided that you have Git and npm already installed, getting a site running with Gatsby is as fast as running the commands in this block:
 
@@ -34,7 +34,7 @@ The last step is to just run `gatsby develop` inside the root directory of `my-h
 With those easy steps, you are pretty much all set to start developing.
 
 
-# Adding pages
+## Adding pages
 
 The most straightforward way to add pages is to create React components inside `src/pages`. At build time, Gatsby core automatically renders them into pages with the path based on the filename. For example, a component in `src/pages/blog.js` turns into a page in `/blog`.
 
@@ -58,14 +58,21 @@ Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby deve
 ![/blog](welcome-to-my-blog.png)
 
 
+## Creating pages from a data source
 
-# Creating pages out of Markdown files
+Often, you would need to create pages from a source programmatically. The previous approach would no longer cut it. Typically, this is the recipe you need to follow:
 
-What if you wanted to create thousands of blog posts from Markdown files? You somehow need to read the contents and convert them to HTML so that they can be rendered as pages. You would also prefer using a single template for the structure and appearance of a page and just plug in contents for each post. This requires a different approach.
+  1. Pull data from a source
+  2. Transform data to a usable form, if necessary
+  3. Create the pages by slotting in queried data to a template 
+
+For example, you have thousands of Markdown files and each will be generated as a page. You somehow need to read the data from the files and convert them to HTML so that they can be rendered as pages. You would also prefer using a single template and just plug in contents for each page.
+
+## Pulling data from Markdown files
 
 When the contents of your pages need to be fetched from some source, you'll most likely need a _source plugin_. If you need to fetch from the Wordpress API, there's a Wordpress source plugin. If you need to pull data from a MongoDB collection, theres a MongoDB source plugin. You can search the [Gatsby Plugin Library](https://www.gatsbyjs.org/plugins/) for the plugin that will do the job. Just search _'gatsby-source-'_, as this is the convention for naming source plugins.
 
-For our problem, `gatsby-source-filesystem` is the one. It just pulls data from the local filesystem. Let's play with it.
+For our Markdown files, `gatsby-source-filesystem` is the one. It just pulls data from the local filesystem. Let's play with it.
 
 First step is to install it.
 
@@ -127,6 +134,12 @@ But did you know that _blog_ is short for _weblog_?
 Running the previous query in GraphiQL would now yield a result containing data about `first-post.md`.
 
 ![GraphQL query for allFile](graphql_query_first-post.png)
+
+## Transforming Markdown to HTML
+
+## Creating pages using queried data
+
+## Creating an index page for all pages
 
 <!--
     Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
