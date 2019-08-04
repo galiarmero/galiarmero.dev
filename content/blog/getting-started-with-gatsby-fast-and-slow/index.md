@@ -137,6 +137,37 @@ Running the previous query in GraphiQL would now yield a result containing data 
 
 ## Transforming Markdown to HTML
 
+Markdown is the preferred format for documentation in the software world these days. I personally love it because its simple, lightweight, and it allows a more focused writing experience.
+
+But you first have to convert Markdown to HTML to render it in a webpage. `# Hello` in Markdown is converted to `<h1>Hello</h1>` in HTML; `[click me](https://example.com)` becomes `<a href='https://example.com'>click me</a>`, and so on.
+
+With Gatsby, in such cases when you need to modify raw data brought by _source plugins_ into a more workable form, you need to use _transformer plugins_. You can find a transformer plugin in the [Plugin Library](https://www.gatsbyjs.org/plugins/) or write your own.
+
+For Markdown, you can use `gatsby-transformer-remark`. It uses the [Remark](https://remark.js.org/) Markdown parser. As with any Gatsby plugin, you need to install it first.
+
+```shell
+npm install gatsby-transformer-remark
+```
+
+Then, add it as a plugin in `gatsby-config.js`:
+
+```js{10}
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
+}
+```
+
+During bootstrapping, `gatsby-transformer-remark` is called right after source plugins do their work. It processes Markdown files that are already available.
+
 ## Creating pages using queried data
 
 ## Creating an index page for all pages
