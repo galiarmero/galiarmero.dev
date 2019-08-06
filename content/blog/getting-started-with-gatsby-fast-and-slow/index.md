@@ -191,19 +191,3 @@ This frontmatter is already parsed and made available for query by `gatsby-trans
 ## Creating pages using queried data
 
 ## Creating an index page for all pages
-
-<!--
-    Setting up `gatsby-source-filesystem` allows you to query file nodes through GraphQL. It adds these fields:
-        - allFile
-        - directory
-        - file
--->
-<!--
-    Doing a GraphQL query in a page
--->
-<!--
-Source plugins pull data from a data source into the Gatsby data system.
-Transformer plugins transform this raw data into something more usable
--->
-<!--
--->
