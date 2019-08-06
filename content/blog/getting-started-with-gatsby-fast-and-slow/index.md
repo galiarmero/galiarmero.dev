@@ -113,7 +113,7 @@ In the Explorer section on the left side are the available _schemas_ that can be
 
 You can use Explorer to view schemas, and the properties that can be queried. In this example, we are querying for the `birthTime` and `publicURL` of all the file nodes gathered by `gatsby-source-filesystem`, which it stores in `allFile` schema.
 
-![GraphQL query for allFile](graphql_sample_query.gif)
+![GraphQL query for allFile](graphql-sample-query.gif)
 
 As you click the properties in Explorer, the query is already being formed. You just have to hit the 'Play' ▶️ button to execute the query. As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
 
@@ -133,7 +133,7 @@ But did you know that _blog_ is short for _weblog_?
 
 Running the previous query in GraphiQL would now yield a result containing data about `first-post.md`.
 
-![GraphQL query for allFile](graphql_query_first-post.png)
+![GraphQL query for allFile](graphql-query-first-post.png)
 
 ## Transforming Markdown to HTML
 
@@ -166,7 +166,27 @@ module.exports = {
 }
 ```
 
-During bootstrapping, `gatsby-transformer-remark` is called right after source plugins do their work. It processes Markdown files that are already available.
+During bootstrapping, `gatsby-transformer-remark` processeses Markdown '[nodes](https://www.gatsbyjs.org/docs/node-interface/)' that are loaded into the Gatsby data system by source plugins.
+
+Trigger this sequence again by running `gatsby develop`. You'll notice in GraphiQL that there are two newly-added schemas. Both hold processed Markdown data, all in the perfect shape we need to create pages.
+
+![Remark-added schemas](remark-added-schemas-graphql.png)
+
+I'm talking about not just the converted content to HTML, but also some other nice stuff. If you notice, in `first-post.md`, there is some structured information at the beginning.
+
+```md
+---
+title: My First Post
+date: 02 August 2019
+excerpt: Hi. I'm new to this blogging thing.
+---
+```
+
+This is called 'frontmatter', a section that contain useful metadata that describe the content. You can put arbitrary properties there to your liking. In this example, we added `title`, `date` and `excerpt` information, because I think we will need it when we create the page.
+
+This frontmatter is already parsed and made available for query by `gatsby-transformer-remark`. It also adds other cool bits like `timeToRead`, an estimate on how long it will take to read the post, [Medium](https://medium.com/)-style. Here's a sample query, where we get selected properties of each of the Markdown files processed by the transformer using the `allMarkdownRemark` schema.
+
+![allMarkdownRemark query](remark-graphql-query.png)
 
 ## Creating pages using queried data
 
