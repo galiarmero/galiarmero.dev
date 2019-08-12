@@ -288,7 +288,23 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-Now that we have all the `slug`, let's create a page for each post. This is done using one of the `actions` provided by Gatsby to our `createPages` function. The `actions` object is actually a collection of functions that we can use to change state on our site. The specific function we need is `createPage`. We can extract it by destructuring the object.
+Apart from the slug, we also need to create a page template. When creating a page programmatically, Gatsby needs a React component that will define the structure of the page, given some context data.
+
+Create a directory at `src/templates`. Then, add this in a file named `src/templates/blog-post.js`.
+
+```jsx
+import React from "react"
+
+export default () => {
+  return (
+    <div>
+      <div>Hi! This is a blog post.</div>
+    </div>
+  )
+}
+```
+
+Now that we have the stuff ready, let's create a page for each post. This is done using one of the `actions` provided by Gatsby to our `createPages` function. The `actions` object is actually a collection of functions that we can use to change state on our site. The specific function we need is `createPage`. We can extract it by destructuring the object.
 
 ```js{2}
 exports.createPages = ({ graphql, actions }) => {
@@ -318,7 +334,44 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-When calling `createPage`, you need to specify the path for the page, the component which will be used as page template and some context data for the page.
+When calling `createPage`, you need to specify the path for the page, the component page template and some context data for the page. The `path` should start with a forward slash. The `component` should be an absolute path, so we'll use the Node.js `Path` module to resolve it.
+
+```js{1,25-31}
+const path = require(`path`)
+
+exports.createPages = ({graphql, actions}) => {
+  const { createPage } = actions
+
+  return graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    result.data.allMarkdownRemark.edges.map(({ node }) => {
+      const slug = node.frontmatter.slug
+      createPage({
+        path: `/${slug}`,
+        component: path.resolve('./src/templates/blog-post.js'),
+        context: {
+          slug: `${slug}`
+        }
+      })
+    })
+  })
+}
+```
 
 
 ## Creating an index page for all pages
