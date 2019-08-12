@@ -4,9 +4,9 @@ datePublished: "2019-07-21 16:34:04 +0800  (Don't forget to edit before publishi
 teaser: "Get a website up and running quickly with Gatsby while understanding what makes it tick"
 ---
 
-Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. Fortunately, for Gatsby, the first step can take a matter of seconds.
+Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. Fortunately, for Gatsby, the first step of getting a website up and running takes only a matter of seconds.
 
-> If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I picked it to run my site.
+> If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I chose to use it to run my site.
 
 ## Up and running in seconds
 
@@ -25,9 +25,9 @@ Next, using the freshly installed `gatsby` command, we create a new Gatsby proje
 
 "What's a starter?" you might ask. They are just Git projects created and maintained by the community to help people jump-start their development quickly. They already contain an initial working code for a website that you can further tweak to your liking. There are starters for all sorts of purposes, such as blogs, portfolios, docs and eCommerce. If you plan on making a specific website, chances are there are already starters for your use case in the [Starter Library](https://www.gatsbyjs.org/starters/?v=2).
 
-In our case, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows 'Hello world!' on a clean white page.
+In our example, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows 'Hello world!' on a clean white page.
 
-The last step is to just run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. You can then open this URL in the browser to see changes reflected whenever you tweak the code.
+The last step is to run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. You can then open this URL in the browser to see changes reflected whenever you tweak the code.
 
 ![Hello world!](hello-world.png)
 
@@ -60,13 +60,17 @@ Copy the code to `src/pages/blog.js`. Then, if you haven't yet, run `gatsby deve
 
 ## Creating pages from a data source
 
-Often, you would need to create pages from a source programmatically. The previous approach would no longer cut it. Typically, this is the recipe you need to follow:
+Often, you would need to create pages from a source programmatically.
+
+For example, you have thousands of Markdown files and each will be generated as a page. You somehow need to read the data from the files and convert them to HTML so that they can be rendered as pages. You would also prefer using a single template and just use that to create all the pages.
+
+The previous approach would no longer cut it. Typically, this is the recipe you need to follow:
 
   1. Pull data from a source
   2. Transform data to a usable form, if necessary
-  3. Create the pages by slotting in queried data to a template 
+  3. Create the pages by plugging in queried data to a template
 
-For example, you have thousands of Markdown files and each will be generated as a page. You somehow need to read the data from the files and convert them to HTML so that they can be rendered as pages. You would also prefer using a single template and just plug in contents for each page.
+
 
 ## Pulling data from Markdown files
 
@@ -115,7 +119,9 @@ You can use Explorer to view schemas, and the properties that can be queried. In
 
 ![GraphQL query for allFile](graphql-sample-query.gif)
 
-As you click the properties in Explorer, the query is already being formed. You just have to hit the 'Play' ▶️ button to execute the query. As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
+As you click the properties in Explorer, the query is already being formed. You just have to hit the 'Play' ▶️ button to execute the query.
+
+As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
 
 Let's add a Markdown file in `content/blog` and name it `first-post.md`.
 
@@ -139,7 +145,9 @@ Running the previous query in GraphiQL would now yield a result containing data 
 
 Markdown is the preferred format for documentation in the software world these days. I personally love it because its simple, lightweight, and it allows a more focused writing experience.
 
-But you first have to convert Markdown to HTML to render it in a webpage. `# Hello` in Markdown is converted to `<h1>Hello</h1>` in HTML; `[click me](https://example.com)` becomes `<a href='https://example.com'>click me</a>`, and so on.
+To create webpages, however, you need to convert Markdown to HTML first. For example:
+  - `# Hello` is converted to `<h1>Hello</h1>`
+  - `[click me](https://example.com)` becomes `<a href='https://example.com'>click me</a>`
 
 With Gatsby, in such cases when you need to modify raw data brought by _source plugins_ into a more workable form, you need to use _transformer plugins_. You can find a transformer plugin in the [Plugin Library](https://www.gatsbyjs.org/plugins/) or write your own.
 
@@ -166,9 +174,9 @@ module.exports = {
 }
 ```
 
-During bootstrapping, `gatsby-transformer-remark` processeses Markdown '[nodes](https://www.gatsbyjs.org/docs/node-interface/)' that are loaded into the Gatsby data system by source plugins.
+During bootstrapping, `gatsby-transformer-remark` processeses Markdown 'nodes' (or data objects) that are loaded into the Gatsby data system by source plugins.
 
-Trigger this sequence again by running `gatsby develop`. You'll notice in GraphiQL that there are two newly-added schemas. Both hold processed Markdown data, all in the perfect shape we need to create pages.
+Trigger this sequence again by running `gatsby develop`. You'll notice in GraphiQL that there are two newly-added schemas. Both hold processed Markdown data, all in the perfect format we need to create pages.
 
 ![Remark-added schemas](remark-added-schemas-graphql.png)
 
@@ -182,11 +190,13 @@ excerpt: Hi. I'm new to this blogging thing.
 ---
 ```
 
-This is called 'frontmatter', a section that contain useful metadata that describe the content. You can put arbitrary properties there to your liking. In this example, we added `title`, `date` and `excerpt` information, because I think we will need it when we create the page.
+This is called 'frontmatter', a section that contain useful metadata that describe that file. You can put arbitrary properties there to your liking. In this example, we added `title`, `date` and `excerpt` information, because I think we will need it when we create the page.
 
 This frontmatter is already parsed and made available for query by `gatsby-transformer-remark`. It also adds other cool bits like `timeToRead`, an estimate on how long it will take to read the post, [Medium](https://medium.com/)-style. Here's a sample query, where we get selected properties of each of the Markdown files processed by the transformer using the `allMarkdownRemark` schema.
 
 ![allMarkdownRemark query](remark-graphql-query.png)
+
+At this point, you already have the data you need. It's just a matter of instructing Gatsby to create the pages.
 
 ## Creating pages using queried data
 
