@@ -128,6 +128,7 @@ Let's add a Markdown file in `content/blog` and name it `first-post.md`.
 ```md
 ---
 title: My First Post
+slug: my-first-post
 date: 02 August 2019
 excerpt: Hi. I'm new to this blogging thing.
 ---
@@ -185,12 +186,13 @@ I'm talking about not just the converted content to HTML, but also some other ni
 ```md
 ---
 title: My First Post
+slug: my-first-post
 date: 02 August 2019
 excerpt: Hi. I'm new to this blogging thing.
 ---
 ```
 
-This is called 'frontmatter', a section that contain useful metadata that describe that file. You can put arbitrary properties there to your liking. In this example, we added `title`, `date` and `excerpt` information, because I think we will need it when we create the page.
+This is called 'frontmatter', a section that contain useful metadata that describe that file. You can put arbitrary properties there to your liking. In this example, we added `title`, `slug`, `date` and `excerpt` information, because I think we will need it when we create the page.
 
 This frontmatter is already parsed and made available for query by `gatsby-transformer-remark`. It also adds other cool bits like `timeToRead`, an estimate on how long it will take to read the post, [Medium](https://medium.com/)-style. Here's a sample query, where we get selected properties of each of the Markdown files processed by the transformer using the `allMarkdownRemark` schema.
 
@@ -199,5 +201,124 @@ This frontmatter is already parsed and made available for query by `gatsby-trans
 At this point, you already have the data you need. It's just a matter of instructing Gatsby to create the pages.
 
 ## Creating pages using queried data
+
+Gatsby follows a specific sequence during its lifecycle. It offers lifecycle APIs so that you can hook your own operations into this sequence.
+
+On bootstrap and after sourcing and transformation of data, there is a part where Gatsby checks for an implementation of `createPages` in `gatsby-node.js`. If it finds one, it calls it. We'll use this hook to create our pages programmatically.
+
+Create a file called `gatsby-node.js` in the root of the project. Inside it, export a `createPages` function that accepts a destructured object containing `graphql` and `actions`. These two parameters are utilities passed on by Gatsby when it calls the `createPages` implementation.
+
+```js
+exports.createPages = ({ graphql, actions }) => {
+  // Do something
+}
+```
+
+Next, we have to query for all the posts using the `graphql` function passed by Gatsby. Let's get the `slug` property of each post, since we need something that will identify each one uniquely. `graphql` returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that, when fulfilled, passes along the result of the query. Let's log the it in the console.
+
+```js{19}
+exports.createPages = ({ graphql, actions }) => {
+  return graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    console.log(JSON.stringify(result, null, 2))
+  })
+}
+```
+
+When you execute `gatsby develop`, you should see the result logged:
+
+```json
+{
+  "data": {
+    "allMarkdownRemark": {
+      "edges": [
+        {
+          "node": {
+            "frontmatter": {
+              "slug": "my-first-post"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+The `edges` array contains the individual posts. By iterating over the each `node` in this array through the `Array.map`, we can get the `slug` value and work on each post.
+
+```js{19-21}
+exports.createPages = ({ graphql, actions }) => {
+  return graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    result.data.allMarkdownRemark.edges.map(({ node }) => {
+      const slug = node.frontmatter.slug
+    })
+  })
+}
+```
+
+Now that we have all the `slug`, let's create a page for each post. This is done using one of the `actions` provided by Gatsby to our `createPages` function. The `actions` object is actually a collection of functions that we can use to change state on our site. The specific function we need is `createPage`. We can extract it by destructuring the object.
+
+```js{2}
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  return graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    result.data.allMarkdownRemark.edges.map(({ node }) => {
+      const slug = node.frontmatter.slug
+    })
+  })
+}
+```
+
+When calling `createPage`, you need to specify the path for the page, the component which will be used as page template and some context data for the page.
+
 
 ## Creating an index page for all pages
