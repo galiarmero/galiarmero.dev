@@ -4,9 +4,9 @@ datePublished: "2019-07-21 16:34:04 +0800  (Don't forget to edit before publishi
 teaser: "Get a website up and running quickly with Gatsby while understanding what makes it tick"
 ---
 
-Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. Fortunately, for Gatsby, the first step of getting a website up and running takes only a matter of seconds.
+> If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I chose to use it to build my site.
 
-> If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I chose to use it to run my site.
+Over the past weeks, I've been ~~building my personal site to play with Gatsby~~ playing with Gatsby to build my personal site. It's been painless so far. But as with any personal project, one of the challenges is really taking the first step. Fortunately, for Gatsby, the first step of getting a website up and running takes only a matter of seconds.
 
 ## Up and running in seconds
 
@@ -21,11 +21,11 @@ gatsby develop
 
 First, we install `gatsby-cli` globally. This makes the `gatsby` command line tool available for use throughout the different steps in the development process. These include pulling boilerplate code, starting a development server, building the website, or deploying to a web host. 
 
-Next, using the freshly installed `gatsby` command, we create a new Gatsby project in a directory called `my-hello-world-site`. The project will be cloned from a starter called `gatsby-starter-hello-world`.
+Next, using the freshly-installed `gatsby` command, we create a new Gatsby project in a directory called `my-hello-world-site`. The project will be cloned from a starter called `gatsby-starter-hello-world`.
 
 "What's a starter?" you might ask. They are just Git projects created and maintained by the community to help people jump-start their development quickly. They already contain an initial working code for a website that you can further tweak to your liking. There are starters for all sorts of purposes, such as blogs, portfolios, docs and eCommerce. If you plan on making a specific website, chances are there are already starters for your use case in the [Starter Library](https://www.gatsbyjs.org/starters/?v=2).
 
-In our example, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows 'Hello world!' on a clean white page.
+In our example, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows _Hello world!_ on a plain white index page.
 
 The last step is to run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. You can then open this URL in the browser to see changes reflected whenever you tweak the code.
 
@@ -74,7 +74,7 @@ The previous approach would no longer cut it. Typically, this is the recipe you 
 
 ## Pulling data from Markdown files
 
-When the contents of your pages need to be fetched from some source, you'll most likely need a _source plugin_. If you need to fetch from the Wordpress API, there's a Wordpress source plugin. If you need to pull data from a MongoDB collection, theres a MongoDB source plugin. You can search the [Gatsby Plugin Library](https://www.gatsbyjs.org/plugins/) for the plugin that will do the job. Just search _'gatsby-source-'_, as this is the convention for naming source plugins.
+When the contents of your pages need to be fetched from some source, you'll most likely need a _source plugin_. If you need to fetch from the Wordpress API, there's a Wordpress source plugin. If you need to pull data from a MongoDB collection, there's a MongoDB source plugin. You can search the [Gatsby Plugin Library](https://www.gatsbyjs.org/plugins/) for the plugin that will do the job. Just search _gatsby-source-_, as this is the convention for naming source plugins.
 
 For our Markdown files, `gatsby-source-filesystem` is the one. It just pulls data from the local filesystem. Let's play with it.
 
@@ -105,11 +105,11 @@ Of course, we have to create `content/blog` directory. We'll put Markdown files 
 Run `gatsby develop` to initiate the bootstrapping sequence. Part of what happens in this process are, in order:
 
   1. Gatsby loads plugins listed in `gatsby-config.js`
-  2. Source plugins that were loaded are invoked to pull data into GraphQL
+  2. Loaded source plugins are invoked to pull data into GraphQL
 
 GraphQL manages the data for Gatsby. It normalizes data pulled from different sources so that we can query them in a standard expressive manner before we supply them to our pages. Note that it only exists at build-time, not when the site is already live.
 
-After `gatsby develop` is done, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to GraphiQL, the in-browser GraphQL IDE, where we can explore available data and run queries.
+After `gatsby develop` is done, open [http://localhost:8000/___graphql](http://localhost:8000/___graphql). This is the link to _GraphiQL_, the in-browser GraphQL IDE, where we can explore available data and run queries.
 
 In the Explorer section on the left side are the available _schemas_ that can be queried. The schemas highlighted in green are those created by `gatsby-source-filesystem`.
 
@@ -121,7 +121,7 @@ You can use Explorer to view schemas, and the properties that can be queried. In
 
 As you click the properties in Explorer, the query is already being formed. You just have to hit the 'Play' ▶️ button to execute the query.
 
-As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we said so in `gatsby-config.js`.
+As expected, the list of file nodes are empty. This is because `content/blog` has no files yet. It's the directory where `gatsby-source-filesystem` is looking, because we declared so in `gatsby-config.js`.
 
 Let's add a Markdown file in `content/blog` and name it `first-post.md`.
 
@@ -175,13 +175,13 @@ module.exports = {
 }
 ```
 
-During bootstrapping, `gatsby-transformer-remark` processeses Markdown 'nodes' (or data objects) that are loaded into the Gatsby data system by source plugins.
+During bootstrapping, `gatsby-transformer-remark` processeses Markdown _nodes_ (i.e. data objects) that are loaded into the Gatsby data system by source plugins.
 
 Trigger this sequence again by running `gatsby develop`. You'll notice in GraphiQL that there are two newly-added schemas. Both hold processed Markdown data, all in the perfect format we need to create pages.
 
 ![Remark-added schemas](remark-added-schemas-graphql.png)
 
-I'm talking about not just the converted content to HTML, but also some other nice stuff. If you notice, in `first-post.md`, there is some structured information at the beginning.
+I'm talking not just about the converted HTML content, but also some other nice stuff. If you notice, in `first-post.md`, there is some structured information at the beginning.
 
 ```md
 ---
@@ -192,7 +192,7 @@ excerpt: Hi. I'm new to this blogging thing.
 ---
 ```
 
-This is called 'frontmatter', a section that contain useful metadata that describe that file. You can put arbitrary properties there to your liking. In this example, we added `title`, `slug`, `date` and `excerpt` information, because I think we will need it when we create the page.
+This is called _frontmatter_, a section that contain useful metadata that describe that file. You can put arbitrary properties there as you wish. In this example, we added `title`, `slug`, `date` and `excerpt` information, because I think we will need it when we create the page.
 
 This frontmatter is already parsed and made available for query by `gatsby-transformer-remark`. It also adds other cool bits like `timeToRead`, an estimate on how long it will take to read the post, [Medium](https://medium.com/)-style. Here's a sample query, where we get selected properties of each of the Markdown files processed by the transformer using the `allMarkdownRemark` schema.
 
@@ -202,11 +202,11 @@ At this point, you already have the data you need. It's just a matter of instruc
 
 ## Creating pages using queried data
 
-Gatsby follows a specific sequence during its lifecycle. It offers lifecycle APIs so that you can hook your own operations into this sequence.
+Gatsby initiates a specific sequence of steps during its lifecycle. It offers lifecycle APIs so that you can hook your own operations into this sequence.
 
 On bootstrap and after sourcing and transformation of data, there is a part where Gatsby checks for an implementation of `createPages` in `gatsby-node.js`. If it finds one, it calls it. We'll use this hook to create our pages programmatically.
 
-Create a file called `gatsby-node.js` in the root of the project. Inside it, export a `createPages` function that accepts a destructured object containing `graphql` and `actions`. These two parameters are utilities passed on by Gatsby when it calls the `createPages` implementation.
+Create a file called `gatsby-node.js` in the root of the project. Inside it, export a `createPages` function that accepts an object containing `graphql` and `actions`. These two parameters are utilities passed on by Gatsby when it calls the `createPages` implementation.
 
 ```js
 exports.createPages = ({ graphql, actions }) => {
@@ -214,7 +214,7 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-Next, we have to query for all the posts using the `graphql` function passed by Gatsby. Let's get the `slug` property of each post, since we need something that will identify each one uniquely. `graphql` returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that, when fulfilled, passes along the result of the query. Let's log the it in the console.
+Next, we have to query for all the posts using the `graphql` function passed by Gatsby. Let's get the `slug` property of each post, since we need something that will identify each one uniquely. `graphql` returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that, when fulfilled, passes along the result of the query. Let's log the result in the console.
 
 ```js{19}
 exports.createPages = ({ graphql, actions }) => {
@@ -260,7 +260,7 @@ When you execute `gatsby develop`, you should see the result logged:
 }
 ```
 
-The `edges` array contains the individual posts. By iterating over the each `node` in this array through the `Array.map`, we can get the `slug` value and work on each post.
+The `edges` array contains the individual posts. By iterating over the each `node` in this array through `Array.map`, we can get the `slug` value and work on each post.
 
 ```js{19-21}
 exports.createPages = ({ graphql, actions }) => {
@@ -290,7 +290,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 Apart from the slug, we also need to create a page template. When creating a page programmatically, Gatsby needs a React component that will define the structure of the page, given some context data.
 
-Create a directory at `src/templates`. Then, add this in a file named `src/templates/blog-post.js`.
+Create a new directory named `src/templates`. Then, add this in a file called `src/templates/blog-post.js`:
 
 ```jsx
 import React from "react"
@@ -334,7 +334,7 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-When calling `createPage`, you need to specify the path for the page, the component page template and some context data for the page. The `path` should start with a forward slash. The `component` should be an absolute path, so we'll use the Node.js `Path` module to resolve it.
+When calling `createPage`, you need to specify the path for the page, the component page template and some context data for the page. The `path` should start with a forward slash. The `component` should be an absolute path, so we'll use the Node.js `Path` module to resolve it. `context` is where you put data that identifies or tells something about the page. It will be used as GraphQL variables in page queries. For this, we are putting `slug` since it distinguishes one post from another.
 
 ```js{1,25-31}
 const path = require(`path`)
@@ -365,13 +365,100 @@ exports.createPages = ({graphql, actions}) => {
         path: `/${slug}`,
         component: path.resolve('./src/templates/blog-post.js'),
         context: {
-          slug: `${slug}`
-        }
+          slug: `${slug}`,
+        },
       })
     })
   })
 }
 ```
 
+Now, it's time to tweak the template, `blog-post.js`. First, we need to specify the page query.
 
-## Creating an index page for all pages
+On bootstrap, Gatsby extracts page queries from the `query` property exported by the component. You need to use the `graphql` tag function and specify the query in-between the backticks. Gatsby runs this query, and passes the result to the render function as the `data` property.
+
+
+```jsx{2,4-14,16-17}
+import React from "react"
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+      timeToRead
+      html
+      frontmatter {
+        date
+        excerpt
+        title
+      }
+    }
+  }
+`
+
+export default ({ data }) => {
+  console.log(data)
+  return (
+    <div>
+      <div>Hi! This is a blog post.</div>
+    </div>
+  )
+}
+```
+
+Inside the render function is where you define the structure of the page using the `data` passed. In this example, we display the `title` as a header, show the `date` and `timeToRead` as subheader and the `html` as paragraph.
+
+```jsx{19-27}
+import React from "react"
+import { graphql } from "gatsby"
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+      timeToRead
+      html
+      frontmatter {
+        date
+        excerpt
+        title
+      }
+    }
+  }
+`
+
+export default ({ data }) => {
+  const post = data.markdownRemark
+  return (
+    <div>
+      <h1>{ post.frontmatter.title }</h1>
+      <h5>{ post.frontmatter.date } | { post.timeToRead }-minute read</h5>
+
+      <p dangerouslySetInnerHTML={{ __html: post.html }}></p>
+    </div>
+  )
+}
+```
+
+Finally, you can now see our programmatically created page in `/my-first-post`.
+
+![My First Post](my-first-post.png)
+
+Let's add another Markdown in `content/blog` called `sorrows-of-young-werther.md`.
+
+```md
+---
+title: The Sorrows of Young Werther
+slug: sorrows-of-young-werther
+date: 19 August 2019
+excerpt: This content was generated by blindtextgenerator.com
+---
+
+A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+```
+
+Since we already did all the dirty work, we can instantly see this Markdown rendered as a page in `/sorrows-of-young-werther`.
+
+![The Sorrows of Young Werther](sorrows-of-young-werther.png)
+
+From here on, you can add more Markdown posts in `content/blog`. They will be rendered automatically without needing to add any code. In case you want to change the layout or design of your posts, you can simply tweak the page template.
+
