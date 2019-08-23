@@ -5,7 +5,7 @@ workflows:
   build:
     jobs:
       - prep-deps
-      - build-gatsby:
+      - build-site:
           requires:
             - prep-deps
 
@@ -20,19 +20,19 @@ jobs:
       - run:
           name: Prepare npm dependencies
           command: npm install
-      - run:
-          name: Install gatsby-cli
-          command: npm install -g gatsby
+      # - run:
+      #     name: Install gatsby-cli
+      #     command: npm install -g gatsby
       - save_cache:
           key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  build-gatsby:
+  build-site:
     docker:
       - image: circleci/node:12.9.0
     steps:
       - checkout
       - run:
           name: Build Gatsby site
-          command: gatsby build
+          command: npm run build
     
