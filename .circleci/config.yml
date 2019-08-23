@@ -5,6 +5,7 @@ workflows:
   build:
     jobs:
       - prep-deps
+      - build-gatsby
 
 jobs:
   prep-deps:
@@ -21,3 +22,7 @@ jobs:
           key: npm-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+  # build-gatsby:
+  #   docker:
+  #     - image: circleci/node:12.9.0
+    
