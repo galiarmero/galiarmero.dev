@@ -5,7 +5,9 @@ workflows:
   build:
     jobs:
       - prep-deps
-      - build-gatsby
+      - build-gatsby:
+          requires:
+            - prep-deps
 
 jobs:
   prep-deps:
