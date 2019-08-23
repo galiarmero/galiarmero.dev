@@ -18,6 +18,9 @@ jobs:
       - run:
           name: Prepare npm dependencies
           command: npm install
+      - run:
+          name: Install gatsby-cli
+          command: npm install -g gatsby
       - save_cache:
           key: npm-cache-{{ checksum "package.json" }}
           paths:
