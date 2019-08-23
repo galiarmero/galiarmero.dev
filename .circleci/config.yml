@@ -14,12 +14,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: npm-cache-{{ checksum "package.json" }}
       - run:
           name: Prepare npm dependencies
           command: npm install
       - save_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
   # build-gatsby:
