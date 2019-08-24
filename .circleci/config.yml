@@ -9,10 +9,13 @@ workflows:
           requires:
             - prep-deps
 
+defaults: &defaults
+  docker:
+    - image: circleci/node:12.9.0
+
 jobs:
   prep-deps:
-    docker:
-      - image: circleci/node:12.9.0
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -20,19 +23,19 @@ jobs:
       - run:
           name: Prepare npm dependencies
           command: npm install
-      # - run:
-      #     name: Install gatsby-cli
-      #     command: npm install -g gatsby
       - save_cache:
           key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   build-site:
-    docker:
-      - image: circleci/node:12.9.0
+    <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
           name: Build Gatsby site
           command: npm run build
-    
