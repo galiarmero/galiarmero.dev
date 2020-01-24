@@ -10,13 +10,13 @@ I decided to start this blog. It's the perfect medium to share and solidify my u
 
 You might already know that Gatsby is a React-based static site generator (SSG). With static sites, pages are _pre_-generated at deploy time instead of rendering them on-demand on the server or client side.
 
-Imagine living in a world where the only way to know the menu of a fastfood restaurant is to ask the cashier. Unaware of what's available, the cashier asks the chef back at the kitchen. The chef then shouts all the available items. The cashier lists all of them in a piece of paper and shows it to you. This buffoonery is repeated for every customer coming in.
+Imagine living in a world where the only way to know the menu of a fastfood restaurant is to ask the cashier. To give you an accurate list of items available, the cashier asks the chef back at the kitchen. The chef then shouts all the available items. The cashier lists all of them in a piece of paper and shows it to you. This buffoonery is repeated for every customer coming in.
 
-In the real world, that's exactly what happens with conventional dynamic websites. You request for a page. The server or the client fetches data from a source and renders the page.
+In the real world, a similar thing happens with conventional dynamic websites. You request for a page. The server or the client-side code (the "cashier") fetches data from a source (the "chef") and renders the page.
 
-This approach is great for content that changes frequently. Stock prices, airline seats, NBA scores. But for fastfood menu? Not so much.
+This approach is great for content that changes frequently. Stock prices, airline seats, NBA scores. But for restaurant menu? Not so much.
 
-Going back to our fake world, the staff could have just written the menu the moment they first opened. And then whenever something changed, they could just rewrite a new menu. This way, a lot of time is saved and whatever menu they show you is always updated.
+Going back to our fake world, the staff could have just written the menu the moment they first opened. And then whenever something changed -- ingredients running out or being restocked -- they could just update the menu. This way, a lot of time is saved for each order and whatever menu they show you is always updated.
 
 This is how SSGs like Gatsby operate. Instead of re-rendering a page for every request, Gatsby builds pages as static files, ready to be deployed. Pages can be rendered again once there are changes in content, data or appearance. This is ideal for sites with content that doesn't change frequently (i.e. no real-time data) like business landing pages, eCommerce catalogs, docs, blogs, [etc](https://www.gatsbyjs.org/showcase/).
 
@@ -29,12 +29,12 @@ Your data can come from pretty much any source: Markdown files, APIs, [headless 
 ![How Gatsby Works](how-gatsby-works.png)
 _The workflow. Screenshot from the [Gatsby](https://www.gatsbyjs.org/) page._
 
-Then, you define expressive GraphQL queries to get the data you need and use them to create pages the way you like it using HTML, CSS and [React](https://reactjs.org/). Gatsby generates static pages based on these and you can deploy them to your favorite static web host. They are awesome and they worry about maintenance, security and [content delivery](https://en.wikipedia.org/wiki/Content_delivery_network) for you, making deployment a walk in the park.
+Then, you define expressive GraphQL queries to get the data you need and use them to create pages the way you like it using HTML, CSS and [React](https://reactjs.org/). Gatsby generates static pages based on these when you trigger a build. You can then deploy the pages to your favorite static web host. They are awesome and they worry about maintenance, security and [content delivery](https://en.wikipedia.org/wiki/Content_delivery_network) for you, making deployment a walk in the park.
 
 
 ## Why I chose Gatsby
 
-The static site approach brings a lot of benefits to the table. Apart from the obvious performance advantages, potential intruders have a small surface of attack since there is no running server or database. It is also more SEO-friendly as static pages are easily crawled by search engine bots.
+The static site approach brings a lot of benefits to the table. Apart from the obvious performance advantages, potential intruders have a small surface of attack since there is no running server or database in production -- you only have static pages! It is also more SEO-friendly as static pages are easily crawled by search engine bots.
 
 For a blog, going with a static site was a no-brainer. But there are [a lot](https://www.staticgen.com/) of static site generators to choose from. The decision all boiled down to personal preference.
 
@@ -50,9 +50,9 @@ Overall, for me JavaScript is an enjoyable language to use and learn. If you enj
 
 ### Developer experience
 
-I find a couple of things in Gatsby that made life easier. There's a rich [list of starters](https://www.gatsbyjs.org/starters) to help us get up and running fast. These are essentially boilerplate code that sets up the basics for a specific use case. There are starters for a [blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/), an [eCommerce site](https://www.gatsbyjs.org/starters/parmsang/gatsby-starter-ecommerce/), [a Wordpress-powered site](https://www.gatsbyjs.org/starters/GatsbyCentral/gatsby-starter-wordpress/) and even [docs](https://www.gatsbyjs.org/starters/whoisryosuke/gatsby-documentation-starter/).
+I find a couple of things in Gatsby that made life easier. There's a rich [list of starters](https://www.gatsbyjs.org/starters) to help us get up and running fast. These are essentially boilerplate code that sets up the basics for a specific use case. There are starters for a [blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/), an [eCommerce site](https://www.gatsbyjs.org/starters/parmsang/gatsby-starter-ecommerce/), a [Wordpress-powered site](https://www.gatsbyjs.org/starters/GatsbyCentral/gatsby-starter-wordpress/) and even [docs](https://www.gatsbyjs.org/starters/whoisryosuke/gatsby-documentation-starter/).
 
-There are also tons of [plugins](https://www.gatsbyjs.org/plugins/) for pretty much anything. I don't have to write code that reads Markdown files and transform them to HTML. There are plugins for a11y, SEO, Progressive Web Apps (PWA) support and all the nice stuff.
+There are also tons of [plugins](https://www.gatsbyjs.org/plugins/) for pretty much anything. I don't have to write code that reads Markdown files and transform them to HTML. There are plugins for [a11y](https://developer.mozilla.org/en-US/docs/Web/Accessibility), SEO, Progressive Web Apps (PWA) support and all the nice stuff.
 
 GraphiQL, the in-browser GraphQL IDE, also comes with the Gatsby development environment by default. It is a very handy tool to explore what data is available.
 
@@ -80,8 +80,8 @@ As of writing, you need a lot of tinkering to do to achieve the same (if not sub
 
 ## Wrapping up
 
-I am creating my personal site for fun and learning, I elected to build it with Gatsby because it opens up opportunities to learn more about cutting edge tools in the JavaScript ecosystem. These include React, GraphQL and Gatsby itself. I find these tech interesting, dev-friendly and enjoyable to use.
+I am creating my personal site for fun and learning. I decided to build it with Gatsby because it opens up opportunities to learn more about cutting edge tools in the JavaScript ecosystem. These include React, GraphQL and Gatsby itself. I find these tech interesting, dev-friendly and enjoyable to use.
 
-Most importantly, I like Gatsby's thoughtful focus on making the fastest websites. Performance is central to Gatsby. It enables sites to have an app-like feel with zero configuration. It just works.
+Most importantly, I like Gatsby's thoughtful focus on making the fastest websites. Performance is central to Gatsby. It enables sites to have an app-like feel with zero configuration. It just works out-of-the-box.
 
 For these reasons, it's easy to see why many people think of Gatsby as the future of website development. I'm excited that it is just [getting started](https://www.youtube.com/watch?v=1tjvFldRg6A).
