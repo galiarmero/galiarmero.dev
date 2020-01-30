@@ -1,3 +1,4 @@
 import React from "react"
+import Nav from "../components/nav"
 
-export default () => <div>Hello world!</div>
+export default () => <div><Nav/></div>
