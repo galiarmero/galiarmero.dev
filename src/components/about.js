@@ -11,9 +11,10 @@ export default () => {
                 <ul>
                     <li>JavaScript</li>
                     <li>Node.js</li>
+                    <li>Express</li>
                     <li>GraphQL</li>
                     <li>React</li>
-                    <li>Express</li>
+                    <li>Gatsby</li>
                     <li>Docker</li>
                     <li>HTML & CSS</li>
                     <li>Java & Spring</li>
