@@ -14,7 +14,10 @@
     "new-post": "node ./scripts/new-post.js"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "gatsby": "^2.10.0",
+    "gatsby-plugin-emotion": "^4.1.22",
     "gatsby-plugin-sharp": "^2.2.7",
     "gatsby-plugin-twitter": "^2.1.2",
     "gatsby-remark-copy-linked-files": "^2.1.3",
