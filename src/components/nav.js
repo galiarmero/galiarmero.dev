@@ -18,10 +18,10 @@ export default (props) => (
         border: 1px solid #000;
       `}>
         <div class="logo">G</div>
-        <div><button id="burger">=</button></div>
+        <div><button id="burger" onClick={props.onBurgerClick}>=</button></div>
       </div>
       <div css={css`
-        display: flex;
+        display: ${props.isMenuVisible ? `flex` : `none`};
         flex-direction: column;
         justify-content: center;
         align-items: center;

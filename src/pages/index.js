@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Nav from "../components/nav"
 import Hero from "../components/hero"
 import About from "../components/about"
@@ -7,6 +7,7 @@ import Footer from "../components/footer"
 import { Global, css } from "@emotion/core"
 
 export default () => {
+  const [isMenuVisible, toggleMenu] = useState(false)
   return (
     <div>
       <Global
@@ -18,7 +19,7 @@ export default () => {
           }
         `}
       />
-      <Nav />
+      <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
       <main>
         <Hero />
         <About />
