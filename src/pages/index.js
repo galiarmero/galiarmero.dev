@@ -19,6 +19,10 @@ export default () => {
             box-sizing: border-box;
           }
 
+          body {
+            background: #1E1E2C;
+          }
+
           @font-face {
             font-family: "Barlow-900";
             src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
