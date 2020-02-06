@@ -4,6 +4,7 @@ import Hero from "../components/hero"
 import About from "../components/about"
 import BlogPosts from "../components/blog-posts"
 import Footer from "../components/footer"
+import TextBgTester from "../components/textbgtester"
 import { Global, css } from "@emotion/core"
 
 export default () => {
@@ -17,6 +18,11 @@ export default () => {
             padding: 0;
             box-sizing: border-box;
           }
+
+          @font-face {
+            font-family: "Barlow-900";
+            src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
+          }
         `}
       />
       <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
@@ -25,6 +31,7 @@ export default () => {
         <About />
         <BlogPosts />
         <Footer />
+        <TextBgTester />
       </main>
     </div>
   )
