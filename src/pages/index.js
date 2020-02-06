@@ -4,7 +4,6 @@ import Hero from "../components/hero"
 import About from "../components/about"
 import BlogPosts from "../components/blog-posts"
 import Footer from "../components/footer"
-import TextBgTester from "../components/textbgtester"
 import { Global, css } from "@emotion/core"
 
 export default () => {
@@ -19,10 +18,6 @@ export default () => {
             box-sizing: border-box;
           }
 
-          body {
-            background: #071e3d; /* 1E1E2C*/ 
-          }
-
           @font-face {
             font-family: "Barlow-900";
             src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
@@ -35,7 +30,6 @@ export default () => {
         <About />
         <BlogPosts />
         <Footer />
-        <TextBgTester />
       </main>
     </div>
   )
