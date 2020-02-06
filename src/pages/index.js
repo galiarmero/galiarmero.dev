@@ -20,7 +20,7 @@ export default () => {
           }
 
           body {
-            background: #1E1E2C;
+            background: #071e3d; /* 1E1E2C*/ 
           }
 
           @font-face {
