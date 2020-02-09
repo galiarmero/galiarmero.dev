@@ -9,7 +9,7 @@ export default (props) => {
             width: 450px;
             padding: 55px;
             font-size: 50px;
-            font-family: 'Barlow-900', sans-serif;
+            font-family: '${props.font}', sans-serif;
         `}>
             {props.children}
         </h1>
