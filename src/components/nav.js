@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 export default (props) => (
   <header css={css`
-    margin: 0 30px;
+    padding: 0 25px;
   `}>
     <nav css={css`
       display: flex;

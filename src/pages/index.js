@@ -22,10 +22,24 @@ export default () => {
             font-family: "Barlow-900";
             src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
           }
+
+          html {
+            line-height: 1.6;
+          }
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5 {
+            line-height: 1.2;
+          }
         `}
       />
       <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
-      <main>
+      <main css={css`
+        padding: 0 25px;
+      `}>
         <Hero />
         <About />
         <BlogPosts />
