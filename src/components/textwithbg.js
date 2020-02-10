@@ -6,8 +6,8 @@ export default (props) => {
         <h1 css={css`
             color: ${props.fontColor};
             background: ${props.bgColor};
-            width: 450px;
-            padding: 55px;
+            width: 520px;
+            padding: 75px;
             font-size: 50px;
             font-family: '${props.font}', sans-serif;
         `}>
