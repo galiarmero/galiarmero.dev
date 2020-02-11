@@ -12,15 +12,12 @@ export default () => {
     <div>
       <Global
         styles={css`
+          @import url(https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap);
+
           * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-          }
-
-          @font-face {
-            font-family: "Barlow-900";
-            src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
           }
 
           body {
@@ -39,6 +36,7 @@ export default () => {
           h5 {
             line-height: 1.2;
             color: #2188ff;
+            font-family: 'PT Sans', sans-serif;
           }
         `}
       />
