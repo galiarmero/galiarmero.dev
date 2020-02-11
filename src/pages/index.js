@@ -23,6 +23,11 @@ export default () => {
             src: url(https://fonts.googleapis.com/css?family=Barlow:900&display=swap)
           }
 
+          body {
+            background: #15181c;
+            color: #dbedff;
+          }
+
           html {
             line-height: 1.6;
           }
@@ -33,6 +38,7 @@ export default () => {
           h4,
           h5 {
             line-height: 1.2;
+            color: #2188ff;
           }
         `}
       />
