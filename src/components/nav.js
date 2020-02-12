@@ -14,7 +14,7 @@ export default (props) => (
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 70px;
+        height: ${props.navHeight};
         border: 1px solid #000;
       `}>
         <div class="logo"><h1>G</h1></div>
