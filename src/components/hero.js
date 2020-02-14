@@ -12,7 +12,7 @@ export default (props) => {
       <h1 css={css`
         font-size: 14px;
         font-weight: 400;
-        color: #2188ff;
+        color: #f1f8ff;
         padding: 0 0 10px 3px;
       `}>
         Hi, I'm
@@ -20,7 +20,7 @@ export default (props) => {
       <h1 css={css`
         font-size: 40px;
         font-weight: 700;
-        color: #f1f8ff;
+        color: #2188ff;
       `}>
           Gali Armero.
       </h1>
@@ -28,7 +28,7 @@ export default (props) => {
       <h1 css={css`
         font-size: 40px;
         font-weight: 700;
-        color: #959da5;
+        color: #f1f8ff;
       `}>
         I build things that simplify.
       </h1>
