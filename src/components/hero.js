@@ -1,4 +1,5 @@
 import React from "react"
+import { LargeHeader } from "../styles/Header"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -9,29 +10,21 @@ export default (props) => {
       flex-direction: column;
       justify-content: center;
     `}>
-      <h1 css={css`
-        font-size: 14px;
+      <h5 css={css`
         font-weight: 400;
-        color: #f1f8ff;
         padding: 0 0 10px 3px;
+        color: var(--textColor)
       `}>
         Hi, I'm
-      </h1>
-      <h1 css={css`
-        font-size: 40px;
-        font-weight: 700;
-        color: #2188ff;
-      `}>
-          Gali Armero.
-      </h1>
+      </h5>
 
-      <h1 css={css`
-        font-size: 40px;
-        font-weight: 700;
-        color: #f1f8ff;
+      <LargeHeader>Gali Armero.</LargeHeader>
+
+      <LargeHeader css={css`
+        color: var(--textColor)
       `}>
         I build things that simplify.
-      </h1>
+      </LargeHeader>
 
       <button>Get In Touch</button>
     </section>

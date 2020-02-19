@@ -1,5 +1,6 @@
 import React from "react"
 import { Global, css } from '@emotion/core'
+import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
@@ -9,11 +10,16 @@ export default props => (
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+
+      /* Variables */
+      --bgColor: ${colors.bg};
+      --textColor: ${colors.text};
+      --accentColor: ${colors.accent};
     }
 
     body {
-      background: #15181c;
-      color: #dbedff;
+      background: var(--bgColor);
+      color: var(--textColor);
       font-family: 'PT Sans', sans-serif;
     }
 
@@ -27,7 +33,7 @@ export default props => (
     h4,
     h5 {
       line-height: 1.2;
-      color: #2188ff;
+      color: var(--accentColor);
       font-family: 'PT Sans', sans-serif;
       font-weight: 400;
     }
