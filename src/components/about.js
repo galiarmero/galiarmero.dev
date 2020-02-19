@@ -6,7 +6,7 @@ export default () => {
             <h1>About me</h1>
 
             <p>
-                Hello! My name is Gali -- short for Galileo. I'm a full stack developer from the Philippines. I find joy in creating systems that make people's lives easier.
+                Hello! My name is Gali -- short for Galileo. I'm a full stack software engineer from the Philippines. I find joy in creating systems that make people's lives easier.
                 I specialize in building performant backends and hiding complexity with clean, intuitive user interfaces. Here are some of the technologies I work with:
     
                 <ul>
