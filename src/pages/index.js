@@ -11,12 +11,13 @@ import GlobalStyles from "../styles/GlobalStyles"
 import { css } from '@emotion/core'
 
 export default ({ data }) => {
-  const [isMenuVisible, toggleMenu] = useState(false)
-  const navHeight = '75px'
   const indexEdge = data.allContentYaml.edges.find(({ node }) => node.hasOwnProperty('index'))
   if (indexEdge === -1)
     console.error("Edge containing `index` not found in allContentYaml")
   const index = indexEdge.node.index
+
+  const [isMenuVisible, toggleMenu] = useState(false)
+  const navHeight = '75px'
 
   return (
     <div>

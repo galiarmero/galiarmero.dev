@@ -5,21 +5,22 @@ export default (props) => {
     <section>
       <h1>About me</h1>
 
-      <p>
-        {props.intro}
+      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.intro) }} />
 
-        <ul>
-          {props.techSkills.map((skill, i) => (
-              <li key={i}>{skill}</li>
-          ))}
-        </ul>
+      <ul>
+        {props.techSkills.map((skill, i) => (
+            <li key={i}>{skill}</li>
+        ))}
+      </ul>
+      <br />
 
-        {props.outro}
-      </p>
-
+      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.outro) }} />
       <hr />
-
-      <p>{props.more}</p>
+      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.more) }} />
     </section>
   )
 }
+
+const doubleNewlineToBr = (text) => (
+  text.split('\n\n').map(p => `<p>${p}</p><br />`).join(``)
+)

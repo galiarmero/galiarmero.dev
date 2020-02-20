@@ -1,10 +1,13 @@
 index:
   name: Gali Armero
   tagline: I build things that simplify.
-  aboutIntro:
-    "Hello! My name is Gali -- short for Galileo. I'm a full stack software engineer from the Philippines.
-    I find joy in creating systems that make people's lives easier. I specialize in building performant backends and
-    hiding complexity with clean, intuitive user interfaces. Here are some of the technologies I work with:"
+  aboutIntro: >-
+    Hello! My name is Gali -- short for Galileo.
+    I'm a full stack software engineer from the Philippines.
+    I find joy in creating systems that make people's lives easier.
+    I specialize in building performant backends and hiding complexity
+    with clean, intuitive user interfaces.
+    Here are some of the technologies I work with:
   techSkills:
     - JavaScript
     - Node.js
@@ -15,12 +18,15 @@ index:
     - Docker
     - HTML & CSS
     - Java & Spring
-  aboutOutro:
-    "I write about my learnings, insights and experiences in my blog."
-  aboutPersonal:
-    "I grew up in the small town of Canaman in Camarines Sur province.
-      After graduating at the Ateneo de Naga University in 2014, I took my printed maps and talents to Manila and joined Nokia
-      where I am currently working on a suite of troubleshooting and analytics tools for telecom service providers worldwide.
+  aboutOutro: >-
+    I write about my learnings, insights and experiences in my blog.
+  aboutPersonal: >-
+    I grew up in the small town of Canaman in Camarines Sur province.
+    After graduating at the Ateneo de Naga University in 2014,
+    I took my printed maps and talents to Manila and joined Nokia
+    where I am currently working on a suite of troubleshooting and
+    analytics tools for telecom service providers worldwide.
 
 
-      When not coding, I enjoy eating, exploring new places, listening to podcasts, playing basketball, and following my Lakers."
+    When not coding, I enjoy eating, exploring new places, listening to podcasts,
+    playing basketball, and following my Lakers.
