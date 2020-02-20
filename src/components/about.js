@@ -5,7 +5,7 @@ export default (props) => {
     <section>
       <h1>About me</h1>
 
-      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.intro) }} />
+      <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
 
       <ul>
         {props.techSkills.map((skill, i) => (
@@ -14,13 +14,13 @@ export default (props) => {
       </ul>
       <br />
 
-      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.outro) }} />
+      <div dangerouslySetInnerHTML={{ __html: paragraphify(props.outro) }} />
       <hr />
-      <div dangerouslySetInnerHTML={{ __html: doubleNewlineToBr(props.more) }} />
+      <div dangerouslySetInnerHTML={{ __html: paragraphify(props.more) }} />
     </section>
   )
 }
 
-const doubleNewlineToBr = (text) => (
+const paragraphify = (text) => (
   text.split('\n\n').map(p => `<p>${p}</p><br />`).join(``)
 )
