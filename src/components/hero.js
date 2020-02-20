@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 export default (props) => {
   return (
     <section css={css`
-      min-height: calc(100vh - ${props.heightOffset});
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;

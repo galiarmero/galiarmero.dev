@@ -15,6 +15,7 @@ export default props => (
       --bgColor: ${colors.bg};
       --textColor: ${colors.text};
       --accentColor: ${colors.accent};
+      --boxShadowColor: ${colors.boxShadow};
     }
 
     body {

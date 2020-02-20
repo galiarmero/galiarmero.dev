@@ -4,6 +4,12 @@ import { css } from "@emotion/core"
 export default (props) => (
   <header css={css`
     padding: 0 25px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: var(--bgColor);
+    z-index: 20;
+    box-shadow: var(--boxShadowColor) 0px 0.125rem 0.375rem 0px;
   `}>
     <nav css={css`
       display: flex;
@@ -14,8 +20,7 @@ export default (props) => (
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: ${props.navHeight};
-        border: 1px solid #000;
+        height: 75px;
       `}>
         <div class="logo"><h1>G</h1></div>
         <div><button id="burger" onClick={props.onBurgerClick}>=</button></div>

@@ -17,16 +17,15 @@ export default ({ data }) => {
   const index = indexEdge.node.index
 
   const [isMenuVisible, toggleMenu] = useState(false)
-  const navHeight = '75px'
 
   return (
     <div>
       <GlobalStyles />
-      <Nav isMenuVisible={isMenuVisible} navHeight={navHeight} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
+      <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
       <main css={css`
         padding: 0 25px;
       `}>
-        <Hero heightOffset={navHeight} name={index.name} tagline={index.tagline} />
+        <Hero name={index.name} tagline={index.tagline} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} outro={index.aboutOutro} more={index.aboutPersonal} />
         <BlogPosts />
         <Footer />
