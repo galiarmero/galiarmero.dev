@@ -18,12 +18,12 @@ export default (props) => {
         Hi, I'm
       </h5>
 
-      <LargeHeader>Gali Armero.</LargeHeader>
+      <LargeHeader>{props.name}.</LargeHeader>
 
       <LargeHeader css={css`
         color: var(--textColor)
       `}>
-        I build things that simplify.
+        {props.tagline}
       </LargeHeader>
 
       <button>Get In Touch</button>

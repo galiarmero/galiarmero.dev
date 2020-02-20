@@ -7,7 +7,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog-posts`,
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content`,
       },
     },
     {
@@ -36,6 +36,7 @@ module.exports = {
         ]
       },
     },
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-emotion`,
