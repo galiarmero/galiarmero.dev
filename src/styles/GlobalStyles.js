@@ -36,7 +36,7 @@ export default props => (
       line-height: 1.2;
       color: var(--accentColor);
       font-family: 'PT Sans', sans-serif;
-      font-weight: 400;
+      font-weight: 700;
     }
     
     .twitter-tweet-rendered {

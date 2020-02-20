@@ -1,8 +1,9 @@
 import React from "react"
+import { Section } from "../styles/Containers"
 
 export default (props) => {
   return (
-    <section>
+    <Section>
       <h1>About me</h1>
 
       <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
@@ -17,7 +18,7 @@ export default (props) => {
       <div dangerouslySetInnerHTML={{ __html: paragraphify(props.outro) }} />
       <hr />
       <div dangerouslySetInnerHTML={{ __html: paragraphify(props.more) }} />
-    </section>
+    </Section>
   )
 }
 
