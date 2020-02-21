@@ -1,4 +1,5 @@
 import React from "react"
+import { css } from "@emotion/core"
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 
@@ -9,7 +10,12 @@ export default (props) => {
 
       <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
 
-      <ul>
+      { /* TODO: Use monospace font here */ }
+      <ul css={css`
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+      `}>
         {props.techSkills.map((skill, i) => (
             <li key={i}>{skill}</li>
         ))}

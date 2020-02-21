@@ -52,5 +52,19 @@ export default props => (
         margin-right: auto;
         max-width: 750px;
     }
+
+    ul > li {
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      &:before {
+        content: "◦";
+        position: absolute;
+        left: 0px;
+        color: var(--accentColor);
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
   `} />
 )
