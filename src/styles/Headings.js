@@ -22,6 +22,9 @@ export const SectionHeading = props => (
     }
   `}>
     {props.children}
-    <span css={css`color: var(--accentColor)`}>.</span>
+    <span css={css`
+      color: var(--accentColor);
+      font-size: 50px;
+    `}>.</span>
   </h1>
 )
