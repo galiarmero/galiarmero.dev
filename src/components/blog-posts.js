@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Section } from "../styles/Containers"
+import { SectionHeading } from "../styles/Headings"
 
 
 export default () => (
@@ -26,7 +27,7 @@ export default () => (
     `}
     render={data => (
       <Section>
-        <h1>Recent Blog Posts</h1>
+        <SectionHeading>Recent Blog Posts</SectionHeading>
   
         {data.allMarkdownRemark.edges.map(({ node }, index) => {
           return (

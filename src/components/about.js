@@ -1,10 +1,11 @@
 import React from "react"
 import { Section } from "../styles/Containers"
+import { SectionHeading } from "../styles/Headings"
 
 export default (props) => {
   return (
     <Section>
-      <h1>About me</h1>
+      <SectionHeading>About me</SectionHeading>
 
       <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
 

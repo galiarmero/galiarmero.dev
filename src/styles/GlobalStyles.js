@@ -14,6 +14,7 @@ export default props => (
       /* Variables */
       --bgColor: ${colors.bg};
       --textColor: ${colors.text};
+      --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};
     }
@@ -34,7 +35,7 @@ export default props => (
     h4,
     h5 {
       line-height: 1.2;
-      color: var(--accentColor);
+      color: var(--headingColor);
       font-family: 'PT Sans', sans-serif;
       font-weight: 700;
     }
