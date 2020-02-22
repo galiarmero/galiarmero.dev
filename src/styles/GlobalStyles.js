@@ -17,6 +17,7 @@ export default props => (
       --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};
+      --subtleBgColor: ${colors.subtleBg};
     }
 
     body {
@@ -65,6 +66,13 @@ export default props => (
         font-size: 20px;
         line-height: 26px;
       }
+    }
+
+    hr {
+      height: 0;
+      border: 0;
+      border-top: 1px solid var(--subtleBgColor);
+      border-bottom: 0;
     }
   `} />
 )
