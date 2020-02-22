@@ -26,7 +26,7 @@ export default ({ data }) => {
         padding: 0 25px;
       `}>
         <Hero name={index.name} tagline={index.tagline} />
-        <About intro={index.aboutIntro} techSkills={index.techSkills} outro={index.aboutOutro} more={index.aboutPersonal} />
+        <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
         <BlogPosts />
         <Footer />
       </main>
