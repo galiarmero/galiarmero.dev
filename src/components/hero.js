@@ -1,5 +1,6 @@
 import React from "react"
 import { LargeHeading } from "../styles/Headings"
+import Button from "../styles/Buttons"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -26,7 +27,7 @@ export default (props) => {
         {props.tagline}
       </LargeHeading>
 
-      <button>Get In Touch</button>
+      <Button>Get In Touch</Button>
     </section>
   )
 }

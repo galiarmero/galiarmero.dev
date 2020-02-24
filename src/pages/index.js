@@ -44,7 +44,6 @@ export const query = graphql`
             tagline
             aboutIntro
             techSkills
-            aboutOutro
             aboutPersonal
           }
         }
