@@ -9,11 +9,12 @@ export default () => (
     align-items: center;
     background: var(--boxShadowColor);
     height: auto;
-    min-height: 80px;
+    min-height: 90px;
     padding: 15px 0;
+    font-size: .7rem;
   `}>
-    <h6>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></h6>
-    <h6><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by Gali Armero</a></h6>
-    <h6>&copy; 2020</h6>
+    <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
+    <span><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by Gali Armero</a></span>
+    <span>&copy; 2020</span>
   </footer>
 )

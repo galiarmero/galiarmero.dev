@@ -74,5 +74,33 @@ export default props => (
       border-top: 1px solid var(--subtleBgColor);
       border-bottom: 0;
     }
+
+    a {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: var(--accentColor);
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0);
+        background-color: var(--accentColor);
+        transform-origin: bottom right;
+        transition: transform 0.3s;
+      }
+
+      &:hover {
+        &:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+      }
+    }
   `} />
 )
