@@ -1,6 +1,5 @@
 import React from "react"
 import { LargeHeading } from "../styles/Headings"
-import Button from "../styles/Buttons"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -22,12 +21,10 @@ export default (props) => {
       <LargeHeading css={css`color: var(--accentColor)`}>{props.name}.</LargeHeading>
 
       <LargeHeading css={css`
-        color: var(--textColor)
+        color: var(--textColor);
       `}>
         {props.tagline}
       </LargeHeading>
-
-      <Button>Get In Touch</Button>
     </section>
   )
 }

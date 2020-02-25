@@ -1,6 +1,6 @@
 ---
 title: "Why My Blog Is Built with Gatsby"
-datePublished: "2019-07-14 18:01:00 +0800"
+datePublished: "2019-07-14T18:01:00+08:00"
 teaser: "It *might* be the future of website development."
 ---
 

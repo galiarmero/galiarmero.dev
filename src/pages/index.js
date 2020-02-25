@@ -28,8 +28,8 @@ export default ({ data }) => {
         <Hero name={index.name} tagline={index.tagline} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
         <BlogPosts />
-        <Footer />
       </main>
+      <Footer />
     </div>
   )
 }

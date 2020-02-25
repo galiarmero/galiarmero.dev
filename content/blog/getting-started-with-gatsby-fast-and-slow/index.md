@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Gatsby, Fast and Slow"
-datePublished: "2019-07-21 16:34:04 +0800  (Don't forget to edit before publishing!)"
-teaser: "Get a website up and running quickly with Gatsby while understanding what makes it tick"
+datePublished: "2019-07-21T16:34:04+08:00"
+teaser: "Get a website up and running quickly with Gatsby while understanding what makes it tick."
 ---
 
 > If Gatsby is new to you, check out my previous post, [Why My Blog Is Built with Gatsby](../why-my-blog-is-built-with-gatsby), where I explain what Gatsby is, how it works and the thinking behind why I chose to use it to build my site.
@@ -10,7 +10,7 @@ Over the past weeks, I've been ~~building my personal site to play with Gatsby~~
 
 ## Up and running in seconds
 
-Provided that you have Git and npm already installed, getting a site running with Gatsby is as fast as running the commands in this block:
+Provided that you have Git and npm already installed, getting a site running with Gatsby is as fast as running these:
 
 ```bash{1,2,4}
 npm install -g gatsby-cli
