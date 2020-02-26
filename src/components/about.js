@@ -5,7 +5,6 @@ import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 
 
-
 export default (props) => {
   return (
     <Section>
