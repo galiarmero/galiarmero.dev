@@ -34,8 +34,8 @@ export default () => (
         {data.allMarkdownRemark.edges.map(({ node }, index) => {
           return (
             <article key={index} css={css`margin: 25px 0;`}>
-              <Heading>{node.frontmatter.title}</Heading>
-              <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead}-min read</h6>
+              <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
+              <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
               <p css={css`margin: 18px 0;`}>{node.frontmatter.teaser}</p>
 
               {(index < data.allMarkdownRemark.edges.length - 1) &&

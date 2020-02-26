@@ -102,5 +102,9 @@ export default props => (
         }
       }
     }
+
+    h1 > a {
+      color: var(--headingColor);
+    }
   `} />
 )
