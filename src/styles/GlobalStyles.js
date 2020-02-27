@@ -6,6 +6,18 @@ export default props => (
   <Global styles={css`
     @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap);
 
+    @font-face {
+      font-family: 'Gilroy - ExtraBold';
+      src: url('fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+            url('fonts/Gilroy-ExtraBold.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Gilroy - Light';
+      src: url('fonts/Gilroy-Light.woff2') format('woff2'),
+            url('fonts/Gilroy-Light.woff') format('woff');
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -23,7 +35,7 @@ export default props => (
     body {
       background: var(--bgColor);
       color: var(--textColor);
-      font-family: 'PT Sans', sans-serif;
+      font-family: 'Gilroy - Light', sans-serif;
     }
 
     html {
@@ -37,8 +49,8 @@ export default props => (
     h5 {
       line-height: 1.2;
       color: var(--headingColor);
-      font-family: 'PT Sans', sans-serif;
-      font-weight: 700;
+      font-family: 'Gilroy - ExtraBold', sans-serif;
+      letter-spacing: 0.8px;
     }
     
     .twitter-tweet-rendered {
