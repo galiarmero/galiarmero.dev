@@ -4,7 +4,7 @@ index:
   aboutIntro: >-
     Hello! My name is Gali -- short for Galileo.
     I'm a full stack software engineer from the Philippines.
-    I find joy in creating systems that make people's lives easier.
+    I find joy in creating applications that make people's lives easier.
     I specialize in building performant backends and hiding complexity
     with clean, intuitive user interfaces.
     Here are some of the technologies I work with:
@@ -29,4 +29,4 @@ index:
     playing basketball, and following my Lakers.
 
 
-    I also write about my learnings, insights and experiences in my blog.
+    I also write about my learnings, insights and experiences in my <a href="./blog">blog</a>.

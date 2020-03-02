@@ -4,7 +4,6 @@ import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
-    @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap);
 
     @font-face {
       font-family: 'Gilroy - ExtraBold';
