@@ -6,13 +6,37 @@ export default props => (
   <Global styles={css`
 
     @font-face {
-      font-family: 'Gilroy - ExtraBold';
+      font-family: 'Metropolis-Black';
+      src: url('fonts/Metropolis-Black.woff2') format('woff2'),
+            url('fonts/Metropolis-Black.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Metropolis-ExtraBold';
+      src: url('fonts/Metropolis-ExtraBold.woff2') format('woff2'),
+            url('fonts/Metropolis-ExtraBold.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Metropolis-Bold';
+      src: url('fonts/Metropolis-Bold.woff2') format('woff2'),
+            url('fonts/Metropolis-Bold.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Metropolis-Thin';
+      src: url('fonts/Metropolis-Thin.woff2') format('woff2'),
+            url('fonts/Metropolis-Thin.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Gilroy-ExtraBold';
       src: url('fonts/Gilroy-ExtraBold.woff2') format('woff2'),
             url('fonts/Gilroy-ExtraBold.woff') format('woff');
     }
 
     @font-face {
-      font-family: 'Gilroy - Light';
+      font-family: 'Gilroy-Light';
       src: url('fonts/Gilroy-Light.woff2') format('woff2'),
             url('fonts/Gilroy-Light.woff') format('woff');
     }
@@ -34,7 +58,8 @@ export default props => (
     body {
       background: var(--bgColor);
       color: var(--textColor);
-      font-family: 'Gilroy - Light', sans-serif;
+      font-family: 'Metropolis-Thin', sans-serif;
+      font-size: 16px;
     }
 
     html {
@@ -48,7 +73,7 @@ export default props => (
     h5 {
       line-height: 1.2;
       color: var(--headingColor);
-      font-family: 'Gilroy - ExtraBold', sans-serif;
+      font-family: 'Gilroy-ExtraBold', sans-serif;
       letter-spacing: 0.8px;
     }
     
