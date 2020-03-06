@@ -4,30 +4,7 @@ import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
-
-    @font-face {
-      font-family: 'Metropolis-Black';
-      src: url('fonts/Metropolis-Black.woff2') format('woff2'),
-            url('fonts/Metropolis-Black.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Metropolis-ExtraBold';
-      src: url('fonts/Metropolis-ExtraBold.woff2') format('woff2'),
-            url('fonts/Metropolis-ExtraBold.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Metropolis-Bold';
-      src: url('fonts/Metropolis-Bold.woff2') format('woff2'),
-            url('fonts/Metropolis-Bold.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Metropolis-Thin';
-      src: url('fonts/Metropolis-Thin.woff2') format('woff2'),
-            url('fonts/Metropolis-Thin.woff') format('woff');
-    }
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap');
 
     @font-face {
       font-family: 'Gilroy-ExtraBold';
@@ -58,8 +35,9 @@ export default props => (
     body {
       background: var(--bgColor);
       color: var(--textColor);
-      font-family: 'Metropolis-Thin', sans-serif;
+      font-family: 'Source Sans Pro', sans-serif;
       font-size: 16px;
+      font-weight: 300;
     }
 
     html {
