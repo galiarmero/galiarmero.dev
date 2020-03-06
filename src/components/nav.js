@@ -9,7 +9,9 @@ export default (props) => (
     width: 100%;
     background-color: var(--bgColor);
     z-index: 20;
-    box-shadow: var(--boxShadowColor) 0px 0.125rem 0.375rem 0px;
+    box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
+    -webkit-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
+    -moz-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
   `}>
     <nav css={css`
       display: flex;
