@@ -11,9 +11,7 @@ export default () => (
     min-height: 90px;
     padding: 15px 0;
     font-size: .8rem;
-    box-shadow: 0px -0.1rem 0.2rem 0px var(--boxShadowColor);
-    -webkit-box-shadow: 0px -0.1rem 0.2rem 0px var(--boxShadowColor);
-    -moz-box-shadow: 0px -0.1rem 0.2rem 0px var(--boxShadowColor);
+    background-color: var(--darkerBgColor);
   `}>
     <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
     <span><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by Gali Armero</a></span>

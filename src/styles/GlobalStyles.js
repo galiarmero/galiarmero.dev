@@ -25,6 +25,7 @@ export default props => (
 
       /* Variables */
       --bgColor: ${colors.bg};
+      --darkerBgColor: ${colors.darkerBg};
       --textColor: ${colors.text};
       --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
