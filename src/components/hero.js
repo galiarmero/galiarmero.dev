@@ -1,5 +1,5 @@
 import React from "react"
-import { LargeHeading } from "../styles/Headings"
+import { LargeHeading, MediumHeading } from "../styles/Headings"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -13,18 +13,18 @@ export default (props) => {
       <h5 css={css`
         font-weight: 400;
         padding: 0 0 10px 3px;
-        color: var(--textColor)
+        color: var(--textColor);
       `}>
         Hi, I'm
       </h5>
 
-      <LargeHeading css={css`color: var(--accentColor)`}>{props.name}.</LargeHeading>
+      <LargeHeading>{props.name}.</LargeHeading>
 
-      <LargeHeading css={css`
-        color: var(--textColor);
+      <MediumHeading css={css`
+        color: var(--accentColor);
       `}>
         {props.tagline}
-      </LargeHeading>
+      </MediumHeading>
     </section>
   )
 }

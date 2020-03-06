@@ -11,6 +11,10 @@ export const LargeHeading = styled.h1`
   font-size: 2.5rem;
 `
 
+export const MediumHeading = styled.h1`
+  font-size: 1.9rem;
+`
+
 export const SectionHeading = props => (
   <h1 css={css`
     font-size: 2.3rem;
