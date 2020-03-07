@@ -24,7 +24,7 @@ export default (props) => (
         align-items: center;
         height: 75px;
       `}>
-        <div class="logo"><h1>G</h1></div>
+        <div className="logo"><h1>G</h1></div>
         <div><button id="burger" onClick={props.onBurgerClick}>=</button></div>
       </div>
       <div css={css`
@@ -34,9 +34,9 @@ export default (props) => (
         align-items: center;
         border: 1px solid #000;
       `}>
-        <div class="nav-item">About</div>
-        <div class="nav-item">Work</div>
-        <div class="nav-item">Blog</div>
+        <div className="nav-item">About</div>
+        <div className="nav-item">Work</div>
+        <div className="nav-item">Blog</div>
       </div>
     </nav>
   </header>
