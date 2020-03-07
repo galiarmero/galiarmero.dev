@@ -1,5 +1,5 @@
 import React from "react"
-import { LargeHeading, MediumHeading } from "../styles/Headings"
+import { MediumHeading } from "../styles/Headings"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -11,17 +11,21 @@ export default (props) => {
       justify-content: center;
     `}>
       <h5 css={css`
-        font-weight: 400;
         padding: 0 0 10px 3px;
-        color: var(--textColor);
+        color: var(--accentColor);
+        font-family: 'Gilroy-Light', sans-serif;
       `}>
         Hi, I'm
       </h5>
 
-      <LargeHeading>{props.name}.</LargeHeading>
+      <h1 css={css`
+        font-size: 2.6em;
+      `}>
+        {props.name}.
+      </h1>
 
       <MediumHeading css={css`
-        color: var(--accentColor);
+        font-family: 'Gilroy-Light', sans-serif;
       `}>
         {props.tagline}
       </MediumHeading>
