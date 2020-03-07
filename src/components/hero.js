@@ -15,7 +15,7 @@ export default (props) => {
         color: var(--accentColor);
         font-family: 'Gilroy-Light', sans-serif;
       `}>
-        Hi, I'm
+        {props.greeting}
       </h5>
 
       <h1 css={css`

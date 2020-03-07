@@ -25,7 +25,7 @@ export default ({ data }) => {
       <main css={css`
         padding: 0 25px;
       `}>
-        <Hero name={index.name} tagline={index.tagline} />
+        <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
         <BlogPosts />
       </main>
@@ -40,6 +40,7 @@ export const query = graphql`
       edges {
         node {
           index {
+            greeting
             name
             tagline
             aboutIntro
