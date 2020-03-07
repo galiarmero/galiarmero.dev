@@ -1,5 +1,4 @@
 import React from "react"
-import { MediumHeading } from "../styles/Headings"
 import { css } from "@emotion/core"
 
 export default (props) => {
@@ -19,16 +18,17 @@ export default (props) => {
       </h5>
 
       <h1 css={css`
-        font-size: 2.6em;
+        font-size: 2.6rem;
       `}>
         {props.name}.
       </h1>
 
-      <MediumHeading css={css`
+      <h1 css={css`
+        font-size: 2rem;
         font-family: 'Gilroy-Light', sans-serif;
       `}>
         {props.tagline}
-      </MediumHeading>
+      </h1>
     </section>
   )
 }
