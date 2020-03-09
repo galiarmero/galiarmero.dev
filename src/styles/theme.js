@@ -3,7 +3,7 @@ export const colors = {
   darkerBg: '#010c14',
   text: '#f0f0f0',
   heading: '#fff',
-  accent: '#2188ff',
+  accent: '#00DFFC',
   boxShadow: 'rgba(0,7,13,1)',
   subtleBg: '#122433',
 }

@@ -24,7 +24,7 @@ export default (props) => {
       </h1>
 
       <h1 css={css`
-        font-size: 2rem;
+        font-size: 2.6rem;
         font-family: 'Gilroy-Light', sans-serif;
       `}>
         {props.tagline}
