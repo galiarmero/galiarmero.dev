@@ -90,8 +90,8 @@ export default props => (
         position: absolute;
         left: 0px;
         color: var(--accentColor);
-        font-size: 20px;
-        line-height: 1.1;
+        font-size: 1.2rem;
+        line-height: 1.2;
       }
     }
 
