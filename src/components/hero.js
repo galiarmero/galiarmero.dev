@@ -9,13 +9,14 @@ export default (props) => {
       flex-direction: column;
       justify-content: center;
     `}>
-      <h5 css={css`
+      <span css={css`
         padding: 0 0 10px 3px;
         color: var(--accentColor);
-        font-family: 'Gilroy-Light', sans-serif;
+        font-family: 'JetBrainsMono-Regular';
+        font-size: 0.9rem;
       `}>
         {props.greeting}
-      </h5>
+      </span>
 
       <h1 css={css`
         font-size: 2.6rem;
@@ -26,6 +27,7 @@ export default (props) => {
       <h1 css={css`
         font-size: 2.6rem;
         font-family: 'Gilroy-Light', sans-serif;
+        font-weight: 300;
       `}>
         {props.tagline}
       </h1>

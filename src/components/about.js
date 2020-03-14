@@ -13,14 +13,18 @@ export default (props) => {
       <SubSection>
         <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
 
-        { /* TODO: Use monospace font here */ }
         <ul css={css`
           columns: 2;
           -webkit-columns: 2;
           -moz-columns: 2;
         `}>
           {props.techSkills.map((skill, i) => (
-              <li key={i}>{skill}</li>
+              <li key={i} css={css`
+                font-family: 'Source Code Pro', monospace;
+                font-size: 0.9rem;
+              `}>
+                {skill}
+              </li>
           ))}
         </ul>
       </SubSection>

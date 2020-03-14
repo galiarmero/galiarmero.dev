@@ -4,7 +4,7 @@ import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
-    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
 
     @font-face {
       font-family: 'Gilroy-ExtraBold';
@@ -16,6 +16,18 @@ export default props => (
       font-family: 'Gilroy-Light';
       src: url('fonts/Gilroy-Light.woff2') format('woff2'),
             url('fonts/Gilroy-Light.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'JetBrainsMono-ExtraBold';
+      src: url('fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'),
+            url('fonts/JetBrainsMono-ExtraBold.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'JetBrainsMono-Regular';
+      src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+            url('fonts/JetBrainsMono-Regular.woff') format('woff');
     }
 
     :root {
@@ -38,7 +50,7 @@ export default props => (
       background: var(--bgColor);
       color: var(--textColor);
       font-family: 'Source Sans Pro', sans-serif;
-      font-size: 16px;
+      font-size: 1.1rem;
     }
 
     html {
