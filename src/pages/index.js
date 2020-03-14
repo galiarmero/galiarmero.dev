@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 import Hero from "../components/hero"
 import About from "../components/about"
 import BlogPosts from "../components/blog-posts"
 import Footer from "../components/footer"
 import GlobalStyles from "../styles/GlobalStyles"
+import { colors } from '../styles/theme'
 
 // TODO: Remove usage of css here if possible
 import { css } from '@emotion/core'
@@ -20,6 +22,15 @@ export default ({ data }) => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Gali Armero - Full Stack Software Engineer</title>
+
+        <meta name="theme-color" content={colors.bg} />
+        <meta name="msapplication-navbutton-color" content={colors.bg} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </Helmet>
       <GlobalStyles />
       <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
       <main css={css`
