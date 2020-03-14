@@ -18,12 +18,7 @@ export default props => (
             url('fonts/Gilroy-Light.woff') format('woff');
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-
-      /* Variables */
+    :root {
       --bgColor: ${colors.bg};
       --darkerBgColor: ${colors.darkerBg};
       --textColor: ${colors.text};
@@ -33,12 +28,17 @@ export default props => (
       --subtleBgColor: ${colors.subtleBg};
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: var(--bgColor);
       color: var(--textColor);
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 16px;
-      font-weight: 300;
     }
 
     html {
