@@ -18,7 +18,7 @@ export default ({ data }) => {
     console.error("Edge containing `index` not found in allContentYaml")
   const index = indexEdge.node.index
 
-  const [isMenuVisible, toggleMenu] = useState(false)
+  const [isMenuOpen, toggleMenu] = useState(false)
 
   return (
     <div>
@@ -32,7 +32,7 @@ export default ({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
-      <Nav isMenuVisible={isMenuVisible} onBurgerClick={() => toggleMenu(!isMenuVisible)} />
+      <Nav isMenuOpen={isMenuOpen} onBurgerClick={() => toggleMenu(!isMenuOpen)} />
       <main css={css`
         padding: 0 25px;
       `}>

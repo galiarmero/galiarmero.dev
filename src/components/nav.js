@@ -36,10 +36,11 @@ export default (props) => (
           -webkit-box-align: center;
                   align-items: center;
           cursor: pointer;
+          z-index: 100;
         `}>
-          <BurgerBar css={css`opacity: ${props.isMenuVisible ? `0` : `1`}`}></BurgerBar>
+          <BurgerBar css={css`opacity: ${props.isMenuOpen ? `0` : `1`}`}></BurgerBar>
           <BurgerBar css={css`
-            ${props.isMenuVisible ? `
+            ${props.isMenuOpen ? `
               -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
               position: relative;
@@ -55,29 +56,40 @@ export default (props) => (
               }
             ` : ``}
           `}></BurgerBar>
-          <BurgerBar css={css`opacity: ${props.isMenuVisible ? `0` : `1`}`}></BurgerBar>
+          <BurgerBar css={css`opacity: ${props.isMenuOpen ? `0` : `1`}`}></BurgerBar>
         </div>
       </div>
 
-      {/* <nav css={css`
-        display: ${props.isMenuVisible ? `flex` : `none`};
+      <nav css={css`
+        position: fixed;
+        background-color: var(--lighterBgColor);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: ${props.isMenuOpen ? `100%` : `0%`};
+        opacity: ${props.isMenuOpen ? `1` : `0`};
+        visibility: ${props.isMenuOpen ? `visible` : `hidden`};
+        -webkit-transition: opacity .35s, visibility .35s, height .35s;
+        transition: opacity .35s, visibility .35s, height .35s;
+        overflow: hidden;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid #000;
+        // border: 1px solid #000;
       `}>
         <div className="nav-item">About</div>
         <div className="nav-item">Work</div>
         <div className="nav-item">Blog</div>
-      </nav> */}
+      </nav>
   </header>
 )
 
 const BurgerBar = styled.span`
-  background-color: ${colors.accent};
+  background-color: var(--accentColor);
   display: inline-block;
   height: 1.2px;
   width: 100%;
-  -webkit-transition: all 90ms ease;
-  transition: all 90ms ease;
+  -webkit-transition: all 140ms ease;
+  transition: all 140ms ease;
 `

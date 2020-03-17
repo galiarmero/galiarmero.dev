@@ -32,6 +32,7 @@ export default props => (
 
     :root {
       --bgColor: ${colors.bg};
+      --lighterBgColor: ${colors.lighterBg};
       --darkerBgColor: ${colors.darkerBg};
       --textColor: ${colors.text};
       --headingColor: ${colors.heading};
