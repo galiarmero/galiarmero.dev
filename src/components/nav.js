@@ -69,8 +69,11 @@ export default (props) => (
         height: ${props.isMenuOpen ? `100%` : `0%`};
         opacity: ${props.isMenuOpen ? `1` : `0`};
         visibility: ${props.isMenuOpen ? `visible` : `hidden`};
-        -webkit-transition: opacity .35s, visibility .35s, height .35s;
-        transition: opacity .35s, visibility .35s, height .35s;
+        -webkit-transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
+        transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
+        -webkit-transition: .5s;
+        transition: .5s;
+        pointer-events: ${props.isMenuOpen ? `auto` : `none`};
         overflow: hidden;
         display: flex;
         flex-direction: column;
