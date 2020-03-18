@@ -3,6 +3,8 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { colors } from '../styles/theme'
 
+const HEADER_HEIGHT = `75px`
+
 export default (props) => (
   <header css={css`
     padding: 0 25px;
@@ -10,7 +12,7 @@ export default (props) => (
     top: 0px;
     width: 100%;
     background-color: var(--bgColor);
-    z-index: 20;
+    z-index: 3;
     box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
     -webkit-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
     -moz-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
@@ -19,9 +21,14 @@ export default (props) => (
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 75px;
+        height: ${HEADER_HEIGHT};
+        z-index: 4;
       `}>
-        <div className="logo"><h1>G</h1></div>
+        <div className="logo" css={css`
+          z-index: 5;
+        `}>
+          <h1>G</h1>
+        </div>
         <div onClick={props.onBurgerClick} css={css`
           display: -webkit-box;
           display: flex;
@@ -36,7 +43,7 @@ export default (props) => (
           -webkit-box-align: center;
                   align-items: center;
           cursor: pointer;
-          z-index: 100;
+          z-index: 5;
         `}>
           <BurgerBar css={css`opacity: ${props.isMenuOpen ? `0` : `1`}`}></BurgerBar>
           <BurgerBar css={css`
@@ -66,20 +73,18 @@ export default (props) => (
         top: 0;
         left: 0;
         width: 100%;
-        height: ${props.isMenuOpen ? `100%` : `0%`};
-        opacity: ${props.isMenuOpen ? `1` : `0`};
+        height: 100%;
         visibility: ${props.isMenuOpen ? `visible` : `hidden`};
         -webkit-transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
         transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
         -webkit-transition: .5s;
         transition: .5s;
         pointer-events: ${props.isMenuOpen ? `auto` : `none`};
-        overflow: hidden;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // border: 1px solid #000;
       `}>
         <div className="nav-item">About</div>
         <div className="nav-item">Work</div>
