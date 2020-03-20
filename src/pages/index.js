@@ -26,8 +26,8 @@ export default ({ data }) => {
         <meta charSet="utf-8" />
         <title>Gali Armero - Full Stack Software Engineer</title>
 
-        <meta name="theme-color" content={colors.lighterBg} />
-        <meta name="msapplication-navbutton-color" content={colors.lighterBg} />
+        <meta name="theme-color" content={colors.bg} />
+        <meta name="msapplication-navbutton-color" content={colors.bg} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
