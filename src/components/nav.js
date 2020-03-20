@@ -69,7 +69,7 @@ export default (props) => (
 
       <nav css={css`
         position: fixed;
-        background-color: var(--accentColor);
+        background-color: var(--lighterBgColor);
         top: 0;
         left: 0;
         width: 100%;
@@ -94,7 +94,7 @@ export default (props) => (
 )
 
 const BurgerBar = styled.span`
-  background-color: var(--lighterBgColor);
+  background-color: var(--accentColor);
   display: inline-block;
   height: 1.2px;
   width: 100%;
