@@ -86,9 +86,9 @@ export default (props) => (
         justify-content: center;
         align-items: center;
       `}>
-        <div className="nav-item">About</div>
-        <div className="nav-item">Work</div>
-        <div className="nav-item">Blog</div>
+        <NavItem link="#about">About</NavItem>
+        <NavItem link="#work">Work</NavItem>
+        <NavItem link="#blog">Blog</NavItem>
       </nav>
   </header>
 )
@@ -101,3 +101,18 @@ const BurgerBar = styled.span`
   -webkit-transition: all 140ms ease;
   transition: all 140ms ease;
 `
+
+const NavItem = (props) => (
+  <div css={css`
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    font-family: 'Gilroy-ExtraBold', sans-serif;
+  `}>
+    <a href={props.link}
+      css={css`
+        color: var(--textColor);
+    `}>
+      {props.children}
+    </a>
+  </div>
+)
