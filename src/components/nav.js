@@ -94,7 +94,7 @@ export default (props) => (
 )
 
 const BurgerBar = styled.span`
-  background-color: var(--accentColor);
+  background-color: var(--lighterBgColor);
   display: inline-block;
   height: 1.2px;
   width: 100%;
