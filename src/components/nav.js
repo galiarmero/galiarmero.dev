@@ -69,7 +69,7 @@ export default (props) => (
 
       <nav css={css`
         position: fixed;
-        background-color: var(--bgColor);
+        background-color: var(--lighterBgColor);
         top: 0;
         left: 0;
         width: 100%;

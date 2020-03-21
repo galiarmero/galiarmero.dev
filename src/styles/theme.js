@@ -1,6 +1,6 @@
 export const colors = {
   bg: '#011321',
-  lighterBg: '#0a283f',
+  lighterBg: '#071f33',
   darkerBg: '#010c14',
   text: '#f8f8f8',
   heading: '#fff',
