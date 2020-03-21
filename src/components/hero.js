@@ -13,19 +13,19 @@ export default (props) => {
         padding: 0 0 10px 3px;
         color: var(--accentColor);
         font-family: 'JetBrainsMono-Regular';
-        font-size: 0.9rem;
+        font-size: 1rem;
       `}>
         {props.greeting}
       </span>
 
       <h1 css={css`
-        font-size: 2.6rem;
+        font-size: 2.8rem;
       `}>
         {props.name}.
       </h1>
 
       <h1 css={css`
-        font-size: 2.6rem;
+        font-size: 2.8rem;
         font-family: 'Gilroy-Light', sans-serif;
         font-weight: 300;
       `}>
