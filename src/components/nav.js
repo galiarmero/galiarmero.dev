@@ -14,8 +14,6 @@ export default (props) => (
     background-color: var(--bgColor);
     z-index: 3;
     box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
-    -webkit-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
-    -moz-box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
   `}>
       <div css={css`
         display: flex;
@@ -30,25 +28,19 @@ export default (props) => (
           <h1>G</h1>
         </div>
         <div onClick={props.onBurgerClick} css={css`
-          display: -webkit-box;
           display: flex;
           margin-left: auto;
           width: 2rem;
           height: 1.3rem;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-                  flex-direction: column;
-          -webkit-box-pack: justify;
-                  justify-content: space-between;
-          -webkit-box-align: center;
-                  align-items: center;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
           cursor: pointer;
           z-index: 5;
         `}>
           <BurgerBar css={css`opacity: ${props.isMenuOpen ? `0` : `1`}`}></BurgerBar>
           <BurgerBar css={css`
             ${props.isMenuOpen ? `
-              -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
               position: relative;
               &:after {
@@ -58,8 +50,7 @@ export default (props) => (
                 height: 1.2px;
                 position: absolute;
                 display: inline-block;
-                -webkit-transform: rotate(-90deg);
-                        transform: rotate(-90deg);
+                transform: rotate(-90deg);
               }
             ` : ``}
           `}></BurgerBar>
@@ -75,10 +66,8 @@ export default (props) => (
         width: 100%;
         height: 100%;
         visibility: ${props.isMenuOpen ? `visible` : `hidden`};
-        -webkit-transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
         transform: ${props.isMenuOpen ? `translateZ(0)` : `translate3d(0,-100%,0)`};
-        -webkit-transition: .5s;
-        transition: .5s;
+        transition: .3s;
         pointer-events: ${props.isMenuOpen ? `auto` : `none`};
         z-index: 2;
         display: flex;
@@ -87,8 +76,8 @@ export default (props) => (
         align-items: center;
       `}>
         <NavItem link="#about">About</NavItem>
-        <NavItem link="#work">Work</NavItem>
-        <NavItem link="#blog">Blog</NavItem>
+        <NavItem link="/blog">Blog</NavItem>
+        <NavItem link="#contact">Contact</NavItem>
       </nav>
   </header>
 )
@@ -98,14 +87,13 @@ const BurgerBar = styled.span`
   display: inline-block;
   height: 1.2px;
   width: 100%;
-  -webkit-transition: all 140ms ease;
   transition: all 140ms ease;
 `
 
 const NavItem = (props) => (
   <div css={css`
     margin: 0.5rem 0;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: 'Gilroy-ExtraBold', sans-serif;
   `}>
     <a href={props.link}
