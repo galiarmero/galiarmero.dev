@@ -28,7 +28,7 @@ export default (props) => (
         `}>
           <h1>G</h1>
         </div>
-        <div onClick={props.onBurgerClick} css={css`
+        <div onClick={props.onToggleMenu} css={css`
           display: flex;
           margin-left: auto;
           width: 2rem;
@@ -59,7 +59,7 @@ export default (props) => (
         </div>
       </div>
 
-      <Nav backgroundColor={props.navBackground} isVisible={props.isMenuOpen} />
+      <Nav onToggleMenu={props.onToggleMenu} backgroundColor={props.navBackground} isVisible={props.isMenuOpen} />
   </header>
 )
 

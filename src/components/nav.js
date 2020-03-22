@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
 export default (props) => (
@@ -19,9 +20,9 @@ export default (props) => (
     justify-content: center;
     align-items: center;
   `}>
-    <NavItem link="#about">About</NavItem>
+    <NavItem link="#about" onClick={props.onToggleMenu}>About</NavItem>
     <NavItem link="/blog">Blog</NavItem>
-    <NavItem link="#contact">Contact</NavItem>
+    <NavItem link="#contact" onClick={props.onToggleMenu}>Contact</NavItem>
   </nav>
 )
 
@@ -31,11 +32,13 @@ const NavItem = (props) => (
     font-size: 1.8rem;
     font-family: 'Gilroy-ExtraBold', sans-serif;
   `}>
-    <a href={props.link}
+    <Link
+      to={props.link}
+      onClick={props.onClick}
       css={css`
         color: var(--textColor);
     `}>
       {props.children}
-    </a>
+    </Link>
   </div>
 )
