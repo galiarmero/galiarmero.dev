@@ -32,7 +32,7 @@ export default ({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
-      <Header isMenuOpen={isMenuOpen} onBurgerClick={() => toggleMenu(!isMenuOpen)} navBackground={colors.bg} />
+      <Header isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.bg} />
       <main css={css`
         padding: 0 25px;
       `}>
