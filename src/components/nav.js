@@ -37,16 +37,16 @@ export default (props) => (
       display: flex;
       justify-content: space-around;
     `}>
-      <IconLink target="_blank" href="https://github.com/galiarmero">
+      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://github.com/galiarmero">
         <FaGithub />
       </IconLink>
-      <IconLink target="_blank" href="https://www.linkedin.com/in/galileoarmero">
+      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://www.linkedin.com/in/galileoarmero">
         <FaLinkedinIn />
       </IconLink>
-      <IconLink target="_blank" href="https://twitter.com/galiarmero">
+      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://twitter.com/galiarmero">
         <FaTwitter />
       </IconLink>
-      <IconLink target="_blank" href="https://www.instagram.com/galiarmero/">
+      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://www.instagram.com/galiarmero/">
         <FaInstagram />
       </IconLink>
     </div>
