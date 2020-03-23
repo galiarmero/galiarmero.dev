@@ -8,26 +8,26 @@ export default props => (
 
     @font-face {
       font-family: 'Gilroy-ExtraBold';
-      src: url('fonts/Gilroy-ExtraBold.woff2') format('woff2'),
-            url('fonts/Gilroy-ExtraBold.woff') format('woff');
+      src: url('/fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+            url('/fonts/Gilroy-ExtraBold.woff') format('woff');
     }
 
     @font-face {
       font-family: 'Gilroy-Light';
-      src: url('fonts/Gilroy-Light.woff2') format('woff2'),
-            url('fonts/Gilroy-Light.woff') format('woff');
+      src: url('/fonts/Gilroy-Light.woff2') format('woff2'),
+            url('/fonts/Gilroy-Light.woff') format('woff');
     }
 
     @font-face {
       font-family: 'JetBrainsMono-ExtraBold';
-      src: url('fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'),
-            url('fonts/JetBrainsMono-ExtraBold.woff') format('woff');
+      src: url('/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'),
+            url('/fonts/JetBrainsMono-ExtraBold.woff') format('woff');
     }
 
     @font-face {
       font-family: 'JetBrainsMono-Regular';
-      src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'),
-            url('fonts/JetBrainsMono-Regular.woff') format('woff');
+      src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+            url('/fonts/JetBrainsMono-Regular.woff') format('woff');
     }
 
     :root {
