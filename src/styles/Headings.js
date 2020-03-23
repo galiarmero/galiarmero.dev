@@ -16,9 +16,9 @@ export const SectionHeading = props => (
       content: "";
       position: absolute;
       left: 0;
-      bottom: -25px;
+      bottom: -20px;
       height: 3px;
-      width: 70px;
+      width: 80px;
       background: var(--accentColor);
     }
   `}>
