@@ -89,6 +89,11 @@ const Burger = props => (
     z-index: 5;
     height: 24px;
 
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
     &:hover {
       opacity: .7;
     }
