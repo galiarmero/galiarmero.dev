@@ -93,10 +93,6 @@ const Burger = props => (
     &:active {
       outline: none;
     }
-
-    &:hover {
-      opacity: .7;
-    }
   `}>
     <span className="hamburger-box" css={css`
       position: relative;
