@@ -15,6 +15,9 @@ export default ({ onToggleMenu, isMenuOpen }) => (
     border: 0;
     background-color: transparent;
     z-index: 5;
+    width: 42px;
+    height: 34px;
+    padding: 5px 5px;
 
     &:focus,
     &:active {
@@ -25,7 +28,7 @@ export default ({ onToggleMenu, isMenuOpen }) => (
       position: relative;
       display: inline-block;
       width: 32px;
-      height: 22px;
+      height: 24px;
     `}>
       <span className="hamburger-inner" css={css`
         top: 50%;
