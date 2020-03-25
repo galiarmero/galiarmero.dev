@@ -16,8 +16,8 @@ export default ({ onToggleMenu, isMenuOpen }) => (
     background-color: transparent;
     z-index: 5;
     width: 42px;
-    height: 34px;
-    padding: 5px 5px;
+    height: 42px;
+    padding: 9px 5px;
 
     &:focus,
     &:active {
