@@ -97,7 +97,7 @@ const Burger = props => (
     <span className="hamburger-box" css={css`
       position: relative;
       display: inline-block;
-      width: 40px;
+      width: 35px;
       height: 24px;
     `}>
       <span className="hamburger-inner" css={css`
@@ -105,8 +105,8 @@ const Burger = props => (
         transition: background-color 0s linear .13s;
 
         position: absolute;
-        width: 40px;
-        height: 4px;
+        width: 20px;
+        height: 2.5px;
         border-radius: 4px;
         background-color: ${props.isMenuOpen ? `transparent` : `var(--accentColor)`};
         transition-delay: ${props.isMenuOpen ? `.22s` : `.13s`};
@@ -114,20 +114,20 @@ const Burger = props => (
         display: block;
         margin-top: -2px;
 
-        &:before {
-          top: -10px;
+        left: 0;
 
+        &:before {
           display: block;
           content: "";
 
           position: absolute;
-          width: 40px;
-          height: 4px;
+          width: 35px;
+          height: 2.5px;
           border-radius: 4px;
           background-color: var(--accentColor);
 
           /* Spring */
-          top: ${props.isMenuOpen ? `0` : `10px`};
+          top: ${props.isMenuOpen ? `0` : `10.75px`};
           transition: ${props.isMenuOpen
                       ? `top .1s cubic-bezier(.33333,0,.66667,.33333) .15s,transform .13s cubic-bezier(.215,.61,.355,1) .22s`
                       : `top .1s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)`};
@@ -137,19 +137,18 @@ const Burger = props => (
         }
 
         &:after {
-          bottom: -10px;
-
           display: block;
           content: "";
 
           position: absolute;
-          width: 40px;
-          height: 4px;
+          height: 2.5px;
           border-radius: 4px;
           background-color: var(--accentColor);
 
           /* Spring */
-          top: ${props.isMenuOpen ? `0` : `20px`};
+          width: ${props.isMenuOpen ? `35px` : `20px`};
+          left: ${props.isMenuOpen ? `none` : `15px`};
+          top: ${props.isMenuOpen ? `0` : `20.5px`};
           transition: ${props.isMenuOpen
                     ? `top .2s cubic-bezier(.33333,0,.66667,.33333),transform .13s cubic-bezier(.215,.61,.355,1) .22s`
                     : `top .2s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)`};
