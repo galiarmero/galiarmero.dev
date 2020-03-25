@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import Nav from './nav'
 import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
+import StandBurger from './stand-burger'
 
 const HEADER_HEIGHT = `75px`
 
@@ -29,7 +30,8 @@ export default (props) => (
           <h1>G</h1>
         </div>
         {/* <SimpleBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} /> */}
-        <SpringBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} />
+        {/* <SpringBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} /> */}
+        <StandBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} />
       </div>
 
       <Nav onToggleMenu={props.onToggleMenu} backgroundColor={props.navBackground} isVisible={props.isMenuOpen} />
