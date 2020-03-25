@@ -34,7 +34,7 @@ export default ({ onToggleMenu, isMenuOpen }) => (
 
         position: absolute;
         width: 40px;
-        height: 2px;
+        height: 2.5px;
         transition-timing-function: ease;
         transition-duration: .15s;
         transition-property: transform;
