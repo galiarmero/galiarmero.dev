@@ -51,7 +51,7 @@ export default ({ onToggleMenu, isMenuOpen }) => (
 
         &:before {
           position: absolute;
-          width: ${isMenuOpen ? `32px` : `21px`};
+          width: ${isMenuOpen ? `32px` : `20px`};
           height: 2px;
           transition-timing-function: ease;
           transition-duration: .15s;
@@ -71,7 +71,7 @@ export default ({ onToggleMenu, isMenuOpen }) => (
 
         &:after {
           position: absolute;
-          width: ${isMenuOpen ? `32px` : `21px`};
+          width: ${isMenuOpen ? `32px` : `20px`};
           height: 2px;
           transition-timing-function: ease;
           transition-duration: .15s;

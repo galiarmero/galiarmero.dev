@@ -12,7 +12,7 @@ export const SectionHeading = props => (
     font-size: 2rem;
     margin-bottom: 80px;
     position: relative;
-    
+
     &:before {
       content: "";
       position: absolute;
