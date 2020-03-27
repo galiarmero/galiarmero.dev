@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
+import { BulletItem } from "../styles/Lists"
 
 
 export default (props) => {
@@ -19,12 +20,12 @@ export default (props) => {
           -moz-columns: 2;
         `}>
           {props.techSkills.map((skill, i) => (
-              <li key={i} css={css`
+              <BulletItem key={i} css={css`
                 font-family: 'Source Code Pro', monospace;
                 font-size: 0.9rem;
               `}>
                 {skill}
-              </li>
+              </BulletItem>
           ))}
         </ul>
       </SubSection>
