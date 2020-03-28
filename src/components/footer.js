@@ -1,7 +1,7 @@
 import React from "react"
 import { css } from "@emotion/core"
 
-export default () => (
+export default (props) => (
   <footer css={css`
     display: flex;
     flex-direction: column;
@@ -12,6 +12,7 @@ export default () => (
     padding: 15px 0;
     font-size: .8rem;
     background-color: var(--darkerBgColor);
+    margin-bottom: ${props.marginBottom};
   `}>
     <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
     <span><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by Gali Armero</a></span>

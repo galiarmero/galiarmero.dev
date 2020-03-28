@@ -5,6 +5,7 @@ import Header from "../components/header"
 import Hero from "../components/hero"
 import About from "../components/about"
 import BlogPosts from "../components/blog-posts"
+import SectionMarkers from "../components/section-markers"
 import Footer from "../components/footer"
 import GlobalStyles from "../styles/GlobalStyles"
 import { colors } from '../styles/theme'
@@ -39,8 +40,9 @@ export default ({ data }) => {
         <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
         <BlogPosts />
+        <SectionMarkers markerHeight="16px" activeMarkerHeight="32px" yPadding="10px" />
       </main>
-      <Footer />
+      <Footer marginBottom="52px" />
     </div>
   )
 }

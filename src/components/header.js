@@ -14,7 +14,7 @@ export default (props) => (
     top: 0px;
     width: 100%;
     background-color: var(--bgColor);
-    z-index: 3;
+    z-index: 300;
     box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
   `}>
       <div css={css`

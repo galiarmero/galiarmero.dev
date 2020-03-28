@@ -38,7 +38,7 @@ export default (props) => {
         bottom: 0;
         left: auto;
         right: 15px;
-        z-index: 2;
+        z-index: 200;
         color: var(--textColor);
       `}>
         <div css={css`
