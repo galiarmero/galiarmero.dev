@@ -12,7 +12,7 @@ export default (props) => (
     padding: 15px 0;
     font-size: .8rem;
     background-color: var(--darkerBgColor);
-    margin-bottom: ${props.marginBottom};
+    margin-bottom: ${props.marginBottom + props.unit};
   `}>
     <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
     <span><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by Gali Armero</a></span>

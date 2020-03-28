@@ -22,10 +22,10 @@ export default (props) => (
       display: flex;
       align-items: flex-end;
     `}>
-      <Marker height={ false ? props.activeMarkerHeight : props.markerHeight } />
-      <Marker height={ true ? props.activeMarkerHeight : props.markerHeight } />
-      <Marker height={ false ? props.activeMarkerHeight : props.markerHeight } />
-      <Marker height={ false ? props.activeMarkerHeight : props.markerHeight } />
+      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
+      <Marker height={ (true ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
+      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
+      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
     </ul>
   </nav>
 )

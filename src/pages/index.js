@@ -21,6 +21,18 @@ export default ({ data }) => {
 
   const [isMenuOpen, toggleMenu] = useState(false)
 
+  const unit = 'px'
+  const sectionMarkerProps = {
+    markerHeight: 16,
+    activeMarkerHeight: 32,
+    yPadding: 10,
+    unit,
+  }
+  const footerProps = {
+    marginBottom: sectionMarkerProps.yPadding * 2 + sectionMarkerProps.activeMarkerHeight,
+    unit,
+  }
+
   return (
     <div>
       <Helmet>
@@ -40,9 +52,9 @@ export default ({ data }) => {
         <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
         <BlogPosts />
-        <SectionMarkers markerHeight="16px" activeMarkerHeight="32px" yPadding="10px" />
+        <SectionMarkers {...sectionMarkerProps} />
       </main>
-      <Footer marginBottom="52px" />
+      <Footer {...footerProps} />
     </div>
   )
 }
