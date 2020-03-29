@@ -10,30 +10,30 @@ export default ({ greeting, name, tagline, onChangeVisiblity }) => {
       flex-direction: column;
       justify-content: center;
     `}>
-      <VizSensor onChange={onChangeVisiblity}>
-        <span css={css`
-          padding: 0 0 10px 3px;
-          color: var(--accentColor);
-          font-family: 'JetBrainsMono-Regular';
-          font-size: 0.9rem;
-        `}>
-          {greeting}
-        </span>
+      <span css={css`
+        padding: 0 0 10px 3px;
+        color: var(--accentColor);
+        font-family: 'JetBrainsMono-Regular';
+        font-size: 0.9rem;
+      `}>
+        {greeting}
+      </span>
 
+      <VizSensor onChange={onChangeVisiblity}>
         <h1 css={css`
           font-size: 2.5rem;
         `}>
           {name}.
         </h1>
-
-        <h1 css={css`
-          font-size: 2.5rem;
-          font-family: 'Gilroy-Light', sans-serif;
-          font-weight: 300;
-        `}>
-          {tagline}
-        </h1>
       </VizSensor>
+
+      <h1 css={css`
+        font-size: 2.5rem;
+        font-family: 'Gilroy-Light', sans-serif;
+        font-weight: 300;
+      `}>
+        {tagline}
+      </h1>
 
       <div css={css`
         width: 30px;
