@@ -29,25 +29,25 @@ export default ({ onChangeVisiblity }) => (
       }
     `}
     render={data => (
-      <Section>
-        <VizSensor onChange={onChangeVisiblity}>
+      <VizSensor onChange={onChangeVisiblity} partialVisibility={true} minTopValue={350}>
+        <Section>
           <SectionHeading>Recent Blog Posts</SectionHeading>
-        </VizSensor>
-  
-        {data.allMarkdownRemark.edges.map(({ node }, index) => {
-          return (
-            <article key={index} css={css`margin: 25px 0;`}>
-              <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
-              <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
-              <p css={css`margin: 18px 0;`}>{node.frontmatter.teaser}</p>
 
-              {(index < data.allMarkdownRemark.edges.length - 1) &&
-                <hr />
-              }
-            </article>
-          )
-        })}
-      </Section>
+          {data.allMarkdownRemark.edges.map(({ node }, index) => {
+            return (
+              <article key={index} css={css`margin: 25px 0;`}>
+                <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
+                <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
+                <p css={css`margin: 18px 0;`}>{node.frontmatter.teaser}</p>
+
+                {(index < data.allMarkdownRemark.edges.length - 1) &&
+                  <hr />
+                }
+              </article>
+            )
+          })}
+        </Section>
+      </VizSensor>
     )}
   />
 )

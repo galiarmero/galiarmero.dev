@@ -9,34 +9,34 @@ import { BulletItem } from "../styles/Lists"
 
 export default ({ intro, techSkills, more, onChangeVisiblity }) => {
   return (
-    <Section>
-      <VizSensor onChange={onChangeVisiblity}>
+    <VizSensor onChange={onChangeVisiblity} partialVisibility={true} minTopValue={200}>
+      <Section>
         <SectionHeading>About Me</SectionHeading>
-      </VizSensor>
 
-      <SubSection>
-        <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
+        <SubSection>
+          <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
-        <ul css={css`
-          columns: 2;
-          -webkit-columns: 2;
-          -moz-columns: 2;
-        `}>
-          {techSkills.map((skill, i) => (
-              <BulletItem key={i} css={css`
-                font-family: 'Source Code Pro', monospace;
-                font-size: 0.9rem;
-              `}>
-                {skill}
-              </BulletItem>
-          ))}
-        </ul>
-      </SubSection>
+          <ul css={css`
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+          `}>
+            {techSkills.map((skill, i) => (
+                <BulletItem key={i} css={css`
+                  font-family: 'Source Code Pro', monospace;
+                  font-size: 0.9rem;
+                `}>
+                  {skill}
+                </BulletItem>
+            ))}
+          </ul>
+        </SubSection>
 
-      <hr />
+        <hr />
 
-      <SubSection dangerouslySetInnerHTML={{ __html: paragraphify(more) }} />
-    </Section>
+        <SubSection dangerouslySetInnerHTML={{ __html: paragraphify(more) }} />
+      </Section>
+    </VizSensor>
   )
 }
 
