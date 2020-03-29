@@ -2,7 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-export default (props) => (
+export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection }) => (
   <nav css={css`
     position: fixed;
     width: 100%;
@@ -22,15 +22,16 @@ export default (props) => (
       display: flex;
       align-items: flex-end;
     `}>
-      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
-      <Marker height={ (true ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
-      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
-      <Marker height={ (false ? props.activeMarkerHeight : props.markerHeight) + props.unit } />
+      {
+        sections.map((s, i) => (
+          <Marker key={i} height={ (visibleSection === s ? activeMarkerHeight : markerHeight) + unit } />
+        ))
+      }
     </ul>
   </nav>
 )
 
-const Marker = props => (
+const Marker = ({ height, children }) => (
   <li css={css`
     display: block;
     position: relative;
@@ -41,7 +42,7 @@ const Marker = props => (
     <a css={css`
       display: block;
       position: relative;
-      height: ${props.height};
+      height: ${height};
       width: 2px;
       background: var(--textColor);
       transition: .3s;
@@ -49,7 +50,7 @@ const Marker = props => (
       cursor: pointer;
       text-decoration: none;
     `}>
-      {props.children}
+      {children}
     </a>
   </li>
 )

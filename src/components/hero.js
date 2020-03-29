@@ -1,7 +1,8 @@
 import React from "react"
 import { css } from "@emotion/core"
+import VizSensor from "react-visibility-sensor"
 
-export default (props) => {
+export default ({ greeting, name, tagline, onChangeVisiblity }) => {
   return (
     <section css={css`
       min-height: 100vh;
@@ -15,22 +16,23 @@ export default (props) => {
         font-family: 'JetBrainsMono-Regular';
         font-size: 0.9rem;
       `}>
-        {props.greeting}
+        {greeting}
       </span>
 
       <h1 css={css`
         font-size: 2.5rem;
       `}>
-        {props.name}.
+        {name}.
       </h1>
-
-      <h1 css={css`
-        font-size: 2.5rem;
-        font-family: 'Gilroy-Light', sans-serif;
-        font-weight: 300;
-      `}>
-        {props.tagline}
-      </h1>
+      <VizSensor onChange={onChangeVisiblity}>
+        <h1 css={css`
+          font-size: 2.5rem;
+          font-family: 'Gilroy-Light', sans-serif;
+          font-weight: 300;
+        `}>
+          {tagline}
+        </h1>
+      </VizSensor>
 
       <div css={css`
         width: 30px;

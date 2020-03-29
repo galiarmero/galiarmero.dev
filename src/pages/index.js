@@ -20,6 +20,16 @@ export default ({ data }) => {
   const index = indexEdge.node.index
 
   const [isMenuOpen, toggleMenu] = useState(false)
+  const [visibleSection, setVisibleSection] = useState('')
+  const sections = ['hero', 'about', 'blogPosts']
+  const handleVisibilityChange = section => {
+    return isVisible => {
+      if (isVisible) {
+        setVisibleSection(section)
+        console.log(`Visible section is now ${section}`)
+      }
+    }
+  }
 
   const unit = 'px'
   const sectionMarkerProps = {
@@ -27,6 +37,8 @@ export default ({ data }) => {
     activeMarkerHeight: 32,
     yPadding: 10,
     unit,
+    sections,
+    visibleSection,
   }
   const footerProps = {
     marginBottom: sectionMarkerProps.yPadding * 2 + sectionMarkerProps.activeMarkerHeight,
@@ -49,9 +61,9 @@ export default ({ data }) => {
       <main css={css`
         padding: 0 25px;
       `}>
-        <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} />
-        <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
-        <BlogPosts />
+        <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} onChangeVisiblity={handleVisibilityChange('hero')} />
+        <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} onChangeVisiblity={handleVisibilityChange('about')} />
+        <BlogPosts onChangeVisiblity={handleVisibilityChange('blogPosts')} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
       <Footer {...footerProps} />

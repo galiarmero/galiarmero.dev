@@ -1,12 +1,13 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { css } from "@emotion/core"
+import VizSensor from "react-visibility-sensor"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 
 
-export default () => (
+export default ({ onChangeVisiblity }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -29,7 +30,9 @@ export default () => (
     `}
     render={data => (
       <Section>
-        <SectionHeading>Recent Blog Posts</SectionHeading>
+        <VizSensor onChange={onChangeVisiblity}>
+          <SectionHeading>Recent Blog Posts</SectionHeading>
+        </VizSensor>
   
         {data.allMarkdownRemark.edges.map(({ node }, index) => {
           return (

@@ -1,25 +1,28 @@
 import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
+import VizSensor from "react-visibility-sensor"
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import { BulletItem } from "../styles/Lists"
 
 
-export default (props) => {
+export default ({ intro, techSkills, more, onChangeVisiblity }) => {
   return (
     <Section>
-      <SectionHeading>About Me</SectionHeading>
+      <VizSensor onChange={onChangeVisiblity}>
+        <SectionHeading>About Me</SectionHeading>
+      </VizSensor>
 
       <SubSection>
-        <div dangerouslySetInnerHTML={{ __html: paragraphify(props.intro) }} />
+        <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
         <ul css={css`
           columns: 2;
           -webkit-columns: 2;
           -moz-columns: 2;
         `}>
-          {props.techSkills.map((skill, i) => (
+          {techSkills.map((skill, i) => (
               <BulletItem key={i} css={css`
                 font-family: 'Source Code Pro', monospace;
                 font-size: 0.9rem;
@@ -32,7 +35,7 @@ export default (props) => {
 
       <hr />
 
-      <SubSection dangerouslySetInnerHTML={{ __html: paragraphify(props.more) }} />
+      <SubSection dangerouslySetInnerHTML={{ __html: paragraphify(more) }} />
     </Section>
   )
 }
