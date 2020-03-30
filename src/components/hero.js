@@ -9,6 +9,7 @@ export default ({ greeting, name, tagline, onChangeVisiblity }) => {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      scroll-snap-align: start;
     `}>
       <span css={css`
         padding: 0 0 10px 3px;

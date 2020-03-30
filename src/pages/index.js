@@ -44,6 +44,7 @@ export default ({ data }) => {
     marginBottom: sectionMarkerProps.yPadding * 2 + sectionMarkerProps.activeMarkerHeight,
     unit,
   }
+  const headerHeight = `75px`
 
   return (
     <div>
@@ -57,9 +58,12 @@ export default ({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
-      <Header isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
+      <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
       <main css={css`
         padding: 0 25px;
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
       `}>
         <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} onChangeVisiblity={handleVisibilityChange('hero')} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} onChangeVisiblity={handleVisibilityChange('about')} />

@@ -5,9 +5,7 @@ import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
 import StandBurger from './stand-burger'
 
-const HEADER_HEIGHT = `75px`
-
-export default (props) => (
+export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => (
   <header css={css`
     padding: 0 25px;
     position: fixed;
@@ -21,7 +19,7 @@ export default (props) => (
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: ${HEADER_HEIGHT};
+        height: ${height};
         z-index: 4;
       `}>
         <div className="logo" css={css`
@@ -29,11 +27,11 @@ export default (props) => (
         `}>
           <h1>G</h1>
         </div>
-        {/* <SimpleBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} /> */}
-        {/* <SpringBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} /> */}
-        <StandBurger isMenuOpen={props.isMenuOpen} onToggleMenu={props.onToggleMenu} />
+        {/* <SimpleBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
+        {/* <SpringBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
+        <StandBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} />
       </div>
 
-      <Nav onToggleMenu={props.onToggleMenu} backgroundColor={props.navBackground} isVisible={props.isMenuOpen} />
+      <Nav onToggleMenu={onToggleMenu} backgroundColor={navBackground} isVisible={isMenuOpen} />
   </header>
 )
