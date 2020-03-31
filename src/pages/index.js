@@ -61,9 +61,6 @@ export default ({ data }) => {
       <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
       <main css={css`
         padding: 0 25px;
-        height: 100vh;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
       `}>
         <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} onChangeVisiblity={handleVisibilityChange('hero')} />
         <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} onChangeVisiblity={handleVisibilityChange('about')} />
