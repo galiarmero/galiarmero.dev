@@ -4,11 +4,12 @@ import VizSensor from "react-visibility-sensor"
 
 export default ({ greeting, name, tagline, onChangeVisiblity }) => {
   return (
-    <section css={css`
-      min-height: 100vh;
+    <section as="section" css={css`
+      min-height: 140vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: start;
+      padding-top: 30vh;
     `}>
       <span css={css`
         padding: 0 0 10px 3px;
@@ -19,28 +20,28 @@ export default ({ greeting, name, tagline, onChangeVisiblity }) => {
         {greeting}
       </span>
 
+      <h1 css={css`
+        font-size: 2.5rem;
+      `}>
+        {name}.
+      </h1>
+
       <VizSensor onChange={onChangeVisiblity}>
         <h1 css={css`
           font-size: 2.5rem;
+          font-family: 'Gilroy-Light', sans-serif;
+          font-weight: 300;
         `}>
-          {name}.
+          {tagline}
         </h1>
       </VizSensor>
-
-      <h1 css={css`
-        font-size: 2.5rem;
-        font-family: 'Gilroy-Light', sans-serif;
-        font-weight: 300;
-      `}>
-        {tagline}
-      </h1>
 
       <div css={css`
         width: 30px;
         position: absolute;
-        bottom: 0;
-        left: auto;
-        right: 15px;
+        bottom: -40vh;
+        left: 15px;
+        right: auto;
         z-index: 200;
         color: var(--textColor);
       `}>
@@ -53,8 +54,8 @@ export default ({ greeting, name, tagline, onChangeVisiblity }) => {
           &:after {
             content: "";
             display: block;
-            width: 2px;
-            height: 45px;
+            width: 1.5px;
+            height: 50vh;
             margin: 0px auto;
             background-color: var(--textColor);
           }

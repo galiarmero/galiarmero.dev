@@ -43,7 +43,7 @@ const Marker = ({ height, children }) => (
       display: block;
       position: relative;
       height: ${height};
-      width: 2px;
+      width: 1.5px;
       background: var(--textColor);
       transition: .3s;
       z-index: 1;
