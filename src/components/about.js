@@ -7,10 +7,9 @@ import { SectionHeading } from "../styles/Headings"
 import { BulletItem } from "../styles/Lists"
 
 
-export default ({ intersectionData, handleIntersection, intro, techSkills, more }) => {
+export default ({ handleIntersection, intro, techSkills, more }) => {
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     handleIntersection({
-      ...intersectionData,
       about: { time, isIntersecting, intersectionRatio },
     })
   }

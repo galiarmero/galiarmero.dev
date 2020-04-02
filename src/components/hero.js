@@ -2,10 +2,9 @@ import React from "react"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
-export default ({ intersectionData, handleIntersection, greeting, name, tagline }) => {
+export default ({ handleIntersection, greeting, name, tagline }) => {
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     handleIntersection({
-      ...intersectionData,
       hero: { time, isIntersecting, intersectionRatio },
     })
   }

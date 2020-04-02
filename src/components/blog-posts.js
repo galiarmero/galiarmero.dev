@@ -7,10 +7,9 @@ import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 
 
-export default ({ intersectionData, handleIntersection }) => {
+export default ({ handleIntersection }) => {
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     handleIntersection({
-      ...intersectionData,
       blogPosts: { time, isIntersecting, intersectionRatio },
     })
   }
