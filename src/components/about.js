@@ -1,15 +1,26 @@
 import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import VizSensor from "react-visibility-sensor"
+import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import { BulletItem } from "../styles/Lists"
 
 
-export default ({ intro, techSkills, more, onChangeVisiblity }) => {
+export default ({ intersectionData, handleIntersection, intro, techSkills, more }) => {
+  const onChange = ({ time, isIntersecting, intersectionRatio }) => {
+    handleIntersection({
+      ...intersectionData,
+      about: { time, isIntersecting, intersectionRatio },
+    })
+  }
+  const options = {
+    onChange: onChange,
+    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+  };
+
   return (
-    <VizSensor onChange={onChangeVisiblity} partialVisibility={true} minTopValue={200}>
+    <IntersectionObserver {...options}>
       <Section>
         <SectionHeading>About Me</SectionHeading>
 
@@ -36,7 +47,7 @@ export default ({ intro, techSkills, more, onChangeVisiblity }) => {
 
         <SubSection dangerouslySetInnerHTML={{ __html: paragraphify(more) }} />
       </Section>
-    </VizSensor>
+    </IntersectionObserver>
   )
 }
 

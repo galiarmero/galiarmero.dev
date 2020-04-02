@@ -22,14 +22,14 @@ export default ({ data }) => {
   const [isMenuOpen, toggleMenu] = useState(false)
   const [visibleSection, setVisibleSection] = useState('')
   const sections = ['hero', 'about', 'blogPosts']
-  const handleVisibilityChange = section => {
-    return isVisible => {
-      if (isVisible) {
-        setVisibleSection(section)
-        console.log(`Visible section is now ${section}`)
-      }
-    }
-  }
+  // const handleVisibilityChange = section => {
+  //   return isVisible => {
+  //     if (isVisible) {
+  //       setVisibleSection(section)
+  //       console.log(`Visible section is now ${section}`)
+  //     }
+  //   }
+  // }
 
   const unit = 'px'
   const sectionMarkerProps = {
@@ -45,6 +45,42 @@ export default ({ data }) => {
     unit,
   }
   const headerHeight = `75px`
+
+
+  const [intersectionData, setIntersectionData] = useState({
+    hero: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    about: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    blogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+  })
+  const handleIntersection = (data) => {
+    let visibleSections = Object.keys(data).filter(k => data[k].isIntersecting)
+    setIntersectionData(data)
+
+    if (visibleSections.length === 1) {
+      setVisibleSection(visibleSections[0])
+      console.log(`New active section is ${visibleSections[0]}`)
+      return
+    }
+
+    // TODO: If not special case (i.e. hero and about), decide based on percentage occupied
+    if (visibleSections.includes('hero') && visibleSections.includes('about')) {
+      if (data.about.intersectionRatio >= 0.2) {
+        setVisibleSection('about')
+        console.log(`New active section is about`)
+      } else {
+        setVisibleSection('hero')
+        console.log(`New active section is hero`)
+      }
+    } else if (visibleSections.includes('about') && visibleSections.includes('blogPosts')) {
+      if (data.about.intersectionRatio >= 0.3) {
+        setVisibleSection('about')
+        console.log(`New active section is about`)
+      } else {
+        setVisibleSection('blogPosts')
+        console.log(`New active section is blogPosts`)
+      }
+    }
+  }
 
   return (
     <div>
@@ -62,9 +98,11 @@ export default ({ data }) => {
       <main css={css`
         padding: 0 25px;
       `}>
-        <Hero greeting={index.greeting} name={index.name} tagline={index.tagline} onChangeVisiblity={handleVisibilityChange('hero')} />
-        <About intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} onChangeVisiblity={handleVisibilityChange('about')} />
-        <BlogPosts onChangeVisiblity={handleVisibilityChange('blogPosts')} />
+        <Hero intersectionData={intersectionData} handleIntersection={handleIntersection}
+          greeting={index.greeting} name={index.name} tagline={index.tagline} />
+        <About intersectionData={intersectionData} handleIntersection={handleIntersection}
+          intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
+        <BlogPosts intersectionData={intersectionData} handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
       <Footer {...footerProps} />
