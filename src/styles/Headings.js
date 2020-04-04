@@ -10,7 +10,7 @@ export default styled.h1`
 export const SectionHeading = props => (
   <h1 css={css`
     font-size: 2rem;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     position: relative;
 
     &:before {

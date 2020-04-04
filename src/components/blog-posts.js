@@ -6,6 +6,8 @@ import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 
+import settings from "../config/settings"
+
 
 export default ({ handleIntersection }) => {
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
@@ -15,7 +17,7 @@ export default ({ handleIntersection }) => {
   }
   const options = {
     onChange: onChange,
-    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+    threshold: settings.intersectionObserverThreshold,
   };
 
   return (

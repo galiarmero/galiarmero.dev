@@ -53,19 +53,14 @@ export default ({ data }) => {
       return
     }
 
-    // TODO: If not special case (i.e. hero and about), decide based on percentage occupied
     if (visibleSections.includes('hero') && visibleSections.includes('about')) {
-      if (intersectionData.about.intersectionRatio >= 0.2) {
-        setVisibleSection('about')
-      } else {
-        setVisibleSection('hero')
-      }
+     (intersectionData.about.intersectionRatio >= 0.2)
+        ? setVisibleSection('about')
+        : setVisibleSection('hero')
     } else if (visibleSections.includes('about') && visibleSections.includes('blogPosts')) {
-      if (intersectionData.about.intersectionRatio >= 0.3) {
-        setVisibleSection('about')
-      } else {
-        setVisibleSection('blogPosts')
-      }
+      (intersectionData.about.intersectionRatio >= 0.3)
+        ? setVisibleSection('about')
+        : setVisibleSection('blogPosts')
     }
   }
 

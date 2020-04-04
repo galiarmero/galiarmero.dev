@@ -2,6 +2,9 @@ import React from "react"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
+import settings from "../config/settings"
+
+
 export default ({ handleIntersection, greeting, name, tagline }) => {
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     handleIntersection({
@@ -10,7 +13,7 @@ export default ({ handleIntersection, greeting, name, tagline }) => {
   }
   const options = {
     onChange: onChange,
-    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+    threshold: settings.intersectionObserverThreshold,
   };
 
   return (
