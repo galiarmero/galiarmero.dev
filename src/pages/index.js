@@ -23,18 +23,18 @@ export default ({ data }) => {
   const [visibleSection, setVisibleSection] = useState('')
   const sections = ['hero', 'about', 'blogPosts']
 
-  const unit = 'px'
+  const [isMarkersVisible, toggleMarkers] = useState(true)
+  const onFooterVisibilityChange = (isVisible) => {
+    toggleMarkers(!isVisible)
+  }
   const sectionMarkerProps = {
     markerHeight: 16,
     activeMarkerHeight: 32,
     yPadding: 10,
-    unit,
+    unit: `px`,
+    isVisible: isMarkersVisible,
     sections,
     visibleSection,
-  }
-  const footerProps = {
-    marginBottom: sectionMarkerProps.yPadding * 2 + sectionMarkerProps.activeMarkerHeight,
-    unit,
   }
   const headerHeight = `75px`
 
@@ -87,7 +87,7 @@ export default ({ data }) => {
         <BlogPosts handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
-      <Footer {...footerProps} />
+      <Footer onVisibilityChange={onFooterVisibilityChange} name={index.name} copyrightYear={index.copyrightYear} />
     </div>
   )
 }
@@ -104,6 +104,7 @@ export const query = graphql`
             aboutIntro
             techSkills
             aboutPersonal
+            copyrightYear
           }
         }
       }

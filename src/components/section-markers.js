@@ -2,21 +2,22 @@ import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection }) => (
+export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection, isVisible }) => (
   <nav css={css`
     position: fixed;
     width: 100%;
     top: auto;
-    left: 50%;
+    left: 0;
     bottom: 0px;
     padding: 10px 0;
-    transform: translate3d(-50%, 0, 0);
+    transform: ${isVisible ? `translateY(0)` : `translateY(${activeMarkerHeight + 20}px)`};
     overflow: hidden;
     z-index: 100;
-    opacity: 1;
+    opacity: ${isVisible ? 1 : 0};
     display: flex;
     justify-content: center;
     background: var(--bgColor);
+    transition: all .3s;
   `}>
     <ul css={css`
       display: flex;

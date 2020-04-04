@@ -23,7 +23,7 @@ export default (props) => (
     align-items: center;
   `}>
     <NavItem link="#about" onClick={props.onToggleMenu}>About</NavItem>
-    <NavItem link="blog">Blog</NavItem>
+    <NavItem link="/blog" isInternal={true}>Blog</NavItem>
     <NavItem link="#contact" onClick={props.onToggleMenu}>Contact</NavItem>
     <div css={css`
       width: 20%;
@@ -59,14 +59,22 @@ const NavItem = (props) => (
     font-size: 1.8rem;
     font-family: 'Gilroy-ExtraBold', sans-serif;
   `}>
-    <Link
-      to={props.link}
-      onClick={props.onClick}
-      css={css`
-        color: var(--textColor);
-    `}>
-      {props.children}
-    </Link>
+    {props.isInternal
+      ? <Link
+          to={props.link}
+          onClick={props.onClick}
+          css={css`
+            color: var(--textColor);
+        `}>
+          {props.children}
+        </Link>
+      : <a href={props.link} onClick={props.onClick}
+            css={css`
+            color: var(--textColor);
+        `}>
+          {props.children}
+        </a>
+    }
   </div>
 )
 
