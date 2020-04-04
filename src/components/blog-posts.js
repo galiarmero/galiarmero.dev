@@ -51,9 +51,9 @@ export default ({ handleIntersection }) => {
                 <article key={index} css={css`
                   margin: 15px 0;
                   border: 0.2px solid var(--textColor);
-                  border-top: 3px solid var(--textColor);
-                  border-radius: 1px;
-                  height: 250px;
+                  border-top: 2px solid var(--textColor);
+                  border-radius: 0 0 1px 1px;
+                  height: 240px;
                   padding-left: 20px;
                   padding-right: 20px;
                   display: flex;
