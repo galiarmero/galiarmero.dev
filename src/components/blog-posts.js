@@ -51,10 +51,14 @@ export default ({ handleIntersection }) => {
                 <article key={index} css={css`
                   margin: 15px 0;
                   border: 0.2px solid var(--textColor);
-                  border-top: 3px solid var(--accentColor);
+                  border-top: 3px solid var(--textColor);
                   border-radius: 1px;
-                  padding: 24px;
                   height: 250px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
                 `}>
                   <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                   <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
