@@ -48,14 +48,17 @@ export default ({ handleIntersection }) => {
 
             {data.allMarkdownRemark.edges.map(({ node }, index) => {
               return (
-                <article key={index} css={css`margin: 25px 0;`}>
+                <article key={index} css={css`
+                  margin: 15px 0;
+                  border: 0.2px solid var(--textColor);
+                  border-top: 3px solid var(--accentColor);
+                  border-radius: 1px;
+                  padding: 24px;
+                  height: 250px;
+                `}>
                   <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                   <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
-                  <p css={css`margin: 18px 0;`}>{node.frontmatter.teaser}</p>
-
-                  {(index < data.allMarkdownRemark.edges.length - 1) &&
-                    <hr />
-                  }
+                  <p css={css`margin-top: 18px;`}>{node.frontmatter.teaser}</p>
                 </article>
               )
             })}
