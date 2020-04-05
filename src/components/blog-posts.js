@@ -1,10 +1,11 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
+import { FaLongArrowAltRight } from 'react-icons/fa'
 
 import settings from "../config/settings"
 
@@ -57,12 +58,31 @@ export default ({ handleIntersection }) => {
                     margin: 12px 0;
                     background: #071d2d;
                     border-radius: 4px;
-                    padding: 25px;
+                    padding: 32px 25px;
                     box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
-                    <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
-                    <p css={css`margin-top: 30px;`}>{node.frontmatter.teaser}</p>
+                    <h6>
+                      {dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min</h6>
+                    <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
+
+                    <Link css={css`
+                      font-family: 'JetBrainsMono-Bold';
+                      font-size: 0.8rem;
+                      letter-spacing: 0.1rem;
+                      vertical-align: middle;
+                      &:hover {
+                        opacity: 0.8;
+                      }
+                    `} to={node.fields.slug}>
+                      READ
+                      <FaLongArrowAltRight css={css`
+                        margin-left: 10px;
+                        font-size: 1rem;
+                        position: relative;
+                        top: 0.18rem;
+                      `}/>
+                    </Link>
                   </article>
                 )
               })}

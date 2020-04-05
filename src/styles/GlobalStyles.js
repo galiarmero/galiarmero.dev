@@ -25,6 +25,12 @@ export default props => (
     }
 
     @font-face {
+      font-family: 'JetBrainsMono-Bold';
+      src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+            url('/fonts/JetBrainsMono-Bold.woff') format('woff');
+    }
+
+    @font-face {
       font-family: 'JetBrainsMono-Regular';
       src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
             url('/fonts/JetBrainsMono-Regular.woff') format('woff');
