@@ -58,7 +58,7 @@ export default ({ handleIntersection }) => {
                     background: #071d2d;
                     border-radius: 4px;
                     padding: 25px;
-                    box-shadow: 0 8px 6px -7px var(--boxShadowColor);
+                    box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
