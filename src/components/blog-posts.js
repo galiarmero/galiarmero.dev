@@ -46,26 +46,26 @@ export default ({ handleIntersection }) => {
           <Section>
             <SectionHeading>Recent Blog Posts</SectionHeading>
 
-            {data.allMarkdownRemark.edges.map(({ node }, index) => {
-              return (
-                <article key={index} css={css`
-                  margin: 15px 0;
-                  border: 0.2px solid var(--textColor);
-                  border-top: 2px solid var(--textColor);
-                  border-radius: 0 0 1px 1px;
-                  height: 240px;
-                  padding-left: 20px;
-                  padding-right: 20px;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                `}>
-                  <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
-                  <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
-                  <p css={css`margin-top: 18px;`}>{node.frontmatter.teaser}</p>
-                </article>
-              )
-            })}
+            <div css={css`
+              display: flex;
+              flex-direction: column;
+              justify-contents: space-between;
+            `}>
+              {data.allMarkdownRemark.edges.map(({ node }, index) => {
+                return (
+                  <article key={index} css={css`
+                    margin: 10px 0;
+                    background: #071d2d;
+                    border-radius: 4px;
+                    padding: 25px;
+                  `}>
+                    <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
+                    <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>
+                    <p css={css`margin-top: 30px;`}>{node.frontmatter.teaser}</p>
+                  </article>
+                )
+              })}
+            </div>
           </Section>
         </IntersectionObserver>
       )}

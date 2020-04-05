@@ -4,7 +4,8 @@ import { css } from '@emotion/core'
 
 
 export default styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.08rem;
 `
 
 export const SectionHeading = props => (
