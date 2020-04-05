@@ -54,10 +54,11 @@ export default ({ handleIntersection }) => {
               {data.allMarkdownRemark.edges.map(({ node }, index) => {
                 return (
                   <article key={index} css={css`
-                    margin: 10px 0;
+                    margin: 12px 0;
                     background: #071d2d;
                     border-radius: 4px;
                     padding: 25px;
+                    box-shadow: 0 8px 6px -7px var(--boxShadowColor);
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <h6>{dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min read</h6>

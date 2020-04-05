@@ -5,6 +5,6 @@ export const colors = {
   text: '#f8f8f8',
   heading: '#fff',
   accent: '#00DFFC',
-  boxShadow: 'rgba(0,7,13,1)',
+  boxShadow: 'rgba(0, 7, 13, 0.6)',
   subtleBg: '#122433',
 }

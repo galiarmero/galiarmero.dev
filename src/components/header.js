@@ -13,7 +13,7 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => (
     width: 100%;
     background-color: var(--bgColor);
     z-index: 300;
-    box-shadow: 0px 0.1rem 0.2rem 0px var(--boxShadowColor);
+    box-shadow: 0px 5px 9px -3px var(--boxShadowColor);
   `}>
       <div css={css`
         display: flex;
