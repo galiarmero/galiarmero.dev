@@ -62,14 +62,18 @@ export default ({ handleIntersection }) => {
                     box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
-                    <h6>
-                      {dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min</h6>
+                    <span css={css`
+                      color: #D7DCE1;
+                      font-size: 0.8rem;
+                    `}>
+                      {dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min
+                    </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
 
                     <Link css={css`
                       font-family: 'JetBrainsMono-Bold';
                       font-size: 0.8rem;
-                      letter-spacing: 0.1rem;
+                      letter-spacing: 0.12rem;
                       vertical-align: middle;
                       &:hover {
                         opacity: 0.8;
@@ -80,7 +84,7 @@ export default ({ handleIntersection }) => {
                         margin-left: 10px;
                         font-size: 1rem;
                         position: relative;
-                        top: 0.18rem;
+                        top: 0.19rem;
                       `}/>
                     </Link>
                   </article>
