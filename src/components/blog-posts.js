@@ -67,14 +67,15 @@ export default ({ handleIntersection }) => {
                       color: var(--subtleTextColor);
                       font-size: 0.7rem;
                     `}>
-                      <span css={css`margin-right: 10px;`}>
+                      <span css={css`margin-right: 15px;`}>
                         {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')}
                       </span>
                       <IconEyeglasses css={css`
                         position: relative;
-                        top: 0.25rem;
-                        font-size: 1rem;
-                      `} /> {node.timeToRead} min
+                        top: 0.3rem;
+                        font-size: 1.1rem;
+                        margin-right: 5px;
+                      `} />{node.timeToRead} min
                     </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
 
