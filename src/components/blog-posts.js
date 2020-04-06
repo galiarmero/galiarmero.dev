@@ -63,7 +63,7 @@ export default ({ handleIntersection }) => {
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <span css={css`
-                      color: #B3BCC5;
+                      color: #E5E9EE;
                       font-size: 0.7rem;
                     `}>
                       {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')} · {node.timeToRead} min
