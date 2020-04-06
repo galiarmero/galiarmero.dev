@@ -13,7 +13,8 @@ export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSecti
     transform: ${isVisible ? `translateY(0)` : `translateY(${activeMarkerHeight + 20}px)`};
     overflow: hidden;
     z-index: 100;
-    opacity: ${isVisible ? 1 : 0};
+    visibility: ${isVisible ? `visible` : `hidden`};
+    opacity: 1;
     display: flex;
     justify-content: center;
     background: var(--bgColor);

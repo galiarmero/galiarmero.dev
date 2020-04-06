@@ -63,10 +63,10 @@ export default ({ handleIntersection }) => {
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <span css={css`
-                      color: #D7DCE1;
-                      font-size: 0.8rem;
+                      color: #B3BCC5;
+                      font-size: 0.7rem;
                     `}>
-                      {dayjs(node.frontmatter.datePublished).format('MMMM DD, YYYY')} · {node.timeToRead} min
+                      {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')} · {node.timeToRead} min
                     </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
 
