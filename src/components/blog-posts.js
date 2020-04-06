@@ -56,14 +56,14 @@ export default ({ handleIntersection }) => {
                 return (
                   <article key={index} css={css`
                     margin: 12px 0;
-                    background: #071d2d;
+                    background: var(--lighterBgColor);
                     border-radius: 4px;
                     padding: 32px 25px;
                     box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <span css={css`
-                      color: #E5E9EE;
+                      color: var(--subtleTextColor);
                       font-size: 0.7rem;
                     `}>
                       {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')} · {node.timeToRead} min
