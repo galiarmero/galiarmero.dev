@@ -5,7 +5,7 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import { FaLongArrowAltRight, FaRegClock } from 'react-icons/fa'
 
 import settings from "../config/settings"
 
@@ -66,7 +66,13 @@ export default ({ handleIntersection }) => {
                       color: var(--subtleTextColor);
                       font-size: 0.7rem;
                     `}>
-                      {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')} · {node.timeToRead} min
+                      <span css={css`margin-right: 10px;`}>
+                        {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')}
+                      </span>
+                      <FaRegClock css={css`
+                        position: relative;
+                        top: 0.05rem;
+                      `} /> {node.timeToRead} min
                     </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
 
@@ -81,7 +87,7 @@ export default ({ handleIntersection }) => {
                     `} to={node.fields.slug}>
                       READ
                       <FaLongArrowAltRight css={css`
-                        margin-left: 10px;
+                        margin: 0 5px 0 10px;
                         font-size: 1rem;
                         position: relative;
                         top: 0.19rem;
