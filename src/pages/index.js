@@ -36,7 +36,7 @@ export default ({ data }) => {
     sections,
     visibleSection,
   }
-  const headerHeight = `75px`
+  const headerHeight = 75
 
 
   const [intersectionData, setIntersectionData] = useState({
