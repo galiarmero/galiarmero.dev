@@ -72,7 +72,8 @@ export default ({ handleIntersection }) => {
                       </span>
                       <IconEyeglasses css={css`
                         position: relative;
-                        top: 0.1rem;
+                        top: 0.25rem;
+                        font-size: 1rem;
                       `} /> {node.timeToRead} min
                     </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
