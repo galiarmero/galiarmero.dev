@@ -45,7 +45,7 @@ export default props => (
       --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};
-      --subtleBgColor: ${colors.subtleBg};
+      --subtleLineColor: ${colors.subtleLine};
     }
 
     * {
@@ -93,7 +93,7 @@ export default props => (
     hr {
       height: 0;
       border: 0;
-      border-top: 1px solid var(--subtleBgColor);
+      border-top: 1px solid var(--subtleLineColor);
       border-bottom: 0;
     }
 
