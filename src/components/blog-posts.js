@@ -5,7 +5,8 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
-import { FaLongArrowAltRight, FaRegClock } from 'react-icons/fa'
+import { FaLongArrowAltRight, FaRegClock } from "react-icons/fa"
+import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 import settings from "../config/settings"
 
@@ -69,9 +70,9 @@ export default ({ handleIntersection }) => {
                       <span css={css`margin-right: 10px;`}>
                         {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')}
                       </span>
-                      <FaRegClock css={css`
+                      <IconEyeglasses css={css`
                         position: relative;
-                        top: 0.05rem;
+                        top: 0.1rem;
                       `} /> {node.timeToRead} min
                     </span>
                     <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
