@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { css } from "@emotion/core"
-import { throttle } from "underscore"
+//import { throttle } from "underscore"
 
 import Nav from './nav'
+import { throttle } from "../utils"
 import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
 import StandBurger from './stand-burger'
@@ -37,12 +38,12 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
 
   useEffect(() => {
     const throttledScrollHandler = throttle(handleScroll, 250)
-    window.addEventListener('scroll', () => throttledScrollHandler())
+    window.addEventListener('scroll', throttledScrollHandler)
   })
 
   useEffect(() => {
     return () => {
-      window.removeEventListener('scroll', () => handleScroll())
+      window.removeEventListener('scroll', handleScroll)
     }
   })
 
