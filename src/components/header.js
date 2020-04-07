@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { css } from "@emotion/core"
 //import { throttle } from "underscore"
 
@@ -36,14 +36,10 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
     setLastScrollTop(fromTop)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener('scroll', throttle(handleScroll, 250))
-  })
 
-  useEffect(() => {
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   })
 
   return (
