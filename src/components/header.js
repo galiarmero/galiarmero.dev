@@ -37,8 +37,7 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
   }
 
   useEffect(() => {
-    const throttledScrollHandler = throttle(handleScroll, 250)
-    window.addEventListener('scroll', throttledScrollHandler)
+    window.addEventListener('scroll', throttle(handleScroll, 250))
   })
 
   useEffect(() => {
@@ -55,9 +54,9 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
       width: 100%;
       background-color: var(--bgColor);
       z-index: 300;
-      box-shadow: ${scrollDirection === 'none' ? `none` : `0px 5px 9px -3px var(--boxShadowColor)`};
-      transform: ${scrollDirection === 'down' ? `translateY(-${height}px)` : `translateY(0px)`};
-      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+      box-shadow: ${scrollDirection === 'up' ? `0px 5px 9px -3px var(--boxShadowColor)` : `none`};
+      transform: translateY(${scrollDirection === 'down' ? `-${height}px` : `0px`});
+      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     `}>
         <div css={css`
           display: flex;
