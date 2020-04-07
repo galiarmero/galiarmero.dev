@@ -1,11 +1,11 @@
-export const throttle = (func, wait = 150) => {
+export const throttle = (func, wait = 100) => {
   let timer = null;
-  return (...args) => {
-    if (timer !== null) return
-
-    timer = setTimeout(() => {
-      func.apply(this, args)
-      timer = null
-    }, wait)
-  }
-}
+  return function(...args) {
+    if (timer === null) {
+      timer = setTimeout(() => {
+        func.apply(this, args);
+        timer = null;
+      }, wait);
+    }
+  };
+};
