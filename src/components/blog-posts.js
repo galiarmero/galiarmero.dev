@@ -5,7 +5,6 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
-import { FaLongArrowAltRight, FaRegClock } from "react-icons/fa"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
