@@ -7,6 +7,7 @@ import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 import { FaLongArrowAltRight, FaRegClock } from "react-icons/fa"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
+import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 import settings from "../config/settings"
 
@@ -80,6 +81,7 @@ export default ({ handleIntersection }) => {
 
                     <Link css={css`
                       font-family: 'JetBrainsMono-Bold';
+                      text-transform: uppercase;
                       font-size: 0.8rem;
                       letter-spacing: 0.12rem;
                       vertical-align: middle;
@@ -87,12 +89,12 @@ export default ({ handleIntersection }) => {
                         opacity: 0.8;
                       }
                     `} to={node.fields.slug}>
-                      READ
-                      <FaLongArrowAltRight css={css`
+                      read
+                      <IconRightArrow css={css`
                         margin: 0 5px 0 10px;
                         font-size: 1rem;
                         position: relative;
-                        top: 0.19rem;
+                        top: 0.4rem;
                       `}/>
                     </Link>
                   </article>
