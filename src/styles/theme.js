@@ -4,8 +4,8 @@ export const colors = {
   darkerBg: '#010f1a',
   subtleLine: '#122433',
   heading: '#fff',
-  text: '#fff',
-  subtleText: '#E5E9EE',
+  text: '#e9e9e9',
+  subtleText: '#bebfbf',
   accent: '#00DFFC',
   boxShadow: 'rgba(1, 12, 20, 0.7)',
 }

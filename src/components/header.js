@@ -37,9 +37,11 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
   }
 
   useLayoutEffect(() => {
-    window.addEventListener('scroll', throttle(handleScroll, 250))
+    window.addEventListener('scroll', () => throttle(handleScroll(), 100))
+  })
 
-    return () => window.removeEventListener('scroll', handleScroll)
+  useLayoutEffect(() => {
+    return () => window.removeEventListener('scroll', () => handleScroll())
   })
 
   return (
