@@ -64,7 +64,6 @@ export default ({ handleIntersection }) => {
                   `}>
                     <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
                     <span css={css`
-                      color: var(--subtleTextColor);
                       font-size: 0.7rem;
                     `}>
                       <span css={css`margin-right: 15px;`}>

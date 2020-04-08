@@ -24,7 +24,7 @@ const Button = styled.button`
   width: 200px;
 
   &:hover, &:focus {
-    color: var(--textColor);
+    color: var(--headingColor);
     outline: 0;
   }
 

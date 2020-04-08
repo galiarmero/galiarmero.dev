@@ -55,7 +55,7 @@ export default ({ handleIntersection, greeting, name, tagline }) => {
           left: 15px;
           right: auto;
           z-index: 200;
-          color: var(--textColor);
+          color: var(--headingColor);
         `}>
           <div css={css`
             display: flex;
@@ -69,7 +69,7 @@ export default ({ handleIntersection, greeting, name, tagline }) => {
               width: 1.5px;
               height: 50vh;
               margin: 0px auto;
-              background-color: var(--textColor);
+              background-color: var(--headingColor);
             }
           `}>
             <span css={css`

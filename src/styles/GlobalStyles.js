@@ -41,7 +41,6 @@ export default props => (
       --lighterBgColor: ${colors.lighterBg};
       --darkerBgColor: ${colors.darkerBg};
       --textColor: ${colors.text};
-      --subtleTextColor: ${colors.subtleText};
       --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};

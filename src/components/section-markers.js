@@ -46,7 +46,7 @@ const Marker = ({ height, children }) => (
       position: relative;
       height: ${height};
       width: 1.5px;
-      background: var(--textColor);
+      background: var(--headingColor);
       transition: .3s;
       z-index: 1;
       cursor: pointer;

@@ -64,13 +64,13 @@ const NavItem = (props) => (
           to={props.link}
           onClick={props.onClick}
           css={css`
-            color: var(--textColor);
+            color: var(--headingColor);
         `}>
           {props.children}
         </Link>
       : <a href={props.link} onClick={props.onClick}
             css={css`
-            color: var(--textColor);
+            color: var(--headingColor);
         `}>
           {props.children}
         </a>
@@ -79,6 +79,6 @@ const NavItem = (props) => (
 )
 
 const IconLink = styled.a`
-  color: var(--textColor);
+  color: var(--headingColor);
   font-size: 1.5rem;
 `
