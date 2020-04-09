@@ -75,6 +75,10 @@ export default props => (
       font-family: 'Gilroy-ExtraBold', sans-serif;
       letter-spacing: 0.8px;
     }
+
+    h2 {
+      margin: 3.5rem 0 1.8rem;
+    }
     
     .twitter-tweet-rendered {
       margin: 3rem auto;
@@ -126,6 +130,15 @@ export default props => (
 
     h1 > a {
       color: var(--headingColor);
+    }
+
+    ol > li {
+      margin-left: 1.7rem;
+      padding-left: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.6rem;
     }
   `} />
 )

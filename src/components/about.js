@@ -57,5 +57,5 @@ const SubSection = styled.div`
 `
 
 const paragraphify = (text) => (
-  text.split('\n\n').map(p => `<p>${p}</p><br />`).join(``)
+  text.split('\n\n').map(p => `<p>${p}</p>`).join(``)
 )
