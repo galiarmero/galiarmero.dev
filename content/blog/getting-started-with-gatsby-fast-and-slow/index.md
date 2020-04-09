@@ -25,7 +25,7 @@ Next, using the freshly-installed `gatsby` command, we create a new Gatsby proje
 
 "What's a starter?" you might ask. They are just Git projects created and maintained by the community to help people jump-start their development quickly. They already contain an initial working code for a website that you can further tweak to your liking. There are starters for all sorts of purposes, such as blogs, portfolios, docs and eCommerce. If you plan on making a specific website, chances are there are already starters for your use case in the [Starter Library](https://www.gatsbyjs.org/starters/?v=2).
 
-In our example, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows _Hello world!_ on a plain white index page.
+In our example, we are using the official `gatsby-starter-hello-world`, which is the most bare-bones starter I can find. It just shows _Hello world!_ on a plain white index page. This is a good boilerplate to build on top of if you want to understand the nitty-gritty.
 
 The last step is to run `gatsby develop` inside the root directory of `my-hello-world-site` project we just created. This starts a 'development' version of the website, on [http://localhost:8000/](http://localhost:8000/) by default. You can then open this URL in the browser to see changes reflected whenever you tweak the code.
 
@@ -192,7 +192,7 @@ excerpt: Hi. I'm new to this blogging thing.
 ---
 ```
 
-This is called _frontmatter_, a section that contain useful metadata that describe that file. You can put arbitrary properties there as you wish. In this example, we added `title`, `slug`, `date` and `excerpt` information, because I think we will need it when we create the page.
+This is called _frontmatter_, a section that contain useful metadata describing that file. You can put arbitrary properties there as you wish. In this example, we added `title`, `slug`, `date` and `excerpt` information, because I think we will need it when we create the page.
 
 This frontmatter is already parsed and made available for query by `gatsby-transformer-remark`. It also adds other cool bits like `timeToRead`, an estimate on how long it will take to read the post, [Medium](https://medium.com/)-style. Here's a sample query, where we get selected properties of each of the Markdown files processed by the transformer using the `allMarkdownRemark` schema.
 

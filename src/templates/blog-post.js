@@ -30,6 +30,7 @@ export default({ data }) => {
       <main css={css`
         margin-top: ${headerHeight + 35}px;
         padding: 0 25px;
+        overflow-x: hidden;
       `}>
         <h1>{post.frontmatter.title}</h1>
         <span css={css`
