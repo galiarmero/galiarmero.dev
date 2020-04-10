@@ -90,7 +90,8 @@ export default props => (
         display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width: 750px;
+        width: 100%;
+        height: auto;
     }
 
     hr {
