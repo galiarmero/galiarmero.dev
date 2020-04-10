@@ -8,7 +8,7 @@ import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
 import StandBurger from './stand-burger'
 
-export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
+export default ({ isSticky, height, isMenuOpen, onToggleMenu, navBackground }) => {
   const DELTA = 5
   const [isScrollTop, setIsScrollTop] = useState(true)
 
@@ -35,7 +35,7 @@ export default ({ height, isMenuOpen, onToggleMenu, navBackground }) => {
   return (
     <header css={css`
       padding: 0 25px;
-      position: fixed;
+      position: ${isSticky ? `fixed` : `absolute`};
       top: 0px;
       width: 100%;
       background-color: var(--bgColor);
