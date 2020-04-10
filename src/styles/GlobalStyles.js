@@ -79,20 +79,6 @@ export default props => (
     h2 {
       margin: 3.5rem 0 1.8rem;
     }
-    
-    .twitter-tweet-rendered {
-      margin: 3rem auto;
-    }
-
-    /* TODO: Use srcset */
-    img[src$=".gif"] {
-        position: relative;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: auto;
-    }
 
     hr {
       height: 0;
@@ -133,29 +119,8 @@ export default props => (
       color: var(--headingColor);
     }
 
-    ol > li {
-      margin-left: 1.7rem;
-      padding-left: 0.4rem;
-    }
-
     p {
       margin-bottom: 1.6rem;
-    }
-
-    blockquote {
-      padding: 0.25rem 0.9rem;
-      border-left: 3px solid var(--accentColor);
-      margin-bottom: 1.6rem;
-      font-size: 1rem;
-
-      p {
-        margin: 0;
-      }
-    }
-
-    code,
-    pre {
-      font-size: 0.9rem;
     }
   `} />
 )

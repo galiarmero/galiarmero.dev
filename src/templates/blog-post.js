@@ -6,6 +6,7 @@ import dayjs from "dayjs"
 
 import Header from "../components/header"
 import GlobalStyles from "../styles/GlobalStyles"
+import BlogStyles from "../styles/BlogStyles"
 import { colors } from '../styles/theme'
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
@@ -26,6 +27,7 @@ export default({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
+      <BlogStyles />
       <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
       <main css={css`
         margin-top: ${headerHeight + 35}px;
