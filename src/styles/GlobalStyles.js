@@ -140,5 +140,16 @@ export default props => (
     p {
       margin-bottom: 1.6rem;
     }
+
+    blockquote {
+      padding: 0.25rem 0.9rem;
+      border-left: 3px solid var(--accentColor);
+      margin-bottom: 1.6rem;
+      font-size: 1rem;
+
+      p {
+        margin: 0;
+      }
+    }
   `} />
 )
