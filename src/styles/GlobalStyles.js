@@ -151,5 +151,10 @@ export default props => (
         margin: 0;
       }
     }
+
+    code,
+    pre {
+      font-size: 0.9rem;
+    }
   `} />
 )
