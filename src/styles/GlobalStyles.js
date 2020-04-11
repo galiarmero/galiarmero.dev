@@ -57,7 +57,7 @@ export default props => (
       background: var(--bgColor);
       color: var(--textColor);
       font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 0.2px;
     }
 
@@ -92,6 +92,8 @@ export default props => (
       position: relative;
       text-decoration: none;
       color: var(--accentColor);
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
 
       &:after {
         content: '';
@@ -121,6 +123,7 @@ export default props => (
 
     p {
       margin-bottom: 1.6rem;
+      overflow-wrap: break-word;
     }
   `} />
 )
