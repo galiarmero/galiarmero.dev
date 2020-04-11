@@ -76,7 +76,7 @@ export default ({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
-      <Header isSticky={true} height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
+      <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
       <main css={css`
         padding: 0 25px;
       `}>
