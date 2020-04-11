@@ -8,7 +8,7 @@ import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
 import StandBurger from './stand-burger'
 
-export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground }) => {
+export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix }) => {
   const DELTA = 5
   const [isScrollTop, setIsScrollTop] = useState(true)
 
@@ -59,18 +59,14 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
             align-items: center;
           `}>
             G
-            <div css={css`
-              background-color: var(--accentColor);
-              height: 1.5rem;
-              width: 1px;
-              margin: 0 16px;
-              transform: rotate(30deg);
-            `}></div>
-            <span css={css`
-              font-family: "Gilroy-Light";
-              vertical-align: middle;
-              font-size: 1.6rem;
-            `}>blog</span>
+            { logoSuffix &&
+              <span css={css`
+                font-family: "Gilroy-Light";
+                vertical-align: middle;
+                font-size: 1.1rem;
+                margin-left: 12px;
+              `}>{logoSuffix}</span>
+            }
           </h1>
         </div>
         {/* <SimpleBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}

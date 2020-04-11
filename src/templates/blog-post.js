@@ -28,7 +28,7 @@ export default({ data }) => {
       </Helmet>
       <GlobalStyles />
       <BlogStyles />
-      <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
+      <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} logoSuffix="blog" />
       <main css={css`
         margin-top: ${headerHeight + 35}px;
         padding: 0 25px;
