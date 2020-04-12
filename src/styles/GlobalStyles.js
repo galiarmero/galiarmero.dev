@@ -76,10 +76,6 @@ export default props => (
       letter-spacing: 0.8px;
     }
 
-    h2 {
-      margin: 3.5rem 0 1.8rem;
-    }
-
     hr {
       height: 0;
       border: 0;

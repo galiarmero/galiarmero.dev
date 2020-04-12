@@ -5,7 +5,7 @@ import { Global, css } from '@emotion/core'
 export default () => (
   <Global styles={css`
     .twitter-tweet-rendered {
-      margin: 3rem auto;
+      margin: 1.1rem auto !important;
     }
 
     img[src$=".gif"] {
@@ -24,7 +24,7 @@ export default () => (
     }
 
     ol, ul, p {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.1rem;
     }
 
     blockquote {
@@ -41,6 +41,14 @@ export default () => (
     code,
     pre {
       font-size: 0.9rem;
+    }
+
+    h2, h3, h4 {
+      margin: 2rem 0 1.1rem;
+    }
+
+    h2 {
+      margin: 3rem 0 1.1rem;
     }
   `} />
 )
