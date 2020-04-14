@@ -38,7 +38,7 @@ export default (props) => {
   )
 
   const name = (
-    <div css={css`transition-delay: 400ms`}>
+    <div css={css`transition-delay: 300ms`}>
       <h1 css={css`
         font-size: 2.5rem;
       `}>
@@ -48,7 +48,7 @@ export default (props) => {
   )
 
   const tagline = (
-    <div css={css`transition-delay: 700ms`}>
+    <div css={css`transition-delay: 500ms`}>
       <h1 css={css`
         font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;
