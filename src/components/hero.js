@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect }  from "react"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
@@ -25,7 +25,7 @@ export default (props) => {
   }
 
   const greeting = (
-    <div css={css`transition-delay: 100ms`}>
+    <div css={css`transition-delay: 50ms`}>
       <span css={css`
         padding: 0 0 10px 3px;
         color: var(--accentColor);
@@ -38,7 +38,7 @@ export default (props) => {
   )
 
   const name = (
-    <div css={css`transition-delay: 300ms`}>
+    <div css={css`transition-delay: 200ms`}>
       <h1 css={css`
         font-size: 2.5rem;
       `}>
@@ -48,7 +48,7 @@ export default (props) => {
   )
 
   const tagline = (
-    <div css={css`transition-delay: 500ms`}>
+    <div css={css`transition-delay: 350ms`}>
       <h1 css={css`
         font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;

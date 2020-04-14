@@ -1,37 +1,45 @@
-import React from "react"
+import React, { useState, useEffect }  from "react"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
 
-export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection, isVisible }) => (
-  <nav css={css`
-    position: fixed;
-    width: 100%;
-    top: auto;
-    left: 0;
-    bottom: 0px;
-    padding: 10px 0;
-    transform: ${isVisible ? `translateY(0)` : `translateY(${activeMarkerHeight + 20}px)`};
-    overflow: hidden;
-    z-index: 100;
-    visibility: ${isVisible ? `visible` : `hidden`};
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    background: var(--bgColor);
-    transition: all .3s;
-  `}>
-    <ul css={css`
+export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection, isVisible }) => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 2300);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <nav css={css`
+      position: fixed;
+      width: 100%;
+      top: auto;
+      left: 0;
+      bottom: 0px;
+      padding: 10px 0;
+      transform: ${isVisible ? `translateY(0)` : `translateY(${activeMarkerHeight + 20}px)`};
+      overflow: hidden;
+      z-index: 100;
+      visibility: ${isVisible ? `visible` : `hidden`};
+      opacity: 1;
       display: flex;
-      align-items: flex-end;
+      justify-content: center;
+      background: var(--bgColor);
+      transition: all .3s;
     `}>
-      {
-        sections.map((s, i) => (
-          <Marker key={i} height={ (visibleSection === s ? activeMarkerHeight : markerHeight) + unit } />
-        ))
-      }
-    </ul>
-  </nav>
-)
+      <ul css={css`
+        display: flex;
+        align-items: flex-end;
+      `}>
+        {
+          sections.map((s, i) => (
+            <Marker key={i} height={ isMounted ? ((visibleSection === s ? activeMarkerHeight : markerHeight) + unit) : `0px` } />
+          ))
+        }
+      </ul>
+    </nav>
+  )
+}
 
 const Marker = ({ height, children }) => (
   <li css={css`

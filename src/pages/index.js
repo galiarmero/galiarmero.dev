@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+
 import Header from "../components/header"
 import Hero from "../components/hero"
 import About from "../components/about"
@@ -18,12 +19,18 @@ export default ({ data }) => {
   if (indexEdge === -1)
     console.error("Edge containing `index` not found in allContentYaml")
   const index = indexEdge.node.index
+  const headerHeight = 75
+  const sections = ['hero', 'about', 'blogPosts']
 
   const [isMenuOpen, toggleMenu] = useState(false)
   const [visibleSection, setVisibleSection] = useState('')
-  const sections = ['hero', 'about', 'blogPosts']
-
   const [isMarkersVisible, toggleMarkers] = useState(true)
+  const [intersectionData, setIntersectionData] = useState({
+    hero: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    about: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    blogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+  })
+
   const onFooterVisibilityChange = (isVisible) => {
     toggleMarkers(!isVisible)
   }
@@ -36,14 +43,7 @@ export default ({ data }) => {
     sections,
     visibleSection,
   }
-  const headerHeight = 75
 
-
-  const [intersectionData, setIntersectionData] = useState({
-    hero: { time: 0, isIntersecting: true, intersectionRatio: 0 },
-    about: { time: 0, isIntersecting: true, intersectionRatio: 0 },
-    blogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
-  })
   const handleIntersection = (entry) => {
     setIntersectionData({...intersectionData, ...entry})
     let visibleSections = Object.keys(intersectionData).filter(k => intersectionData[k].isIntersecting)
