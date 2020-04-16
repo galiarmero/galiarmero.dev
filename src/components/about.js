@@ -2,10 +2,11 @@ import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
+import { CSSTransition } from "react-transition-group"
+
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import { BulletItem } from "../styles/Lists"
-
 import settings from "../config/settings"
 
 

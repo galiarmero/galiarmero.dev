@@ -9,6 +9,7 @@ import BlogPosts from "../components/blog-posts"
 import SectionMarkers from "../components/section-markers"
 import Footer from "../components/footer"
 import GlobalStyles from "../styles/GlobalStyles"
+import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from '../styles/theme'
 
 // TODO: Remove usage of css here if possible
@@ -76,6 +77,7 @@ export default ({ data }) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Helmet>
       <GlobalStyles />
+      <TransitionStyles />
       <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
       <main css={css`
         padding: 0 25px;

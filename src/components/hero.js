@@ -96,17 +96,24 @@ export default (props) => {
               content: "";
               display: block;
               width: 1.5px;
-              height: 50vh;
+              height: ${isMounted ? `50vh` : `0px`};
+              transition: 400ms;
+              transition-delay: 450ms;
               margin: 0px auto;
               background-color: var(--headingColor);
             }
           `}>
-            <span css={css`
-              writing-mode: vertical-rl;
-              font-size: 0.65rem;
-              letter-spacing: 0.3rem;
-              font-family: 'JetBrainsMono-Regular';
-            `}>SCROLL</span>
+            { isMounted &&
+              <CSSTransition classNames="fade" timeout={3000}>
+                <div css={css`
+                  writing-mode: vertical-rl;
+                  font-size: 0.65rem;
+                  letter-spacing: 0.3rem;
+                  font-family: 'JetBrainsMono-Regular';
+                  transition-delay: 450ms;
+                `}>SCROLL</div>
+              </CSSTransition>
+            }
           </div>
         </div>
       </TransitionGroup>
