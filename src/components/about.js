@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
-import { CSSTransition } from "react-transition-group"
 
 import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
@@ -11,7 +10,11 @@ import settings from "../config/settings"
 
 
 export default ({ handleIntersection, intro, techSkills, more }) => {
+  const [isVisible, setIsVisible] = useState(false)
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
+    if (isIntersecting) {
+      setIsVisible(true)
+    }
     handleIntersection({
       about: { time, isIntersecting, intersectionRatio },
     })
@@ -19,12 +22,12 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
   const options = {
     onChange: onChange,
     threshold: settings.intersectionObserverThreshold,
-  };
+  }
 
   return (
     <IntersectionObserver {...options}>
       <Section>
-        <SectionHeading>About Me</SectionHeading>
+        <SectionHeading isVisible={isVisible}>About Me</SectionHeading>
 
         <SubSection>
           <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />

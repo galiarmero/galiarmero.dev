@@ -13,6 +13,10 @@ export const SectionHeading = props => (
     font-size: 2rem;
     margin-bottom: 100px;
     position: relative;
+    opacity: ${props.isVisible ? `1` : `0.01`};
+    transform: ${props.isVisible ? `translateY(0px)` : `translateY(40px)`};
+    transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 500ms;
 
     &:before {
       content: "";
@@ -23,6 +27,10 @@ export const SectionHeading = props => (
       width: 60px;
       background: var(--accentColor);
       border-radius: 6px;
+      transform: ${props.isVisible ? `translateX(0px)` : `translateX(-80px)`};
+      opacity: ${props.isVisible ? `1` : `0.01`};
+      transition: all 200ms;
+      transition-delay: 800ms;
     }
 
     &:after {
@@ -34,6 +42,10 @@ export const SectionHeading = props => (
       width: 60px;
       background: var(--accentColor);
       border-radius: 6px;
+      transform: ${props.isVisible ? `translateX(0px)` : `translateX(80px)`};
+      opacity: ${props.isVisible ? `1` : `0`};
+      transition: all 200ms;
+      transition-delay: 500ms;
     }
   `}>
     {props.children}
