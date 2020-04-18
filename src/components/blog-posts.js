@@ -9,6 +9,7 @@ import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 import settings from "../config/settings"
+import { appearanceObserverOpts } from "../utils"
 
 
 export default ({ handleIntersection }) => {
@@ -21,14 +22,6 @@ export default ({ handleIntersection }) => {
       })
     },
     threshold: settings.intersectionObserverThreshold,
-  }
-
-  const headerObserverOpts = {
-    onChange: ({ isIntersecting }) => {
-      if (isIntersecting) {
-        setHeaderAppeared(true)
-      }
-    },
   }
 
   return (
@@ -55,7 +48,7 @@ export default ({ handleIntersection }) => {
       render={data => (
         <IntersectionObserver {...sectionObserverOpts}>
           <Section>
-            <IntersectionObserver {...headerObserverOpts }>
+            <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared)}>
               <span>
                 <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Recent Blog Posts</SectionHeading>
               </span>

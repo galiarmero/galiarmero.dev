@@ -9,3 +9,13 @@ export const throttle = (func, wait = 100) => {
     }
   };
 };
+
+export const appearanceObserverOpts = (setAppearedState) => (
+  {
+    onChange: ({ isIntersecting }) => {
+      if (isIntersecting) {
+        setAppearedState(true)
+      }
+    },
+  }
+)
