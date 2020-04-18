@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
@@ -12,15 +12,24 @@ import settings from "../config/settings"
 
 
 export default ({ handleIntersection }) => {
-  const onChange = ({ time, isIntersecting, intersectionRatio }) => {
-    handleIntersection({
-      blogPosts: { time, isIntersecting, intersectionRatio },
-    })
-  }
-  const options = {
-    onChange: onChange,
+  const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
+
+  const sectionObserverOpts = {
+    onChange: ({ time, isIntersecting, intersectionRatio }) => {
+      handleIntersection({
+        blogPosts: { time, isIntersecting, intersectionRatio },
+      })
+    },
     threshold: settings.intersectionObserverThreshold,
-  };
+  }
+
+  const headerObserverOpts = {
+    onChange: ({ isIntersecting }) => {
+      if (isIntersecting) {
+        setHeaderAppeared(true)
+      }
+    },
+  }
 
   return (
     <StaticQuery
@@ -44,9 +53,13 @@ export default ({ handleIntersection }) => {
         }
       `}
       render={data => (
-        <IntersectionObserver {...options}>
+        <IntersectionObserver {...sectionObserverOpts}>
           <Section>
-            <SectionHeading>Recent Blog Posts</SectionHeading>
+            <IntersectionObserver {...headerObserverOpts }>
+              <span>
+                <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Recent Blog Posts</SectionHeading>
+              </span>
+            </IntersectionObserver>
 
             <div css={css`
               display: flex;

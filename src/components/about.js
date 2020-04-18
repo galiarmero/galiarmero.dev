@@ -12,7 +12,7 @@ import settings from "../config/settings"
 export default ({ handleIntersection, intro, techSkills, more }) => {
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
 
-  const sectionObserverOptions = {
+  const sectionObserverOpts = {
     onChange: ({ time, isIntersecting, intersectionRatio }) => {
       handleIntersection({
         about: { time, isIntersecting, intersectionRatio },
@@ -21,8 +21,8 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
     threshold: settings.intersectionObserverThreshold,
   }
 
-  const headerObserver = {
-    onChange: ({ isIntersecting, intersectionRatio }) => {
+  const headerObserverOpts = {
+    onChange: ({ isIntersecting }) => {
       if (isIntersecting) {
         setHeaderAppeared(true)
       }
@@ -30,9 +30,9 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
   }
 
   return (
-    <IntersectionObserver {...sectionObserverOptions}>
+    <IntersectionObserver {...sectionObserverOpts}>
       <Section padding="50px 0 100px">
-        <IntersectionObserver {...headerObserver }>
+        <IntersectionObserver {...headerObserverOpts }>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>
           </span>
