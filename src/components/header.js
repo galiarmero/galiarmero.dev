@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from "react"
 import { css } from "@emotion/core"
-//import { throttle } from "underscore"
 
 import Nav from './nav'
 import { throttle } from "../utils"
