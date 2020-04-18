@@ -63,20 +63,22 @@ export default (props) => {
 
   return (
     <IntersectionObserver {...options}>
-      <TransitionGroup component="section" css={css`
+      <section css={css`
         min-height: 140vh;
         display: flex;
         flex-direction: column;
         justify-content: start;
         padding-top: 30vh;
       `}>
-        { isMounted &&
-          items.map((item, i) => (
-            <CSSTransition key={i} classNames="fadeup" timeout={3000}>
-              {item}
-            </CSSTransition>
-          ))
-        }
+        <TransitionGroup component="div">
+          { isMounted &&
+            items.map((item, i) => (
+              <CSSTransition key={i} classNames="fadeup" timeout={3000}>
+                {item}
+              </CSSTransition>
+            ))
+          }
+        </TransitionGroup>
         <div css={css`
           width: 30px;
           position: absolute;
@@ -116,7 +118,7 @@ export default (props) => {
             }
           </div>
         </div>
-      </TransitionGroup>
+      </section>
     </IntersectionObserver>
   )
 }

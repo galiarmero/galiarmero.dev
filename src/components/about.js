@@ -10,24 +10,33 @@ import settings from "../config/settings"
 
 
 export default ({ handleIntersection, intro, techSkills, more }) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const onChange = ({ time, isIntersecting, intersectionRatio }) => {
-    if (isIntersecting) {
-      setIsVisible(true)
-    }
-    handleIntersection({
-      about: { time, isIntersecting, intersectionRatio },
-    })
-  }
-  const options = {
-    onChange: onChange,
+  const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
+
+  const sectionObserverOptions = {
+    onChange: ({ time, isIntersecting, intersectionRatio }) => {
+      handleIntersection({
+        about: { time, isIntersecting, intersectionRatio },
+      })
+    },
     threshold: settings.intersectionObserverThreshold,
   }
 
+  const headerObserver = {
+    onChange: ({ isIntersecting, intersectionRatio }) => {
+      if (isIntersecting) {
+        setHeaderAppeared(true)
+      }
+    },
+  }
+
   return (
-    <IntersectionObserver {...options}>
+    <IntersectionObserver {...sectionObserverOptions}>
       <Section>
-        <SectionHeading isVisible={isVisible}>About Me</SectionHeading>
+        <IntersectionObserver {...headerObserver }>
+          <span>
+            <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>
+          </span>
+        </IntersectionObserver>
 
         <SubSection>
           <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
