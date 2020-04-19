@@ -68,7 +68,7 @@ export default (props) => {
         display: flex;
         flex-direction: column;
         justify-content: start;
-        padding-top: 30vh;
+        padding-top: 25vh;
       `}>
         <TransitionGroup component="div">
           { isMounted &&
