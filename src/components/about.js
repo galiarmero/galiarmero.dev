@@ -34,7 +34,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
           </span>
         </IntersectionObserver>
 
-        <IntersectionObserver {...appearanceObserverOpts(setIntroAppeared, 0.5)}>
+        <IntersectionObserver {...appearanceObserverOpts(setIntroAppeared, 0.2)}>
           <SubSection hasNotAppeared={!hasIntroAppeared}>
             <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
@@ -55,7 +55,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
           </SubSection>
         </IntersectionObserver>
 
-        <IntersectionObserver {...appearanceObserverOpts(setDividerAppeared, 0.3)}>
+        <IntersectionObserver {...appearanceObserverOpts(setDividerAppeared, 0.2)}>
           <hr css={css`
             width: ${hasDividerAppeared ? `100%` : `0.1px`};
             transition: width 400ms;
@@ -72,7 +72,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
 }
 
 const SubSection = styled.div`
-  opacity: ${props => props.hasNotAppeared ? `0.01` : `1`};
+  opacity: ${props => props.hasNotAppeared ? `0` : `1`};
   transform: ${props => props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
   transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 400ms;

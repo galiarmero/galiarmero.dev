@@ -46,7 +46,7 @@ export default ({ handleIntersection }) => {
           setPostAppeared({...hasPostAppeared, [k]: true})
         }
       },
-      threshold: 0.9,
+      threshold: 0.4,
     }
   )
 
@@ -83,7 +83,7 @@ export default ({ handleIntersection }) => {
                   border-radius: 4px;
                   padding: 32px 25px;
                   box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
-                  opacity: ${hasPostAppeared[slug] ? `1` : `0.01`};
+                  opacity: ${hasPostAppeared[slug] ? `1` : `0`};
                   transform: ${hasPostAppeared[slug] ? `translateY(0px)` : `translateY(40px)`};
                   transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
                   transition-delay: 200ms;

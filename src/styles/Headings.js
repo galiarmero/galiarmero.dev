@@ -13,7 +13,7 @@ export const SectionHeading = ({ hasNotAppeared, children }) => (
     font-size: 2rem;
     margin-bottom: 100px;
     position: relative;
-    opacity: ${hasNotAppeared ? `0.01` : `1`};
+    opacity: ${hasNotAppeared ? `0` : `1`};
     transform: ${hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
     transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
     transition-delay: 400ms;
