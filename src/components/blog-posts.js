@@ -3,15 +3,15 @@ import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
+
 import { linkReset } from "../styles/GlobalStyles"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 import Button from "../styles/Buttons"
-import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
-import IconRightArrow from "../../static/icons/right-arrow.svg"
-
 import settings from "../config/settings"
 import { appearanceObserverOpts } from "../utils"
+import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
+import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 
 export default ({ handleIntersection }) => {
@@ -90,7 +90,7 @@ export default ({ handleIntersection }) => {
                   transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
                   transition-delay: 200ms;
                 `}>
-                  <Heading onClick={() => navigate(node.fields.slug)} css={css`
+                  <Heading onClick={() => navigate(slug)} css={css`
                     cursor: pointer;
                     &:hover {
                       opacity: 0.8;
@@ -123,7 +123,7 @@ export default ({ handleIntersection }) => {
                     &:hover {
                       opacity: 0.8;
                     }
-                  `} to={node.fields.slug}>
+                  `} to={slug}>
                     read
                     <IconRightArrow css={css`
                       margin: 0 5px 0 10px;

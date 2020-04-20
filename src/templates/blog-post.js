@@ -1,25 +1,23 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import { css } from '@emotion/core'
+import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
 import dayjs from "dayjs"
 
 import Header from "../components/header"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
-import { colors } from '../styles/theme'
+import { colors } from "../styles/theme"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 export default({ data }) => {
-  const [isMenuOpen, toggleMenu] = useState(false)
   const headerHeight = 75
   const post = data.markdownRemark
-  // TODO: Fix images not loading
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{post.frontmatter.title} — Gali Armero / Blog</title>
+        <title>{post.frontmatter.title} &middot; Gali Armero</title>
 
         <meta name="theme-color" content={colors.bg} />
         <meta name="msapplication-navbutton-color" content={colors.bg} />
@@ -28,7 +26,7 @@ export default({ data }) => {
       </Helmet>
       <GlobalStyles />
       <BlogStyles />
-      <Header height={headerHeight} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} logoSuffix="blog" />
+      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
       <main css={css`
         margin-top: ${headerHeight + 35}px;
         padding: 0 25px;
