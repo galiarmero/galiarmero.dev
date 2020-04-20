@@ -7,8 +7,8 @@ const Button = styled.button`
   background-image: linear-gradient(45deg, var(--lighterBgColor) 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
-  border: 1.5px solid var(--accentColor);
-  border-radius: 2rem;
+  border: 1px solid var(--accentColor);
+  border-radius: 0.2rem;
   color: var(--accentColor);
   cursor: pointer;
   display: flex;
@@ -17,9 +17,8 @@ const Button = styled.button`
   line-height: 1.1;
   padding: 1rem 2.5rem;
   text-decoration: none;
-  text-transform: uppercase;
-  font-family: 'JetBrainsMono-Bold', monospace;
-  letter-spacing: 0.12rem;
+  font-family: 'JetBrainsMono-Regular', monospace;
+  letter-spacing: 0.05rem;
   transition: background 300ms ease-in-out;
 
   &:hover,

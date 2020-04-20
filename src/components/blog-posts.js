@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
@@ -127,10 +127,9 @@ export default ({ handleIntersection }) => {
               </IntersectionObserver>
             )
           })}
-          <Button css={css`margin-top: 18px`}>
-            <Link to="blog">
+          <Button onClick={() => navigate("/blog")}
+            css={css`margin-top: 18px`}>
               View More
-            </Link>
           </Button>
         </div>
       </Section>
