@@ -46,6 +46,7 @@ export default ({ handleIntersection }) => {
           setPostAppeared({...hasPostAppeared, [k]: true})
         }
       },
+      threshold: 0.9,
     }
   )
 
@@ -61,7 +62,7 @@ export default ({ handleIntersection }) => {
   return (
     <IntersectionObserver {...sectionObserverOpts}>
       <Section>
-        <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared)}>
+        <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Recent Blog Posts</SectionHeading>
           </span>

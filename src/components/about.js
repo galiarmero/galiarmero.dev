@@ -28,13 +28,13 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
   return (
     <IntersectionObserver {...sectionObserverOpts}>
       <Section padding="50px 0 100px">
-        <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared)}>
+        <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>
           </span>
         </IntersectionObserver>
 
-        <IntersectionObserver {...appearanceObserverOpts(setIntroAppeared)}>
+        <IntersectionObserver {...appearanceObserverOpts(setIntroAppeared, 0.5)}>
           <SubSection hasNotAppeared={!hasIntroAppeared}>
             <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
@@ -55,7 +55,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
           </SubSection>
         </IntersectionObserver>
 
-        <IntersectionObserver {...appearanceObserverOpts(setDividerAppeared)}>
+        <IntersectionObserver {...appearanceObserverOpts(setDividerAppeared, 0.3)}>
           <hr css={css`
             width: ${hasDividerAppeared ? `100%` : `0.1px`};
             transition: width 400ms;
