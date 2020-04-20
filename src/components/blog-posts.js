@@ -5,6 +5,7 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
+import Button from "../styles/Buttons"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
@@ -126,6 +127,11 @@ export default ({ handleIntersection }) => {
               </IntersectionObserver>
             )
           })}
+          <Button css={css`margin-top: 18px`}>
+            <Link to="blog">
+              View More
+            </Link>
+          </Button>
         </div>
       </Section>
     </IntersectionObserver>

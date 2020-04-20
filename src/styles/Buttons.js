@@ -2,29 +2,28 @@ import styled from '@emotion/styled'
 
 const Button = styled.button`
   box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 1px solid var(--accentColor);
-  border-radius: 0.2em;
-  color: var(--accentColor);
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 1.2em 1.8em;
-  text-decoration: none;
-  text-align: center;
-
-  background-image: linear-gradient(45deg, var(--accentColor) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, var(--lighterBgColor) 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
-  -webkit-transition: background 200ms ease-in-out;
-  transition: background 200ms ease-in-out;
-  width: 200px;
+  border: 1.5px solid var(--accentColor);
+  border-radius: 2rem;
+  color: var(--accentColor);
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'JetBrainsMono-Bold', monospace;
+  letter-spacing: 0.12rem;
+  transition: background 300ms ease-in-out;
 
-  &:hover, &:focus {
-    color: var(--headingColor);
+  &:hover,
+  &:focus {
     outline: 0;
   }
 
