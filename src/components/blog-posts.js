@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import dayjs from "dayjs"
+import { linkReset } from "../styles/GlobalStyles"
 import { Section } from "../styles/Containers"
 import Heading, { SectionHeading } from "../styles/Headings"
 import Button from "../styles/Buttons"
@@ -89,7 +90,14 @@ export default ({ handleIntersection }) => {
                   transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
                   transition-delay: 200ms;
                 `}>
-                  <Heading><a href={node.fields.slug}>{node.frontmatter.title}</a></Heading>
+                  <Heading onClick={() => navigate(node.fields.slug)} css={css`
+                    cursor: pointer;
+                    &:hover {
+                      opacity: 0.8;
+                    }
+                  `}>
+                    {node.frontmatter.title}
+                  </Heading>
                   <span css={css`
                     font-size: 0.7rem;
                   `}>
@@ -106,7 +114,8 @@ export default ({ handleIntersection }) => {
                   <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
 
                   <Link css={css`
-                    font-family: 'JetBrainsMono-Bold';
+                    ${linkReset};
+                    font-family: 'JetBrainsMono-Regular';
                     text-transform: uppercase;
                     font-size: 0.8rem;
                     letter-spacing: 0.12rem;
@@ -128,7 +137,7 @@ export default ({ handleIntersection }) => {
             )
           })}
           <Button onClick={() => navigate("/blog")}
-            css={css`margin-top: 18px`}>
+            css={css`margin-top: 24px`}>
               View More
           </Button>
         </div>

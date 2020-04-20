@@ -119,17 +119,19 @@ export default props => (
       margin-bottom: 1.6rem;
       overflow-wrap: break-word;
     }
-
-    .fadeup-enter {
-      opacity: 0.01;
-      transform: translateY(20px);
-      transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-
-    .fadeup-enter-active {
-      opacity: 1;
-      transform: translateY(0px);
-      transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
   `} />
 )
+
+export const linkReset = css`
+  text-decoration: none;
+
+  &:after {
+    content: none;
+  }
+
+  &:hover {
+    &:after {
+        content: none;
+    }
+  }
+`
