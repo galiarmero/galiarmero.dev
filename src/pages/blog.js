@@ -44,21 +44,24 @@ export default ({ data }) => {
             alt={`Gali Armero`}
             css={css`
               margin-right: 1rem;
-              width: 3.5rem;
-              height: 3.5rem;
+              width: 3.75rem;
+              height: 3.75rem;
               border-radius: 50%;
             `}
           />
 
-          <p
+          <span
             css={css`
               font-size: 0.9rem;
               margin-bottom: 0;
+              line-height: 1.3;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
           `}>
-            Personal blog by <a href="/">Gali Armero</a>.
-
-            Notebook of a tech bloke in perpetual search for answers.
-          </p>
+            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <a href="/">Gali Armero</a>.</p>
+            <p css={css`margin-bottom: 0;`}>Notebook of a tech bloke in perpetual search for answers.</p>
+          </span>
         </aside>
 
         <div>
