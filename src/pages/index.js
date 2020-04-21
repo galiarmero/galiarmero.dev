@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 import Header from "../components/header"
 import Hero from "../components/hero"
 import About from "../components/about"
-import BlogPosts from "../components/blog-posts"
+import LatestBlogPosts from "../components/latest-blog-posts"
 import SectionMarkers from "../components/section-markers"
 import Footer from "../components/footer"
 import GlobalStyles from "../styles/GlobalStyles"
@@ -21,7 +21,7 @@ export default ({ data }) => {
     console.error("Edge containing `index` not found in allContentYaml")
   const index = indexEdge.node.index
   const headerHeight = 75
-  const sections = ['hero', 'about', 'blogPosts']
+  const sections = ['hero', 'about', 'latestBlogPosts']
 
   const [isMenuOpen, toggleMenu] = useState(false)
   const [visibleSection, setVisibleSection] = useState('')
@@ -29,7 +29,7 @@ export default ({ data }) => {
   const [intersectionData, setIntersectionData] = useState({
     hero: { time: 0, isIntersecting: true, intersectionRatio: 0 },
     about: { time: 0, isIntersecting: true, intersectionRatio: 0 },
-    blogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    latestBlogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
   })
 
   const onFooterVisibilityChange = (isVisible) => {
@@ -58,10 +58,10 @@ export default ({ data }) => {
      (intersectionData.about.intersectionRatio >= 0.2)
         ? setVisibleSection('about')
         : setVisibleSection('hero')
-    } else if (visibleSections.includes('about') && visibleSections.includes('blogPosts')) {
+    } else if (visibleSections.includes('about') && visibleSections.includes('latestBlogPosts')) {
       (intersectionData.about.intersectionRatio >= 0.3)
         ? setVisibleSection('about')
-        : setVisibleSection('blogPosts')
+        : setVisibleSection('latestBlogPosts')
     }
   }
 
@@ -86,7 +86,7 @@ export default ({ data }) => {
           greeting={index.greeting} name={index.name} tagline={index.tagline} />
         <About handleIntersection={handleIntersection}
           intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
-        <BlogPosts handleIntersection={handleIntersection} />
+        <LatestBlogPosts handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
       <Footer onVisibilityChange={onFooterVisibilityChange} name={index.name} copyrightYear={index.copyrightYear} />

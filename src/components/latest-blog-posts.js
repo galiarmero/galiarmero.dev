@@ -2,16 +2,13 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
-import dayjs from "dayjs"
 
-import { linkReset } from "../styles/GlobalStyles"
 import { Section } from "../styles/Containers"
-import Heading, { SectionHeading } from "../styles/Headings"
+import { SectionHeading } from "../styles/Headings"
+import PostPreview from "../components/post-preview"
 import Button from "../styles/Buttons"
 import settings from "../config/settings"
 import { appearanceObserverOpts } from "../utils"
-import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
-import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 
 export default ({ handleIntersection }) => {
@@ -66,7 +63,7 @@ export default ({ handleIntersection }) => {
       <Section>
         <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
-            <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Recent Blog Posts</SectionHeading>
+            <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Latest Blog Posts</SectionHeading>
           </span>
         </IntersectionObserver>
 
@@ -79,60 +76,14 @@ export default ({ handleIntersection }) => {
             const slug = node.fields.slug
             return (
               <IntersectionObserver key={slug} {...postObserverOpts(slug)}>
-                <article key={index} css={css`
-                  margin: 12px 0;
-                  background: var(--lighterBgColor);
-                  border-radius: 4px;
-                  padding: 32px 25px;
-                  box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
+                <div css={css`
                   opacity: ${hasPostAppeared[slug] ? `1` : `0`};
                   transform: ${hasPostAppeared[slug] ? `translateY(0px)` : `translateY(40px)`};
                   transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
                   transition-delay: 200ms;
                 `}>
-                  <Heading onClick={() => navigate(slug)} css={css`
-                    cursor: pointer;
-                    &:hover {
-                      opacity: 0.8;
-                    }
-                  `}>
-                    {node.frontmatter.title}
-                  </Heading>
-                  <span css={css`
-                    font-size: 0.7rem;
-                  `}>
-                    <span css={css`margin-right: 15px;`}>
-                      {dayjs(node.frontmatter.datePublished).format('DD MMMM YYYY')}
-                    </span>
-                    <IconEyeglasses css={css`
-                      position: relative;
-                      top: 0.3rem;
-                      font-size: 1.1rem;
-                      margin-right: 5px;
-                    `} />{node.timeToRead} min
-                  </span>
-                  <p css={css`margin: 30px 0;`}>{node.frontmatter.teaser}</p>
-
-                  <Link css={css`
-                    ${linkReset};
-                    font-family: 'JetBrainsMono-Regular';
-                    text-transform: uppercase;
-                    font-size: 0.8rem;
-                    letter-spacing: 0.12rem;
-                    vertical-align: middle;
-                    &:hover {
-                      opacity: 0.8;
-                    }
-                  `} to={slug}>
-                    read
-                    <IconRightArrow css={css`
-                      margin: 0 5px 0 10px;
-                      font-size: 1rem;
-                      position: relative;
-                      top: 0.4rem;
-                    `}/>
-                  </Link>
-                </article>
+                  <PostPreview key={index} data={node} />
+                </div>
               </IntersectionObserver>
             )
           })}
