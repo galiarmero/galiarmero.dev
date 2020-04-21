@@ -2,12 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
-import dayjs from "dayjs"
 
 import Header from "../components/header"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
+import { formatDate } from "../utils"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 export default({ data }) => {
@@ -37,7 +37,7 @@ export default({ data }) => {
           font-size: 0.7rem;
         `}>
           <span css={css`margin-right: 15px;`}>
-            {dayjs(post.frontmatter.datePublished).format('DD MMMM YYYY')}
+            {formatDate(post.frontmatter.datePublished)}
           </span>
           <IconEyeglasses css={css`
             position: relative;

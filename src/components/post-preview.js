@@ -2,10 +2,10 @@ import React from "react"
 import { navigate, Link } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import dayjs from "dayjs"
 
 import { linkReset } from "../styles/GlobalStyles"
 import Heading from "../styles/Headings"
+import { formatDate } from "../utils"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
@@ -33,7 +33,7 @@ export default ({ key, data }) => {
         font-size: 0.7rem;
       `}>
         <span css={css`margin-right: 15px;`}>
-          {dayjs(data.frontmatter.datePublished).format('DD MMMM YYYY')}
+          {formatDate(data.frontmatter.datePublished)}
         </span>
         <IconEyeglasses css={css`
           position: relative;
@@ -49,7 +49,7 @@ export default ({ key, data }) => {
         font-family: 'JetBrainsMono-Regular';
         text-transform: uppercase;
         font-size: 0.8rem;
-        letter-spacing: 0.12rem;
+        letter-spacing: 0.05rem;
         vertical-align: middle;
         &:hover {
           opacity: 0.8;
@@ -57,7 +57,7 @@ export default ({ key, data }) => {
       `} to={slug}>
         read
         <IconRightArrow css={css`
-          margin: 0 5px 0 10px;
+          margin: 0 5px 0 7px;
           font-size: 1rem;
           position: relative;
           top: 0.4rem;
