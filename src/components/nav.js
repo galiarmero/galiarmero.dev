@@ -2,7 +2,39 @@ import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa"
+
+import { linkReset } from "../styles/GlobalStyles"
+
+const linkStyle = css`
+  color: var(--headingColor);
+  ${linkReset};
+  &:hover {
+    color: var(--accentColor);
+  }
+`
+
+const NavItem = (props) => (
+  <div css={css`
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    font-family: 'Gilroy-ExtraBold', sans-serif;
+  `}>
+    {props.isInternal
+      ? <Link to={props.link} onClick={props.onClick} css={linkStyle}>
+          {props.children}
+        </Link>
+      : <a href={props.link} onClick={props.onClick} css={linkStyle}>
+          {props.children}
+        </a>
+    }
+  </div>
+)
+
+const IconLink = styled.a`
+  font-size: 1.5rem;
+  ${linkStyle};
+`
 
 export default (props) => (
   <nav css={css`
@@ -52,33 +84,3 @@ export default (props) => (
     </div>
   </nav>
 )
-
-const NavItem = (props) => (
-  <div css={css`
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    font-family: 'Gilroy-ExtraBold', sans-serif;
-  `}>
-    {props.isInternal
-      ? <Link
-          to={props.link}
-          onClick={props.onClick}
-          css={css`
-            color: var(--headingColor);
-        `}>
-          {props.children}
-        </Link>
-      : <a href={props.link} onClick={props.onClick}
-            css={css`
-            color: var(--headingColor);
-        `}>
-          {props.children}
-        </a>
-    }
-  </div>
-)
-
-const IconLink = styled.a`
-  color: var(--headingColor);
-  font-size: 1.5rem;
-`

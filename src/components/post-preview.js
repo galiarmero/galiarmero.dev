@@ -24,7 +24,7 @@ export default ({ key, data }) => {
       <Heading onClick={() => navigate(slug)} css={css`
         cursor: pointer;
         &:hover {
-          opacity: 0.8;
+          color: var(--accentColor);
         }
       `}>
         {data.frontmatter.title}
@@ -52,7 +52,9 @@ export default ({ key, data }) => {
         letter-spacing: 0.05rem;
         vertical-align: middle;
         &:hover {
-          opacity: 0.8;
+          svg {
+            margin-left: 12px;
+          }
         }
       `} to={slug}>
         read
@@ -61,6 +63,7 @@ export default ({ key, data }) => {
           font-size: 1rem;
           position: relative;
           top: 0.4rem;
+          transition: 100ms ease-out;
         `}/>
       </Link>
     </PreviewBox>

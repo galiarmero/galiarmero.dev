@@ -4,7 +4,7 @@ import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
-    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&family=Source+Sans+Pro:wght@300;400&display=swap');
 
     @font-face {
       font-family: 'Gilroy-ExtraBold';
@@ -57,6 +57,7 @@ export default props => (
       background: var(--bgColor);
       color: var(--textColor);
       font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 300;
       font-size: 1.05rem;
       letter-spacing: 0.25px;
     }

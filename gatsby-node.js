@@ -14,6 +14,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     })
+
+    createNodeField({
+      name: 'editLink',
+      node,
+      value: `https://github.com/galiarmero/galiarmero.dev/edit/master${node.fileAbsolutePath.replace(
+        __dirname.replace(/\\/g, '/'),
+        ''
+      )}`,
+    })
   }
 }
 
