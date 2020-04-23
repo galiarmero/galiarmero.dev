@@ -90,8 +90,9 @@ export default({ data }) => {
                 url={url}
                 title={postTitle}
                 via={"galiarmero"}
+                css={css`margin-right: 12px;`}
               >
-                <FaTwitter css={css`margin-right: 12px;`} />
+                <FaTwitter />
               </TwitterShareButton>
 
               { /* TODO: Fix not working share button */}
@@ -100,8 +101,9 @@ export default({ data }) => {
                 title={postTitle}
                 summary={post.frontmatter.teaser}
                 source={"Gali Armero"}
+                css={css`margin-right: 12px;`}
               >
-                <FaLinkedin css={css`margin-right: 12px;`} />
+                <FaLinkedin />
               </LinkedinShareButton>
 
               <FacebookShareButton
