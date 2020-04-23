@@ -3,36 +3,18 @@ import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { Helmet } from "react-helmet"
-import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
-import {TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
 
 import Header from "../components/header"
+import Share from "../components/share"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
 import { formatDate } from "../utils"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
-const FooterBox = styled.div`
-  padding: 0.7rem 0;
-  display: flex;
-  flex-direction: column;
-  align-content: left;
-`
-
-const FooterBoxTitle = styled.span`
-  font-weight: 400;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
-`
-
 export default({ data }) => {
   const headerHeight = 75
   const post = data.markdownRemark
-
-  const url = `https://galiarmero.dev${post.fields.slug}`
-  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
   const postTitle = post.frontmatter.title
 
   return (
@@ -77,59 +59,12 @@ export default({ data }) => {
         >
         </div>
 
-        <div>
-          <FooterBox>
-            <FooterBoxTitle>
-              Share this post
-            </FooterBoxTitle>
-            <div css={css`
-              font-size: 1.5rem;
-              margin-top: 0.3rem;
-            `}>
-              <TwitterShareButton
-                url={url}
-                title={postTitle}
-                via={"galiarmero"}
-                css={css`margin-right: 12px;`}
-              >
-                <FaTwitter />
-              </TwitterShareButton>
-
-              { /* TODO: Fix not working share button */}
-              <LinkedinShareButton
-                url={url}
-                title={postTitle}
-                summary={post.frontmatter.teaser}
-                source={"Gali Armero"}
-                css={css`margin-right: 12px;`}
-              >
-                <FaLinkedin />
-              </LinkedinShareButton>
-
-              <FacebookShareButton
-                url={url}
-              >
-                <FaFacebookSquare />
-              </FacebookShareButton>
-            </div>
-          </FooterBox>
-
-          <hr />
-
-          <FooterBox>
-            <FooterBoxTitle>
-              Contribute to the discussion
-            </FooterBoxTitle>
-            <div css={css`
-              font-size: 0.9rem;
-              margin-top: 0.3rem;
-            `}>
-              <a target="_blank" href={discussUrl}>Discuss on Twitter</a>
-              &nbsp;&middot;&nbsp;
-              <a target="_blank" href={post.fields.editLink}>Edit on GitHub</a>
-            </div>
-          </FooterBox>
-        </div>
+        <Share
+          slug={post.fields.slug}
+          title={post.frontmatter.title}
+          teaser={post.frontmatter.teaser}
+          editUrl={post.fields.editUrl}
+        />
       </main>
     </div>
   )
@@ -147,7 +82,7 @@ export const query = graphql`
 
       fields {
         slug
-        editLink
+        editUrl
       }
 
       html

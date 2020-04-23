@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     createNodeField({
-      name: 'editLink',
+      name: 'editUrl',
       node,
       value: `https://github.com/galiarmero/galiarmero.dev/edit/master${node.fileAbsolutePath.replace(
         __dirname.replace(/\\/g, '/'),
