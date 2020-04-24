@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
 import { Helmet } from "react-helmet"
 
 import Header from "../components/header"
-import Share from "../components/share"
+import Engage from "../components/engage"
+import ArticleBio from "../components/article-bio"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
@@ -59,12 +59,16 @@ export default({ data }) => {
         >
         </div>
 
-        <Share
+        <Engage
           slug={post.fields.slug}
           title={post.frontmatter.title}
           teaser={post.frontmatter.teaser}
           editUrl={post.fields.editUrl}
         />
+
+        <div css={css`margin: 40px 0;`}>
+          <ArticleBio />
+        </div>
       </main>
     </div>
   )

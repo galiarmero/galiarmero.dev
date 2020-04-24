@@ -40,7 +40,7 @@ export default ({ key, data }) => {
           top: 0.3rem;
           font-size: 1.1rem;
           margin-right: 5px;
-        `} />{data.timeToRead} min
+        `} />{data.timeToRead} min read
       </span>
       <p css={css`margin: 30px 0;`}>{data.frontmatter.teaser}</p>
 

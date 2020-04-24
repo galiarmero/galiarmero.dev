@@ -5,7 +5,7 @@ import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
 import { TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
 
 const Box = styled.div`
-  padding: 0.7rem 0;
+  padding: 0.9rem 0 0.7rem;
   display: flex;
   flex-direction: column;
 `
@@ -29,7 +29,7 @@ export default ({ slug, title, teaser, editUrl }) => {
         <div css={css`
           font-size: 1.5rem;
           margin: 0.3rem 0;
-          line-height: 1;
+          line-height: 0.8;
         `}>
           <TwitterShareButton
             url={url}
@@ -58,8 +58,6 @@ export default ({ slug, title, teaser, editUrl }) => {
           </FacebookShareButton>
         </div>
       </Box>
-
-      <hr />
 
       <Box>
         <BoxLabel>Contribute to the discussion</BoxLabel>

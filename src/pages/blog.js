@@ -2,11 +2,11 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { css } from "@emotion/core"
 
-import GlobalStyles from "../styles/GlobalStyles"
 import Header from "../components/header"
+import ArticleBio from "../components/article-bio"
+import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
-import profilePic from "../../static/images/profile-pic.jpg"
 
 export default ({ data }) => {
   const headerHeight = 75
@@ -29,36 +29,7 @@ export default ({ data }) => {
         padding: 0 25px;
         overflow-x: hidden;
       `}>
-
-        <aside css={css`
-          display: flex;
-          align-items: center;
-          margin-bottom: 3.5rem;
-        `}>
-          <img
-            src={profilePic}
-            alt={`Gali Armero`}
-            css={css`
-              margin-right: 1rem;
-              width: 3.75rem;
-              height: 3.75rem;
-              border-radius: 50%;
-            `}
-          />
-
-          <span
-            css={css`
-              font-size: 0.9rem;
-              margin-bottom: 0;
-              line-height: 1.3;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-          `}>
-            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <a href="/">Gali Armero</a>.</p>
-            <p css={css`margin-bottom: 0;`}>Notebook of a tech bloke in perpetual search for answers.</p>
-          </span>
-        </aside>
+        <ArticleBio />
 
         <div css={css`
           display: flex;
@@ -84,6 +55,7 @@ export const query = graphql`
             datePublished
             title
           }
+          timeToRead
           fields {
             slug
           }
