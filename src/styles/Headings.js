@@ -8,6 +8,12 @@ export default styled.h1`
   letter-spacing: 0.08rem;
 `
 
+export const SubHeading = styled.h2`
+  font-size: 1.1rem;
+  letter-spacing: 0.08rem;
+  margin: 0;
+`
+
 export const SectionHeading = ({ hasNotAppeared, children }) => (
   <h1 css={css`
     font-size: 2rem;

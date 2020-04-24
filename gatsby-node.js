@@ -37,6 +37,9 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              title
+            }
           }
         }
       }
@@ -46,12 +49,16 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    result.data.allMarkdownRemark.edges.map(({ node }) => {
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.map(({ node }, index) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
-          slug: node.fields.slug
+          slug: node.fields.slug,
+          previousPost: index === 0 ? null : posts[index - 1].node,
+          nextPost: index === (posts.length - 1) ? null : posts[index + 1].node,
         },
       })
     })
