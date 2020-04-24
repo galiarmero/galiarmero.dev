@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 
 import Header from "../components/header"
 import Engage from "../components/engage"
-import ArticleBio from "../components/article-bio"
+import Bio from "../components/bio"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
@@ -67,7 +67,7 @@ export default({ data }) => {
         />
 
         <div css={css`margin: 40px 0;`}>
-          <ArticleBio />
+          <Bio />
         </div>
       </main>
     </div>

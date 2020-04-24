@@ -1,9 +1,10 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import { css } from "@emotion/core"
 
 import Header from "../components/header"
-import ArticleBio from "../components/article-bio"
+import Bio from "../components/bio"
 import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
@@ -25,11 +26,16 @@ export default ({ data }) => {
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
       <main css={css`
-        margin-top: ${headerHeight + 35}px;
+        margin-top: ${headerHeight}px;
         padding: 0 25px;
         overflow-x: hidden;
       `}>
-        <ArticleBio />
+        <div css={css`margin: 25px 0;`}>
+          <Bio>
+            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">Gali Armero</Link>.</p>
+            <p css={css`margin-bottom: 0;`}>Notebook of a tech bloke in perpetual search for answers.</p>
+          </Bio>
+        </div>
 
         <div css={css`
           display: flex;
