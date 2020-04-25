@@ -12,13 +12,12 @@ import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from '../styles/theme'
 
-import config from "../config/index.yml"
+import { indexConfig } from "../config/index.yml"
 
 // TODO: Remove usage of css here if possible
 import { css } from '@emotion/core'
 
 export default () => {
-  const indexConfig = config.index
   const headerHeight = 75
   const sections = ['hero', 'about', 'latestBlogPosts']
 

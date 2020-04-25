@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa"
 
 import { linkReset } from "../styles/GlobalStyles"
+import { socialMediaConfig } from "../config/social.yml"
 
 const linkStyle = css`
   color: var(--headingColor);
@@ -13,6 +14,13 @@ const linkStyle = css`
     color: var(--accentColor);
   }
 `
+
+const iconMappings = {
+  github: FaGithub,
+  linkedin: FaLinkedinIn,
+  twitter: FaTwitter,
+  instagram: FaInstagram,
+}
 
 const NavItem = (props) => (
   <div css={css`
@@ -31,10 +39,22 @@ const NavItem = (props) => (
   </div>
 )
 
-const IconLink = styled.a`
-  font-size: 1.5rem;
-  ${linkStyle};
-`
+const SocialLink = ({ icon, link, onClick }) => {
+  const Icon = iconMappings[icon]
+  return (
+    <a
+      css={css`
+        font-size: 1.5rem;
+        ${linkStyle};
+      `}
+      target="_blank"
+      href={link}
+      onClick={onClick}
+    >
+      <Icon />
+    </a>
+  )
+}
 
 export default (props) => (
   <nav css={css`
@@ -69,18 +89,13 @@ export default (props) => (
       display: flex;
       justify-content: space-around;
     `}>
-      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://github.com/galiarmero">
-        <FaGithub />
-      </IconLink>
-      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://www.linkedin.com/in/galileoarmero">
-        <FaLinkedinIn />
-      </IconLink>
-      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://twitter.com/galiarmero">
-        <FaTwitter />
-      </IconLink>
-      <IconLink onClick={props.onToggleMenu} target="_blank" href="https://www.instagram.com/galiarmero/">
-        <FaInstagram />
-      </IconLink>
+      {
+        socialMediaConfig.map(({ id, link }) => (
+          <SocialLink icon={id} link={link} onClick={props.onToggleMenu}>
+            <FaGithub />
+          </SocialLink>
+        ))
+      }
     </div>
   </nav>
 )

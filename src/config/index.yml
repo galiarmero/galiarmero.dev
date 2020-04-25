@@ -1,4 +1,4 @@
-index:
+indexConfig:
   greeting: Hi, I am
   name: Gali Armero
   tagline: I build things that simplify.
