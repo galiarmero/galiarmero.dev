@@ -64,3 +64,18 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+exports.onCreateWebpackConfig = ({
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.ya?ml$/,
+          use: 'yaml-loader'
+        },
+      ],
+    },
+  });
+}

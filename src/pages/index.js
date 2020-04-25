@@ -12,14 +12,13 @@ import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from '../styles/theme'
 
+import config from "../config/index.yml"
+
 // TODO: Remove usage of css here if possible
 import { css } from '@emotion/core'
 
-export default ({ data }) => {
-  const indexEdge = data.allContentYaml.edges.find(({ node }) => node.hasOwnProperty('index'))
-  if (indexEdge === -1)
-    console.error("Edge containing `index` not found in allContentYaml")
-  const index = indexEdge.node.index
+export default () => {
+  const indexConfig = config.index
   const headerHeight = 75
   const sections = ['hero', 'about', 'latestBlogPosts']
 
@@ -83,33 +82,13 @@ export default ({ data }) => {
         padding: 0 25px;
       `}>
         <Hero handleIntersection={handleIntersection}
-          greeting={index.greeting} name={index.name} tagline={index.tagline} />
+          greeting={indexConfig.greeting} name={indexConfig.name} tagline={indexConfig.tagline} />
         <About handleIntersection={handleIntersection}
-          intro={index.aboutIntro} techSkills={index.techSkills} more={index.aboutPersonal} />
+          intro={indexConfig.aboutIntro} techSkills={indexConfig.techSkills} more={indexConfig.aboutPersonal} />
         <LatestBlogPosts handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
-      <Footer onVisibilityChange={onFooterVisibilityChange} name={index.name} copyrightYear={index.copyrightYear} />
+      <Footer onVisibilityChange={onFooterVisibilityChange} name={indexConfig.name} copyrightYear={indexConfig.copyrightYear} />
     </div>
   )
 }
-
-export const query = graphql`
-  query {
-    allContentYaml {
-      edges {
-        node {
-          index {
-            greeting
-            name
-            tagline
-            aboutIntro
-            techSkills
-            aboutPersonal
-            copyrightYear
-          }
-        }
-      }
-    }
-  }
-`

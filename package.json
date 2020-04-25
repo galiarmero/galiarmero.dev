@@ -29,14 +29,14 @@
     "gatsby-remark-prismjs": "^3.3.3",
     "gatsby-source-filesystem": "^2.1.2",
     "gatsby-transformer-remark": "^2.6.0",
-    "gatsby-transformer-yaml": "^2.2.25",
     "prismjs": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
     "react-share": "^4.1.0",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
     "date-fns": "^1.30.1",
