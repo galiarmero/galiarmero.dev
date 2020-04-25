@@ -11,7 +11,7 @@ export default (props) => (
   `}>
     <img
       src={profilePic}
-      alt={`Gali Armero`}
+      alt={props.author}
       onClick={() => navigate("/")}
       css={css`
         margin: 0.2rem 1rem 0 0;

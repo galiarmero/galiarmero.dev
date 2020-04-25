@@ -1,13 +1,12 @@
 import React from "react"
-import { graphql, navigate } from "gatsby"
+import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
 import Header from "../components/header"
 import Engage from "../components/engage"
 import Bio from "../components/bio"
-import { SubHeading } from "../styles/Headings"
+import SuggestedPost from "../components/suggested-post"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
@@ -16,6 +15,7 @@ import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 export default({ data, pageContext }) => {
   const headerHeight = 75
+  const author = `Gali Armero`
   const post = data.markdownRemark
   const postTitle = post.frontmatter.title
   const {
@@ -28,7 +28,7 @@ export default({ data, pageContext }) => {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{postTitle} &middot; Gali Armero</title>
+        <title>{postTitle} &middot; { author }</title>
 
         <meta name="theme-color" content={colors.bg} />
         <meta name="msapplication-navbutton-color" content={colors.bg} />
@@ -74,48 +74,24 @@ export default({ data, pageContext }) => {
         />
 
         <div css={css`margin: 40px 0;`}>
-          <Bio />
+          <Bio author={author} />
         </div>
 
         {
           previousPost &&
-          <aside css={css`
-            display: flex;
-            flex-direction: column;
-            margin: 20px 0;
-          `}>
-            <span>
-              <FaArrowLeft css={css`color: var(--accentColor);`}/>
-            </span>
-            <SubHeading onClick={() => navigate(previousPost.fields.slug)} css={css`
-              cursor: pointer;
-              &:hover {
-                color: var(--accentColor);
-              }
-            `}>
-              {previousPost.frontmatter.title}
-            </SubHeading>
-          </aside>
+          <SuggestedPost
+            isPrevious={true}
+            slug={previousPost.fields.slug}
+            title={previousPost.frontmatter.title}
+          />
         }
 
         {
           nextPost &&
-          <aside css={css`
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            margin: 20px 0;
-          `}>
-            <span><FaArrowRight css={css`color: var(--accentColor);`}/></span>
-            <SubHeading onClick={() => navigate(nextPost.fields.slug)} css={css`
-              cursor: pointer;
-              &:hover {
-                color: var(--accentColor);
-              }
-            `}>
-              {nextPost.frontmatter.title}
-            </SubHeading>
-          </aside>
+          <SuggestedPost
+            slug={nextPost.fields.slug}
+            title={nextPost.frontmatter.title}
+          />
         }
       </main>
     </div>

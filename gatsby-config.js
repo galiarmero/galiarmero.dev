@@ -1,7 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: `Gali Armero`,
-  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
