@@ -12,7 +12,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from '../styles/theme'
 
-import { indexConfig } from "../config/index.yml"
+import { indexMeta } from "../config/site-meta.yml"
 
 // TODO: Remove usage of css here if possible
 import { css } from '@emotion/core'
@@ -81,13 +81,13 @@ export default () => {
         padding: 0 25px;
       `}>
         <Hero handleIntersection={handleIntersection}
-          greeting={indexConfig.greeting} name={indexConfig.name} tagline={indexConfig.tagline} />
+          greeting={indexMeta.greeting} name={indexMeta.name} tagline={indexMeta.tagline} />
         <About handleIntersection={handleIntersection}
-          intro={indexConfig.aboutIntro} techSkills={indexConfig.techSkills} more={indexConfig.aboutPersonal} />
+          intro={indexMeta.aboutIntro} techSkills={indexMeta.techSkills} more={indexMeta.aboutPersonal} />
         <LatestBlogPosts handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
       </main>
-      <Footer onVisibilityChange={onFooterVisibilityChange} name={indexConfig.name} copyrightYear={indexConfig.copyrightYear} />
+      <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-indexConfig:
+indexMeta:
   greeting: Hi, I am
   name: Gali Armero
   tagline: I build things that simplify.
@@ -33,3 +33,21 @@ indexConfig:
 
     I also write about my learnings, insights and experiences in my <a href="./blog">blog</a>.
   copyrightYear: 2020
+menuOptions:
+  - title: About
+    link: '#about'
+  - title: Blog
+    link: '/blog'
+    isInternal: true
+  - title: Contact
+    link: '#contact'
+socialMediaMeta:
+  - id: github
+    link: https://github.com/galiarmero
+  - id: linkedin
+    link: https://www.linkedin.com/in/galileoarmero
+  - id: twitter
+    link: https://twitter.com/galiarmero
+  - id: instagram
+    link: https://www.instagram.com/galiarmero/
+

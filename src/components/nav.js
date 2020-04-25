@@ -1,11 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
 import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa"
 
 import { linkReset } from "../styles/GlobalStyles"
-import { socialMediaConfig } from "../config/social.yml"
+import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
 
 const linkStyle = css`
   color: var(--headingColor);
@@ -74,9 +73,11 @@ export default (props) => (
     justify-content: center;
     align-items: center;
   `}>
-    <NavItem link="#about" onClick={props.onToggleMenu}>About</NavItem>
-    <NavItem link="/blog" isInternal={true}>Blog</NavItem>
-    <NavItem link="#contact" onClick={props.onToggleMenu}>Contact</NavItem>
+    {
+      menuOptions.map(({ title, link, isInternal }) => (
+        <NavItem link={link} isInternal={isInternal} onClick={props.onToggleMenu}>{title}</NavItem>
+      ))
+    }
     <div css={css`
       width: 20%;
       height: 3px;
@@ -90,7 +91,7 @@ export default (props) => (
       justify-content: space-around;
     `}>
       {
-        socialMediaConfig.map(({ id, link }) => (
+        socialMediaMeta.map(({ id, link }) => (
           <SocialLink icon={id} link={link} onClick={props.onToggleMenu}>
             <FaGithub />
           </SocialLink>
