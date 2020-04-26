@@ -27,7 +27,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
 
   return (
     <IntersectionObserver {...sectionObserverOpts}>
-      <Section padding="50px 0 100px">
+      <Section id="about">
         <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>

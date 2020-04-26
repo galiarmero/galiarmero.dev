@@ -63,13 +63,16 @@ export default (props) => {
 
   return (
     <IntersectionObserver {...options}>
-      <section css={css`
-        min-height: 140vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        padding-top: 25vh;
-      `}>
+      <section
+        id="hero"
+        css={css`
+          min-height: 140vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          padding-top: 25vh;
+        `}
+      >
         <TransitionGroup component="div">
           { isMounted &&
             items.map((item, i) => (

@@ -33,7 +33,14 @@ export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSecti
       `}>
         {
           sections.map((s, i) => (
-            <Marker key={i} height={ isMounted ? ((visibleSection === s ? activeMarkerHeight : markerHeight) + unit) : `0px` } />
+            <Marker
+              key={i}
+              href={s}
+              height={ isMounted
+                        ? ((visibleSection === s ? activeMarkerHeight : markerHeight) + unit)
+                        : `0px`
+              }
+            />
           ))
         }
       </ul>
@@ -41,25 +48,30 @@ export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSecti
   )
 }
 
-const Marker = ({ height, children }) => (
-  <li css={css`
-    display: block;
-    position: relative;
-    padding: 0 10px 0;
-    height: auto;
-    list-style-type: none;
-  `}>
-    <a css={css`
+const Marker = ({ href, height, children }) => (
+  <li
+    css={css`
       display: block;
       position: relative;
-      height: ${height};
-      width: 1.5px;
-      background: var(--headingColor);
-      transition: .3s;
-      z-index: 1;
-      cursor: pointer;
-      text-decoration: none;
-    `}>
+      padding: 0 12px 0;
+      height: auto;
+      list-style-type: none;
+    `}
+  >
+    <a
+      href={`#${href}`}
+      css={css`
+        display: block;
+        position: relative;
+        height: ${height};
+        width: 1.5px;
+        background: var(--headingColor);
+        transition: .3s;
+        z-index: 1;
+        cursor: pointer;
+        text-decoration: none;
+      `}
+    >
       {children}
     </a>
   </li>

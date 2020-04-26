@@ -60,7 +60,7 @@ export default ({ handleIntersection }) => {
 
   return (
     <IntersectionObserver {...sectionObserverOpts}>
-      <Section>
+      <Section id="latestBlogPosts">
         <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>Latest Blog Posts</SectionHeading>
