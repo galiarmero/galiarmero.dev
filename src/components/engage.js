@@ -4,6 +4,8 @@ import styled from "@emotion/styled"
 import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
 import { TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
 
+import { indexMeta, socialMediaMeta } from "../config/site-meta.yml"
+
 const Box = styled.div`
   padding: 0.9rem 0 0.7rem;
   display: flex;
@@ -18,7 +20,7 @@ const BoxLabel = styled.span`
 
 export default ({ slug, title, teaser, editUrl }) => {
 
-  const url = `https://galiarmero.dev${slug}`
+  const url = `${indexMeta.siteUrl}${slug}`
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
 
   return (
@@ -34,7 +36,7 @@ export default ({ slug, title, teaser, editUrl }) => {
           <TwitterShareButton
             url={url}
             title={title}
-            via={"galiarmero"}
+            via={socialMediaMeta.find(({ id }) => id === `twitter`).username}
             css={css`margin-right: 12px;`}
           >
             <FaTwitter />
@@ -45,7 +47,7 @@ export default ({ slug, title, teaser, editUrl }) => {
             url={url}
             title={title}
             summary={teaser}
-            source={"Gali Armero"}
+            source={indexMeta.name}
             css={css`margin-right: 12px;`}
           >
             <FaLinkedin />

@@ -33,6 +33,7 @@ indexMeta:
 
     I also write about my learnings, insights and experiences in my <a href="./blog">blog</a>.
   copyrightYear: 2020
+  siteUrl: https://galiarmero.dev
 menuOptions:
   - title: About
     link: '#about'
@@ -48,6 +49,7 @@ socialMediaMeta:
     link: https://www.linkedin.com/in/galileoarmero
   - id: twitter
     link: https://twitter.com/galiarmero
+    username: galiarmero
   - id: instagram
     link: https://www.instagram.com/galiarmero/
 

@@ -67,7 +67,7 @@ export default () => {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Gali Armero &middot; Full Stack Software Engineer</title>
+        <title>{indexMeta.name} &middot; Full Stack Software Engineer</title>
 
         <meta name="theme-color" content={colors.bg} />
         <meta name="msapplication-navbutton-color" content={colors.bg} />

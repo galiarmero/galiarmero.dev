@@ -13,9 +13,11 @@ import { colors } from "../styles/theme"
 import { formatDate } from "../utils"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
+import { indexMeta } from "../config/site-meta.yml"
+
 export default({ data, pageContext }) => {
   const headerHeight = 75
-  const author = `Gali Armero`
+  const author = indexMeta.name
   const post = data.markdownRemark
   const postTitle = post.frontmatter.title
   const {

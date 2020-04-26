@@ -9,14 +9,17 @@ import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
 
+import { indexMeta } from "../config/site-meta.yml"
+
 export default ({ data }) => {
+  const author = indexMeta.name
   const headerHeight = 75
   const posts = data.allMarkdownRemark.edges
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Blog &middot; Gali Armero</title>
+        <title>Blog &middot; {author}</title>
 
         <meta name="theme-color" content={colors.bg} />
         <meta name="msapplication-navbutton-color" content={colors.bg} />
@@ -32,7 +35,7 @@ export default ({ data }) => {
       `}>
         <div css={css`margin: 25px 0;`}>
           <Bio>
-            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">Gali Armero</Link>.</p>
+            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">{author}</Link>.</p>
             <p css={css`margin-bottom: 0;`}>Notebook of a tech bloke in perpetual search for answers.</p>
           </Bio>
         </div>

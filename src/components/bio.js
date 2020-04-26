@@ -34,7 +34,7 @@ export default (props) => (
       { props.children
         ? props.children
         : <p css={css`margin-bottom: 0;`}>
-            <Link to="/">Gali Armero</Link> is a full stack software engineer from the Philippines.
+            <Link to="/">{props.author}</Link> is a full stack software engineer from the Philippines.
             He is amused by elegant software solutions, new places, ugly delicious food, and the sound of a basketball swishing in a hoop.
           </p>
       }
