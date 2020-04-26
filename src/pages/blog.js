@@ -5,6 +5,7 @@ import { css } from "@emotion/core"
 
 import Header from "../components/header"
 import Bio from "../components/bio"
+import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
@@ -28,11 +29,7 @@ export default ({ data }) => {
       </Helmet>
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
-      <main css={css`
-        margin-top: ${headerHeight}px;
-        padding: 0 25px;
-        overflow-x: hidden;
-      `}>
+      <Main marginTop={`${headerHeight}px`}>
         <div css={css`margin: 25px 0;`}>
           <Bio>
             <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">{author}</Link>.</p>
@@ -49,7 +46,7 @@ export default ({ data }) => {
             posts.map(({ node }, index) => <PostPreview key={index} data={node} />)
           }
         </div>
-      </main>
+      </Main>
     </div>
   )
 }

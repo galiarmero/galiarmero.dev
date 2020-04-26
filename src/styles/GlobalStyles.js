@@ -97,7 +97,7 @@ export default props => (
         left: 0;
         right: 0;
         width: 100%;
-        height: 1px;
+        height: 0.7px;
         transform: scaleX(0);
         background-color: var(--accentColor);
         transform-origin: bottom right;

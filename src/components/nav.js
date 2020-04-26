@@ -47,6 +47,7 @@ const SocialLink = ({ icon, link, onClick }) => {
         ${linkStyle};
       `}
       target="_blank"
+      rel="noopener noreferrer"
       href={link}
       onClick={onClick}
     >

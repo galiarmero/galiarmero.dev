@@ -4,14 +4,14 @@ import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
 
 import Header from "../components/header"
+import PostDetails from "../components/post-details"
 import Engage from "../components/engage"
 import Bio from "../components/bio"
 import SuggestedPost from "../components/suggested-post"
+import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
-import { formatDate } from "../utils"
-import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 import { indexMeta } from "../config/site-meta.yml"
 
@@ -40,25 +40,12 @@ export default({ data, pageContext }) => {
       <GlobalStyles />
       <BlogStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
-      <main css={css`
-        margin-top: ${headerHeight + 35}px;
-        padding: 0 25px;
-        overflow-x: hidden;
-      `}>
+      <Main marginTop={`${headerHeight + 35}px`}>
         <h1>{post.frontmatter.title}</h1>
-        <span css={css`
-          font-size: 0.7rem;
-        `}>
-          <span css={css`margin-right: 15px;`}>
-            {formatDate(post.frontmatter.datePublished)}
-          </span>
-          <IconEyeglasses css={css`
-            position: relative;
-            top: 0.3rem;
-            font-size: 1.1rem;
-            margin-right: 5px;
-          `} />{post.timeToRead} min
-        </span>
+        <PostDetails
+          datePublished={post.frontmatter.datePublished}
+          timeToRead={post.timeToRead}
+        />
 
         <div
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -95,7 +82,7 @@ export default({ data, pageContext }) => {
             title={nextPost.frontmatter.title}
           />
         }
-      </main>
+      </Main>
     </div>
   )
 }

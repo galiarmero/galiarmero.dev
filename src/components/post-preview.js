@@ -3,10 +3,9 @@ import { navigate, Link } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
+import PostDetails from "../components/post-details"
 import { linkReset } from "../styles/GlobalStyles"
 import Heading from "../styles/Headings"
-import { formatDate } from "../utils"
-import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 const PreviewBox = styled.article`
@@ -29,19 +28,10 @@ export default ({ key, data }) => {
       `}>
         {data.frontmatter.title}
       </Heading>
-      <span css={css`
-        font-size: 0.7rem;
-      `}>
-        <span css={css`margin-right: 15px;`}>
-          {formatDate(data.frontmatter.datePublished)}
-        </span>
-        <IconEyeglasses css={css`
-          position: relative;
-          top: 0.3rem;
-          font-size: 1.1rem;
-          margin-right: 5px;
-        `} />{data.timeToRead} min read
-      </span>
+      <PostDetails
+        datePublished={data.frontmatter.datePublished}
+        timeToRead={data.timeToRead}
+      />
       <p css={css`margin: 30px 0;`}>{data.frontmatter.teaser}</p>
 
       <Link css={css`

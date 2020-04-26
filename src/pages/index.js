@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
 import Header from "../components/header"
@@ -8,14 +7,11 @@ import About from "../components/about"
 import LatestBlogPosts from "../components/latest-blog-posts"
 import SectionMarkers from "../components/section-markers"
 import Footer from "../components/footer"
+import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from '../styles/theme'
-
 import { indexMeta } from "../config/site-meta.yml"
-
-// TODO: Remove usage of css here if possible
-import { css } from '@emotion/core'
 
 export default () => {
   const headerHeight = 75
@@ -77,16 +73,14 @@ export default () => {
       <GlobalStyles />
       <TransitionStyles />
       <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
-      <main css={css`
-        padding: 0 25px;
-      `}>
+      <Main>
         <Hero handleIntersection={handleIntersection}
           greeting={indexMeta.greeting} name={indexMeta.name} tagline={indexMeta.tagline} />
         <About handleIntersection={handleIntersection}
           intro={indexMeta.aboutIntro} techSkills={indexMeta.techSkills} more={indexMeta.aboutPersonal} />
         <LatestBlogPosts handleIntersection={handleIntersection} />
         <SectionMarkers {...sectionMarkerProps} />
-      </main>
+      </Main>
       <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />
     </div>
   )
