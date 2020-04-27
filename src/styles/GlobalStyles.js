@@ -45,6 +45,7 @@ export default props => (
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};
       --subtleLineColor: ${colors.subtleLine};
+      scroll-behavior: smooth;
     }
 
     * {
@@ -60,7 +61,6 @@ export default props => (
       font-weight: 300;
       font-size: 1.05rem;
       letter-spacing: 0.25px;
-      scroll-behavior: smooth;
     }
 
     html {
