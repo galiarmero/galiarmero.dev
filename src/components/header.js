@@ -6,6 +6,7 @@ import { throttle } from "../utils"
 import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
 import StandBurger from './stand-burger'
+import SliderBurger from './slider-burger'
 
 export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix }) => {
   const DELTA = 5
@@ -69,9 +70,9 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
           </h1>
         </div>
         {/* <SimpleBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
-        {/* <SpringBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
+        {/* <SpringBurgerStandBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
         { hasMenu &&
-          <StandBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} />
+          <SliderBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} />
         }
       </div>
 
