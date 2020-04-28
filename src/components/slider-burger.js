@@ -3,21 +3,21 @@ import { css } from "@emotion/core"
 
 export default ({ onToggleMenu, isMenuOpen }) => (
   <button className="hamburger" type="button" onClick={onToggleMenu} css={css`
-    font: inherit;
-    display: flex;
-    overflow: visible;
+    padding: 12px 12px;
+    display: inline-block;
     cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
     transition-timing-function: linear;
-    transition-duration: .15s;
-    transition-property: opacity,filter;
-    text-transform: none;
+    font: inherit;
     color: inherit;
-    border: 0;
+    text-transform: none;
     background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+
     z-index: 5;
-    width: 42px;
-    height: 42px;
-    padding: 9px 5px;
 
     &:focus,
     &:active {
@@ -25,75 +25,79 @@ export default ({ onToggleMenu, isMenuOpen }) => (
     }
   `}>
     <span className="hamburger-box" css={css`
-      position: relative;
-      display: inline-block;
       width: 32px;
-      height: 24px;
+      height: 18px;
+      display: inline-block;
+      position: relative;
     `}>
       <span className="hamburger-inner" css={css`
-        position: absolute;
-        width: ${isMenuOpen ? `32px` : `20px`};
+        display: block;
+        top: 50%;
+        margin-top: -1px;
+
+        width: 32px;
         height: 2px;
-        transition-timing-function: ease;
-        transition-duration: .15s;
-        transition-property: transform;
-        border-radius: 4px;
         background-color: #fff;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
 
         top: 1px;
 
-        display: block;
-        margin-top: -2px;
-
         transform: ${isMenuOpen
-                      ? `translate3d(0,10px,0) rotate(45deg)`
+                      ? `translate3d(0, 8px, 0) rotate(45deg)`
                       : `none`};
 
         &:before {
-          top: 11px;
-          transition-timing-function: ease;
-          transition-duration: .15s;
-          transition-property: transform,opacity;
-
-          display: block;
-          content: "";
-
-          position: absolute;
           width: 32px;
           height: 2px;
-          transition-timing-function: ease;
-          transition-duration: .15s;
-          transition-property: transform;
-          border-radius: 4px;
           background-color: #fff;
+          border-radius: 4px;
+          position: absolute;
+          transition-property: transform;
+          transition-duration: 0.15s;
+          transition-timing-function: ease;
+
+          content: "";
+          display: block;
+
+          top: -8px;
+
+          top: 8px;
+          transition-property: transform, opacity;
+          transition-timing-function: ease;
+          transition-duration: 0.15s;
 
           transform: ${isMenuOpen
-                        ? `rotate(-45deg) translate3d(-5.71429px,-6px,0)`
-                        : `none`};
+            ? `rotate(-45deg) translate3d(-4.57143px, -6px, 0)`
+            : `none`};
           opacity: ${isMenuOpen
                       ? `0`
                       : `1`};
         }
 
         &:after {
-          top: 21px;
-
-          display: block;
-          content: "";
-
-          position: absolute;
-          width: ${isMenuOpen ? `32px` : `20px`};
+          width: 32px;
           height: 2px;
-          transition-timing-function: ease;
-          transition-duration: .15s;
-          transition-property: transform;
-          border-radius: 4px;
           background-color: #fff;
+          border-radius: 4px;
+          position: absolute;
+          transition-property: transform;
+          transition-duration: 0.15s;
+          transition-timing-function: ease;
+
+          content: "";
+          display: block;
+
+          bottom: -8px;
+
+          top: 16px;
 
           transform: ${isMenuOpen
-                        ? `translate3d(0,-20px,0) rotate(-90deg)`
-                        : `none`};
-          right: ${isMenuOpen ? `none` : `0`};
+            ? `translate3d(0, -16px, 0) rotate(-90deg)`
+            : `none`};
         }
       `}>
 
