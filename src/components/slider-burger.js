@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 export default ({ onToggleMenu, isMenuOpen }) => (
   <button className="hamburger" type="button" onClick={onToggleMenu} css={css`
-    padding: 12px 12px;
+    padding: 8px 5px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
@@ -26,9 +26,10 @@ export default ({ onToggleMenu, isMenuOpen }) => (
   `}>
     <span className="hamburger-box" css={css`
       width: 32px;
-      height: 18px;
+      height: 20px;
       display: inline-block;
       position: relative;
+      margin-top: 7px;
     `}>
       <span className="hamburger-inner" css={css`
         display: block;
@@ -47,7 +48,7 @@ export default ({ onToggleMenu, isMenuOpen }) => (
         top: 1px;
 
         transform: ${isMenuOpen
-                      ? `translate3d(0, 8px, 0) rotate(45deg)`
+                      ? `translate3d(0, 9px, 0) rotate(45deg)`
                       : `none`};
 
         &:before {
@@ -63,15 +64,15 @@ export default ({ onToggleMenu, isMenuOpen }) => (
           content: "";
           display: block;
 
-          top: -8px;
+          top: -9px;
 
-          top: 8px;
+          top: 9px;
           transition-property: transform, opacity;
           transition-timing-function: ease;
           transition-duration: 0.15s;
 
           transform: ${isMenuOpen
-            ? `rotate(-45deg) translate3d(-4.57143px, -6px, 0)`
+            ? `rotate(-45deg) translate3d(-4.57143px, -7px, 0)`
             : `none`};
           opacity: ${isMenuOpen
                       ? `0`
@@ -91,12 +92,12 @@ export default ({ onToggleMenu, isMenuOpen }) => (
           content: "";
           display: block;
 
-          bottom: -8px;
+          bottom: -9px;
 
-          top: 16px;
+          top: 18px;
 
           transform: ${isMenuOpen
-            ? `translate3d(0, -16px, 0) rotate(-90deg)`
+            ? `translate3d(0, -18px, 0) rotate(-90deg)`
             : `none`};
         }
       `}>
