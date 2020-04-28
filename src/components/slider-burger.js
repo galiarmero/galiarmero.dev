@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 export default ({ onToggleMenu, isMenuOpen }) => (
   <button className="hamburger" type="button" onClick={onToggleMenu} css={css`
-    padding: 8px 5px;
+    padding: 6px 6px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
