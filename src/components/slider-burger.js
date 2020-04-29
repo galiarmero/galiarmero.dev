@@ -49,7 +49,8 @@ export default ({ onToggleMenu, isMenuOpen }) => (
         top: calc(${hamburgerLayerHeight} / 2);
         transform: ${isMenuOpen
                       ? `translate3d(0, ${yOffset}, 0) rotate(-45deg)`
-                      : `none`};
+                      : `none`
+                    };
 
         &,
         &::before,
@@ -59,9 +60,17 @@ export default ({ onToggleMenu, isMenuOpen }) => (
           background-color: ${hamburgerLayerColor};
           border-radius: ${hamburgerLayerBorderRadius};
           position: absolute;
-          transition-property: transform;
-          transition-duration: 0.15s;
+          transition-property: transform, width, opacity;
+          transition-duration: 0.2s;
           transition-timing-function: ease;
+        }
+
+        &,
+        &::after {
+          width: ${isMenuOpen
+                    ? `${hamburgerLayerWidth}`
+                    : `calc(${hamburgerLayerWidth} * 0.6)`
+                  };
         }
 
         &::before,
@@ -80,26 +89,30 @@ export default ({ onToggleMenu, isMenuOpen }) => (
           transition-duration: 0.15s;
           transform: ${isMenuOpen
                         ? `rotate(-45deg) translate3d(calc(${hamburgerLayerWidth} / 7), calc(${hamburgerLayerSpacing} * -1), 0)`
-                        : `none`};
+                        : `none`
+                      };
           opacity: ${isMenuOpen
                       ? `0`
-                      : `1`};
+                      : `1`
+                    };
         }
 
         &:after {
           bottom: calc((${hamburgerLayerSpacing} + ${hamburgerLayerHeight}) * -1);
+          left: ${isMenuOpen
+                    ? `none`
+                    : `calc(${hamburgerLayerWidth} * 0.4)`
+                  };
 
           // Slider-r
           top: calc((${hamburgerLayerHeight} * 2) + (${hamburgerLayerSpacing} * 2));
           transform: ${isMenuOpen
-            ? `translate3d(0, calc(${yOffset} * -2), 0) rotate(-90deg)`
-            : `none`};
+                        ? `translate3d(0, calc(${yOffset} * -2), 0) rotate(-90deg)`
+                        : `none`
+                      };
         }
       `}>
-
       </span>
     </span>
-
-
   </button>
 )
