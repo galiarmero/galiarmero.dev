@@ -23,7 +23,7 @@ export default (props) => {
         margin-top: 90px;
       `}>
         <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
-        <span><a href="https://github.com/galiarmero/.dev">Crafted with &lt;3 by {props.name}</a></span>
+        <span>Crafted with &lt;3 by <a href="https://github.com/galiarmero/galiarmero.dev">{props.name}</a></span>
         <span>&copy; {props.copyrightYear}</span>
       </footer>
     </IntersectionObserver>

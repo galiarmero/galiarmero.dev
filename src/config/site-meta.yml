@@ -47,6 +47,8 @@ socialMediaMeta:
     link: https://github.com/galiarmero
   - id: linkedin
     link: https://www.linkedin.com/in/galileoarmero
+  - id: stackoverflow
+    link: https://stackoverflow.com/users/8712967/galiarmero
   - id: twitter
     link: https://twitter.com/galiarmero
     username: galiarmero

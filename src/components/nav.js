@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
-import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa"
+import { FaGithub, FaLinkedinIn, FaStackOverflow, FaTwitter, FaInstagram } from "react-icons/fa"
 
 import { linkReset } from "../styles/GlobalStyles"
 import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
@@ -17,6 +17,7 @@ const linkStyle = css`
 const iconMappings = {
   github: FaGithub,
   linkedin: FaLinkedinIn,
+  stackoverflow: FaStackOverflow,
   twitter: FaTwitter,
   instagram: FaInstagram,
 }
@@ -86,10 +87,17 @@ export default (props) => (
       margin: 1.4rem 0;
     `} />
     <div css={css`
-      margin: 1.5rem 0 0.5rem 0;
+      margin: .5rem 0 0.5rem 0;
       width: 70%;
       display: flex;
-      justify-content: space-around;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      a {
+        flex-basis: 33.33333%;
+        text-align: center;
+        margin-top: 1rem;
+      }
     `}>
       {
         socialMediaMeta.map(({ id, link }) => (
