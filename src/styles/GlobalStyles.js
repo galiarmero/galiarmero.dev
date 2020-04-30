@@ -40,6 +40,7 @@ export default props => (
       --bgColor: ${colors.bg};
       --lighterBgColor: ${colors.lighterBg};
       --darkerBgColor: ${colors.darkerBg};
+      --selectBgColor: ${colors.selectBg};
       --textColor: ${colors.text};
       --headingColor: ${colors.heading};
       --accentColor: ${colors.accent};
@@ -65,6 +66,11 @@ export default props => (
 
     html {
       line-height: 1.6;
+    }
+
+    ::selection {
+      background-color: var(--selectBgColor);
+      color: var(--textColor);
     }
 
     h1,
