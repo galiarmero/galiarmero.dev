@@ -62,23 +62,30 @@ export default ({ location }) => {
     }
   }
 
-  return isLoading
-    ? <Loader finishLoading={() => setIsLoading(false)} />
-    : (
-      <div>
-        <Helmet title={`${indexMeta.name} · Full Stack Software Engineer`} />
-        <GlobalStyles />
-        <TransitionStyles />
-        <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
-        <Main>
-          <Hero handleIntersection={handleIntersection}
-            greeting={indexMeta.greeting} name={indexMeta.name} tagline={indexMeta.tagline} />
-          <About handleIntersection={handleIntersection}
-            intro={indexMeta.aboutIntro} techSkills={indexMeta.techSkills} more={indexMeta.aboutPersonal} />
-          <LatestBlogPosts handleIntersection={handleIntersection} />
-          <SectionMarkers {...sectionMarkerProps} />
-        </Main>
-        <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />
-      </div>
-    )
+  return (
+    <div>
+      <Helmet title={`${indexMeta.name} · Full Stack Software Engineer`} />
+      <GlobalStyles />
+      <TransitionStyles />
+
+      {
+        isLoading
+        ? <Loader finishLoading={() => setIsLoading(false)} />
+        : (
+          <div>
+            <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />
+            <Main>
+              <Hero handleIntersection={handleIntersection}
+                greeting={indexMeta.greeting} name={indexMeta.name} tagline={indexMeta.tagline} />
+              <About handleIntersection={handleIntersection}
+                intro={indexMeta.aboutIntro} techSkills={indexMeta.techSkills} more={indexMeta.aboutPersonal} />
+              <LatestBlogPosts handleIntersection={handleIntersection} />
+              <SectionMarkers {...sectionMarkerProps} />
+            </Main>
+            <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />
+          </div>
+        )
+      }
+    </div>
+  )
 }

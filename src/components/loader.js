@@ -2,8 +2,6 @@ import React, { useEffect } from "react"
 import { Global, css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-import { colors } from '../styles/theme'
-
 const LoaderStyle = () => (
   <Global
     styles={css`
@@ -32,7 +30,7 @@ const VerticallyCenteredBox = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  background: ${colors.lighterBg};
+  background: var(--lighterBgColor);
 
   * {
     transition: all 0.3s;
@@ -52,7 +50,7 @@ const VerticallyCenteredContent = styled.div`
   display: inline-block;
   vertical-align: middle;
   text-align: left;
-  font-size: 0;
+  //font-size: 0;
 `
 
 const LoaderCircle = styled.div`
