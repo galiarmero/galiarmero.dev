@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
-import { Helmet } from "react-helmet"
 
+import Helmet from "../components/helmet"
 import Header from "../components/header"
 import PostDetails from "../components/post-details"
 import Engage from "../components/engage"
@@ -28,15 +28,7 @@ export default({ data, pageContext }) => {
 
   return (
     <div>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{postTitle} &middot; { author }</title>
-
-        <meta name="theme-color" content={colors.bg} />
-        <meta name="msapplication-navbutton-color" content={colors.bg} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      </Helmet>
+      <Helmet title={`${postTitle} · ${author}`} />
       <GlobalStyles />
       <BlogStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />

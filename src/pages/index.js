@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Helmet } from "react-helmet"
 
+import Helmet from "../components/helmet"
 import Header from "../components/header"
 import Hero from "../components/hero"
 import About from "../components/about"
@@ -10,10 +10,11 @@ import Footer from "../components/footer"
 import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
-import { colors } from '../styles/theme'
+import { colors } from "../styles/theme"
 import { indexMeta } from "../config/site-meta.yml"
 
-export default () => {
+export default ({ location }) => {
+  console.log(location)
   const headerHeight = 75
   const sections = ['hero', 'about', 'latestBlogPosts']
 
@@ -61,15 +62,7 @@ export default () => {
 
   return (
     <div>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{indexMeta.name} &middot; Full Stack Software Engineer</title>
-
-        <meta name="theme-color" content={colors.bg} />
-        <meta name="msapplication-navbutton-color" content={colors.bg} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      </Helmet>
+      <Helmet title={`${indexMeta.name} · Full Stack Software Engineer`} />
       <GlobalStyles />
       <TransitionStyles />
       <Header height={headerHeight} isSticky={true} hasMenu={true} isMenuOpen={isMenuOpen} onToggleMenu={() => toggleMenu(!isMenuOpen)} navBackground={colors.lighterBg} />

@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
 import { css } from "@emotion/core"
 
+import Helmet from "../components/helmet"
 import Header from "../components/header"
 import Bio from "../components/bio"
 import { Main } from "../styles/Containers"
@@ -18,15 +18,7 @@ export default ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <div>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Blog &middot; {author}</title>
-
-        <meta name="theme-color" content={colors.bg} />
-        <meta name="msapplication-navbutton-color" content={colors.bg} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      </Helmet>
+      <Helmet title={`Blog · ${author}`} />
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
       <Main marginTop={`${headerHeight}px`}>
