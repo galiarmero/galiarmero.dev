@@ -5,7 +5,7 @@ export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSecti
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 2500);
+    const timeout = setTimeout(() => setIsMounted(true), 1200);
     return () => clearTimeout(timeout);
   }, []);
 

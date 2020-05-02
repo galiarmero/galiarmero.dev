@@ -10,7 +10,7 @@ export default (props) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 1500);
+    const timeout = setTimeout(() => setIsMounted(true), 200);
     return () => clearTimeout(timeout);
   }, []);
 
