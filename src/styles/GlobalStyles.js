@@ -4,36 +4,61 @@ import { colors } from './theme'
 
 export default props => (
   <Global styles={css`
-    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&family=Source+Sans+Pro:wght@300;400&display=swap');
-
     @font-face {
       font-family: 'Gilroy-ExtraBold';
       src: url('/fonts/Gilroy-ExtraBold.woff2') format('woff2'),
             url('/fonts/Gilroy-ExtraBold.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Gilroy-Light';
       src: url('/fonts/Gilroy-Light.woff2') format('woff2'),
             url('/fonts/Gilroy-Light.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'JetBrainsMono-ExtraBold';
-      src: url('/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'),
-            url('/fonts/JetBrainsMono-ExtraBold.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'JetBrainsMono-Bold';
-      src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2'),
-            url('/fonts/JetBrainsMono-Bold.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'JetBrainsMono-Regular';
       src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
             url('/fonts/JetBrainsMono-Regular.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* source-sans-pro-300 - latin-ext_latin */
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
+          url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* source-sans-pro-regular - latin-ext_latin */
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+          url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* source-code-pro-300 - latin */
+    @font-face {
+      font-family: 'Source Code Pro';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local('Source Code Pro Light'), local('SourceCodePro-Light'),
+          url('../fonts/source-code-pro-v11-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('../fonts/source-code-pro-v11-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
     :root {
