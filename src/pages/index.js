@@ -14,8 +14,7 @@ import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
 import { indexMeta } from "../config/site-meta.yml"
 
-export default ({ location }) => {
-  console.log(location)
+export default () => {
   const headerHeight = 75
   const sections = ['hero', 'about', 'latestBlogPosts']
 

@@ -32,8 +32,12 @@ export default ({ handleIntersection }) => {
     }
   `)
 
-  let initialPostAppearance = {}
-  data.allMarkdownRemark.edges.forEach(({ node }) => initialPostAppearance = {...initialPostAppearance, [node.fields.slug]: false })
+  const initialPostAppearance = data.allMarkdownRemark.edges.reduce(
+    (obj, { node }) => (
+      {...obj, [node.fields.slug]: false }
+    ),
+    {}
+  )
   const [hasPostAppeared, setPostAppeared] = useState(initialPostAppearance)
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
 

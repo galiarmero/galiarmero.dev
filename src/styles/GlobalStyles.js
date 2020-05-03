@@ -1,6 +1,6 @@
 import React from "react"
 import { Global, css } from '@emotion/core'
-import { colors } from './theme'
+import { colors, breakpoints } from './theme'
 
 export default props => (
   <Global styles={css`
