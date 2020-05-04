@@ -1,6 +1,7 @@
 import React from "react"
-import { Global, css } from '@emotion/core'
-import { colors, breakpoints } from './theme'
+import { Global, css } from "@emotion/core"
+
+import { colors, breakpoint } from "./theme"
 
 export default props => (
   <Global styles={css`
@@ -87,6 +88,22 @@ export default props => (
       font-weight: 300;
       font-size: 1.05rem;
       letter-spacing: 0.25px;
+
+      ${breakpoint.media4} {
+        font-size: 1.1rem;
+      }
+
+      ${breakpoint.media7} {
+        background: yellow;
+      }
+
+      ${breakpoint.media9} {
+        background: orange;
+      }
+
+      ${breakpoint.media12} {
+        background: red;
+      }
     }
 
     html {

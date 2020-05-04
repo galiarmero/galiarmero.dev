@@ -4,6 +4,7 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 
 import settings from "../config/settings"
+import { breakpoint } from "../styles/theme"
 
 
 export default (props) => {
@@ -31,6 +32,10 @@ export default (props) => {
         color: var(--accentColor);
         font-family: 'JetBrainsMono-Regular';
         font-size: 0.9rem;
+
+        ${breakpoint.media4} {
+          font-size: 1rem;
+        }
       `}>
         {props.greeting}
       </span>
@@ -41,6 +46,10 @@ export default (props) => {
     <div css={css`transition-delay: 200ms`}>
       <h1 css={css`
         font-size: 2.5rem;
+
+        ${breakpoint.media4} {
+          font-size: 2.75rem;
+        }
       `}>
         {props.name}.
       </h1>
@@ -53,6 +62,10 @@ export default (props) => {
         font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;
         font-weight: 300;
+
+        ${breakpoint.media4} {
+          font-size: 2.75rem;
+        }
       `}>
         {props.tagline}
       </h1>

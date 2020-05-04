@@ -10,14 +10,14 @@ export const colors = {
   boxShadow: 'rgba(1, 12, 20, 0.7)',
 }
 
-export const breakpoints = [
+export const breakpoint = [
   480,
   768,
   992,
   1200,
 ].reduce(
   (obj, bp) => (
-    { ...obj, [Math.floor(bp / 100)]: `${bp}px`}
+    { ...obj, [`media${Math.floor(bp / 100)}`]: `@media (min-width: ${bp}px)`}
   ),
   {}
 )
