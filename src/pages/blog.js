@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 import Helmet from "../components/helmet"
 import Header from "../components/header"
 import Bio from "../components/bio"
-import { Main } from "../styles/Containers"
+import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
@@ -29,15 +29,11 @@ export default ({ data }) => {
           </Bio>
         </div>
 
-        <div css={css`
-          display: flex;
-          flex-direction: column;
-          justify-contents: space-between;
-        `}>
+        <AutoFitGrid marginTop={`50px`}>
           {
             posts.map(({ node }, index) => <PostPreview key={index} data={node} />)
           }
-        </div>
+        </AutoFitGrid>
       </Main>
     </div>
   )

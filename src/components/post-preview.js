@@ -9,30 +9,35 @@ import Heading from "../styles/Headings"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 const PreviewBox = styled.article`
-  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: var(--lighterBgColor);
   border-radius: 4px;
   padding: 32px 25px;
   box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
+  height: 100%;
 `
 
 export default ({ key, data }) => {
   const slug = data.fields.slug
   return (
     <PreviewBox key={key}>
-      <Heading onClick={() => navigate(slug)} css={css`
-        cursor: pointer;
-        &:hover {
-          color: var(--accentColor);
-        }
-      `}>
-        {data.frontmatter.title}
-      </Heading>
-      <PostDetails
-        datePublished={data.frontmatter.datePublished}
-        timeToRead={data.timeToRead}
-      />
-      <p css={css`margin: 30px 0;`}>{data.frontmatter.teaser}</p>
+      <div>
+        <Heading onClick={() => navigate(slug)} css={css`
+          cursor: pointer;
+          &:hover {
+            color: var(--accentColor);
+          }
+        `}>
+          {data.frontmatter.title}
+        </Heading>
+        <PostDetails
+          datePublished={data.frontmatter.datePublished}
+          timeToRead={data.timeToRead}
+        />
+        <p css={css`margin: 30px 0;`}>{data.frontmatter.teaser}</p>
+      </div>
 
       <Link css={css`
         ${linkReset};

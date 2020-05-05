@@ -35,7 +35,7 @@ export default (props) => (
         ? props.children
         : <p css={css`margin-bottom: 0;`}>
             <Link to="/">{props.author}</Link> is a full stack software engineer from the Philippines.
-            He is amused by elegant software solutions, new places, ugly delicious food, and the sound of a basketball swishing in a hoop.
+            He is amused by elegant software solutions, new places, ugly delicious food, and the sound of a basketball swishing through the hoop.
           </p>
       }
     </span>

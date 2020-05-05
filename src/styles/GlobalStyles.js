@@ -86,23 +86,11 @@ export default props => (
       color: var(--textColor);
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       letter-spacing: 0.25px;
 
-      ${breakpoint.media4} {
-        font-size: 1.1rem;
-      }
-
-      ${breakpoint.media7} {
-        background: yellow;
-      }
-
       ${breakpoint.media9} {
-        background: orange;
-      }
-
-      ${breakpoint.media12} {
-        background: red;
+        font-size: 1.15rem;
       }
     }
 

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
-import { Section } from "../styles/Containers"
+import { Section, AutoFitGrid } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import Button from "../styles/Buttons"
@@ -71,11 +71,7 @@ export default ({ handleIntersection }) => {
           </span>
         </IntersectionObserver>
 
-        <div css={css`
-          display: flex;
-          flex-direction: column;
-          justify-contents: space-between;
-        `}>
+        <AutoFitGrid>
           {data.allMarkdownRemark.edges.map(({ node }, index) => {
             const slug = node.fields.slug
             return (
@@ -91,11 +87,15 @@ export default ({ handleIntersection }) => {
               </IntersectionObserver>
             )
           })}
-          <Button onClick={() => navigate("/blog")}
-            css={css`margin-top: 24px`}>
-              View More
-          </Button>
-        </div>
+        </AutoFitGrid>
+        <Button
+          onClick={() => navigate("/blog")}
+          css={css`
+            margin: 24px auto 0;
+          `}
+        >
+          View More
+        </Button>
       </Section>
     </IntersectionObserver>
   )
