@@ -3,8 +3,10 @@ import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 
+import IconLink from "../components/icon-link"
 import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
+import { socialMediaMeta } from "../config/site-meta.yml"
 
 
 export default (props) => {
@@ -26,7 +28,7 @@ export default (props) => {
   }
 
   const greeting = (
-    <div css={css`transition-delay: 50ms`}>
+    <div css={css`transition-delay: 200ms`}>
       <span css={css`
         padding: 0 0 10px 3px;
         color: var(--accentColor);
@@ -43,7 +45,7 @@ export default (props) => {
   )
 
   const name = (
-    <div css={css`transition-delay: 200ms`}>
+    <div css={css`transition-delay: 350ms`}>
       <h1 css={css`
         font-size: 2.5rem;
 
@@ -57,7 +59,7 @@ export default (props) => {
   )
 
   const tagline = (
-    <div css={css`transition-delay: 350ms`}>
+    <div css={css`transition-delay: 500ms`}>
       <h1 css={css`
         font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;
@@ -103,6 +105,10 @@ export default (props) => {
           right: auto;
           z-index: 200;
           color: var(--headingColor);
+
+          ${breakpoint.media7} {
+            left: 40px;
+          }
         `}>
           <div css={css`
             display: flex;
@@ -116,8 +122,8 @@ export default (props) => {
               width: 1.5px;
               height: ${isMounted ? `50vh` : `0px`};
               transition: 400ms;
-              transition-delay: 450ms;
-              margin: 0px auto;
+              transition-delay: 650ms;
+              margin: 10px auto 0;
               background-color: var(--headingColor);
             }
           `}>
@@ -128,8 +134,77 @@ export default (props) => {
                   font-size: 0.65rem;
                   letter-spacing: 0.3rem;
                   font-family: 'JetBrainsMono-Regular';
-                  transition-delay: 450ms;
                 `}>SCROLL</div>
+              </CSSTransition>
+            }
+          </div>
+        </div>
+
+        <div css={css`
+          width: 30px;
+          position: fixed;
+          bottom: ${isMounted ? `0` : `-100%`};
+          transition: 400ms;
+          transition-delay: 650ms;
+          right: 15px;
+          left: auto;
+          z-index: 200;
+          color: var(--headingColor);
+          display: none;
+
+          ${breakpoint.media7} {
+            display: block;
+            right: 40px;
+          }
+        `}>
+          <div css={css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+            &:after {
+              content: "";
+              display: block;
+              width: 1.5px;
+              height: ${isMounted ? `10vh` : `0px`};
+              transition: 400ms;
+              transition-delay: 450ms;
+              margin: 0px auto;
+              background-color: var(--headingColor);
+              margin-top: 10px;
+            }
+          `}>
+            { isMounted &&
+              <CSSTransition classNames="fade" timeout={3000}>
+                <div css={css`
+                  writing-mode: vertical-rl;
+                  font-size: 0.65rem;
+                  letter-spacing: 0.3rem;
+                  font-family: 'JetBrainsMono-Regular';
+                  transition-delay: 450ms;
+                `}>
+                  {
+                    socialMediaMeta.map(({ id, link }) => (
+                      <IconLink
+                        icon={id}
+                        link={link}
+                        onClick={props.onToggleMenu}
+                        customCss={css`
+                          font-size: 1.2rem;
+                          margin: 10px 0;
+                          color: var(--textColor);
+                          transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+
+                          &:hover {
+                            color: var(--accentColor);
+                            transform: translateY(-3px);
+                          }
+                        `}
+                      />
+                    ))
+                  }
+                </div>
               </CSSTransition>
             }
           </div>

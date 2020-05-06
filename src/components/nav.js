@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
-import { FaGithub, FaLinkedinIn, FaStackOverflow, FaTwitter, FaInstagram } from "react-icons/fa"
 
+import IconLink from "../components/icon-link"
 import { linkReset } from "../styles/GlobalStyles"
 import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
 
@@ -13,14 +13,6 @@ const linkStyle = css`
     color: var(--accentColor);
   }
 `
-
-const iconMappings = {
-  github: FaGithub,
-  linkedin: FaLinkedinIn,
-  stackoverflow: FaStackOverflow,
-  twitter: FaTwitter,
-  instagram: FaInstagram,
-}
 
 const NavItem = (props) => (
   <div css={css`
@@ -38,24 +30,6 @@ const NavItem = (props) => (
     }
   </div>
 )
-
-const SocialLink = ({ icon, link, onClick }) => {
-  const Icon = iconMappings[icon]
-  return (
-    <a
-      css={css`
-        font-size: 1.5rem;
-        ${linkStyle};
-      `}
-      target="_blank"
-      rel="noopener noreferrer"
-      href={link}
-      onClick={onClick}
-    >
-      <Icon />
-    </a>
-  )
-}
 
 export default (props) => (
   <nav css={css`
@@ -101,9 +75,12 @@ export default (props) => (
     `}>
       {
         socialMediaMeta.map(({ id, link }) => (
-          <SocialLink icon={id} link={link} onClick={props.onToggleMenu}>
-            <FaGithub />
-          </SocialLink>
+          <IconLink
+            icon={id}
+            link={link}
+            onClick={props.onToggleMenu}
+            customCss={linkStyle}
+          />
         ))
       }
     </div>

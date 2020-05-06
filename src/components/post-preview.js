@@ -6,6 +6,7 @@ import styled from "@emotion/styled"
 import PostDetails from "../components/post-details"
 import { linkReset } from "../styles/GlobalStyles"
 import Heading from "../styles/Headings"
+import { breakpoint } from "../styles/theme"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
 const PreviewBox = styled.article`
@@ -36,7 +37,16 @@ export default ({ key, data }) => {
           datePublished={data.frontmatter.datePublished}
           timeToRead={data.timeToRead}
         />
-        <p css={css`margin: 30px 0;`}>{data.frontmatter.teaser}</p>
+        <p
+          css={css`
+            margin: 30px 0;
+            font-size: 1rem;
+
+            ${breakpoint.media9} {
+              font-size: 1.05rem;
+            }
+          `}
+        >{data.frontmatter.teaser}</p>
       </div>
 
       <Link css={css`
