@@ -47,8 +47,8 @@ export default (props) => {
       <h1 css={css`
         font-size: 2.5rem;
 
-        ${breakpoint.media4} {
-          font-size: 2.75rem;
+        ${breakpoint.media9} {
+          font-size: 3rem;
         }
       `}>
         {props.name}.
@@ -63,8 +63,8 @@ export default (props) => {
         font-family: 'Gilroy-Light', sans-serif;
         font-weight: 300;
 
-        ${breakpoint.media4} {
-          font-size: 2.75rem;
+        ${breakpoint.media9} {
+          font-size: 3rem;
         }
       `}>
         {props.tagline}

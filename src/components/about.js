@@ -7,6 +7,7 @@ import { Section } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import { BulletItem } from "../styles/Lists"
 import settings from "../config/settings"
+import { breakpoint } from "../styles/theme"
 import { appearanceObserverOpts } from "../utils"
 
 
@@ -27,7 +28,14 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
 
   return (
     <IntersectionObserver {...sectionObserverOpts}>
-      <Section id="about">
+      <Section
+        id="about"
+        customCss={css`
+          ${breakpoint.media9} {
+            padding: 75px 10% 125px;
+          }
+        `}
+      >
         <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
             <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>

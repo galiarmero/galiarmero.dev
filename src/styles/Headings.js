@@ -2,10 +2,15 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
+import { breakpoint } from "../styles/theme"
 
 export default styled.h1`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 0.08rem;
+
+  ${breakpoint.media9} {
+    font-size: 1.5rem;
+  }
 `
 
 export const SubHeading = styled.h2`
@@ -14,7 +19,7 @@ export const SubHeading = styled.h2`
   margin: 0;
 `
 
-export const SectionHeading = ({ hasNotAppeared, children }) => (
+export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
   <h1 css={css`
     font-size: 2rem;
     margin-bottom: 100px;
@@ -24,10 +29,14 @@ export const SectionHeading = ({ hasNotAppeared, children }) => (
     transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
     transition-delay: 400ms;
 
+    ${breakpoint.media9} {
+      font-size: 2.4rem;
+    }
+
     &:before {
       content: "";
       position: absolute;
-      left: 0;
+      left: ${isCentered ? `calc(50% - 45px)` : `0`};
       bottom: -20px;
       height: 2px;
       width: 60px;
@@ -42,7 +51,7 @@ export const SectionHeading = ({ hasNotAppeared, children }) => (
     &:after {
       content: "";
       position: absolute;
-      left: 30px;
+      left: ${isCentered ? `calc(50% - 15px)` : `30px`};
       bottom: -30px;
       height: 2px;
       width: 60px;

@@ -6,6 +6,7 @@ export const Section = styled.section`
   margin: 0px auto;
   position: relative;
   padding: 75px 0px 125px;
+  ${props => props.customCss ? props.customCss : null};
 `
 
 export const Main = styled.main`
