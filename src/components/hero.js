@@ -1,5 +1,6 @@
 import React, { useState, useEffect }  from "react"
 import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 
@@ -8,6 +9,38 @@ import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
 import { socialMediaMeta } from "../config/site-meta.yml"
 
+const TransitionWrapper = styled.div`
+  transition-delay: ${props => props.delay ? props.delay : `0ms`};
+`
+
+const SidelineContainer = styled.aside`
+  width: 30px;
+  position: ${props => props.position ? props.position : `fixed`};
+  bottom: ${props => props.isMounted ? props.bottomOffset : `-100vh`};
+  transition: 400ms;
+  transition-delay: 650ms;
+  right: ${props => props.rightOffset ? props.rightOffset : `auto`};
+  left: ${props => props.leftOffset ? props.leftOffset : `auto`};
+  z-index: 200;
+  color: var(--textColor);
+  ${props => props.customCss};
+`
+
+const Sideline = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 1.5px;
+    height: ${props => props.lineLength};
+    margin: 10px auto 0;
+    background-color: var(--headingColor);
+  }
+`
 
 export default (props) => {
   const [isMounted, setIsMounted] = useState(false)
@@ -28,7 +61,7 @@ export default (props) => {
   }
 
   const greeting = (
-    <div css={css`transition-delay: 200ms`}>
+    <TransitionWrapper delay={`200ms`}>
       <span css={css`
         padding: 0 0 10px 3px;
         color: var(--accentColor);
@@ -41,11 +74,11 @@ export default (props) => {
       `}>
         {props.greeting}
       </span>
-    </div>
+    </TransitionWrapper>
   )
 
   const name = (
-    <div css={css`transition-delay: 350ms`}>
+    <TransitionWrapper delay={`350ms`}>
       <h1 css={css`
         font-size: 2.5rem;
 
@@ -55,11 +88,11 @@ export default (props) => {
       `}>
         {props.name}.
       </h1>
-    </div>
+    </TransitionWrapper>
   )
 
   const tagline = (
-    <div css={css`transition-delay: 500ms`}>
+    <TransitionWrapper delay={`500ms`}>
       <h1 css={css`
         font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;
@@ -71,7 +104,7 @@ export default (props) => {
       `}>
         {props.tagline}
       </h1>
-    </div>
+    </TransitionWrapper>
   )
 
   const items = [greeting, name, tagline]
@@ -97,118 +130,66 @@ export default (props) => {
             ))
           }
         </TransitionGroup>
-        <div css={css`
-          width: 30px;
-          position: absolute;
-          bottom: -40vh;
-          left: 15px;
-          right: auto;
-          z-index: 200;
-          color: var(--headingColor);
-
-          ${breakpoint.media7} {
-            left: 40px;
-          }
-        `}>
-          <div css={css`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-
-            &:after {
-              content: "";
-              display: block;
-              width: 1.5px;
-              height: ${isMounted ? `50vh` : `0px`};
-              transition: 400ms;
-              transition-delay: 650ms;
-              margin: 10px auto 0;
-              background-color: var(--headingColor);
+        <SidelineContainer
+          isMounted={isMounted}
+          position={`absolute`}
+          bottomOffset={`-40vh`}
+          leftOffset={`15px`}
+          rightOffset={`auto`}
+          customCss={css`
+            ${breakpoint.media7} {
+              left: 40px;
             }
-          `}>
+          `}
+        >
+          <Sideline lineLength={`50vh`}>
             { isMounted &&
-              <CSSTransition classNames="fade" timeout={3000}>
-                <div css={css`
-                  writing-mode: vertical-rl;
-                  font-size: 0.65rem;
-                  letter-spacing: 0.3rem;
-                  font-family: 'JetBrainsMono-Regular';
-                `}>SCROLL</div>
-              </CSSTransition>
+              <div css={css`
+                writing-mode: vertical-rl;
+                font-size: 0.65rem;
+                letter-spacing: 0.3rem;
+                font-family: 'JetBrainsMono-Regular';
+              `}>SCROLL</div>
             }
-          </div>
-        </div>
+          </Sideline>
+        </SidelineContainer>
 
-        <div css={css`
-          width: 30px;
-          position: fixed;
-          bottom: ${isMounted ? `0` : `-100%`};
-          transition: 400ms;
-          transition-delay: 650ms;
-          right: 15px;
-          left: auto;
-          z-index: 200;
-          color: var(--headingColor);
-          display: none;
-
-          ${breakpoint.media7} {
-            display: block;
-            right: 40px;
-          }
-        `}>
-          <div css={css`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-
-            &:after {
-              content: "";
+        <SidelineContainer
+          isMounted={isMounted}
+          bottomOffset={`0`}
+          leftOffset={`auto`}
+          rightOffset={`15px`}
+          customCss={css`
+            display: none;
+            ${breakpoint.media7} {
               display: block;
-              width: 1.5px;
-              height: ${isMounted ? `10vh` : `0px`};
-              transition: 400ms;
-              transition-delay: 450ms;
-              margin: 0px auto;
-              background-color: var(--headingColor);
-              margin-top: 10px;
+              right: 40px;
             }
-          `}>
+          `}
+        >
+          <Sideline lineLength={`10vh`}>
             { isMounted &&
-              <CSSTransition classNames="fade" timeout={3000}>
-                <div css={css`
-                  writing-mode: vertical-rl;
-                  font-size: 0.65rem;
-                  letter-spacing: 0.3rem;
-                  font-family: 'JetBrainsMono-Regular';
-                  transition-delay: 450ms;
-                `}>
-                  {
-                    socialMediaMeta.map(({ id, link }) => (
-                      <IconLink
-                        icon={id}
-                        link={link}
-                        onClick={props.onToggleMenu}
-                        customCss={css`
-                          font-size: 1.2rem;
-                          margin: 10px 0;
-                          color: var(--textColor);
-                          transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+              socialMediaMeta.map(({ id, link }) => (
+                <IconLink
+                  icon={id}
+                  link={link}
+                  onClick={props.onToggleMenu}
+                  customCss={css`
+                    font-size: 1.2rem;
+                    margin: 10px 0;
+                    color: var(--textColor);
+                    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 
-                          &:hover {
-                            color: var(--accentColor);
-                            transform: translateY(-3px);
-                          }
-                        `}
-                      />
-                    ))
-                  }
-                </div>
-              </CSSTransition>
+                    &:hover {
+                      color: var(--accentColor);
+                      transform: translateY(-3px);
+                    }
+                  `}
+                />
+              ))
             }
-          </div>
-        </div>
+          </Sideline>
+        </SidelineContainer>
       </section>
     </IntersectionObserver>
   )
