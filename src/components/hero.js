@@ -38,7 +38,7 @@ const Sideline = styled.div`
     width: 1.5px;
     height: ${props => props.lineLength};
     margin: 10px auto 0;
-    background-color: var(--headingColor);
+    background-color: var(--textColor);
   }
 `
 

@@ -13,7 +13,7 @@ const Box = styled.div`
 `
 
 const BoxLabel = styled.span`
-  font-weight: 400;
+  color: var(--headingColor);
   font-size: 0.8rem;
   text-transform: uppercase;
 `
