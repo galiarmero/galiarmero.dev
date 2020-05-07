@@ -28,6 +28,7 @@ export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
     transform: ${hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
     transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
     transition-delay: 400ms;
+    ${isCentered ? `text-align: center` : null };
 
     ${breakpoint.media9} {
       font-size: 2.4rem;
@@ -57,7 +58,10 @@ export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
       width: 60px;
       background: var(--accentColor);
       border-radius: 6px;
-      transform: ${hasNotAppeared ? `translateX(-180px)` : `translateX(0px)`};
+      transform: ${hasNotAppeared
+                    ? (isCentered ? `translate(80px)` : `translateX(-180px)`)
+                    : `translateX(0px)`
+                  };
       opacity: ${hasNotAppeared ? `0.01` : `1`};
       transition: all 300ms;
       transition-delay: 650ms;

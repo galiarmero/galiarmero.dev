@@ -56,7 +56,7 @@ export default ({ handleIntersection }) => {
   const sectionObserverOpts = {
     onChange: ({ time, isIntersecting, intersectionRatio }) => {
       handleIntersection({
-        blogPosts: { time, isIntersecting, intersectionRatio },
+        latestBlogPosts: { time, isIntersecting, intersectionRatio },
       })
     },
     threshold: settings.intersectionObserverThreshold,
@@ -91,7 +91,7 @@ export default ({ handleIntersection }) => {
         <Button
           onClick={() => navigate("/blog")}
           css={css`
-            margin: 24px auto 0;
+            margin: 42px auto 0;
           `}
         >
           View More

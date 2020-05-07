@@ -6,6 +6,7 @@ import Header from "../components/header"
 import Hero from "../components/hero"
 import About from "../components/about"
 import LatestBlogPosts from "../components/latest-blog-posts"
+import Contact from "../components/contact"
 import SectionMarkers from "../components/section-markers"
 import Footer from "../components/footer"
 import { Main } from "../styles/Containers"
@@ -16,7 +17,7 @@ import { indexMeta } from "../config/site-meta.yml"
 
 export default () => {
   const headerHeight = 75
-  const sections = ['hero', 'about', 'latestBlogPosts']
+  const sections = ['hero', 'about', 'latestBlogPosts', 'contact']
 
   const [isLoading, setIsLoading] = useState(true)
   const [isMenuOpen, toggleMenu] = useState(false)
@@ -26,6 +27,7 @@ export default () => {
     hero: { time: 0, isIntersecting: true, intersectionRatio: 0 },
     about: { time: 0, isIntersecting: true, intersectionRatio: 0 },
     latestBlogPosts: { time: 0, isIntersecting: true, intersectionRatio: 0 },
+    contact: { time: 0, isIntersecting: true, intersectionRatio: 0 },
   })
 
   const onFooterVisibilityChange = (isVisible) => {
@@ -43,7 +45,7 @@ export default () => {
 
   const handleIntersection = (entry) => {
     setIntersectionData({...intersectionData, ...entry})
-    let visibleSections = Object.keys(intersectionData).filter(k => intersectionData[k].isIntersecting)
+    let visibleSections = Object.keys(intersectionData).filter(k => intersectionData[k].intersectionRatio > 0)
 
     if (visibleSections.length === 1) {
       setVisibleSection(visibleSections[0])
@@ -55,8 +57,12 @@ export default () => {
         ? setVisibleSection('about')
         : setVisibleSection('hero')
     } else if (visibleSections.includes('about') && visibleSections.includes('latestBlogPosts')) {
-      (intersectionData.about.intersectionRatio >= 0.3)
-        ? setVisibleSection('about')
+      (intersectionData.latestBlogPosts.intersectionRatio >= 0.1)
+        ? setVisibleSection('latestBlogPosts')
+        : setVisibleSection('about')
+    } else if (visibleSections.includes('latestBlogPosts') && visibleSections.includes('contact')) {
+      (intersectionData.contact.intersectionRatio >= 0.3)
+        ? setVisibleSection('contact')
         : setVisibleSection('latestBlogPosts')
     }
   }
@@ -79,6 +85,7 @@ export default () => {
               <About handleIntersection={handleIntersection}
                 intro={indexMeta.aboutIntro} techSkills={indexMeta.techSkills} more={indexMeta.aboutPersonal} />
               <LatestBlogPosts handleIntersection={handleIntersection} />
+              <Contact handleIntersection={handleIntersection} />
               <SectionMarkers {...sectionMarkerProps} />
             </Main>
             <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />

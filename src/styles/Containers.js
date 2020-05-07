@@ -33,3 +33,11 @@ export const AutoFitGrid = styled.div`
   gap: ${ props => props.gap ? props.gap : `15px` };
   margin-top: ${ props => props.marginTop ? props.marginTop : `0` };
 `
+
+export const AppearingContainer = styled.div`
+  opacity: ${props => props.hasNotAppeared ? `0` : `1`};
+  transform: ${props => props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
+  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition-delay: 400ms;
+  margin: 30px 0;
+`
