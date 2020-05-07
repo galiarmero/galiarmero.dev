@@ -29,38 +29,52 @@ export default props => (
       font-display: swap;
     }
 
-    /* source-sans-pro-300 - latin-ext_latin */
     @font-face {
-      font-family: 'Source Sans Pro';
+      font-family: 'ClearSans-Light';
+      src: url('/fonts/ClearSans-Light.woff2') format('woff2'),
+            url('/fonts/ClearSans-Light.woff') format('woff');
       font-style: normal;
-      font-weight: 300;
       font-display: swap;
-      src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
-          url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-          url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
-    /* source-sans-pro-regular - latin-ext_latin */
     @font-face {
-      font-family: 'Source Sans Pro';
+      font-family: 'ClearSans-Thin';
+      src: url('/fonts/ClearSans-Thin.woff2') format('woff2'),
+            url('/fonts/ClearSans-Thin.woff') format('woff');
       font-style: normal;
-      font-weight: 400;
       font-display: swap;
-      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-          url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-          url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
-    /* source-code-pro-300 - latin */
     @font-face {
-      font-family: 'Source Code Pro';
+      font-family: 'ClearSans-Regular';
+      src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+            url('/fonts/ClearSans-Regular.woff') format('woff');
       font-style: normal;
-      font-weight: 300;
       font-display: swap;
-      src: local('Source Code Pro Light'), local('SourceCodePro-Light'),
-          url('../fonts/source-code-pro-v11-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-          url('../fonts/source-code-pro-v11-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
+
+    // TODO: Remove this if Clear Sans feels right
+    // /* source-sans-pro-300 - latin-ext_latin */
+    // @font-face {
+    //   font-family: 'Source Sans Pro';
+    //   font-style: normal;
+    //   font-weight: 300;
+    //   font-display: swap;
+    //   src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
+    //       url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    //       url('/fonts/source-sans-pro-v13-latin-ext_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    // }
+
+    // /* source-sans-pro-regular - latin-ext_latin */
+    // @font-face {
+    //   font-family: 'Source Sans Pro';
+    //   font-style: normal;
+    //   font-weight: 400;
+    //   font-display: swap;
+    //   src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+    //       url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    //       url('/fonts/source-sans-pro-v13-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    // }
 
     :root {
       --bgColor: ${colors.bg};
@@ -84,7 +98,7 @@ export default props => (
     body {
       background: var(--bgColor);
       color: var(--textColor);
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'ClearSans-Light', sans-serif;
       font-weight: 300;
       font-size: 1.1rem;
       letter-spacing: 0.25px;

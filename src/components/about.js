@@ -53,8 +53,8 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
             `}>
               {techSkills.map((skill, i) => (
                   <BulletItem key={i} css={css`
-                    font-family: 'Source Code Pro', monospace;
-                    font-size: 0.9rem;
+                    font-family: 'JetBrainsMono-Regular', monospace;
+                    font-size: 0.95rem;
                   `}>
                     {skill}
                   </BulletItem>
