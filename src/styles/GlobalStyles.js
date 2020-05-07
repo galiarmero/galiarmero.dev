@@ -3,7 +3,7 @@ import { Global, css } from "@emotion/core"
 
 import { colors, breakpoint } from "./theme"
 
-export default props => (
+export default ({ scrollBehavior }) => (
   <Global styles={css`
     @font-face {
       font-family: 'Gilroy-ExtraBold';
@@ -94,7 +94,7 @@ export default props => (
       --accentColor: ${colors.accent};
       --boxShadowColor: ${colors.boxShadow};
       --subtleLineColor: ${colors.subtleLine};
-      scroll-behavior: smooth;
+      scroll-behavior: ${scrollBehavior ? scrollBehavior : `auto`};
     }
 
     * {
