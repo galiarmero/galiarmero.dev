@@ -46,6 +46,14 @@ export default props => (
     }
 
     @font-face {
+      font-family: 'ClearSans-Thin';
+      src: url('/fonts/ClearSans-Thin.woff2') format('woff2'),
+            url('/fonts/ClearSans-Thin.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
       font-family: 'ClearSans-Regular';
       src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
             url('/fonts/ClearSans-Regular.woff') format('woff');
@@ -100,11 +108,11 @@ export default props => (
       color: var(--textColor);
       font-family: 'ClearSans-Light', sans-serif;
       font-weight: 300;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: 0.25px;
 
       ${breakpoint.media9} {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
       }
     }
 
