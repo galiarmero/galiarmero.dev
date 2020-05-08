@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
-import { Section, AutoFitGrid } from "../styles/Containers"
+import { Section, SectionBody, AutoFitGrid } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import Button from "../styles/Buttons"
@@ -71,31 +71,33 @@ export default ({ handleIntersection }) => {
           </span>
         </IntersectionObserver>
 
-        <AutoFitGrid>
-          {data.allMarkdownRemark.edges.map(({ node }, index) => {
-            const slug = node.fields.slug
-            return (
-              <IntersectionObserver key={slug} {...postObserverOpts(slug)}>
-                <div css={css`
-                  opacity: ${hasPostAppeared[slug] ? `1` : `0`};
-                  transform: ${hasPostAppeared[slug] ? `translateY(0px)` : `translateY(40px)`};
-                  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-                  transition-delay: 200ms;
-                `}>
-                  <PostPreview key={index} data={node} />
-                </div>
-              </IntersectionObserver>
-            )
-          })}
-        </AutoFitGrid>
-        <Button
-          onClick={() => navigate("/blog")}
-          css={css`
-            margin: 42px auto 0;
-          `}
-        >
-          View More
-        </Button>
+        <SectionBody>
+          <AutoFitGrid>
+            {data.allMarkdownRemark.edges.map(({ node }, index) => {
+              const slug = node.fields.slug
+              return (
+                <IntersectionObserver key={slug} {...postObserverOpts(slug)}>
+                  <div css={css`
+                    opacity: ${hasPostAppeared[slug] ? `1` : `0`};
+                    transform: ${hasPostAppeared[slug] ? `translateY(0px)` : `translateY(40px)`};
+                    transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition-delay: 200ms;
+                  `}>
+                    <PostPreview key={index} data={node} />
+                  </div>
+                </IntersectionObserver>
+              )
+            })}
+          </AutoFitGrid>
+          <Button
+            onClick={() => navigate("/blog")}
+            css={css`
+              margin: 42px auto 0;
+            `}
+          >
+            View More
+          </Button>
+        </SectionBody>
       </Section>
     </IntersectionObserver>
   )

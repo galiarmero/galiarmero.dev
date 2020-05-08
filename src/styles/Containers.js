@@ -9,6 +9,10 @@ export const Section = styled.section`
   ${props => props.customCss ? props.customCss : null};
 `
 
+export const SectionBody = styled.div`
+  margin-top: ${props => props.marginTop || `100px`};
+`
+
 export const Main = styled.main`
   margin-top: ${props => props.marginTop ? props.marginTop : `0`};
   padding: 0 25px;

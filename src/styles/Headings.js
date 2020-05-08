@@ -22,7 +22,7 @@ export const SubHeading = styled.h2`
 export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
   <h1 css={css`
     font-size: 2rem;
-    margin-bottom: 100px;
+    margin-bottom: 32px;
     position: relative;
     opacity: ${hasNotAppeared ? `0` : `1`};
     transform: ${hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};

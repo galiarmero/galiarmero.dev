@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
 import Button from "../styles/Buttons"
-import { Section, AppearingContainer } from "../styles/Containers"
+import { Section, SectionBody, AppearingContainer } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
 import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
@@ -44,25 +44,27 @@ export default ({ handleIntersection }) => {
           </span>
         </IntersectionObserver>
 
-        <IntersectionObserver {...appearanceObserverOpts(setBodyAppeared, 0.1)}>
-          <AppearingContainer hasNotAppeared={!hasBodyAppeared}>
-            <p
-              css={css`
-                text-align: center;
-              `}
-            >
-              Feel free to slide into my inbox if you have a question or just want to get in touch.
-            </p>
-            <Button
-              onClick={() => window.location = "mailto:hi@galiarmero.dev"}
-              css={css`
-                margin: 42px auto 0;
-              `}
-            >
-              Say Hello
-            </Button>
-          </AppearingContainer>
-        </IntersectionObserver>
+        <SectionBody marginTop={`80px`}>
+          <IntersectionObserver {...appearanceObserverOpts(setBodyAppeared, 0.1)}>
+            <AppearingContainer hasNotAppeared={!hasBodyAppeared}>
+              <p
+                css={css`
+                  text-align: center;
+                `}
+              >
+                Feel free to slide into my inbox if you have a question or just want to get in touch.
+              </p>
+              <Button
+                onClick={() => window.location = "mailto:hi@galiarmero.dev"}
+                css={css`
+                  margin: 60px auto 0;
+                `}
+              >
+                Say Hello
+              </Button>
+            </AppearingContainer>
+          </IntersectionObserver>
+        </SectionBody>
       </Section>
     </IntersectionObserver>
   )
