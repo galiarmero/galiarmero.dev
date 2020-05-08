@@ -6,7 +6,7 @@ export const Section = styled.section`
   margin: 0px auto;
   position: relative;
   padding: 75px 0px 125px;
-  ${props => props.customCss ? props.customCss : null};
+  ${props => props.customCss || null};
 `
 
 export const SectionBody = styled.div`
@@ -14,7 +14,7 @@ export const SectionBody = styled.div`
 `
 
 export const Main = styled.main`
-  margin-top: ${props => props.marginTop ? props.marginTop : `0`};
+  margin-top: ${props => props.marginTop || `0`};
   padding: 0 25px;
   overflow-x: hidden;
 
@@ -34,8 +34,8 @@ export const Main = styled.main`
 export const AutoFitGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: ${ props => props.gap ? props.gap : `15px` };
-  margin-top: ${ props => props.marginTop ? props.marginTop : `0` };
+  gap: ${ props => props.gap || `15px` };
+  margin-top: ${ props => props.marginTop || `0` };
 `
 
 export const AppearingContainer = styled.div`

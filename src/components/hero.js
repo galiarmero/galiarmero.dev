@@ -10,17 +10,17 @@ import { breakpoint } from "../styles/theme"
 import { socialMediaMeta } from "../config/site-meta.yml"
 
 const TransitionWrapper = styled.div`
-  transition-delay: ${props => props.delay ? props.delay : `0ms`};
+  transition-delay: ${props => props.delay || `0ms`};
 `
 
 const SidelineContainer = styled.aside`
   width: 30px;
-  position: ${props => props.position ? props.position : `fixed`};
+  position: ${props => props.position || `fixed`};
   bottom: ${props => props.isMounted ? props.bottomOffset : `-100vh`};
   transition: 400ms;
   transition-delay: 650ms;
-  right: ${props => props.rightOffset ? props.rightOffset : `auto`};
-  left: ${props => props.leftOffset ? props.leftOffset : `auto`};
+  right: ${props => props.rightOffset || `auto`};
+  left: ${props => props.leftOffset || `auto`};
   z-index: 200;
   color: var(--textColor);
   ${props => props.customCss};
