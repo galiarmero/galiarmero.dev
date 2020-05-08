@@ -1,7 +1,9 @@
 import React, { useState, useLayoutEffect } from "react"
 import { css } from "@emotion/core"
 
-import Nav from './nav'
+import NavList from "./nav-list"
+import NavOverlay from "./nav-overlay"
+import { breakpoint } from "../styles/theme"
 import { throttle } from "../utils"
 import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
@@ -72,12 +74,29 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
         {/* <SimpleBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
         {/* <SpringBurgerStandBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
         { hasMenu &&
-          <SliderBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} />
+          <NavList
+            customCss={css`
+              ${breakpoint.maxMedia9} {
+                display: none;
+              }
+            `}
+          />
+        }
+        { hasMenu &&
+          <SliderBurger
+            isMenuOpen={isMenuOpen}
+            onToggleMenu={onToggleMenu}
+            customCss={css`
+              ${breakpoint.media9} {
+                display: none;
+              }
+            `}
+          />
         }
       </div>
 
       { hasMenu &&
-        <Nav onToggleMenu={onToggleMenu} backgroundColor={navBackground} isVisible={isMenuOpen} />
+        <NavOverlay onToggleMenu={onToggleMenu} backgroundColor={navBackground} isVisible={isMenuOpen} />
       }
     </header>
   )

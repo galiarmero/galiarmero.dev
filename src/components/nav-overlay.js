@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
-import IconLink from "../components/icon-link"
+import IconLink from "./icon-link"
 import { linkReset } from "../styles/GlobalStyles"
 import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
 

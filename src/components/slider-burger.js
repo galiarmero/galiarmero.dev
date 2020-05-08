@@ -10,7 +10,7 @@ const hamburgerLayerColor = `var(--headingColor)`
 const hamburgerLayerBorderRadius = `4px`
 const yOffset = `calc(${hamburgerLayerSpacing} + ${hamburgerLayerHeight})`
 
-export default ({ onToggleMenu, isMenuOpen }) => (
+export default ({ onToggleMenu, isMenuOpen, customCss }) => (
   <button className="hamburger" type="button" onClick={onToggleMenu} css={css`
     padding: ${hamburgerPaddingY} ${hamburgerPaddingX};
     display: inline-block;
@@ -25,8 +25,8 @@ export default ({ onToggleMenu, isMenuOpen }) => (
     border: 0;
     margin: 0;
     overflow: visible;
-
     z-index: 5;
+    ${customCss};
 
     &:focus,
     &:active {

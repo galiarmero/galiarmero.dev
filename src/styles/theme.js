@@ -17,7 +17,10 @@ export const breakpoint = [
   1200,
 ].reduce(
   (obj, bp) => (
-    { ...obj, [`media${Math.floor(bp / 100)}`]: `@media (min-width: ${bp}px)`}
+    { ...obj,
+      [`media${Math.floor(bp / 100)}`]: `@media (min-width: ${bp}px)`,
+      [`maxMedia${Math.floor(bp / 100)}`]: `@media (max-width: ${bp - 0.02}px)`,
+    }
   ),
   {}
 )
