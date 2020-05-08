@@ -3,33 +3,14 @@ import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
 import IconLink from "./icon-link"
-import { linkReset } from "../styles/GlobalStyles"
+import { NavLinkItem, navLinkStyle } from "../styles/Links"
 import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
 
-const linkStyle = css`
-  color: var(--headingColor);
-  ${linkReset};
-  &:hover {
-    color: var(--accentColor);
-  }
+const itemStyle = css`
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  font-family: 'Gilroy-ExtraBold', sans-serif;
 `
-
-const NavItem = (props) => (
-  <div css={css`
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    font-family: 'Gilroy-ExtraBold', sans-serif;
-  `}>
-    {props.isInternal
-      ? <Link to={props.link} onClick={props.onClick} css={linkStyle}>
-          {props.children}
-        </Link>
-      : <a href={props.link} onClick={props.onClick} css={linkStyle}>
-          {props.children}
-        </a>
-    }
-  </div>
-)
 
 export default (props) => (
   <nav css={css`
@@ -51,7 +32,14 @@ export default (props) => (
   `}>
     {
       menuOptions.map(({ title, link, isInternal }) => (
-        <NavItem link={link} isInternal={isInternal} onClick={props.onToggleMenu}>{title}</NavItem>
+        <NavLinkItem
+          link={link}
+          isInternal={isInternal}
+          onClick={props.onToggleMenu}
+          customCss={itemStyle}
+        >
+          {title}
+        </NavLinkItem>
       ))
     }
     <div css={css`
@@ -79,7 +67,7 @@ export default (props) => (
             icon={id}
             link={link}
             onClick={props.onToggleMenu}
-            customCss={linkStyle}
+            customCss={navLinkStyle}
           />
         ))
       }

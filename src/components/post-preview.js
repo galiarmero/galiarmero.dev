@@ -4,7 +4,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import PostDetails from "../components/post-details"
-import { linkReset } from "../styles/GlobalStyles"
+import { linkReset } from "../styles/Links"
 import Heading from "../styles/Headings"
 import { breakpoint } from "../styles/theme"
 import IconRightArrow from "../../static/icons/right-arrow.svg"

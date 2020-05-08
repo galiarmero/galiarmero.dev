@@ -2,7 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import { FaGithub, FaLinkedinIn, FaStackOverflow, FaTwitter, FaInstagram } from "react-icons/fa"
 
-import { linkReset } from "../styles/GlobalStyles"
+import { linkReset } from "../styles/Links"
 
 const iconMappings = {
   github: FaGithub,

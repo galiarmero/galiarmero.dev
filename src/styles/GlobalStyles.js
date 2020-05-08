@@ -181,17 +181,3 @@ export default ({ scrollBehavior }) => (
     }
   `} />
 )
-
-export const linkReset = css`
-  text-decoration: none;
-
-  &:after {
-    content: none;
-  }
-
-  &:hover {
-    &:after {
-        content: none;
-    }
-  }
-`
