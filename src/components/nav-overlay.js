@@ -1,9 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
 import IconLink from "./icon-link"
-import { NavLinkItem, navLinkStyle } from "../styles/Links"
+import { NavLinkItem } from "../styles/Links"
 import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
 
 const itemStyle = css`
@@ -67,7 +66,6 @@ export default (props) => (
             icon={id}
             link={link}
             onClick={props.onToggleMenu}
-            customCss={navLinkStyle}
           />
         ))
       }

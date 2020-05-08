@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { Link } from "gatsby"
 
 import { NavLinkItem } from "../styles/Links"
 import { menuOptions } from "../config/site-meta.yml"

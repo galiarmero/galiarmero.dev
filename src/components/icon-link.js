@@ -18,6 +18,12 @@ export default ({ icon, link, onClick, customCss }) => {
     <a
       css={css`
         font-size: 1.5rem;
+        color: var(--headingColor);
+
+        &:hover {
+          color: var(--accentColor);
+        }
+
         ${linkReset};
         ${customCss};
       `}
