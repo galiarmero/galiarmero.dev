@@ -26,12 +26,19 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
     }
   }
 
-  useLayoutEffect(() => {
-    window.addEventListener('scroll', () => throttle(handleScroll(), 250))
-  })
+  const handleResize = () => {
+    if (window.innerWidth >= 768 && isMenuOpen) {
+      onToggleMenu();
+    }
+  }
 
   useLayoutEffect(() => {
-    return () => window.removeEventListener('scroll', () => handleScroll())
+    window.addEventListener('scroll', () => throttle(handleScroll(), 250))
+    window.addEventListener('resize', () => throttle(handleResize()))
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll())
+      window.removeEventListener('resize', () => handleResize())
+    }
   })
 
   return (
@@ -76,7 +83,7 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
         { hasMenu &&
           <NavList
             customCss={css`
-              ${breakpoint.maxMedia9} {
+              ${breakpoint.maxMedia7} {
                 display: none;
               }
             `}
@@ -87,7 +94,7 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
             isMenuOpen={isMenuOpen}
             onToggleMenu={onToggleMenu}
             customCss={css`
-              ${breakpoint.media9} {
+              ${breakpoint.media7} {
                 display: none;
               }
             `}
