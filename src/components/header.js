@@ -80,9 +80,9 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
                   vertical-align: middle;
                   font-size: 1.1rem;
                   margin-left: 12px;
-                  ${navLinkStyle};
+                  ${suffixLink ? navLinkStyle : null};
                 `}
-                onClick={() => navigate(suffixLink)}
+                onClick={() => suffixLink && navigate(suffixLink)}
               >{logoSuffix}</span>
             }
           </h1>
