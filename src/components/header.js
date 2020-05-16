@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 import NavList from "./nav-list"
 import NavOverlay from "./nav-overlay"
-import { breakpoint } from "../styles/theme"
+import { breakpoint, transitionTiming } from "../styles/theme"
 import { throttle } from "../utils"
 import SimpleBurger from './simple-burger'
 import SpringBurger from './spring-burger'
@@ -50,7 +50,7 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
       background-color: var(--bgColor);
       z-index: 300;
       box-shadow: ${isScrollTop ? `none` : `0px 5px 9px -3px var(--boxShadowColor)`};
-      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: all 0.25s ${transitionTiming};
     `}>
       <div css={css`
         display: flex;

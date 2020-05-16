@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { breakpoint } from "../styles/theme"
+import { breakpoint, transitionTiming } from "../styles/theme"
 
 export default styled.h1`
   font-size: 1.3rem;
@@ -26,7 +26,7 @@ export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
     position: relative;
     opacity: ${hasNotAppeared ? `0` : `1`};
     transform: ${hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
-    transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 300ms ${transitionTiming}, transform 300ms ${transitionTiming};
     transition-delay: 400ms;
     ${isCentered ? `text-align: center` : null };
 

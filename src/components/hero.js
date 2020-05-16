@@ -6,7 +6,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group"
 
 import IconLink from "../components/icon-link"
 import settings from "../config/settings"
-import { breakpoint } from "../styles/theme"
+import { breakpoint, transitionTiming } from "../styles/theme"
 import { socialMediaMeta } from "../config/site-meta.yml"
 
 const TransitionWrapper = styled.div`
@@ -190,7 +190,7 @@ export default (props) => {
                     font-size: 1.2rem;
                     margin: 10px 0;
                     color: var(--textColor);
-                    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+                    transition: all 0.25s ${transitionTiming} 0s;
 
                     &:hover {
                       color: var(--accentColor);

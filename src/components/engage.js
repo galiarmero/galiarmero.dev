@@ -23,6 +23,12 @@ export default ({ slug, title, teaser, editUrl }) => {
   const url = `${indexMeta.siteUrl}${slug}`
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
 
+  const iconHoverStyle = css`
+    &:hover {
+      color: var(--accentColor);
+    }
+  `
+
   return (
     <div>
       <Box>
@@ -39,7 +45,7 @@ export default ({ slug, title, teaser, editUrl }) => {
             via={socialMediaMeta.find(({ id }) => id === `twitter`).username}
             css={css`margin-right: 12px;`}
           >
-            <FaTwitter />
+            <FaTwitter css={iconHoverStyle} />
           </TwitterShareButton>
 
           { /* TODO: Fix not working share button */}
@@ -50,13 +56,13 @@ export default ({ slug, title, teaser, editUrl }) => {
             source={indexMeta.name}
             css={css`margin-right: 12px;`}
           >
-            <FaLinkedin />
+            <FaLinkedin css={iconHoverStyle} />
           </LinkedinShareButton>
 
           <FacebookShareButton
             url={url}
           >
-            <FaFacebookSquare />
+            <FaFacebookSquare css={iconHoverStyle} />
           </FacebookShareButton>
         </div>
       </Box>

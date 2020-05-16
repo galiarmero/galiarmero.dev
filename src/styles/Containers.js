@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-import { breakpoint } from "../styles/theme"
+import { breakpoint, transitionTiming } from "../styles/theme"
 
 export const Section = styled.section`
   margin: 0px auto;
@@ -41,7 +41,7 @@ export const AutoFitGrid = styled.div`
 export const AppearingContainer = styled.div`
   opacity: ${props => props.hasNotAppeared ? `0` : `1`};
   transform: ${props => props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 300ms ${transitionTiming}, transform 300ms ${transitionTiming};
   transition-delay: 400ms;
   margin: 30px 0;
 `

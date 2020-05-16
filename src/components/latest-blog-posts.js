@@ -5,6 +5,7 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 
 import { Section, SectionBody, AutoFitGrid } from "../styles/Containers"
 import { SectionHeading } from "../styles/Headings"
+import { transitionTiming } from "../styles/theme"
 import PostPreview from "../components/post-preview"
 import Button from "../styles/Buttons"
 import settings from "../config/settings"
@@ -80,7 +81,7 @@ export default ({ handleIntersection }) => {
                   <div css={css`
                     opacity: ${hasPostAppeared[slug] ? `1` : `0`};
                     transform: ${hasPostAppeared[slug] ? `translateY(0px)` : `translateY(40px)`};
-                    transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: opacity 300ms ${transitionTiming}, transform 300ms ${transitionTiming};
                     transition-delay: 200ms;
                   `}>
                     <PostPreview key={index} data={node} />
