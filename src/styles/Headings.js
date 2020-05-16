@@ -30,8 +30,16 @@ export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
     transition-delay: 400ms;
     ${isCentered ? `text-align: center` : null };
 
-    ${breakpoint.media9} {
+    ${breakpoint.media4} {
       font-size: 2.4rem;
+    }
+
+    ${breakpoint.media7} {
+      font-size: 2.6rem;
+    }
+
+    ${breakpoint.media12} {
+      font-size: 2.8rem;
     }
 
     &:before {

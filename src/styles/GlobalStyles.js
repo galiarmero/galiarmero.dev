@@ -112,7 +112,7 @@ export default ({ scrollBehavior }) => (
       letter-spacing: 0.25px;
 
       ${breakpoint.media9} {
-        font-size: 1.1rem;
+        font-size: 1.125rem;
       }
     }
 

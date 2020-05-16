@@ -42,6 +42,26 @@ const Sideline = styled.div`
   }
 `
 
+const largeHeading = css`
+  font-size: 2.7rem;
+
+  ${breakpoint.media4} {
+    font-size: 3rem;
+  }
+
+  ${breakpoint.media7} {
+    font-size: 3.5rem;
+  }
+
+  ${breakpoint.media9} {
+    font-size: 3.8rem;
+  }
+
+  ${breakpoint.media12} {
+    font-size: 4.1rem;
+  }
+`
+
 export default (props) => {
   const [isMounted, setIsMounted] = useState(false)
 
@@ -80,11 +100,7 @@ export default (props) => {
   const name = (
     <TransitionWrapper delay={`350ms`}>
       <h1 css={css`
-        font-size: 2.5rem;
-
-        ${breakpoint.media9} {
-          font-size: 3rem;
-        }
+        ${largeHeading};
       `}>
         {props.name}.
       </h1>
@@ -94,13 +110,9 @@ export default (props) => {
   const tagline = (
     <TransitionWrapper delay={`500ms`}>
       <h1 css={css`
-        font-size: 2.5rem;
         font-family: 'Gilroy-Light', sans-serif;
-        font-weight: 300;
-
-        ${breakpoint.media9} {
-          font-size: 3rem;
-        }
+        color: var(--textColor);
+        ${largeHeading};
       `}>
         {props.tagline}
       </h1>

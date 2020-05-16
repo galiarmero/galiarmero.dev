@@ -31,7 +31,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
         id="about"
         customCss={css`
           ${breakpoint.media9} {
-            padding: 75px 10% 125px;
+            padding: 75px 12% 125px;
           }
         `}
       >
