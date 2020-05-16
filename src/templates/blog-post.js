@@ -31,7 +31,7 @@ export default({ data, pageContext }) => {
       <Helmet title={`${postTitle} · ${author}`} />
       <GlobalStyles />
       <BlogStyles />
-      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
+      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" suffixLink="/blog" />
       <Main marginTop={`${headerHeight + 35}px`}>
         <h1>{post.frontmatter.title}</h1>
         <PostDetails

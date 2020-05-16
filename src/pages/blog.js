@@ -20,7 +20,7 @@ export default ({ data }) => {
     <div>
       <Helmet title={`Blog · ${author}`} />
       <GlobalStyles />
-      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
+      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" suffixLink="/blog" />
       <Main marginTop={`${headerHeight}px`}>
         <div css={css`margin: 25px 0;`}>
           <Bio>

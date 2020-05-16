@@ -1,16 +1,15 @@
 import React, { useState, useLayoutEffect } from "react"
+import { navigate } from "gatsby"
 import { css } from "@emotion/core"
 
 import NavList from "./nav-list"
 import NavOverlay from "./nav-overlay"
+import { navLinkStyle } from "../styles/Links"
 import { breakpoint, transitionTiming } from "../styles/theme"
 import { throttle } from "../utils"
-import SimpleBurger from './simple-burger'
-import SpringBurger from './spring-burger'
-import StandBurger from './stand-burger'
 import SliderBurger from './slider-burger'
 
-export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix }) => {
+export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix, suffixLink }) => {
   const DELTA = 5
   const [isScrollTop, setIsScrollTop] = useState(true)
 
@@ -62,24 +61,33 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
         <div className="logo" css={css`
           z-index: 5;
         `}>
-          <h1 css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          `}>
-            G
+          <h1
+            css={css`
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+            `}
+          >
+            <span
+              css={navLinkStyle}
+              onClick={() => navigate('/')}
+            >G</span>
             { logoSuffix &&
-              <span css={css`
-                font-family: "Gilroy-Light";
-                vertical-align: middle;
-                font-size: 1.1rem;
-                margin-left: 12px;
-              `}>{logoSuffix}</span>
+              <span
+                css={css`
+                  font-family: "Gilroy-Light";
+                  vertical-align: middle;
+                  font-size: 1.1rem;
+                  margin-left: 12px;
+                  ${navLinkStyle};
+                `}
+                onClick={() => navigate(suffixLink)}
+              >{logoSuffix}</span>
             }
           </h1>
+
         </div>
-        {/* <SimpleBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
-        {/* <SpringBurgerStandBurger isMenuOpen={isMenuOpen} onToggleMenu={onToggleMenu} /> */}
         { hasMenu &&
           <NavList
             customCss={css`
