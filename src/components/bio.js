@@ -16,7 +16,6 @@ export default (props) => (
       css={css`
         margin: 0.2rem 1rem 0 0;
         height: 3.75rem;
-        width: 3.75rem;
         border-radius: 50%;
       `}
     />
