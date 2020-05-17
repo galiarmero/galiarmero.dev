@@ -1,6 +1,9 @@
 import React, { useState, useEffect }  from "react"
 import { css } from "@emotion/core"
 
+
+import { breakpoint } from "../styles/theme"
+
 export default ({ activeMarkerHeight, markerHeight, unit, sections, visibleSection, isVisible }) => {
   const [isMounted, setIsMounted] = useState(false)
 
@@ -70,6 +73,11 @@ const Marker = ({ href, height, children }) => (
         z-index: 1;
         cursor: pointer;
         text-decoration: none;
+
+        ${breakpoint.media9} {
+          height: calc(${height} * 1.2);
+          width: 2px;
+        }
       `}
     >
       {children}
