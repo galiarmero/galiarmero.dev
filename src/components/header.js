@@ -8,6 +8,7 @@ import { navLinkStyle } from "../styles/Links"
 import { breakpoint, transitionTiming } from "../styles/theme"
 import { throttle } from "../utils"
 import SliderBurger from './slider-burger'
+import Logo from "../../static/icons/logo.svg"
 
 export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix, suffixLink }) => {
   const DELTA = 5
@@ -69,10 +70,17 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
               cursor: pointer;
             `}
           >
-            <span
-              css={navLinkStyle}
+            <Logo
+              css={css`
+                height: 40px;
+                width: 40px;
+                &:hover,
+                &:focus {
+                  opacity: 0.8;
+                }
+              `}
               onClick={() => navigate('/')}
-            >G</span>
+            />
             { logoSuffix &&
               <span
                 css={css`

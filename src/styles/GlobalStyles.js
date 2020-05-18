@@ -179,5 +179,15 @@ export default ({ scrollBehavior }) => (
       margin-bottom: 1.6rem;
       overflow-wrap: break-word;
     }
+
+    svg#logo {
+      path {
+        fill: var(--headingColor);
+      }
+
+      circle {
+        fill: var(--accentColor);
+      }
+    }
   `} />
 )
