@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.map(({ node }, index) => {
+    posts.forEach(({ node }, index) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
@@ -59,6 +59,16 @@ exports.createPages = ({ graphql, actions }) => {
           slug: node.fields.slug,
           previousPost: index === 0 ? null : posts[index - 1].node,
           nextPost: index === (posts.length - 1) ? null : posts[index + 1].node,
+        },
+      })
+
+      createPage({
+        path: node.fields.slug.replace('/blog', '/cards'),
+        component: path.resolve(`./src/templates/sharing-card.js`),
+        context: {
+          slug: node.fields.slug,
+          width: 1200,
+          height: 600,
         },
       })
     })

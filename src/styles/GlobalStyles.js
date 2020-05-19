@@ -3,7 +3,7 @@ import { Global, css } from "@emotion/core"
 
 import { colors, breakpoint } from "./theme"
 
-export default ({ scrollBehavior }) => (
+export default ({ scrollBehavior, bgColor }) => (
   <Global styles={css`
     @font-face {
       font-family: 'Gilroy-ExtraBold';
@@ -104,7 +104,7 @@ export default ({ scrollBehavior }) => (
     }
 
     body {
-      background: var(--bgColor);
+      background: ${bgColor || `var(--bgColor)`};
       color: var(--textColor);
       font-family: 'ClearSans-Light', sans-serif;
       font-weight: 300;

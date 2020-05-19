@@ -111,6 +111,7 @@ export default (props) => {
     <TransitionWrapper delay={`500ms`}>
       <h1 css={css`
         font-family: 'Gilroy-Light', sans-serif;
+        font-weight: 300;
         color: var(--textColor);
         ${largeHeading};
       `}>
