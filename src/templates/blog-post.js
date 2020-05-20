@@ -32,6 +32,7 @@ export default({ data, pageContext }) => {
         pageTitle={`${postTitle} · ${author}`}
         title={postTitle}
         description={post.frontmatter.teaser}
+        pageUrl={`${indexMeta.siteUrl}${post.fields.slug}`}
         sharingCard={`${indexMeta.siteUrl}${post.frontmatter.sharingCard.publicURL}`}
         sharingAltText={`${postTitle}. ${post.timeToRead} minute read. ${post.frontmatter.teaser}`}
       />

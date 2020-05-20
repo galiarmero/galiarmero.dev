@@ -25,5 +25,15 @@ export default (props) => (
     { props.sharingAltText &&
       <meta name="twitter:image:alt"    content={props.sharingAltText} />
     }
+
+    {/* Open Graph meta tags */}
+    <meta property="og:url"             content={props.pageUrl} />
+    <meta property="og:type"            content="article" />
+    <meta property="og:title"           content={props.title} />
+    <meta property="og:description"     content={props.description} />
+    <meta property="fb:app_id"          content={process.env.FB_APP_ID} />
+    { props.sharingCard &&
+      <meta property="og:image"         content={props.sharingCard} />
+    }
   </Helmet>
 )
