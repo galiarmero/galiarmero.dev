@@ -9,11 +9,11 @@ import Logo from "../../static/icons/logo.svg"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 const Card = styled.div`
-  width: ${props => props.width || 1200}px;
-  height: ${props => props.height || 600}px;
+  width: ${props => props.width || 800}px;
+  height: ${props => props.height || 400}px;
   background: var(--bgColor);
   border-top: 15px solid var(--accentColor);
-  padding: 70px 120px 70px;
+  padding: 45px 70px 45px;
 `
 
 const CardMain = styled.main`
@@ -25,7 +25,7 @@ const CardMain = styled.main`
 `
 
 const CardBody = styled.div`
-  padding-left: 12px;
+  padding-left: 8px;
 `
 
 const CardFooter = styled.footer`
@@ -35,21 +35,22 @@ const CardFooter = styled.footer`
 `
 
 const Title = styled.h1`
-  font-size: 3.8rem;
+  font-size: 2.3rem;
 `
 
 const Teaser = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   width: 90%;
-  margin-top: 25px;
+  margin-top: 1rem;
 `
 
 const PostDetails = styled.span`
   font-family: 'ClearSans-Light', sans-serif;
+  font-size: 0.9rem;
 `
 
 const SiteDomain = styled.span`
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: var(--headingColor);
   letter-spacing: 0.5px;
   margin-left: 10px;
@@ -57,11 +58,12 @@ const SiteDomain = styled.span`
 
 const iconStyle = css`
   position: relative;
-  top: 0.6rem;
-  font-size: 2rem;
+  top: -0.05rem;
+  font-size: 1.6rem;
   margin-right: 10px;
   color: var(--accentColor);
   stroke-width: 2px;
+  vertical-align: middle;
 `
 
 export default({ data, pageContext }) => {
@@ -87,8 +89,8 @@ export default({ data, pageContext }) => {
           <CardFooter>
             <Logo
               css={css`
-                height: 56px;
-                width: 56px;
+                height: 36px;
+                width: 36px;
               `}
             />
             <SiteDomain>{indexMeta.siteDomain}</SiteDomain>
