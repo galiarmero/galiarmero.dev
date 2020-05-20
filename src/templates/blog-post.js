@@ -28,7 +28,13 @@ export default({ data, pageContext }) => {
 
   return (
     <div>
-      <Helmet title={`${postTitle} · ${author}`} />
+      <Helmet
+        pageTitle={`${postTitle} · ${author}`}
+        title={postTitle}
+        description={post.frontmatter.teaser}
+        sharingCard={post.frontmatter.sharingCard.publicURL}
+        sharingAltText={`${postTitle}. ${post.timeToRead} minute read. ${post.frontmatter.teaser}`}
+      />
       <GlobalStyles />
       <BlogStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" suffixLink="/blog" />
@@ -87,6 +93,9 @@ export const query = graphql`
         teaser
         datePublished
         title
+        sharingCard {
+          publicURL
+        }
       }
 
       fields {

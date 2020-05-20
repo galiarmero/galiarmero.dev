@@ -69,7 +69,7 @@ export default () => {
 
   return (
     <div>
-      <Helmet title={`${indexMeta.name} · Full Stack Software Engineer`} />
+      <Helmet pageTitle={`${indexMeta.name} · Full Stack Software Engineer`} />
       <GlobalStyles scrollBehavior={`smooth`} />
       <TransitionStyles />
 

@@ -48,7 +48,7 @@ export default ({ data }) => {
 
   return (
     <div>
-      <Helmet title={`404 - Page Not Found · ${author}`} />
+      <Helmet pageTitle={`404 - Page Not Found · ${author}`} />
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} />
       <Main>

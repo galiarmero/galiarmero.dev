@@ -18,7 +18,7 @@ export default ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <div>
-      <Helmet title={`Blog · ${author}`} />
+      <Helmet pageTitle={`Blog · ${author}`} />
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
       <Main marginTop={`${headerHeight}px`}>

@@ -28,6 +28,7 @@ fs.writeFile(
 title: "${title}"
 datePublished: "${datePublished} // Don't forget to edit before publishing!"
 teaser: "Some post teaser"
+sharingCar: ./sharing-card-${slug}.png
 ---
 
 `,
