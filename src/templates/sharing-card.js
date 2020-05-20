@@ -16,6 +16,24 @@ const Card = styled.div`
   padding: 70px 120px 70px;
 `
 
+const CardMain = styled.main`
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  height: 100%;
+`
+
+const CardBody = styled.div`
+  padding-left: 12px;
+`
+
+const CardFooter = styled.footer`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
+
 const Title = styled.h1`
   font-size: 3.8rem;
 `
@@ -28,6 +46,13 @@ const Teaser = styled.p`
 
 const PostDetails = styled.span`
   font-family: 'ClearSans-Light', sans-serif;
+`
+
+const SiteDomain = styled.span`
+  font-size: 1.4rem;
+  color: var(--headingColor);
+  letter-spacing: 0.5px;
+  margin-left: 10px;
 `
 
 const iconStyle = css`
@@ -49,51 +74,26 @@ export default({ data, pageContext }) => {
   return (
     <div>
       <GlobalStyles bgColor={`#fff`} />
-      <Card>
-        <div
-          css={css`
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            flex-direction: column;
-            height: 100%;
-          `}
-        >
-          <div
-            css={css`
-              padding-left: 12px;
-            `}
-          >
+      <Card width={width} height={height}>
+        <CardMain>
+          <CardBody>
             <Title>{post.frontmatter.title}</Title>
             <PostDetails>
               <IconEyeglasses css={iconStyle} />
               {post.timeToRead} min read
             </PostDetails>
             <Teaser>{post.frontmatter.teaser}</Teaser>
-          </div>
-          <div
-            css={css`
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-            `}
-          >
+          </CardBody>
+          <CardFooter>
             <Logo
               css={css`
                 height: 56px;
                 width: 56px;
               `}
             />
-            <span
-              css={css`
-                font-size: 1.4rem;
-                color: var(--headingColor);
-                letter-spacing: 0.5px;
-                margin-left: 10px;
-              `}
-            >{indexMeta.siteDomain}</span>
-          </div>
-        </div>
+            <SiteDomain>{indexMeta.siteDomain}</SiteDomain>
+          </CardFooter>
+        </CardMain>
       </Card>
     </div>
   )
