@@ -32,7 +32,7 @@ export default({ data, pageContext }) => {
         pageTitle={`${postTitle} · ${author}`}
         title={postTitle}
         description={post.frontmatter.teaser}
-        sharingCard={post.frontmatter.sharingCard.publicURL}
+        sharingCard={`${indexMeta.siteUrl}${post.frontmatter.sharingCard.publicURL}`}
         sharingAltText={`${postTitle}. ${post.timeToRead} minute read. ${post.frontmatter.teaser}`}
       />
       <GlobalStyles />
