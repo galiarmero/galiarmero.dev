@@ -13,7 +13,7 @@ const Card = styled.div`
   height: ${props => props.height || 400}px;
   background: var(--bgColor);
   border-top: 15px solid var(--accentColor);
-  padding: 45px 70px 45px;
+  padding: 80px 85px 70px;
 `
 
 const CardMain = styled.main`
@@ -25,7 +25,7 @@ const CardMain = styled.main`
 `
 
 const CardBody = styled.div`
-  padding-left: 8px;
+  padding: 0 12px 0;
 `
 
 const CardFooter = styled.footer`
@@ -35,22 +35,24 @@ const CardFooter = styled.footer`
 `
 
 const Title = styled.h1`
-  font-size: 2.3rem;
+  font-size: 3.5rem;
+  overflow-wrap: break-word;
 `
 
 const Teaser = styled.p`
-  font-size: 1.1rem;
-  width: 90%;
-  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: 80%;
+  margin-top: 1.4rem;
 `
 
-const PostDetails = styled.span`
+const PostDetails = styled.div`
   font-family: 'ClearSans-Light', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 `
 
 const SiteDomain = styled.span`
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: var(--headingColor);
   letter-spacing: 0.5px;
   margin-left: 10px;
@@ -59,7 +61,7 @@ const SiteDomain = styled.span`
 const iconStyle = css`
   position: relative;
   top: -0.05rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-right: 10px;
   color: var(--accentColor);
   stroke-width: 2px;
@@ -89,8 +91,8 @@ export default({ data, pageContext }) => {
           <CardFooter>
             <Logo
               css={css`
-                height: 36px;
-                width: 36px;
+                height: 56px;
+                width: 56px;
               `}
             />
             <SiteDomain>{indexMeta.siteDomain}</SiteDomain>

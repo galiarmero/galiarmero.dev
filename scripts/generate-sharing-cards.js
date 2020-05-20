@@ -14,9 +14,10 @@ const getSharingCardPath = (dir, slug) => path.join(dir, `${CARD_PREFIX}-${slug}
 
 const takeScreenshot = async (url, width, height, destination) => {
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--no-sandbox', '--enable-font-antialiasing', '--disable-setuid-sandbox'],
   })
   const page = await browser.newPage()
+  await page.setViewport({ width: width + 20, height: height + 20 });
   await page.goto(url, {
     waitUntil: 'networkidle2',
   })
@@ -43,8 +44,8 @@ const main = async () => {
     if (!fs.existsSync(cardPath)) {
       await takeScreenshot(
         `${CARD_URL}/${slug}`,
-        800,
-        400,
+        1200,
+        628,
         cardPath
       )
       console.log(`Created ${cardPath}`)

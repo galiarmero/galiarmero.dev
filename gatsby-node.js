@@ -68,8 +68,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/sharing-card.js`),
           context: {
             slug: node.fields.slug,
-            width: 800,
-            height: 400,
+            width: 1200,
+            height: 628,
           },
         })
       }
