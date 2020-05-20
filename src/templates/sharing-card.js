@@ -13,7 +13,7 @@ const Card = styled.div`
   height: ${props => props.height || 400}px;
   background: var(--bgColor);
   border-top: 15px solid var(--accentColor);
-  padding: 80px 85px 70px;
+  padding: 75px 85px 70px;
 `
 
 const CardMain = styled.main`
@@ -35,24 +35,24 @@ const CardFooter = styled.footer`
 `
 
 const Title = styled.h1`
-  font-size: 3.5rem;
+  font-size: 3.55rem;
   overflow-wrap: break-word;
-`
-
-const Teaser = styled.p`
-  font-size: 1.5rem;
-  width: 80%;
-  margin-top: 1.4rem;
 `
 
 const PostDetails = styled.div`
   font-family: 'ClearSans-Light', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 0.5rem;
 `
 
+const Teaser = styled.p`
+  font-size: 1.7rem;
+  width: 80%;
+  margin-top: 1.4rem;
+`
+
 const SiteDomain = styled.span`
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--headingColor);
   letter-spacing: 0.5px;
   margin-left: 10px;
@@ -60,8 +60,8 @@ const SiteDomain = styled.span`
 
 const iconStyle = css`
   position: relative;
-  top: -0.05rem;
-  font-size: 2rem;
+  top: -0.15rem;
+  font-size: 2.4rem;
   margin-right: 10px;
   color: var(--accentColor);
   stroke-width: 2px;
