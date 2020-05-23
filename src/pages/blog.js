@@ -24,7 +24,7 @@ export default ({ data }) => {
         title={`Blog · ${author}`}
         description={`Notebook of a tech bloke in perpetual search for answers.`}
         pageUrl={`${indexMeta.siteUrl}/blog`}
-        sharingCard={sharingCard}
+        sharingCard={`${indexMeta.siteUrl}${sharingCard}`}
         sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
       />
       <GlobalStyles />

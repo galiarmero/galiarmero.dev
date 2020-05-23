@@ -86,7 +86,7 @@ export default () => {
                       hiding complexity with clean, intuitive user interfaces.`
                     }
         pageUrl={`${indexMeta.siteUrl}`}
-        sharingCard={sharingCard}
+        sharingCard={`${indexMeta.siteUrl}${sharingCard}`}
         sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
       />
       <GlobalStyles scrollBehavior={`smooth`} />
