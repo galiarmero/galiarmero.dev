@@ -2,30 +2,41 @@ import React from "react"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
+import { indexMeta, projectUrl, copyrightYear } from "../config/site-meta.yml"
+
 export default (props) => {
-  const options = {
-    onChange: ({ isIntersecting }) => {
-      props.onVisibilityChange(isIntersecting)
-    }
-  }
-  return (
-    <IntersectionObserver {...options}>
-      <footer css={css`
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-        min-height: 90px;
-        padding: 15px 0;
-        font-size: .8rem;
-        background-color: var(--darkerBgColor);
-        margin-top: 90px;
-      `}>
-        <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
-        <span>Crafted with &lt;3 by <a href="https://github.com/galiarmero/galiarmero.dev">{props.name}</a></span>
-        <span>&copy; {props.copyrightYear}</span>
-      </footer>
-    </IntersectionObserver>
+  const children = (
+    <footer css={css`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      min-height: 90px;
+      padding: 15px 0;
+      font-size: .8rem;
+      background-color: var(--darkerBgColor);
+      margin-top: ${props ? props.marginTop || `90px` : `90px`};
+    `}>
+      <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
+      <span><a href={projectUrl}>Crafted by {indexMeta.name}</a></span>
+      <span>&copy; {copyrightYear}. All Rights Reserved.</span>
+    </footer>
   )
+
+  if (props.onVisibilityChange) {
+    const options = {
+      onChange: ({ isIntersecting }) => {
+        props.onVisibilityChange(isIntersecting)
+      }
+    }
+
+    return (
+      <IntersectionObserver {...options}>
+        {children}
+      </IntersectionObserver>
+    )
+  }
+
+  return children;
 }

@@ -4,12 +4,12 @@ import { css } from "@emotion/core"
 
 import Helmet from "../components/helmet"
 import Header from "../components/header"
+import Footer from "../components/footer"
 import Bio from "../components/bio"
 import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
-
 import { indexMeta } from "../config/site-meta.yml"
 
 export default ({ data }) => {
@@ -35,6 +35,7 @@ export default ({ data }) => {
           }
         </AutoFitGrid>
       </Main>
+      <Footer />
     </div>
   )
 }

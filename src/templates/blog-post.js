@@ -4,6 +4,7 @@ import { css } from "@emotion/core"
 
 import Helmet from "../components/helmet"
 import Header from "../components/header"
+import Footer from "../components/footer"
 import PostDetails from "../components/post-details"
 import Engage from "../components/engage"
 import Bio from "../components/bio"
@@ -61,7 +62,7 @@ export default({ data, pageContext }) => {
           editUrl={post.fields.editUrl}
         />
 
-        <div css={css`margin: 40px 0;`}>
+        <div css={css`margin: 40px 0 50px;`}>
           <Bio author={author} />
         </div>
 
@@ -82,6 +83,7 @@ export default({ data, pageContext }) => {
           />
         }
       </Main>
+      <Footer marginTop={`50px`} />
     </div>
   )
 }

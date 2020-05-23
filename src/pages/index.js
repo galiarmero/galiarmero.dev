@@ -88,7 +88,7 @@ export default () => {
               <Contact handleIntersection={handleIntersection} />
               <SectionMarkers {...sectionMarkerProps} />
             </Main>
-            <Footer onVisibilityChange={onFooterVisibilityChange} name={indexMeta.name} copyrightYear={indexMeta.copyrightYear} />
+            <Footer onVisibilityChange={onFooterVisibilityChange} />
           </div>
         )
       }
