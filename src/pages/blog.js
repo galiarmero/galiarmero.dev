@@ -11,6 +11,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
 import { indexMeta } from "../config/site-meta.yml"
+import sharingCard from "../../static/images/sharing-card.png"
 
 export default ({ data }) => {
   const author = indexMeta.name
@@ -22,6 +23,9 @@ export default ({ data }) => {
         pageTitle={`Blog · ${author}`}
         title={`Blog · ${author}`}
         description={`Notebook of a tech bloke in perpetual search for answers.`}
+        pageUrl={`${indexMeta.siteUrl}/blog`}
+        sharingCard={sharingCard}
+        sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
       />
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />

@@ -1,15 +1,18 @@
 import React from "react"
+import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
 import { indexMeta } from "../config/site-meta.yml"
 import Logo from "../../static/icons/logo.svg"
+import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 const Card = styled.div`
   width: ${props => props.width || 800}px;
   height: ${props => props.height || 400}px;
   background: var(--bgColor);
+  border-top: 15px solid var(--accentColor);
   padding: 75px 85px 70px;
 `
 
@@ -31,6 +34,23 @@ const CardFooter = styled.footer`
   align-items: center;
 `
 
+const Title = styled.h1`
+  font-size: 3.55rem;
+  overflow-wrap: break-word;
+`
+
+const PostDetails = styled.div`
+  font-family: 'ClearSans-Light', sans-serif;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+`
+
+const Teaser = styled.p`
+  font-size: 1.7rem;
+  width: 80%;
+  margin-top: 1.4rem;
+`
+
 const SiteDomain = styled.span`
   font-size: 1.5rem;
   color: var(--headingColor);
@@ -38,27 +58,22 @@ const SiteDomain = styled.span`
   margin-left: 10px;
 `
 
-const Greeting = styled.span`
-  padding: 0 0 10px 3px;
+const iconStyle = css`
+  position: relative;
+  top: -0.15rem;
+  font-size: 2.4rem;
+  margin-right: 10px;
   color: var(--accentColor);
-  font-family: 'JetBrainsMono-Regular';
-  font-size: 1.2rem;
+  stroke-width: 2px;
+  vertical-align: middle;
 `
 
-const Name = styled.h1`
-  font-size: 4.3rem;
-`
-
-const Tagline = styled.h1`
-  font-family: 'Gilroy-Light', sans-serif;
-  font-weight: 300;
-  color: var(--textColor);
-  font-size: 4.3rem;
-`
-
-export default() => {
-  const width = 1200
-  const height = 628
+export default({ data, pageContext }) => {
+  const post = data.markdownRemark
+  const {
+    width,
+    height,
+  } = pageContext
 
   return (
     <div>
@@ -66,9 +81,12 @@ export default() => {
       <Card width={width} height={height}>
         <CardMain>
           <CardBody>
-            <Greeting>Hi, I'm</Greeting>
-            <Name>Gali Armero.</Name>
-            <Tagline>I build things that simplify.</Tagline>
+            <Title>{post.frontmatter.title}</Title>
+            <PostDetails>
+              <IconEyeglasses css={iconStyle} />
+              {post.timeToRead} min read
+            </PostDetails>
+            <Teaser>{post.frontmatter.teaser}</Teaser>
           </CardBody>
           <CardFooter>
             <Logo
@@ -84,3 +102,22 @@ export default() => {
     </div>
   )
 }
+
+
+export const query = graphql`
+  query BlogPostShareCard($slug: String!) {
+    markdownRemark(fields: {slug: {eq: $slug}}) {
+      frontmatter {
+        teaser
+        datePublished
+        title
+      }
+
+      fields {
+        slug
+      }
+
+      timeToRead
+    }
+  }
+`

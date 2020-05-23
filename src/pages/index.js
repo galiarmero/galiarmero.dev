@@ -14,6 +14,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
 import { indexMeta } from "../config/site-meta.yml"
+import sharingCard from "../../static/images/sharing-card.png"
 
 export default () => {
   const headerHeight = 75
@@ -81,9 +82,12 @@ export default () => {
         pageTitle={`${indexMeta.name} · Full Stack Software Engineer`}
         title={`${indexMeta.name}`}
         description={`${indexMeta.name} is a full stack software engineer. \
-                      He specializes in building performant backends and \
+                      He enjoys building performant backends and \
                       hiding complexity with clean, intuitive user interfaces.`
                     }
+        pageUrl={`${indexMeta.siteUrl}`}
+        sharingCard={sharingCard}
+        sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
       />
       <GlobalStyles scrollBehavior={`smooth`} />
       <TransitionStyles />

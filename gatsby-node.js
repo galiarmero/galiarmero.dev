@@ -65,7 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
       if (process.env.NODE_ENV === 'development') {
         createPage({
           path: node.fields.slug.replace('/blog', '/cards'),
-          component: path.resolve(`./src/templates/sharing-card.js`),
+          component: path.resolve(`./src/templates/sharing-card-blog.js`),
           context: {
             slug: node.fields.slug,
             width: 1200,
@@ -74,6 +74,13 @@ exports.createPages = ({ graphql, actions }) => {
         })
       }
     })
+
+    if (process.env.NODE_ENV === 'development') {
+      createPage({
+        path: '/cards',
+        component: path.resolve(`./src/templates/sharing-card.js`),
+      })
+    }
   })
 }
 
