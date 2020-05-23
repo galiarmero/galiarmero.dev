@@ -53,7 +53,9 @@ socialMediaMeta:
   - id: twitter
     link: https://twitter.com/galiarmero
     username: galiarmero
+    isInvisible: true
   - id: instagram
     link: https://www.instagram.com/galiarmero/
+    isInvisible: true
 projectUrl: https://github.com/galiarmero/galiarmero.dev
 copyrightYear: 2020

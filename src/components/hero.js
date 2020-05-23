@@ -22,7 +22,7 @@ const SidelineContainer = styled.aside`
   right: ${props => props.rightOffset || `auto`};
   left: ${props => props.leftOffset || `auto`};
   z-index: 200;
-  color: var(--textColor);
+  color: var(--headingColor);
   ${props => props.customCss};
 `
 
@@ -38,7 +38,7 @@ const Sideline = styled.div`
     width: 1.5px;
     height: ${props => props.lineLength};
     margin: 10px auto 0;
-    background-color: var(--textColor);
+    background-color: var(--headingColor);
   }
 `
 
@@ -182,7 +182,7 @@ export default (props) => {
         >
           <Sideline lineLength={`10vh`}>
             { isMounted &&
-              socialMediaMeta.map(({ id, link }) => (
+              socialMediaMeta.filter(({ isInvisible }) => !isInvisible).map(({ id, link }) => (
                 <IconLink
                   icon={id}
                   link={link}
@@ -190,7 +190,7 @@ export default (props) => {
                   customCss={css`
                     font-size: 1.2rem;
                     margin: 10px 0;
-                    color: var(--textColor);
+                    color: var(--headingColor);
                     transition: all 0.25s ${transitionTiming} 0s;
 
                     &:hover {

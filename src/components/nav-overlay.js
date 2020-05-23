@@ -61,7 +61,7 @@ export default (props) => (
       }
     `}>
       {
-        socialMediaMeta.map(({ id, link }) => (
+        socialMediaMeta.filter(({ isInvisible }) => !isInvisible).map(({ id, link }) => (
           <IconLink
             icon={id}
             link={link}
