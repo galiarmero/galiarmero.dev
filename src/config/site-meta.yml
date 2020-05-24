@@ -1,7 +1,8 @@
-indexMeta:
+personalMeta:
   greeting: Hi, I am
   name: Gali Armero
   tagline: I build things that simplify.
+  blogDescription: Insights of a tech guy in perpetual search for answers.
   aboutIntro: >-
     Hello! My name is Gali -- short for Galileo.
     I'm a full stack software engineer from the Philippines.
@@ -32,9 +33,6 @@ indexMeta:
 
 
     I also write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
-  copyrightYear: 2020
-  siteUrl: https://suspicious-mcnulty-3f6924.netlify.app
-  siteDomain: galiarmero.dev
 menuOptions:
   - title: About
     link: '#about'
@@ -57,5 +55,7 @@ socialMediaMeta:
   - id: instagram
     link: https://www.instagram.com/galiarmero/
     isInvisible: true
+siteUrl: https://suspicious-mcnulty-3f6924.netlify.app
+siteDomain: galiarmero.dev
 projectUrl: https://github.com/galiarmero/galiarmero.dev
 copyrightYear: 2020

@@ -13,7 +13,7 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
-import { indexMeta } from "../config/site-meta.yml"
+import { indexMeta, siteUrl } from "../config/site-meta.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
 export default () => {
@@ -85,8 +85,8 @@ export default () => {
                       He enjoys building performant backends and \
                       hiding complexity with clean, intuitive user interfaces.`
                     }
-        pageUrl={`${indexMeta.siteUrl}`}
-        sharingCard={`${indexMeta.siteUrl}${sharingCard}`}
+        pageUrl={`${siteUrl}`}
+        sharingCard={`${siteUrl}${sharingCard}`}
         sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
       />
       <GlobalStyles scrollBehavior={`smooth`} />

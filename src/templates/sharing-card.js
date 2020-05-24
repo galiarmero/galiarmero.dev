@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
-import { indexMeta } from "../config/site-meta.yml"
+import { siteDomain } from "../config/site-meta.yml"
 import Logo from "../../static/icons/logo.svg"
 
 const Card = styled.div`
@@ -77,7 +77,7 @@ export default() => {
                 width: 56px;
               `}
             />
-            <SiteDomain>{indexMeta.siteDomain}</SiteDomain>
+            <SiteDomain>{siteDomain}</SiteDomain>
           </CardFooter>
         </CardMain>
       </Card>

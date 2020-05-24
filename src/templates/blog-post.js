@@ -14,7 +14,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
 
-import { indexMeta } from "../config/site-meta.yml"
+import { indexMeta, siteUrl } from "../config/site-meta.yml"
 
 export default({ data, pageContext }) => {
   const headerHeight = 75
@@ -33,8 +33,8 @@ export default({ data, pageContext }) => {
         pageTitle={`${postTitle} · ${author}`}
         title={postTitle}
         description={post.frontmatter.teaser}
-        pageUrl={`${indexMeta.siteUrl}${post.fields.slug}`}
-        sharingCard={`${indexMeta.siteUrl}${post.frontmatter.sharingCard.publicURL}`}
+        pageUrl={`${siteUrl}${post.fields.slug}`}
+        sharingCard={`${siteUrl}${post.frontmatter.sharingCard.publicURL}`}
         sharingAltText={`${postTitle}. ${post.timeToRead} minute read. ${post.frontmatter.teaser}`}
       />
       <GlobalStyles />
