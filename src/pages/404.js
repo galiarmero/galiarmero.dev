@@ -10,10 +10,10 @@ import Button from "../styles/Buttons"
 import GlobalStyles from "../styles/GlobalStyles"
 import { colors, breakpoint } from "../styles/theme"
 
-import { indexMeta } from "../config/site-meta.yml"
+import { profile } from "../config/site-meta.yml"
 
 export default ({ data }) => {
-  const author = indexMeta.name
+  const author = profile.name
   const headerHeight = 75
 
   const CenteredContainer = styled.div`

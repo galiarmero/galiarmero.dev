@@ -13,7 +13,7 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
-import { indexMeta, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-meta.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
 export default () => {
@@ -79,15 +79,15 @@ export default () => {
   return (
     <div>
       <Helmet
-        pageTitle={`${indexMeta.name} · Full Stack Software Engineer`}
-        title={`${indexMeta.name}`}
-        description={`${indexMeta.name} is a full stack software engineer. \
+        pageTitle={`${profile.name} · Full Stack Software Engineer`}
+        title={`${profile.name}`}
+        description={`${profile.name} is a full stack software engineer. \
                       He enjoys building performant backends and \
                       hiding complexity with clean, intuitive user interfaces.`
                     }
         pageUrl={`${siteUrl}`}
         sharingCard={`${siteUrl}${sharingCard}`}
-        sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
+        sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles scrollBehavior={`smooth`} />
       <TransitionStyles />
@@ -107,16 +107,16 @@ export default () => {
           <Main>
             <Hero
               handleIntersection={handleIntersection}
-              greeting={indexMeta.greeting}
-              name={indexMeta.name}
-              tagline={indexMeta.tagline}
+              greeting={profile.greeting}
+              name={profile.name}
+              tagline={profile.tagline}
               headerHeight={headerHeight}
             />
             <About
               handleIntersection={handleIntersection}
-              intro={indexMeta.aboutIntro}
-              techSkills={indexMeta.techSkills}
-              more={indexMeta.aboutPersonal}
+              intro={profile.aboutIntro}
+              techSkills={profile.techSkills}
+              more={profile.aboutPersonal}
             />
             <LatestBlogPosts handleIntersection={handleIntersection} />
             <Contact handleIntersection={handleIntersection} />

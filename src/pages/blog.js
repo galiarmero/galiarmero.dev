@@ -10,11 +10,11 @@ import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
-import { indexMeta, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-meta.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
 export default ({ data }) => {
-  const author = indexMeta.name
+  const author = profile.name
   const headerHeight = 75
   const posts = data.allMarkdownRemark.edges
   return (
@@ -22,10 +22,10 @@ export default ({ data }) => {
       <Helmet
         pageTitle={`Blog · ${author}`}
         title={`Blog · ${author}`}
-        description={indexMeta.blogDescription}
+        description={profile.blogDescription}
         pageUrl={`${siteUrl}/blog`}
         sharingCard={`${siteUrl}${sharingCard}`}
-        sharingAltText={`${indexMeta.greeting} ${indexMeta.name}. ${indexMeta.tagline}`}
+        sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles />
       <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
@@ -33,7 +33,7 @@ export default ({ data }) => {
         <div css={css`margin: 25px 0;`}>
           <Bio>
             <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">{author}</Link>.</p>
-            <p css={css`margin-bottom: 0;`}>{indexMeta.blogDescription}</p>
+            <p css={css`margin-bottom: 0;`}>{profile.blogDescription}</p>
           </Bio>
         </div>
 

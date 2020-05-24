@@ -2,7 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
-import { indexMeta, projectUrl, copyrightYear } from "../config/site-meta.yml"
+import { profile, projectUrl, copyrightYear } from "../config/site-meta.yml"
 
 export default (props) => {
   const children = (
@@ -19,7 +19,7 @@ export default (props) => {
       margin-top: ${props ? props.marginTop || `90px` : `90px`};
     `}>
       <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
-      <span><a href={projectUrl}>Crafted by {indexMeta.name}</a></span>
+      <span><a href={projectUrl}>Crafted by {profile.name}</a></span>
       <span>&copy; {copyrightYear}. All Rights Reserved.</span>
     </footer>
   )

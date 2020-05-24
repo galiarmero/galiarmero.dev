@@ -14,11 +14,11 @@ import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
 
-import { indexMeta, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-meta.yml"
 
 export default({ data, pageContext }) => {
   const headerHeight = 75
-  const author = indexMeta.name
+  const author = profile.name
   const post = data.markdownRemark
   const postTitle = post.frontmatter.title
   const {
