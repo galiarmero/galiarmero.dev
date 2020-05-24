@@ -2,6 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 import { colors } from "../styles/theme"
+import favicon from "../../static/favicon.svg"
+import faviconPng from "../../static/favicon.png"
 
 export default (props) => (
   <Helmet>
@@ -12,6 +14,8 @@ export default (props) => (
     <meta name="msapplication-navbutton-color" content={colors.bg} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href={favicon} />
+    <link rel="alternate icon" href={faviconPng} />
 
     {/* Twitter meta tags */}
     <meta name="twitter:card"           content="summary_large_image" />

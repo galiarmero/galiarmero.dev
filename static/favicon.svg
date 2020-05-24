@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg53"
+   version="1.1"
+   viewBox="0 0 135.46666 135.46667"
+   height="512"
+   width="512">
+  <defs
+     id="defs47" />
+  <metadata
+     id="metadata50">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <rect
+       y="0.52916676"
+       x="0.52916694"
+       height="135.46666"
+       width="135.46666"
+       id="rect915"
+       style="fill:#011321;fill-opacity:1;stroke-width:1.01106" />
+    <g
+       transform="matrix(0.85188772,0,0,0.80977889,10.054819,12.506715)"
+       id="g920">
+      <path
+         id="path840"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.182666"
+         d="m 67.800644,33.256983 a 28.495945,28.495945 0 0 0 -0.349519,0.0022 A 28.495945,28.495945 0 0 0 39.3047,61.752927 28.495945,28.495945 0 0 0 67.800644,90.248871 28.495945,28.495945 0 0 0 96.29659,61.752927 28.495945,28.495945 0 0 0 89.449399,43.223142 24.6015,14.245829 0 0 0 96.468381,33.259208 H 68.149424 a 28.495945,28.495945 0 0 0 -0.34878,-0.0022 z m 0,14.247971 A 14.247973,14.247973 0 0 1 82.048617,61.752929 14.247973,14.247973 0 0 1 67.800644,76.000898 14.247973,14.247973 0 0 1 53.552671,61.752929 14.247973,14.247973 0 0 1 67.800644,47.504954 Z" />
+      <circle
+         style="fill:#00dffc;fill-opacity:1;stroke-width:0.141221"
+         id="path1002"
+         cx="89.167503"
+         cy="20.036606"
+         r="7.1434627" />
+      <path
+         id="rect1033"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.149224"
+         d="m 96.296432,92.023937 -56.99189,11.980543 v 14.59898 l 56.99189,-11.98055 z" />
+    </g>
+  </g>
+</svg>
