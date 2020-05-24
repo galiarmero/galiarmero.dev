@@ -130,11 +130,18 @@ export default (props) => {
           min-height: 140vh;
           display: flex;
           flex-direction: column;
-          justify-content: start;
-          padding-top: 25vh;
+          justify-content: flex-start;
+          margin-top: ${props.headerHeight}px;
         `}
       >
-        <TransitionGroup component="div">
+        <TransitionGroup component="div"
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 50vh;
+          `}
+        >
           { isMounted &&
             items.map((item, i) => (
               <CSSTransition key={i} classNames="fadeup" timeout={3000}>

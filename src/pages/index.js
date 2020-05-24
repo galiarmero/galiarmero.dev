@@ -110,6 +110,7 @@ export default () => {
               greeting={indexMeta.greeting}
               name={indexMeta.name}
               tagline={indexMeta.tagline}
+              headerHeight={headerHeight}
             />
             <About
               handleIntersection={handleIntersection}
