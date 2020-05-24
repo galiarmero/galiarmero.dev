@@ -10,7 +10,7 @@ import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
-import { colors } from "../styles/theme"
+import { colors, breakpoint } from "../styles/theme"
 import { profile, siteUrl } from "../config/site-meta.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
@@ -38,7 +38,15 @@ export default ({ data }) => {
           </Bio>
         </div>
 
-        <div css={css`margin: 70px 0;`}>
+        <div
+          css={css`
+            margin: 35px 0 60px;
+
+            ${breakpoint.media9} {
+              margin: 70px 0;
+            }
+          `}
+        >
           <SectionHeading fontSize={`1rem`}>Posts</SectionHeading>
         </div>
 
