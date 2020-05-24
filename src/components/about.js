@@ -47,6 +47,7 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
               <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
               <ul css={css`
+                max-width: 500px;
                 columns: 2;
                 -webkit-columns: 2;
                 -moz-columns: 2;

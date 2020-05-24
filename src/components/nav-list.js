@@ -7,7 +7,7 @@ import { menuOptions } from "../config/site-meta.yml"
 const itemStyle = css`
   font-size: 0.8rem;
   font-family: 'JetBrainsMono-Regular', monospace;
-  margin: 0 20px;
+  margin-left: 40px;
   color: var(--textColor);
 `
 

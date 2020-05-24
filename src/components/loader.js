@@ -107,7 +107,7 @@ export default ({ finishLoading }) => {
           <Logo
             css={css`
               height: 60px;
-              width: 60px;
+              width: 32px;
             `}
           />
         </VerticallyCenteredContent>

@@ -51,6 +51,10 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
       z-index: 300;
       box-shadow: ${isScrollTop ? `none` : `0px 5px 9px -3px var(--boxShadowColor)`};
       transition: all 0.25s ${transitionTiming};
+
+      ${breakpoint.media7} {
+        padding: 0 40px;
+      }
     `}>
       <div css={css`
         display: flex;
@@ -73,7 +77,7 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
             <Logo
               css={css`
                 height: 40px;
-                width: 40px;
+                width: 22px;
                 &:hover,
                 &:focus {
                   opacity: 0.8;
@@ -88,7 +92,7 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
                   font-weight: 300;
                   vertical-align: middle;
                   font-size: 1.2rem;
-                  margin-left: 8px;
+                  margin-left: 16px;
                   ${suffixLink ? navLinkStyle : null};
                 `}
                 onClick={() => suffixLink && navigate(suffixLink)}
