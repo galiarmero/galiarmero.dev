@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet"
 import { colors } from "../styles/theme"
 import favicon from "../../static/favicon.svg"
 import faviconPng from "../../static/favicon.png"
+import faviconMask from "../../static/favicon-mask.svg"
+import faviconAppleTouch from "../../static/favicon-apple-touch.png"
 
 export default (props) => (
   <Helmet>
@@ -16,6 +18,8 @@ export default (props) => (
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" href={favicon} />
     <link rel="alternate icon" href={faviconPng} />
+    <link rel="mask-icon" href={faviconMask} color={colors.bg} />
+    <link rel="apple-touch-icon" href={faviconAppleTouch} />
 
     {/* Twitter meta tags */}
     <meta name="twitter:card"           content="summary_large_image" />
