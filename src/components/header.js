@@ -84,10 +84,11 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
             { logoSuffix &&
               <span
                 css={css`
-                  font-family: "Gilroy-Light";
+                  font-family: 'Gilroy-Light', sans-serif;
+                  font-weight: 300;
                   vertical-align: middle;
-                  font-size: 1.1rem;
-                  margin-left: 12px;
+                  font-size: 1.2rem;
+                  margin-left: 8px;
                   ${suffixLink ? navLinkStyle : null};
                 `}
                 onClick={() => suffixLink && navigate(suffixLink)}
