@@ -8,6 +8,7 @@ import Footer from "../components/footer"
 import Bio from "../components/bio"
 import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
+import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import { colors } from "../styles/theme"
 import { profile, siteUrl } from "../config/site-meta.yml"
@@ -35,6 +36,10 @@ export default ({ data }) => {
             <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">{author}</Link>.</p>
             <p css={css`margin-bottom: 0;`}>{profile.blogDescription}</p>
           </Bio>
+        </div>
+
+        <div css={css`margin: 70px 0;`}>
+          <SectionHeading fontSize={`1rem`}>Posts</SectionHeading>
         </div>
 
         <AutoFitGrid marginTop={`50px`}>
