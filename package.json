@@ -20,6 +20,7 @@
     "@researchgate/react-intersection-observer": "^1.1.2",
     "dayjs": "^1.8.20",
     "gatsby": "^2.10.0",
+    "gatsby-plugin-ackee-tracker": "^1.4.0",
     "gatsby-plugin-emotion": "^4.1.22",
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-react-svg": "^3.0.0",

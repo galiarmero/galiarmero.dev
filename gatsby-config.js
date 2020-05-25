@@ -41,6 +41,19 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: "gatsby-plugin-ackee-tracker",
+      options: {
+        // Domatin ID found when adding a domain in the admin panel.
+        domainId: process.env.ACKEE_DOMAIN_ID,
+        // URL to Server eg: "https://analytics.test.com".
+        server: process.env.ACKEE_SERVER_URL,
+        // Disabled analytic tracking when running locally
+        ignoreLocalhost: false,
+        // If enabled it will collect info on OS, BrowserInfo, Device  & ScreenSize
+        detailed: false
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-emotion`,
