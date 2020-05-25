@@ -4,7 +4,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
-import { siteDomain } from "../config/site-meta.yml"
+import { nakedDomain } from "../config/site-meta.yml"
 import Logo from "../../static/icons/logo.svg"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
@@ -51,7 +51,7 @@ const Teaser = styled.p`
   margin-top: 1.4rem;
 `
 
-const SiteDomain = styled.span`
+const Domain = styled.span`
   font-size: 1.5rem;
   color: var(--headingColor);
   letter-spacing: 0.5px;
@@ -95,7 +95,7 @@ export default({ data, pageContext }) => {
                 width: 56px;
               `}
             />
-            <SiteDomain>{siteDomain}</SiteDomain>
+            <Domain>{nakedDomain}</Domain>
           </CardFooter>
         </CardMain>
       </Card>
