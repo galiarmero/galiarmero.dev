@@ -56,10 +56,6 @@ const largeHeading = css`
   ${breakpoint.media9} {
     font-size: 3.8rem;
   }
-
-  ${breakpoint.media12} {
-    font-size: 4.1rem;
-  }
 `
 
 export default (props) => {

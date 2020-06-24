@@ -27,7 +27,7 @@ export const Main = styled.main`
   }
 
   ${breakpoint.media12} {
-    padding: 0 21%;
+    padding: 0 20%;
   }
 `
 
