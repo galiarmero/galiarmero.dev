@@ -50,5 +50,9 @@ export default () => (
     h2 {
       margin: 3rem 0 1.1rem;
     }
+
+    strong {
+      font-family: 'ClearSans-Bold', sans-serif;
+    }
   `} />
 )

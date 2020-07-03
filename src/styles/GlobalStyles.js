@@ -45,6 +45,22 @@ export default ({ scrollBehavior, bgColor }) => (
       font-display: swap;
     }
 
+    @font-face {
+      font-family: 'ClearSans-Medium';
+      src: url('/fonts/ClearSans-Medium.woff2') format('woff2'),
+            url('/fonts/ClearSans-Medium.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'ClearSans-Bold';
+      src: url('/fonts/ClearSans-Bold.woff2') format('woff2'),
+            url('/fonts/ClearSans-Bold.woff') format('woff');
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bgColor: ${colors.bg};
       --lighterBgColor: ${colors.lighterBg};

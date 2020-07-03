@@ -1,4 +1,12 @@
-const path = require('path')
+/*
+  Generate new blog posts' card images for social media sharing
+
+  Usage:
+    npm run generate-sharing-cards
+    node generate-sharing-cards.js
+ */
+
+ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 const puppeteer = require('puppeteer')
