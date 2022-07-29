@@ -10,7 +10,7 @@ import Button from "../styles/Buttons"
 import GlobalStyles from "../styles/GlobalStyles"
 import { colors, breakpoint } from "../styles/theme"
 
-import { profile } from "../config/site-meta.yml"
+import { profile } from "../config/site-data.yml"
 
 export default ({ data }) => {
   const author = profile.name

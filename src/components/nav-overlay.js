@@ -3,7 +3,7 @@ import { css } from "@emotion/react"
 
 import IconLink from "./icon-link"
 import { NavLinkItem } from "../styles/Links"
-import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
+import { menuOptions, socialMediaMeta } from "../config/site-data.yml"
 
 const itemStyle = css`
   margin: 1rem 0;

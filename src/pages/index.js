@@ -13,7 +13,7 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
-import { profile, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
 export default () => {

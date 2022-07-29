@@ -11,7 +11,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import { colors, breakpoint } from "../styles/theme"
-import { profile, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
 export default ({ data }) => {

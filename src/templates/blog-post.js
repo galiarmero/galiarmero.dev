@@ -14,7 +14,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
 
-import { profile, siteUrl } from "../config/site-meta.yml"
+import { profile, siteUrl } from "../config/site-data.yml"
 
 export default({ data, pageContext }) => {
   const headerHeight = 75

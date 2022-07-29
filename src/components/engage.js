@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
 import { TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
 
-import { profile, siteUrl, socialMediaMeta } from "../config/site-meta.yml"
+import { profile, siteUrl, socialMediaMeta } from "../config/site-data.yml"
 
 const Box = styled.div`
   padding: 0.9rem 0 0.7rem;

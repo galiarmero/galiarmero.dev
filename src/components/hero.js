@@ -7,7 +7,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group"
 import IconLink from "../components/icon-link"
 import settings from "../config/settings"
 import { breakpoint, transitionTiming } from "../styles/theme"
-import { socialMediaMeta } from "../config/site-meta.yml"
+import { socialMediaMeta } from "../config/site-data.yml"
 
 const TransitionWrapper = styled.div`
   transition-delay: ${props => props.delay || `0ms`};
