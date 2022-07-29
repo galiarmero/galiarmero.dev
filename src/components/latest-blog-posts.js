@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
 import { Section, SectionBody, AutoFitGrid } from "../styles/Containers"

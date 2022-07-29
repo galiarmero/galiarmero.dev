@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
 import { profile, projectUrl, copyrightYear } from "../config/site-meta.yml"
@@ -18,7 +18,7 @@ export default (props) => {
       background-color: var(--darkerBgColor);
       margin-top: ${props ? props.marginTop || `90px` : `90px`};
     `}>
-      <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
+      <span>Built with <a href="https://www.gatsbyjs.org/">Gatsby 4</a> · Hosted on <a href="https://www.netlify.com/">Netlify</a></span>
       <span><a href={projectUrl}>Crafted by {profile.name}</a></span>
       <span>&copy; {copyrightYear}. All Rights Reserved.</span>
     </footer>

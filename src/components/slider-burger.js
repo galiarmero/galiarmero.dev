@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 const hamburgerPaddingY = `5px`
 const hamburgerPaddingX = `5px`

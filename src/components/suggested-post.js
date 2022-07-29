@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
 import { SubHeading } from "../styles/Headings"

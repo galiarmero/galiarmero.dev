@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate, Link } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import PostDetails from "../components/post-details"

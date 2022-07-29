@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 export const NavLinkItem = (props) => (
   <div css={props.customCss}>
