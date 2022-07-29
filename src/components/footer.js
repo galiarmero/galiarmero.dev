@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
 import { profile, projectUrl, copyrightYear } from "../config/site-meta.yml"

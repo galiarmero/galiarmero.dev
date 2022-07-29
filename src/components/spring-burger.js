@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 export default ({ onToggleMenu, isMenuOpen }) => (
   <button className="hamburger" type="button" onClick={onToggleMenu} css={css`

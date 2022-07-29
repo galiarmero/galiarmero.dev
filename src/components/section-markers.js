@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 
 import { breakpoint } from "../styles/theme"

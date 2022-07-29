@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { FaGithub, FaLinkedinIn, FaStackOverflow, FaTwitter, FaInstagram } from "react-icons/fa"
 
 import { linkReset } from "../styles/Links"

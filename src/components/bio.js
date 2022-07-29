@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 import profilePic from "../../static/images/profile-pic.jpg"
 

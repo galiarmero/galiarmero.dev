@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 import { NavLinkItem } from "../styles/Links"
 import { menuOptions } from "../config/site-meta.yml"
