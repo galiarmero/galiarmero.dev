@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react"
-import { css } from "@emotion/react"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
@@ -7,7 +7,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group"
 import IconLink from "../components/icon-link"
 import settings from "../config/settings"
 import { breakpoint, transitionTiming } from "../styles/theme"
-import { socialMediaMeta } from "../config/site-data.yml"
+import { socialMediaLinks } from "../config/site-data.yml"
 
 const TransitionWrapper = styled.div`
   transition-delay: ${props => props.delay || `0ms`};
@@ -185,7 +185,7 @@ export default (props) => {
         >
           <Sideline lineLength={`10vh`}>
             { isMounted &&
-              socialMediaMeta.filter(({ isInvisible }) => !isInvisible).map(({ id, link }) => (
+              socialMediaLinks.filter(({ isHidden }) => !isHidden).map(({ id, link }) => (
                 <IconLink
                   icon={id}
                   link={link}

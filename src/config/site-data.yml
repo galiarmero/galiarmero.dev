@@ -41,7 +41,7 @@ menuOptions:
     isInternal: true
   - title: Contact
     link: '#contact'
-socialMediaMeta:
+socialMediaLinks:
   - id: github
     link: https://github.com/galiarmero
   - id: linkedin
@@ -51,11 +51,11 @@ socialMediaMeta:
   - id: twitter
     link: https://twitter.com/galiarmero
     username: galiarmero
-    isInvisible: true
+    isHidden: true
   - id: instagram
     link: https://www.instagram.com/galiarmero/
-    isInvisible: true
-siteUrl: https://galiarmero.dev/
+    isHidden: true
+siteBaseUrl: https://galiarmero.dev/
 nakedDomain: galiarmero.dev
-projectUrl: https://github.com/galiarmero/galiarmero.dev
+projectSourceUrl: https://github.com/galiarmero/galiarmero.dev
 copyrightYear: 2022

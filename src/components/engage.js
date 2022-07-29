@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
 import { TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
 
-import { profile, siteUrl, socialMediaMeta } from "../config/site-data.yml"
+import { profile, siteBaseUrl, socialMediaLinks } from "../config/site-data.yml"
 
 const Box = styled.div`
   padding: 0.9rem 0 0.7rem;
@@ -20,7 +20,7 @@ const BoxLabel = styled.span`
 
 export default ({ slug, title, teaser, editUrl }) => {
 
-  const url = `${siteUrl}${slug}`
+  const url = `${siteBaseUrl}${slug}`
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
 
   const iconHoverStyle = css`
@@ -42,7 +42,7 @@ export default ({ slug, title, teaser, editUrl }) => {
           <TwitterShareButton
             url={url}
             title={title}
-            via={socialMediaMeta.find(({ id }) => id === `twitter`).username}
+            via={socialMediaLinks.find(({ id }) => id === `twitter`).username}
             css={css`margin-right: 12px;`}
           >
             <FaTwitter css={iconHoverStyle} />
