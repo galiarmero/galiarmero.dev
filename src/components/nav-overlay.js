@@ -3,7 +3,7 @@ import { css } from "@emotion/react"
 
 import IconLink from "./icon-link"
 import { NavLinkItem } from "../styles/Links"
-import { menuOptions, socialMediaMeta } from "../config/site-meta.yml"
+import { menuOptions, socialMediaLinks } from "../config/site-data.yml"
 
 const itemStyle = css`
   margin: 1rem 0;
@@ -61,7 +61,7 @@ export default (props) => (
       }
     `}>
       {
-        socialMediaMeta.filter(({ isInvisible }) => !isInvisible).map(({ id, link }) => (
+        socialMediaLinks.filter(({ isHidden }) => !isHidden).map(({ id, link }) => (
           <IconLink
             icon={id}
             link={link}

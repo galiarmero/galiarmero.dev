@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
-import { nakedDomain } from "../config/site-meta.yml"
+import { nakedDomain } from "../config/site-data.yml"
 import Logo from "../../static/icons/logo.svg"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
