@@ -49,9 +49,11 @@ module.exports = {
         // URL to Server eg: "https://analytics.test.com".
         server: process.env.ACKEE_SERVER_URL,
         // Disabled analytic tracking when running locally
-        ignoreLocalhost: false,
+        ignoreLocalhost: true,
+        // Enable or disable the tracking of your own visits (as identified by your login to the Ackee dashboard).
+        ignoreOwnVisits: true,
         // If enabled it will collect info on OS, BrowserInfo, Device  & ScreenSize
-        detailed: false
+        detailed: true
       },
     },
     `gatsby-plugin-sharp`,
