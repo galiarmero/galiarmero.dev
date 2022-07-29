@@ -32,13 +32,13 @@
     "gatsby-source-filesystem": "^4.19.0",
     "gatsby-transformer-remark": "^5.19.0",
     "prismjs": "^1.17.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^3.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.4.0",
     "react-share": "^4.1.0",
     "react-transition-group": "^4.3.0",
-    "yaml-loader": "^0.6.0"
+    "yaml-loader": "^0.8.0"
   },
   "devDependencies": {
     "date-fns": "^1.30.1",
