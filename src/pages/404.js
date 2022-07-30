@@ -25,7 +25,7 @@ export default ({ data }) => {
   `
 
   const textStyle = (sizeDivisor = 1) => css`
-    color: ${props => props.color || `inherit`};
+    color: ${(props) => props.color || `inherit`};
     font-size: calc(6rem / ${sizeDivisor});
     ${breakpoint.media4} {
       font-size: calc(7rem / ${sizeDivisor});

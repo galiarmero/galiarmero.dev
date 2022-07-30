@@ -7,7 +7,7 @@ import faviconPng from "../../static/favicon.png"
 import faviconMask from "../../static/favicon-mask.svg"
 import faviconAppleTouch from "../../static/favicon-apple-touch.png"
 
-export default props => (
+export default (props) => (
   <Helmet>
     <meta charSet="utf-8" />
     <title>{props.pageTitle}</title>

@@ -41,7 +41,7 @@ export default ({ handleIntersection }) => {
   const [hasPostAppeared, setPostAppeared] = useState(initialPostAppearance)
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
 
-  const postObserverOpts = k => ({
+  const postObserverOpts = (k) => ({
     onChange: ({ isIntersecting }) => {
       if (isIntersecting) {
         setPostAppeared({ ...hasPostAppeared, [k]: true })

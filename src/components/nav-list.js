@@ -11,7 +11,7 @@ const itemStyle = css`
   color: var(--textColor);
 `
 
-export default props => (
+export default (props) => (
   <nav
     css={css`
       display: flex;

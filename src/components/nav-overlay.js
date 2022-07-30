@@ -11,7 +11,7 @@ const itemStyle = css`
   font-family: "Gilroy-ExtraBold", sans-serif;
 `
 
-export default props => (
+export default (props) => (
   <nav
     css={css`
       position: fixed;

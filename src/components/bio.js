@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 
 import profilePic from "../../static/images/profile-pic.jpg"
 
-export default props => (
+export default (props) => (
   <aside
     css={css`
       display: flex;

@@ -2,7 +2,7 @@ import dayjs from "dayjs"
 
 export const throttle = (func, wait = 100) => {
   let timer = null
-  return function(...args) {
+  return function (...args) {
     if (timer === null) {
       timer = setTimeout(() => {
         func.apply(this, args)
@@ -12,7 +12,7 @@ export const throttle = (func, wait = 100) => {
   }
 }
 
-export const formatDate = date => dayjs(date).format("DD MMMM YYYY")
+export const formatDate = (date) => dayjs(date).format("DD MMMM YYYY")
 
 export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
   onChange: ({ isIntersecting }) => {

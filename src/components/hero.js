@@ -10,20 +10,20 @@ import { breakpoint, transitionTiming } from "../styles/theme"
 import { socialMediaLinks } from "../config/site-data.yml"
 
 const TransitionWrapper = styled.div`
-  transition-delay: ${props => props.delay || `0ms`};
+  transition-delay: ${(props) => props.delay || `0ms`};
 `
 
 const SidelineContainer = styled.aside`
   width: 30px;
-  position: ${props => props.position || `fixed`};
-  bottom: ${props => (props.isMounted ? props.bottomOffset : `-100vh`)};
+  position: ${(props) => props.position || `fixed`};
+  bottom: ${(props) => (props.isMounted ? props.bottomOffset : `-100vh`)};
   transition: 400ms;
   transition-delay: 650ms;
-  right: ${props => props.rightOffset || `auto`};
-  left: ${props => props.leftOffset || `auto`};
+  right: ${(props) => props.rightOffset || `auto`};
+  left: ${(props) => props.leftOffset || `auto`};
   z-index: 200;
   color: var(--headingColor);
-  ${props => props.customCss};
+  ${(props) => props.customCss};
 `
 
 const Sideline = styled.div`
@@ -36,7 +36,7 @@ const Sideline = styled.div`
     content: "";
     display: block;
     width: 1.5px;
-    height: ${props => props.lineLength};
+    height: ${(props) => props.lineLength};
     margin: 10px auto 0;
     background-color: var(--headingColor);
   }
@@ -58,7 +58,7 @@ const largeHeading = css`
   }
 `
 
-export default props => {
+export default (props) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {

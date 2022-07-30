@@ -96,8 +96,8 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
   )
 }
 
-const paragraphify = text =>
+const paragraphify = (text) =>
   text
     .split("\n\n")
-    .map(p => `<p>${p}</p>`)
+    .map((p) => `<p>${p}</p>`)
     .join(``)

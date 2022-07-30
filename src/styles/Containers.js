@@ -6,15 +6,15 @@ export const Section = styled.section`
   margin: 0px auto;
   position: relative;
   padding: 75px 0px 125px;
-  ${props => props.customCss || null};
+  ${(props) => props.customCss || null};
 `
 
 export const SectionBody = styled.div`
-  margin-top: ${props => props.marginTop || `100px`};
+  margin-top: ${(props) => props.marginTop || `100px`};
 `
 
 export const Main = styled.main`
-  margin-top: ${props => props.marginTop || `0`};
+  margin-top: ${(props) => props.marginTop || `0`};
   padding: 0 25px;
   overflow-x: hidden;
 
@@ -34,13 +34,13 @@ export const Main = styled.main`
 export const AutoFitGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: ${props => props.gap || `15px`};
-  margin-top: ${props => props.marginTop || `0`};
+  gap: ${(props) => props.gap || `15px`};
+  margin-top: ${(props) => props.marginTop || `0`};
 `
 
 export const AppearingContainer = styled.div`
-  opacity: ${props => (props.hasNotAppeared ? `0` : `1`)};
-  transform: ${props =>
+  opacity: ${(props) => (props.hasNotAppeared ? `0` : `1`)};
+  transform: ${(props) =>
     props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
   transition: opacity 300ms ${transitionTiming},
     transform 300ms ${transitionTiming};

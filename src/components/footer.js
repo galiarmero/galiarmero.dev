@@ -8,7 +8,7 @@ import {
   copyrightYear,
 } from "../config/site-data.yml"
 
-export default props => {
+export default (props) => {
   const children = (
     <footer
       css={css`

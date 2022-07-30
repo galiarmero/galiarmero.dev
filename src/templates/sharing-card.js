@@ -7,8 +7,8 @@ import { nakedDomain } from "../config/site-data.yml"
 import Logo from "../../static/icons/logo.svg"
 
 const Card = styled.div`
-  width: ${props => props.width || 800}px;
-  height: ${props => props.height || 400}px;
+  width: ${(props) => props.width || 800}px;
+  height: ${(props) => props.height || 400}px;
   background: var(--bgColor);
   padding: 75px 85px 70px;
 `

@@ -9,8 +9,8 @@ import Logo from "../../static/icons/logo.svg"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
 const Card = styled.div`
-  width: ${props => props.width || 800}px;
-  height: ${props => props.height || 400}px;
+  width: ${(props) => props.width || 800}px;
+  height: ${(props) => props.height || 400}px;
   background: var(--bgColor);
   border-top: 15px solid var(--accentColor);
   padding: 75px 85px 70px;
