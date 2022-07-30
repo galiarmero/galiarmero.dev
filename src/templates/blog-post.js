@@ -68,7 +68,7 @@ const BlogPost = ({ data, pageContext }) => {
             margin: 40px 0 50px;
           `}
         >
-          <Bio author={author} />
+          <Bio author={author} descriptionAfterName={profile.blogBioAfterName} />
         </div>
 
         {previousPost && (

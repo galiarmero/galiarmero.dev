@@ -2,6 +2,14 @@ profile:
   greeting: Hi, I am
   name: Gali Armero
   tagline: I build things that simplify.
+  briefBio: >-
+    Gali Armero is a full stack software engineer.
+    He enjoys building performant backends and
+    hiding complexity with clean, intuitive user interfaces.
+  blogBioAfterName: >-
+    is a full stack software engineer from the Philippines. He is amused
+    by elegant software solutions, new places, ugly delicious food,
+    and the sound of a basketball swishing through the hoop.
   blogDescription: Insights of a tech guy in perpetual search for answers.
   aboutIntro: >-
     Hello! My name is Gali -- short for Galileo.
@@ -55,7 +63,7 @@ socialMediaLinks:
   - id: instagram
     link: https://www.instagram.com/galiarmero/
     isHidden: true
-siteBaseUrl: https://galiarmero.dev/
+siteBaseUrl: https://galiarmero.dev
 nakedDomain: galiarmero.dev
 projectSourceUrl: https://github.com/galiarmero/galiarmero.dev
 copyrightYear: 2022

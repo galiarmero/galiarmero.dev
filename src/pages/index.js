@@ -83,9 +83,7 @@ const Index = () => {
       <Helmet
         pageTitle={`${profile.name} · Full Stack Software Engineer`}
         title={`${profile.name}`}
-        description={`${profile.name} is a full stack software engineer. \
-                      He enjoys building performant backends and \
-                      hiding complexity with clean, intuitive user interfaces.`}
+        description={`${profile.briefBio}`}
         pageUrl={`${siteBaseUrl}`}
         sharingCard={`${siteBaseUrl}${sharingCard}`}
         sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
