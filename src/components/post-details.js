@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import { formatDate } from "../utils"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
-export default ({ datePublished, timeToRead }) => (
+const PostDetails = ({ datePublished, timeToRead }) => (
   <span
     css={css`
       font-size: 0.7rem;
@@ -29,3 +29,5 @@ export default ({ datePublished, timeToRead }) => (
     {timeToRead} min read
   </span>
 )
+
+export default PostDetails

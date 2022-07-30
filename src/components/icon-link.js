@@ -18,7 +18,7 @@ const iconMappings = {
   instagram: FaInstagram,
 }
 
-export default ({ icon, link, onClick, customCss }) => {
+const IconLink = ({ icon, link, onClick, customCss }) => {
   const Icon = iconMappings[icon]
   return (
     <a
@@ -42,3 +42,5 @@ export default ({ icon, link, onClick, customCss }) => {
     </a>
   )
 }
+
+export default IconLink

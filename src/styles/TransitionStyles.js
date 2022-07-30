@@ -3,7 +3,7 @@ import { Global, css } from "@emotion/react"
 
 import { transitionTiming } from "../styles/theme"
 
-export default (props) => (
+const TransitionStyles = (props) => (
   <Global
     styles={css`
       .fadeup-enter {
@@ -22,3 +22,5 @@ export default (props) => (
     `}
   />
 )
+
+export default TransitionStyles

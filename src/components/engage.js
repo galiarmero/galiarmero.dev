@@ -8,7 +8,9 @@ import {
   LinkedinShareButton,
 } from "react-share"
 
-import { profile, siteBaseUrl, socialMediaLinks } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
+
+const { profile, siteBaseUrl, socialMediaLinks } = siteData
 
 const Box = styled.div`
   padding: 0.9rem 0 0.7rem;
@@ -22,7 +24,7 @@ const BoxLabel = styled.span`
   text-transform: uppercase;
 `
 
-export default ({ slug, title, teaser, editUrl }) => {
+const Engage = ({ slug, title, teaser, editUrl }) => {
   const url = `${siteBaseUrl}${slug}`
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
     url
@@ -96,3 +98,5 @@ export default ({ slug, title, teaser, editUrl }) => {
     </div>
   )
 }
+
+export default Engage

@@ -10,7 +10,7 @@ import { throttle } from "../utils"
 import SliderBurger from "./slider-burger"
 import Logo from "../../static/icons/logo.svg"
 
-export default ({
+const Header = ({
   height,
   isSticky,
   hasMenu,
@@ -152,3 +152,5 @@ export default ({
     </header>
   )
 }
+
+export default Header

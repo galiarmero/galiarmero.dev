@@ -2,7 +2,7 @@ import React from "react"
 import { css } from "@emotion/react"
 
 import { NavLinkItem } from "../styles/Links"
-import { menuOptions } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 
 const itemStyle = css`
   font-size: 0.8rem;
@@ -11,7 +11,7 @@ const itemStyle = css`
   color: var(--textColor);
 `
 
-export default (props) => (
+const NavList = (props) => (
   <nav
     css={css`
       display: flex;
@@ -19,7 +19,7 @@ export default (props) => (
       ${props.customCss};
     `}
   >
-    {menuOptions.map(({ title, link, isInternal }) => (
+    {siteData.menuOptions.map(({ title, link, isInternal }) => (
       <NavLinkItem
         link={link}
         isInternal={isInternal}
@@ -39,3 +39,5 @@ export default (props) => (
     ))}
   </nav>
 )
+
+export default NavList

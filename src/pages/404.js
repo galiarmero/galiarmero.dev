@@ -9,11 +9,10 @@ import { Main } from "../styles/Containers"
 import Button from "../styles/Buttons"
 import GlobalStyles from "../styles/GlobalStyles"
 import { colors, breakpoint } from "../styles/theme"
+import siteData from "../config/site-data.yml"
 
-import { profile } from "../config/site-data.yml"
-
-export default ({ data }) => {
-  const author = profile.name
+const FourOhFour = ({ data }) => {
+  const author = siteData.profile.name
   const headerHeight = 75
 
   const CenteredContainer = styled.div`
@@ -76,3 +75,5 @@ export default ({ data }) => {
     </div>
   )
 }
+
+export default FourOhFour

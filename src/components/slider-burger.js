@@ -10,7 +10,7 @@ const hamburgerLayerColor = `var(--headingColor)`
 const hamburgerLayerBorderRadius = `4px`
 const yOffset = `calc(${hamburgerLayerSpacing} + ${hamburgerLayerHeight})`
 
-export default ({ onToggleMenu, isMenuOpen, customCss }) => (
+const SliderBurger = ({ onToggleMenu, isMenuOpen, customCss }) => (
   <button
     className="hamburger"
     type="button"
@@ -124,3 +124,5 @@ export default ({ onToggleMenu, isMenuOpen, customCss }) => (
     </span>
   </button>
 )
+
+export default SliderBurger

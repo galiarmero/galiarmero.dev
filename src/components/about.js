@@ -9,7 +9,7 @@ import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
 import { appearanceObserverOpts } from "../utils"
 
-export default ({ handleIntersection, intro, techSkills, more }) => {
+const About = ({ handleIntersection, intro, techSkills, more }) => {
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
   const [hasIntroAppeared, setIntroAppeared] = useState(false)
   const [hasDividerAppeared, setDividerAppeared] = useState(false)
@@ -101,3 +101,5 @@ const paragraphify = (text) =>
     .split("\n\n")
     .map((p) => `<p>${p}</p>`)
     .join(``)
+
+export default About

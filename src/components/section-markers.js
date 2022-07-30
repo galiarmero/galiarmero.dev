@@ -3,7 +3,7 @@ import { css } from "@emotion/react"
 
 import { breakpoint } from "../styles/theme"
 
-export default ({
+const SectionMarkers = ({
   activeMarkerHeight,
   markerHeight,
   unit,
@@ -96,3 +96,5 @@ const Marker = ({ href, height, children }) => (
     </a>
   </li>
 )
+
+export default SectionMarkers
