@@ -11,7 +11,7 @@ import Button from "../styles/Buttons"
 import settings from "../config/settings"
 import { appearanceObserverOpts } from "../utils"
 
-export default ({ handleIntersection }) => {
+const LatestBlogPosts = ({ handleIntersection }) => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -106,3 +106,5 @@ export default ({ handleIntersection }) => {
     </IntersectionObserver>
   )
 }
+
+export default LatestBlogPosts

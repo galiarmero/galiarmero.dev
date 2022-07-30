@@ -13,10 +13,11 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import BlogStyles from "../styles/BlogStyles"
 import { colors } from "../styles/theme"
+import siteData from "../config/site-data.yml"
 
-import { profile, siteBaseUrl } from "../config/site-data.yml"
+const { profile, siteBaseUrl } = siteData
 
-export default ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext }) => {
   const headerHeight = 75
   const author = profile.name
   const post = data.markdownRemark
@@ -89,6 +90,8 @@ export default ({ data, pageContext }) => {
     </div>
   )
 }
+
+export default BlogPost
 
 export const query = graphql`
   query loadBlogPost($slug: String!) {

@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
-import { nakedDomain } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 import Logo from "../../static/icons/logo.svg"
 import IconEyeglasses from "../../static/icons/circular-eyeglasses.svg"
 
@@ -68,7 +68,7 @@ const iconStyle = css`
   vertical-align: middle;
 `
 
-export default ({ data, pageContext }) => {
+const SharingCardBlog = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { width, height } = pageContext
 
@@ -92,13 +92,15 @@ export default ({ data, pageContext }) => {
                 width: 56px;
               `}
             />
-            <Domain>{nakedDomain}</Domain>
+            <Domain>{siteData.nakedDomain}</Domain>
           </CardFooter>
         </CardMain>
       </Card>
     </div>
   )
 }
+
+export default SharingCardBlog
 
 export const query = graphql`
   query BlogPostShareCard($slug: String!) {

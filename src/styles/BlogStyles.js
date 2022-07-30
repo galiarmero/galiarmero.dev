@@ -2,7 +2,7 @@ import React from "react"
 import { Global, css } from "@emotion/react"
 
 /* Overrides GlobalStyles for blog post-specific styling */
-export default () => (
+const BlogStyles = () => (
   <Global
     styles={css`
       .twitter-tweet-rendered {
@@ -58,3 +58,5 @@ export default () => (
     `}
   />
 )
+
+export default BlogStyles

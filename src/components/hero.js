@@ -7,7 +7,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group"
 import IconLink from "../components/icon-link"
 import settings from "../config/settings"
 import { breakpoint, transitionTiming } from "../styles/theme"
-import { socialMediaLinks } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 
 const TransitionWrapper = styled.div`
   transition-delay: ${(props) => props.delay || `0ms`};
@@ -58,7 +58,7 @@ const largeHeading = css`
   }
 `
 
-export default (props) => {
+const Hero = (props) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -195,7 +195,7 @@ export default (props) => {
         >
           <Sideline lineLength={`10vh`}>
             {isMounted &&
-              socialMediaLinks
+              siteData.socialMediaLinks
                 .filter(({ isHidden }) => !isHidden)
                 .map(({ id, link }) => (
                   <IconLink
@@ -221,3 +221,5 @@ export default (props) => {
     </IntersectionObserver>
   )
 }
+
+export default Hero

@@ -20,7 +20,7 @@ const PreviewBox = styled.article`
   height: 100%;
 `
 
-export default ({ key, data }) => {
+const PostPreview = ({ key, data }) => {
   const slug = data.fields.slug
   return (
     <PreviewBox key={key}>
@@ -84,3 +84,5 @@ export default ({ key, data }) => {
     </PreviewBox>
   )
 }
+
+export default PostPreview

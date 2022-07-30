@@ -13,10 +13,12 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
-import { profile, siteBaseUrl } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
-export default () => {
+const { profile, siteBaseUrl } = siteData
+
+const Index = () => {
   const headerHeight = 75
   const sections = ["hero", "about", "latestBlogPosts", "contact"]
 
@@ -127,3 +129,5 @@ export default () => {
     </div>
   )
 }
+
+export default Index

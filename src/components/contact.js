@@ -9,7 +9,7 @@ import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
 import { appearanceObserverOpts } from "../utils"
 
-export default ({ handleIntersection }) => {
+const Contact = ({ handleIntersection }) => {
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
   const [hasBodyAppeared, setBodyAppeared] = useState(false)
 
@@ -72,3 +72,5 @@ export default ({ handleIntersection }) => {
     </IntersectionObserver>
   )
 }
+
+export default Contact

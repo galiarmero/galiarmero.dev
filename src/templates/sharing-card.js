@@ -3,7 +3,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import GlobalStyles from "../styles/GlobalStyles"
-import { nakedDomain } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 import Logo from "../../static/icons/logo.svg"
 
 const Card = styled.div`
@@ -56,7 +56,7 @@ const Tagline = styled.h1`
   font-size: 4.3rem;
 `
 
-export default () => {
+const SharingCard = () => {
   const width = 1200
   const height = 628
 
@@ -77,10 +77,12 @@ export default () => {
                 width: 56px;
               `}
             />
-            <Domain>{nakedDomain}</Domain>
+            <Domain>{siteData.nakedDomain}</Domain>
           </CardFooter>
         </CardMain>
       </Card>
     </div>
   )
 }
+
+export default SharingCard

@@ -2,13 +2,11 @@ import React from "react"
 import { css } from "@emotion/react"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
 
-import {
-  profile,
-  projectSourceUrl,
-  copyrightYear,
-} from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 
-export default (props) => {
+const { profile, projectSourceUrl, copyrightYear } = siteData
+
+const Footer = (props) => {
   const children = (
     <footer
       css={css`
@@ -47,3 +45,5 @@ export default (props) => {
 
   return children
 }
+
+export default Footer

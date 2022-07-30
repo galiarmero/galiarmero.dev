@@ -3,7 +3,7 @@ import { Global, css } from "@emotion/react"
 
 import { colors, breakpoint } from "./theme"
 
-export default ({ scrollBehavior, bgColor }) => (
+const GlobalStyles = ({ scrollBehavior, bgColor }) => (
   <Global
     styles={css`
       @font-face {
@@ -154,3 +154,5 @@ export default ({ scrollBehavior, bgColor }) => (
     `}
   />
 )
+
+export default GlobalStyles

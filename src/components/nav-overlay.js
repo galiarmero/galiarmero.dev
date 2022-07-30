@@ -3,7 +3,9 @@ import { css } from "@emotion/react"
 
 import IconLink from "./icon-link"
 import { NavLinkItem } from "../styles/Links"
-import { menuOptions, socialMediaLinks } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
+
+const { menuOptions, socialMediaLinks } = siteData
 
 const itemStyle = css`
   margin: 1rem 0;
@@ -11,7 +13,7 @@ const itemStyle = css`
   font-family: "Gilroy-ExtraBold", sans-serif;
 `
 
-export default (props) => (
+const NavOverlay = (props) => (
   <nav
     css={css`
       position: fixed;
@@ -74,3 +76,5 @@ export default (props) => (
     </div>
   </nav>
 )
+
+export default NavOverlay

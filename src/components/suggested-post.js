@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
 import { SubHeading } from "../styles/Headings"
 
-export default ({ isPrevious, slug, title }) => {
+const SuggestedPost = ({ isPrevious, slug, title }) => {
   const Icon = isPrevious ? FaArrowLeft : FaArrowRight
   const onClick = () => navigate(slug)
   return (
@@ -44,3 +44,5 @@ export default ({ isPrevious, slug, title }) => {
     </aside>
   )
 }
+
+export default SuggestedPost

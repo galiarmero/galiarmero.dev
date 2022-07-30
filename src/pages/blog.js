@@ -11,10 +11,12 @@ import GlobalStyles from "../styles/GlobalStyles"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import { colors, breakpoint } from "../styles/theme"
-import { profile, siteBaseUrl } from "../config/site-data.yml"
+import siteData from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
-export default ({ data }) => {
+const { profile, siteBaseUrl } = siteData
+
+const Blog = ({ data }) => {
   const author = profile.name
   const headerHeight = 75
   const posts = data.allMarkdownRemark.edges
@@ -80,6 +82,8 @@ export default ({ data }) => {
     </div>
   )
 }
+
+export default Blog
 
 export const query = graphql`
   query {

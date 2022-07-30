@@ -1,5 +1,5 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import { Helmet as ReactHelmet } from "react-helmet"
 
 import { colors } from "../styles/theme"
 import favicon from "../../static/favicon.svg"
@@ -7,8 +7,8 @@ import faviconPng from "../../static/favicon.png"
 import faviconMask from "../../static/favicon-mask.svg"
 import faviconAppleTouch from "../../static/favicon-apple-touch.png"
 
-export default (props) => (
-  <Helmet>
+const Helmet = (props) => (
+  <ReactHelmet>
     <meta charSet="utf-8" />
     <title>{props.pageTitle}</title>
 
@@ -46,5 +46,7 @@ export default (props) => (
     {props.sharingCard && (
       <meta property="og:image" content={props.sharingCard} />
     )}
-  </Helmet>
+  </ReactHelmet>
 )
+
+export default Helmet

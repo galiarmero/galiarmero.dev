@@ -93,11 +93,11 @@ const LoaderLine = styled.div`
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
 `
 
-export default ({ finishLoading }) => {
+const Loader = ({ finishLoading }) => {
   useEffect(() => {
     const timeout = setTimeout(() => finishLoading(), 1500)
     return () => clearTimeout(timeout)
-  }, [])
+  }, [finishLoading])
 
   return (
     <div>
@@ -119,3 +119,5 @@ export default ({ finishLoading }) => {
     </div>
   )
 }
+
+export default Loader
