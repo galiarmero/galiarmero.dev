@@ -2,7 +2,11 @@ import React from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
-import { TwitterShareButton, FacebookShareButton, LinkedinShareButton } from "react-share"
+import {
+  TwitterShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+} from "react-share"
 
 import { profile, siteBaseUrl, socialMediaLinks } from "../config/site-data.yml"
 
@@ -19,9 +23,10 @@ const BoxLabel = styled.span`
 `
 
 export default ({ slug, title, teaser, editUrl }) => {
-
   const url = `${siteBaseUrl}${slug}`
-  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
+  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    url
+  )}`
 
   const iconHoverStyle = css`
     &:hover {
@@ -34,34 +39,38 @@ export default ({ slug, title, teaser, editUrl }) => {
       <Box>
         <BoxLabel>Share this post</BoxLabel>
 
-        <div css={css`
-          font-size: 1.5rem;
-          margin: 0.3rem 0;
-          line-height: 0.8;
-        `}>
+        <div
+          css={css`
+            font-size: 1.5rem;
+            margin: 0.3rem 0;
+            line-height: 0.8;
+          `}
+        >
           <TwitterShareButton
             url={url}
             title={title}
             via={socialMediaLinks.find(({ id }) => id === `twitter`).username}
-            css={css`margin-right: 12px;`}
+            css={css`
+              margin-right: 12px;
+            `}
           >
             <FaTwitter css={iconHoverStyle} />
           </TwitterShareButton>
 
-          { /* TODO: Fix not working share button */}
+          {/* TODO: Fix not working share button */}
           <LinkedinShareButton
             url={url}
             title={title}
             summary={teaser}
             source={profile.name}
-            css={css`margin-right: 12px;`}
+            css={css`
+              margin-right: 12px;
+            `}
           >
             <FaLinkedin css={iconHoverStyle} />
           </LinkedinShareButton>
 
-          <FacebookShareButton
-            url={url}
-          >
+          <FacebookShareButton url={url}>
             <FaFacebookSquare css={iconHoverStyle} />
           </FacebookShareButton>
         </div>
@@ -69,13 +78,19 @@ export default ({ slug, title, teaser, editUrl }) => {
 
       <Box>
         <BoxLabel>Contribute to the discussion</BoxLabel>
-        <div css={css`
-          font-size: 0.9rem;
-          margin: 0.3rem 0;
-        `}>
-          <a target="_blank" rel="noopener noreferrer" href={discussUrl}>Discuss on Twitter</a>
+        <div
+          css={css`
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+          `}
+        >
+          <a target="_blank" rel="noopener noreferrer" href={discussUrl}>
+            Discuss on Twitter
+          </a>
           &nbsp;&middot;&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href={editUrl}>Edit on GitHub</a>
+          <a target="_blank" rel="noopener noreferrer" href={editUrl}>
+            Edit on GitHub
+          </a>
         </div>
       </Box>
     </div>

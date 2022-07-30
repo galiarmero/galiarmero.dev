@@ -34,14 +34,16 @@ export const Main = styled.main`
 export const AutoFitGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: ${ props => props.gap || `15px` };
-  margin-top: ${ props => props.marginTop || `0` };
+  gap: ${props => props.gap || `15px`};
+  margin-top: ${props => props.marginTop || `0`};
 `
 
 export const AppearingContainer = styled.div`
-  opacity: ${props => props.hasNotAppeared ? `0` : `1`};
-  transform: ${props => props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
-  transition: opacity 300ms ${transitionTiming}, transform 300ms ${transitionTiming};
+  opacity: ${props => (props.hasNotAppeared ? `0` : `1`)};
+  transform: ${props =>
+    props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
+  transition: opacity 300ms ${transitionTiming},
+    transform 300ms ${transitionTiming};
   transition-delay: 400ms;
   margin: 30px 0;
 `

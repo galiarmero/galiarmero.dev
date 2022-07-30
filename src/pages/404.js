@@ -57,7 +57,9 @@ export default ({ data }) => {
             css={css`
               ${textStyle()};
             `}
-          >404</h1>
+          >
+            404
+          </h1>
           <Divider />
 
           <span
@@ -65,7 +67,9 @@ export default ({ data }) => {
               margin-bottom: 3rem;
               ${textStyle(4)};
             `}
-          >Page Not Found</span>
+          >
+            Page Not Found
+          </span>
           <Button onClick={() => navigate(`/`)}>Go Home</Button>
         </CenteredContainer>
       </Main>

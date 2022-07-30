@@ -2,16 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/react"
 
-export const NavLinkItem = (props) => (
+export const NavLinkItem = props => (
   <div css={props.customCss}>
-    {props.isInternal
-      ? <Link to={props.link} onClick={props.onClick} css={navLinkStyle}>
-          {props.children}
-        </Link>
-      : <a href={props.link} onClick={props.onClick} css={navLinkStyle}>
-          {props.children}
-        </a>
-    }
+    {props.isInternal ? (
+      <Link to={props.link} onClick={props.onClick} css={navLinkStyle}>
+        {props.children}
+      </Link>
+    ) : (
+      <a href={props.link} onClick={props.onClick} css={navLinkStyle}>
+        {props.children}
+      </a>
+    )}
   </div>
 )
 
@@ -24,7 +25,7 @@ export const linkReset = css`
 
   &:hover {
     &:after {
-        content: none;
+      content: none;
     }
   }
 `

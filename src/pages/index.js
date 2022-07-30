@@ -83,8 +83,7 @@ export default () => {
         title={`${profile.name}`}
         description={`${profile.name} is a full stack software engineer. \
                       He enjoys building performant backends and \
-                      hiding complexity with clean, intuitive user interfaces.`
-                    }
+                      hiding complexity with clean, intuitive user interfaces.`}
         pageUrl={`${siteBaseUrl}`}
         sharingCard={`${siteBaseUrl}${sharingCard}`}
         sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}

@@ -41,7 +41,7 @@ const Domain = styled.span`
 const Greeting = styled.span`
   padding: 0 0 10px 3px;
   color: var(--accentColor);
-  font-family: 'JetBrainsMono-Regular';
+  font-family: "JetBrainsMono-Regular";
   font-size: 1.2rem;
 `
 
@@ -50,13 +50,13 @@ const Name = styled.h1`
 `
 
 const Tagline = styled.h1`
-  font-family: 'Gilroy-Light', sans-serif;
+  font-family: "Gilroy-Light", sans-serif;
   font-weight: 300;
   color: var(--textColor);
   font-size: 4.3rem;
 `
 
-export default() => {
+export default () => {
   const width = 1200
   const height = 628
 

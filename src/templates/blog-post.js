@@ -16,16 +16,12 @@ import { colors } from "../styles/theme"
 
 import { profile, siteBaseUrl } from "../config/site-data.yml"
 
-export default({ data, pageContext }) => {
+export default ({ data, pageContext }) => {
   const headerHeight = 75
   const author = profile.name
   const post = data.markdownRemark
   const postTitle = post.frontmatter.title
-  const {
-    slug,
-    previousPost,
-    nextPost,
-  } = pageContext
+  const { slug, previousPost, nextPost } = pageContext
 
   return (
     <div>
@@ -39,7 +35,12 @@ export default({ data, pageContext }) => {
       />
       <GlobalStyles />
       <BlogStyles />
-      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" suffixLink="/blog" />
+      <Header
+        height={headerHeight}
+        navBackground={colors.lighterBg}
+        logoSuffix="blog"
+        suffixLink="/blog"
+      />
       <Main marginTop={`${headerHeight + 35}px`}>
         <h1>{post.frontmatter.title}</h1>
         <PostDetails
@@ -52,8 +53,7 @@ export default({ data, pageContext }) => {
           css={css`
             margin: 80px 0;
           `}
-        >
-        </div>
+        ></div>
 
         <Engage
           slug={slug}
@@ -62,36 +62,37 @@ export default({ data, pageContext }) => {
           editUrl={post.fields.editUrl}
         />
 
-        <div css={css`margin: 40px 0 50px;`}>
+        <div
+          css={css`
+            margin: 40px 0 50px;
+          `}
+        >
           <Bio author={author} />
         </div>
 
-        {
-          previousPost &&
+        {previousPost && (
           <SuggestedPost
             isPrevious={true}
             slug={previousPost.fields.slug}
             title={previousPost.frontmatter.title}
           />
-        }
+        )}
 
-        {
-          nextPost &&
+        {nextPost && (
           <SuggestedPost
             slug={nextPost.fields.slug}
             title={nextPost.frontmatter.title}
           />
-        }
+        )}
       </Main>
       <Footer marginTop={`50px`} />
     </div>
   )
 }
 
-
 export const query = graphql`
-  query loadBlogPost ($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+  query loadBlogPost($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         teaser
         datePublished

@@ -40,7 +40,7 @@ const Title = styled.h1`
 `
 
 const PostDetails = styled.div`
-  font-family: 'ClearSans-Light', sans-serif;
+  font-family: "ClearSans-Light", sans-serif;
   font-size: 1.4rem;
   margin-top: 0.5rem;
 `
@@ -68,12 +68,9 @@ const iconStyle = css`
   vertical-align: middle;
 `
 
-export default({ data, pageContext }) => {
+export default ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const {
-    width,
-    height,
-  } = pageContext
+  const { width, height } = pageContext
 
   return (
     <div>
@@ -103,10 +100,9 @@ export default({ data, pageContext }) => {
   )
 }
 
-
 export const query = graphql`
   query BlogPostShareCard($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         teaser
         datePublished

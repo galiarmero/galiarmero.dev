@@ -9,12 +9,14 @@ export default ({ isPrevious, slug, title }) => {
   const Icon = isPrevious ? FaArrowLeft : FaArrowRight
   const onClick = () => navigate(slug)
   return (
-    <aside css={css`
-      display: flex;
-      flex-direction: column;
-      text-align: ${isPrevious ? `left` : `right`};
-      margin: 20px 0;
-    `}>
+    <aside
+      css={css`
+        display: flex;
+        flex-direction: column;
+        text-align: ${isPrevious ? `left` : `right`};
+        margin: 20px 0;
+      `}
+    >
       <span>
         <Icon
           css={css`
@@ -28,12 +30,15 @@ export default ({ isPrevious, slug, title }) => {
           onClick={onClick}
         />
       </span>
-      <SubHeading onClick={onClick} css={css`
-        cursor: pointer;
-        &:hover {
-          color: var(--accentColor);
-        }
-      `}>
+      <SubHeading
+        onClick={onClick}
+        css={css`
+          cursor: pointer;
+          &:hover {
+            color: var(--accentColor);
+          }
+        `}
+      >
         {title}
       </SubHeading>
     </aside>

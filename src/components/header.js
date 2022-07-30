@@ -7,15 +7,24 @@ import NavOverlay from "./nav-overlay"
 import { navLinkStyle } from "../styles/Links"
 import { breakpoint, transitionTiming } from "../styles/theme"
 import { throttle } from "../utils"
-import SliderBurger from './slider-burger'
+import SliderBurger from "./slider-burger"
 import Logo from "../../static/icons/logo.svg"
 
-export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackground, logoSuffix, suffixLink }) => {
+export default ({
+  height,
+  isSticky,
+  hasMenu,
+  isMenuOpen,
+  onToggleMenu,
+  navBackground,
+  logoSuffix,
+  suffixLink,
+}) => {
   const DELTA = 5
   const [isScrollTop, setIsScrollTop] = useState(true)
 
   const handleScroll = () => {
-    const fromTop = window.scrollY;
+    const fromTop = window.scrollY
 
     if (fromTop < DELTA) {
       setIsScrollTop(true)
@@ -28,44 +37,53 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
 
   const handleResize = () => {
     if (window.innerWidth >= 768 && isMenuOpen) {
-      onToggleMenu();
+      onToggleMenu()
     }
   }
 
   useLayoutEffect(() => {
-    window.addEventListener('scroll', () => throttle(handleScroll(), 250))
-    window.addEventListener('resize', () => throttle(handleResize()))
+    window.addEventListener("scroll", () => throttle(handleScroll(), 250))
+    window.addEventListener("resize", () => throttle(handleResize()))
     return () => {
-      window.removeEventListener('scroll', () => handleScroll())
-      window.removeEventListener('resize', () => handleResize())
+      window.removeEventListener("scroll", () => handleScroll())
+      window.removeEventListener("resize", () => handleResize())
     }
   })
 
   return (
-    <header css={css`
-      padding: 0 25px;
-      position: ${isSticky ? `fixed` : `absolute`};
-      top: 0px;
-      width: 100%;
-      background-color: var(--bgColor);
-      z-index: 300;
-      box-shadow: ${isScrollTop ? `none` : `0px 5px 9px -3px var(--boxShadowColor)`};
-      transition: all 0.25s ${transitionTiming};
+    <header
+      css={css`
+        padding: 0 25px;
+        position: ${isSticky ? `fixed` : `absolute`};
+        top: 0px;
+        width: 100%;
+        background-color: var(--bgColor);
+        z-index: 300;
+        box-shadow: ${isScrollTop
+          ? `none`
+          : `0px 5px 9px -3px var(--boxShadowColor)`};
+        transition: all 0.25s ${transitionTiming};
 
-      ${breakpoint.media7} {
-        padding: 0 40px;
-      }
-    `}>
-      <div css={css`
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: ${height}px;
-        z-index: 4;
-      `}>
-        <div className="logo" css={css`
-          z-index: 5;
-        `}>
+        ${breakpoint.media7} {
+          padding: 0 40px;
+        }
+      `}
+    >
+      <div
+        css={css`
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: ${height}px;
+          z-index: 4;
+        `}
+      >
+        <div
+          className="logo"
+          css={css`
+            z-index: 5;
+          `}
+        >
           <h1
             css={css`
               display: flex;
@@ -83,12 +101,12 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
                   opacity: 0.8;
                 }
               `}
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             />
-            { logoSuffix &&
+            {logoSuffix && (
               <span
                 css={css`
-                  font-family: 'Gilroy-Light', sans-serif;
+                  font-family: "Gilroy-Light", sans-serif;
                   font-weight: 300;
                   vertical-align: middle;
                   font-size: 1.2rem;
@@ -96,12 +114,13 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
                   ${suffixLink ? navLinkStyle : null};
                 `}
                 onClick={() => suffixLink && navigate(suffixLink)}
-              >{logoSuffix}</span>
-            }
+              >
+                {logoSuffix}
+              </span>
+            )}
           </h1>
-
         </div>
-        { hasMenu &&
+        {hasMenu && (
           <NavList
             customCss={css`
               ${breakpoint.maxMedia7} {
@@ -109,8 +128,8 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
               }
             `}
           />
-        }
-        { hasMenu &&
+        )}
+        {hasMenu && (
           <SliderBurger
             isMenuOpen={isMenuOpen}
             onToggleMenu={onToggleMenu}
@@ -120,12 +139,16 @@ export default ({ height, isSticky, hasMenu, isMenuOpen, onToggleMenu, navBackgr
               }
             `}
           />
-        }
+        )}
       </div>
 
-      { hasMenu &&
-        <NavOverlay onToggleMenu={onToggleMenu} backgroundColor={navBackground} isVisible={isMenuOpen} />
-      }
+      {hasMenu && (
+        <NavOverlay
+          onToggleMenu={onToggleMenu}
+          backgroundColor={navBackground}
+          isVisible={isMenuOpen}
+        />
+      )}
     </header>
   )
 }

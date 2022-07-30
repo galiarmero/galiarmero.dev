@@ -3,20 +3,29 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 export default ({ onToggleMenu, isMenuOpen }) => (
-  <div onClick={onToggleMenu} css={css`
-    display: flex;
-    margin-left: auto;
-    width: 2rem;
-    height: 1.3rem;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    z-index: 5;
-  `}>
-    <BurgerBar css={css`opacity: ${isMenuOpen ? `0` : `1`}`}></BurgerBar>
-    <BurgerBar css={css`
-      ${isMenuOpen ? `
+  <div
+    onClick={onToggleMenu}
+    css={css`
+      display: flex;
+      margin-left: auto;
+      width: 2rem;
+      height: 1.3rem;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      z-index: 5;
+    `}
+  >
+    <BurgerBar
+      css={css`
+        opacity: ${isMenuOpen ? `0` : `1`};
+      `}
+    ></BurgerBar>
+    <BurgerBar
+      css={css`
+        ${isMenuOpen
+          ? `
         transform: rotate(45deg);
         position: relative;
         &:after {
@@ -28,9 +37,15 @@ export default ({ onToggleMenu, isMenuOpen }) => (
           display: inline-block;
           transform: rotate(-90deg);
         }
-      ` : ``}
-    `}></BurgerBar>
-    <BurgerBar css={css`opacity: ${isMenuOpen ? `0` : `1`}`}></BurgerBar>
+      `
+          : ``}
+      `}
+    ></BurgerBar>
+    <BurgerBar
+      css={css`
+        opacity: ${isMenuOpen ? `0` : `1`};
+      `}
+    ></BurgerBar>
   </div>
 )
 

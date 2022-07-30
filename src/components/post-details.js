@@ -23,8 +23,9 @@ export default ({ datePublished, timeToRead }) => (
         top: 0.3rem;
         font-size: 1.1rem;
         margin-right: 5px;
-        font-family: 'ClearSans-Thin', sans-serif;
+        font-family: "ClearSans-Thin", sans-serif;
       `}
-    />{timeToRead} min read
+    />
+    {timeToRead} min read
   </span>
 )
