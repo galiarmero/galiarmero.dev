@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from "react"
+import React, { useState, useEffect } from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import IntersectionObserver from "@researchgate/react-intersection-observer"
@@ -10,20 +10,20 @@ import { breakpoint, transitionTiming } from "../styles/theme"
 import { socialMediaLinks } from "../config/site-data.yml"
 
 const TransitionWrapper = styled.div`
-  transition-delay: ${props => props.delay || `0ms`};
+  transition-delay: ${(props) => props.delay || `0ms`};
 `
 
 const SidelineContainer = styled.aside`
   width: 30px;
-  position: ${props => props.position || `fixed`};
-  bottom: ${props => props.isMounted ? props.bottomOffset : `-100vh`};
+  position: ${(props) => props.position || `fixed`};
+  bottom: ${(props) => (props.isMounted ? props.bottomOffset : `-100vh`)};
   transition: 400ms;
   transition-delay: 650ms;
-  right: ${props => props.rightOffset || `auto`};
-  left: ${props => props.leftOffset || `auto`};
+  right: ${(props) => props.rightOffset || `auto`};
+  left: ${(props) => props.leftOffset || `auto`};
   z-index: 200;
   color: var(--headingColor);
-  ${props => props.customCss};
+  ${(props) => props.customCss};
 `
 
 const Sideline = styled.div`
@@ -36,7 +36,7 @@ const Sideline = styled.div`
     content: "";
     display: block;
     width: 1.5px;
-    height: ${props => props.lineLength};
+    height: ${(props) => props.lineLength};
     margin: 10px auto 0;
     background-color: var(--headingColor);
   }
@@ -62,9 +62,9 @@ export default (props) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 200);
-    return () => clearTimeout(timeout);
-  }, []);
+    const timeout = setTimeout(() => setIsMounted(true), 200)
+    return () => clearTimeout(timeout)
+  }, [])
 
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     props.handleIntersection({
@@ -78,16 +78,18 @@ export default (props) => {
 
   const greeting = (
     <TransitionWrapper delay={`200ms`}>
-      <span css={css`
-        padding: 0 0 10px 3px;
-        color: var(--accentColor);
-        font-family: 'JetBrainsMono-Regular';
-        font-size: 0.9rem;
+      <span
+        css={css`
+          padding: 0 0 10px 3px;
+          color: var(--accentColor);
+          font-family: "JetBrainsMono-Regular";
+          font-size: 0.9rem;
 
-        ${breakpoint.media4} {
-          font-size: 1rem;
-        }
-      `}>
+          ${breakpoint.media4} {
+            font-size: 1rem;
+          }
+        `}
+      >
         {props.greeting}
       </span>
     </TransitionWrapper>
@@ -95,9 +97,11 @@ export default (props) => {
 
   const name = (
     <TransitionWrapper delay={`350ms`}>
-      <h1 css={css`
-        ${largeHeading};
-      `}>
+      <h1
+        css={css`
+          ${largeHeading};
+        `}
+      >
         {props.name}.
       </h1>
     </TransitionWrapper>
@@ -105,12 +109,14 @@ export default (props) => {
 
   const tagline = (
     <TransitionWrapper delay={`500ms`}>
-      <h1 css={css`
-        font-family: 'Gilroy-Light', sans-serif;
-        font-weight: 300;
-        color: var(--textColor);
-        ${largeHeading};
-      `}>
+      <h1
+        css={css`
+          font-family: "Gilroy-Light", sans-serif;
+          font-weight: 300;
+          color: var(--textColor);
+          ${largeHeading};
+        `}
+      >
         {props.tagline}
       </h1>
     </TransitionWrapper>
@@ -130,7 +136,8 @@ export default (props) => {
           margin-top: ${props.headerHeight}px;
         `}
       >
-        <TransitionGroup component="div"
+        <TransitionGroup
+          component="div"
           css={css`
             display: flex;
             flex-direction: column;
@@ -138,13 +145,12 @@ export default (props) => {
             min-height: 50vh;
           `}
         >
-          { isMounted &&
+          {isMounted &&
             items.map((item, i) => (
               <CSSTransition key={i} classNames="fadeup" timeout={3000}>
                 {item}
               </CSSTransition>
-            ))
-          }
+            ))}
         </TransitionGroup>
         <SidelineContainer
           isMounted={isMounted}
@@ -159,14 +165,18 @@ export default (props) => {
           `}
         >
           <Sideline lineLength={`50vh`}>
-            { isMounted &&
-              <div css={css`
-                writing-mode: vertical-rl;
-                font-size: 0.65rem;
-                letter-spacing: 0.3rem;
-                font-family: 'JetBrainsMono-Regular';
-              `}>SCROLL</div>
-            }
+            {isMounted && (
+              <div
+                css={css`
+                  writing-mode: vertical-rl;
+                  font-size: 0.65rem;
+                  letter-spacing: 0.3rem;
+                  font-family: "JetBrainsMono-Regular";
+                `}
+              >
+                SCROLL
+              </div>
+            )}
           </Sideline>
         </SidelineContainer>
 
@@ -184,26 +194,27 @@ export default (props) => {
           `}
         >
           <Sideline lineLength={`10vh`}>
-            { isMounted &&
-              socialMediaLinks.filter(({ isHidden }) => !isHidden).map(({ id, link }) => (
-                <IconLink
-                  icon={id}
-                  link={link}
-                  onClick={props.onToggleMenu}
-                  customCss={css`
-                    font-size: 1.2rem;
-                    margin: 10px 0;
-                    color: var(--headingColor);
-                    transition: all 0.25s ${transitionTiming} 0s;
+            {isMounted &&
+              socialMediaLinks
+                .filter(({ isHidden }) => !isHidden)
+                .map(({ id, link }) => (
+                  <IconLink
+                    icon={id}
+                    link={link}
+                    onClick={props.onToggleMenu}
+                    customCss={css`
+                      font-size: 1.2rem;
+                      margin: 10px 0;
+                      color: var(--headingColor);
+                      transition: all 0.25s ${transitionTiming} 0s;
 
-                    &:hover {
-                      color: var(--accentColor);
-                      transform: translateY(-3px);
-                    }
-                  `}
-                />
-              ))
-            }
+                      &:hover {
+                        color: var(--accentColor);
+                        transform: translateY(-3px);
+                      }
+                    `}
+                  />
+                ))}
           </Sideline>
         </SidelineContainer>
       </section>

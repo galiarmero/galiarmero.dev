@@ -39,7 +39,7 @@ const VerticallyCenteredBox = styled.div`
   }
 
   :after {
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -78,7 +78,11 @@ const LoaderLineMask = styled.div`
   overflow: hidden;
   transform-origin: 60px 60px;
   mask-image: linear-gradient(top, #fff, rgba(255, 255, 255, 0));
-  -webkit-mask-image: -webkit-linear-gradient(top, #fff, rgba(255, 255, 255, 0));
+  -webkit-mask-image: -webkit-linear-gradient(
+    top,
+    #fff,
+    rgba(255, 255, 255, 0)
+  );
   animation: rotate 1.2s infinite linear;
 `
 

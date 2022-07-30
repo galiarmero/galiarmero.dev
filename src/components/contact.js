@@ -45,17 +45,20 @@ export default ({ handleIntersection }) => {
         </IntersectionObserver>
 
         <SectionBody marginTop={`80px`}>
-          <IntersectionObserver {...appearanceObserverOpts(setBodyAppeared, 0.1)}>
+          <IntersectionObserver
+            {...appearanceObserverOpts(setBodyAppeared, 0.1)}
+          >
             <AppearingContainer hasNotAppeared={!hasBodyAppeared}>
               <p
                 css={css`
                   text-align: center;
                 `}
               >
-                Feel free to slide into my inbox if you have a question or just want to get in touch.
+                Feel free to slide into my inbox if you have a question or just
+                want to get in touch.
               </p>
               <Button
-                onClick={() => window.location = "mailto:hi@galiarmero.dev"}
+                onClick={() => (window.location = "mailto:hi@galiarmero.dev")}
                 css={css`
                   margin: 60px auto 0;
                 `}

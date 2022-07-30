@@ -25,7 +25,7 @@ export default ({ data }) => {
   `
 
   const textStyle = (sizeDivisor = 1) => css`
-    color: ${props => props.color || `inherit`};
+    color: ${(props) => props.color || `inherit`};
     font-size: calc(6rem / ${sizeDivisor});
     ${breakpoint.media4} {
       font-size: calc(7rem / ${sizeDivisor});
@@ -57,7 +57,9 @@ export default ({ data }) => {
             css={css`
               ${textStyle()};
             `}
-          >404</h1>
+          >
+            404
+          </h1>
           <Divider />
 
           <span
@@ -65,7 +67,9 @@ export default ({ data }) => {
               margin-bottom: 3rem;
               ${textStyle(4)};
             `}
-          >Page Not Found</span>
+          >
+            Page Not Found
+          </span>
           <Button onClick={() => navigate(`/`)}>Go Home</Button>
         </CenteredContainer>
       </Main>

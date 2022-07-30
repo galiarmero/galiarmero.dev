@@ -25,12 +25,15 @@ export default ({ key, data }) => {
   return (
     <PreviewBox key={key}>
       <div>
-        <Heading onClick={() => navigate(slug)} css={css`
-          cursor: pointer;
-          &:hover {
-            color: var(--accentColor);
-          }
-        `}>
+        <Heading
+          onClick={() => navigate(slug)}
+          css={css`
+            cursor: pointer;
+            &:hover {
+              color: var(--accentColor);
+            }
+          `}
+        >
           {data.frontmatter.title}
         </Heading>
         <PostDetails
@@ -46,30 +49,37 @@ export default ({ key, data }) => {
               font-size: 1.05rem;
             }
           `}
-        >{data.frontmatter.teaser}</p>
+        >
+          {data.frontmatter.teaser}
+        </p>
       </div>
 
-      <Link css={css`
-        ${linkReset};
-        font-family: 'JetBrainsMono-Regular';
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        letter-spacing: 0.05rem;
-        vertical-align: middle;
-        &:hover {
-          svg {
-            margin-left: 12px;
+      <Link
+        css={css`
+          ${linkReset};
+          font-family: "JetBrainsMono-Regular";
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          letter-spacing: 0.05rem;
+          vertical-align: middle;
+          &:hover {
+            svg {
+              margin-left: 12px;
+            }
           }
-        }
-      `} to={slug}>
+        `}
+        to={slug}
+      >
         read
-        <IconRightArrow css={css`
-          margin: 0 5px 0 7px;
-          font-size: 1rem;
-          position: relative;
-          top: 0.4rem;
-          transition: 100ms ease-out;
-        `}/>
+        <IconRightArrow
+          css={css`
+            margin: 0 5px 0 7px;
+            font-size: 1rem;
+            position: relative;
+            top: 0.4rem;
+            transition: 100ms ease-out;
+          `}
+        />
       </Link>
     </PreviewBox>
   )

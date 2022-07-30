@@ -31,7 +31,7 @@ export default () => {
     contact: { time: 0, isIntersecting: true, intersectionRatio: 0 },
   })
 
-  const onFooterVisibilityChange = isVisible => {
+  const onFooterVisibilityChange = (isVisible) => {
     toggleMarkers(!isVisible)
   }
   const sectionMarkerProps = {
@@ -44,10 +44,10 @@ export default () => {
     visibleSection,
   }
 
-  const handleIntersection = entry => {
+  const handleIntersection = (entry) => {
     setIntersectionData({ ...intersectionData, ...entry })
     let visibleSections = Object.keys(intersectionData).filter(
-      k => intersectionData[k].intersectionRatio > 0
+      (k) => intersectionData[k].intersectionRatio > 0
     )
 
     if (visibleSections.length === 1) {
@@ -83,8 +83,7 @@ export default () => {
         title={`${profile.name}`}
         description={`${profile.name} is a full stack software engineer. \
                       He enjoys building performant backends and \
-                      hiding complexity with clean, intuitive user interfaces.`
-                    }
+                      hiding complexity with clean, intuitive user interfaces.`}
         pageUrl={`${siteBaseUrl}`}
         sharingCard={`${siteBaseUrl}${sharingCard}`}
         sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}

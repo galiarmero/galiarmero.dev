@@ -9,7 +9,6 @@ import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
 import { appearanceObserverOpts } from "../utils"
 
-
 export default ({ handleIntersection, intro, techSkills, more }) => {
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
   const [hasIntroAppeared, setIntroAppeared] = useState(false)
@@ -37,39 +36,52 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
       >
         <IntersectionObserver {...appearanceObserverOpts(setHeaderAppeared, 0)}>
           <span>
-            <SectionHeading hasNotAppeared={!hasHeaderAppeared}>About Me</SectionHeading>
+            <SectionHeading hasNotAppeared={!hasHeaderAppeared}>
+              About Me
+            </SectionHeading>
           </span>
         </IntersectionObserver>
 
         <SectionBody>
-          <IntersectionObserver {...appearanceObserverOpts(setIntroAppeared, 0.2)}>
+          <IntersectionObserver
+            {...appearanceObserverOpts(setIntroAppeared, 0.2)}
+          >
             <AppearingContainer hasNotAppeared={!hasIntroAppeared}>
               <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
 
-              <ul css={css`
-                max-width: 500px;
-                columns: 2;
-                -webkit-columns: 2;
-                -moz-columns: 2;
-              `}>
+              <ul
+                css={css`
+                  max-width: 500px;
+                  columns: 2;
+                  -webkit-columns: 2;
+                  -moz-columns: 2;
+                `}
+              >
                 {techSkills.map((skill, i) => (
-                    <BulletItem key={i} css={css`
-                      font-family: 'JetBrainsMono-Regular', monospace;
+                  <BulletItem
+                    key={i}
+                    css={css`
+                      font-family: "JetBrainsMono-Regular", monospace;
                       font-size: 0.95rem;
-                    `}>
-                      {skill}
-                    </BulletItem>
+                    `}
+                  >
+                    {skill}
+                  </BulletItem>
                 ))}
               </ul>
             </AppearingContainer>
           </IntersectionObserver>
 
-          <IntersectionObserver {...appearanceObserverOpts(setDividerAppeared, 0.2)}>
-            <hr css={css`
-              width: ${hasDividerAppeared ? `100%` : `0.1px`};
-              transition: width 400ms;
-              transition-delay: 200ms;
-            `}/>
+          <IntersectionObserver
+            {...appearanceObserverOpts(setDividerAppeared, 0.2)}
+          >
+            <hr
+              css={css`
+                width: ${hasDividerAppeared ? `100%` : `0.1px`};
+                transition: width 400ms;
+                transition-delay: 200ms;
+              `}
+            />
           </IntersectionObserver>
 
           <IntersectionObserver {...appearanceObserverOpts(setMoreAppeared)}>
@@ -84,6 +96,8 @@ export default ({ handleIntersection, intro, techSkills, more }) => {
   )
 }
 
-const paragraphify = (text) => (
-  text.split('\n\n').map(p => `<p>${p}</p>`).join(``)
-)
+const paragraphify = (text) =>
+  text
+    .split("\n\n")
+    .map((p) => `<p>${p}</p>`)
+    .join(``)
