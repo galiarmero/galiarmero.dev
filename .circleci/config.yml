@@ -8,9 +8,6 @@ workflows:
       - check-format:
           requires:
             - install-deps
-      - build-site:
-          requires:
-            - install-deps
 
 defaults: &defaults
   docker:
@@ -42,14 +39,3 @@ jobs:
       - run:
           name: Check formatting
           command: npm run check-format
-  build-site:
-    <<: *defaults
-    environment:
-      ACKEE_SERVER_URL: https://ackee.example.com/
-      ACKEE_DOMAIN_ID: a78a7b9a-d275-40a8-bbdd-02d5116fe296
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Build Gatsby site
-          command: npm run build
