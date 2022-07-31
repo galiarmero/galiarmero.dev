@@ -1,0 +1,52 @@
+version: 2
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - install-deps
+      - check-format:
+          requires:
+            - install-deps
+      - build-site:
+          requires:
+            - install-deps
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:16.16.0
+
+jobs:
+  install-deps:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-cache-{{ checksum "package.json" }}
+      - run:
+          name: Prepare npm dependencies
+          command: npm install
+      - save_cache:
+          key: npm-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  check-format:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Check formatting
+          command: npm run check-format
+  build-site:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Gatsby site
+          command: npm run build
