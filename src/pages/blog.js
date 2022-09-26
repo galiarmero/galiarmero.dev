@@ -89,7 +89,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___datePublished], order: DESC }
-      limit: 3
+      limit: 6
     ) {
       edges {
         node {

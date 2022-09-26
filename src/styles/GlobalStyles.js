@@ -48,9 +48,11 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
 
       :root {
         --bgColor: ${colors.bg};
+        --lightestBgColor: ${colors.lightestBg};
         --lighterBgColor: ${colors.lighterBg};
         --darkerBgColor: ${colors.darkerBg};
         --selectBgColor: ${colors.selectBg};
+        --softTextColor: ${colors.softText};
         --textColor: ${colors.text};
         --headingColor: ${colors.heading};
         --accentColor: ${colors.accent};

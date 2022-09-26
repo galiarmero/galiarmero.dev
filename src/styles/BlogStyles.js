@@ -30,9 +30,16 @@ const BlogStyles = () => (
         margin-bottom: 1.1rem;
       }
 
+      p > img {
+        margin: auto;
+        display: block;
+      }
+
       blockquote {
         padding: 0.25rem 0.9rem;
         border-left: 3px solid var(--accentColor);
+        background: rgba(var(--bgColor), 0.1);
+        color: var(--softTextColor);
         margin-bottom: 1.6rem;
         font-size: 1rem;
 
@@ -41,7 +48,7 @@ const BlogStyles = () => (
         }
       }
 
-      code,
+      :not(h2):not(h3):not(h4) > code,
       pre {
         font-size: 0.9rem;
       }
