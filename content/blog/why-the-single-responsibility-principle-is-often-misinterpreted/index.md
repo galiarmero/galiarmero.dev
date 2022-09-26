@@ -35,7 +35,7 @@ Suppose we are developers of an app for a bank. We have a `Customer` class that 
 
 ![Customer class](customer.svg)
 
-- The `verifyKyc` method verifies the customer's identity and suitability according to the [KYC](https://en.wikipedia.org/wiki/Know_your_customer) guidelines for compliance purposes
+- The `verifyKyc` method verifies the customer's legitimacy and suitability according to the [KYC](https://en.wikipedia.org/wiki/Know_your_customer) guidelines for compliance purposes
 - `findQualifiedPromos` searches for promos that the customer is qualified to avail according to the guidelines specified by the Marketing Team
 - The `calculateTimeSpent` method returns the total time spent by the customer and is used by the Product Team to make data-driven decisions
 
@@ -51,13 +51,17 @@ Notice that three (3) C-level execs are about to get us fired. LOL. This is an e
 
 Thus, SRP suggests to split the class. There are many ways to do this. Here's a good start:
 
-![Customer class split](customer-split.svg)
+<p class='svg-wrapper'>
+    <img src='customer-split.svg' alt='Customer class split' />
+</p>
 
 `Customer` keeps the basic customer information while the different responsibilities are distributed to three separate classes.
 
 If, for example, the Marketing Team requests a feature to allow certain promos to be applied only to specific customers, the business logic will be right at home in `PromoService`, which deals with matters concerning the Marketing Team's promos.
 
-![PromoService new feature](customer-split-new-feature.svg)
+<p class='svg-wrapper'>
+    <img src='customer-split-new-feature.svg' alt='PromoService new feature' />
+</p>
 
 Over time, each class will grow in complexity on their own while still catering to a single actor. Not only is the code less coupled, but we are also not introducing needless complexity and over-fragmenting code (which leads to [this nightmare](https://softwareengineering.stackexchange.com/questions/150760/single-responsibility-principle-how-can-i-avoid-code-fragmentation)).
 
