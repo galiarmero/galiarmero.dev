@@ -41,7 +41,7 @@ const main = async () => {
     const slug = path.basename(dir)
     const cardPath = getSharingCardPath(dir, slug)
 
-    if (!fs.existsSync(cardPath)) {
+    if (fs.existsSync(cardPath)) {
       await takeScreenshot(
         `${CARD_URL}/${slug}`,
         1200,
