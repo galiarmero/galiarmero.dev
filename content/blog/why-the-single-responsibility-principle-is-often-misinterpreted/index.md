@@ -51,16 +51,16 @@ Notice that three (3) C-level execs are about to get us fired. LOL. This is an e
 
 Thus, SRP suggests to split the class. There are many ways to do this. Here's a good start:
 
-<p class='svg-wrapper'>
-    <img src='customer-split.svg' alt='Customer class split' />
+<p>
+    <img src='customer-split.svg' alt='Customer class split' width='100%' />
 </p>
 
 `Customer` keeps the basic customer information while the different responsibilities are distributed to three separate classes.
 
 If, for example, the Marketing Team requests a feature to allow certain promos to be applied only to specific customers, the business logic will be right at home in `PromoService`, which deals with matters concerning the Marketing Team's promos.
 
-<p class='svg-wrapper'>
-    <img src='customer-split-new-feature.svg' alt='PromoService new feature' />
+<p>
+    <img src='customer-split-new-feature.svg' alt='PromoService new feature' width='100%' />
 </p>
 
 Over time, each class will grow in complexity on their own while still catering to a single actor. Not only is the code less coupled, but we are also not introducing needless complexity and over-fragmenting code (which leads to [this nightmare](https://softwareengineering.stackexchange.com/questions/150760/single-responsibility-principle-how-can-i-avoid-code-fragmentation)).

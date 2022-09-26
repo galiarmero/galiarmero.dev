@@ -62,10 +62,6 @@ const BlogStyles = () => (
       h2 {
         margin: 3rem 0 1.1rem;
       }
-
-      .svg-wrapper {
-        overflow-x: scroll;
-      }
     `}
   />
 )
