@@ -7,16 +7,17 @@ const DailyPuzzle = ({ data, pageContext }) => {
 
   return (
     <div>
-      <h1>{ date }</h1>
+      <h1>{date}</h1>
 
       {puzzles.length > 0 &&
         puzzles.map(({ node }, i) => (
           <div key={node.id}>
-            <h3>{ node.puzzle } { node.dayNumber }</h3>
-            <p>{ node.resultText }</p>
+            <h3>
+              {node.puzzle} {node.dayNumber}
+            </h3>
+            <p>{node.resultText}</p>
           </div>
-        )
-      )}
+        ))}
     </div>
   )
 }
