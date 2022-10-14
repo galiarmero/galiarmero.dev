@@ -80,10 +80,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
+  await createBlogPages(graphql, actions)
+}
+
+const createBlogPages = async (graphql, actions) => {
   const { createPage } = actions
 
-  return graphql(`
+  const result = await graphql(`
     query loadBlogPostSlugs {
       allMarkdownRemark {
         edges {
@@ -98,44 +102,44 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+  `)
 
-    const posts = result.data.allMarkdownRemark.edges
+  if (result.errors) {
+    throw result.errors
+  }
 
-    posts.forEach(({ node }, index) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/blog-post.js`),
-        context: {
-          slug: node.fields.slug,
-          previousPost: index === 0 ? null : posts[index - 1].node,
-          nextPost: index === (posts.length - 1) ? null : posts[index + 1].node,
-        },
-      })
+  const posts = result.data.allMarkdownRemark.edges
 
-      if (process.env.NODE_ENV === 'development') {
-        createPage({
-          path: node.fields.slug.replace('/blog', '/cards'),
-          component: path.resolve(`./src/templates/sharing-card-blog.js`),
-          context: {
-            slug: node.fields.slug,
-            width: 1200,
-            height: 628,
-          },
-        })
-      }
+  posts.forEach(({ node }, index) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/blog-post.js`),
+      context: {
+        slug: node.fields.slug,
+        previousPost: index === 0 ? null : posts[index - 1].node,
+        nextPost: index === (posts.length - 1) ? null : posts[index + 1].node,
+      },
     })
 
     if (process.env.NODE_ENV === 'development') {
       createPage({
-        path: '/cards',
-        component: path.resolve(`./src/templates/sharing-card.js`),
+        path: node.fields.slug.replace('/blog', '/cards'),
+        component: path.resolve(`./src/templates/sharing-card-blog.js`),
+        context: {
+          slug: node.fields.slug,
+          width: 1200,
+          height: 628,
+        },
       })
     }
   })
+
+  if (process.env.NODE_ENV === 'development') {
+    createPage({
+      path: '/cards',
+      component: path.resolve(`./src/templates/sharing-card.js`),
+    })
+  }
 }
 
 exports.onCreateWebpackConfig = ({
