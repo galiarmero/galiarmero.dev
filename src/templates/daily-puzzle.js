@@ -33,10 +33,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
         // sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles />
-      <Header
-        height={HEADER_HEIGHT}
-        navBackground={colors.lighterBg}
-      />
+      <Header height={HEADER_HEIGHT} navBackground={colors.lighterBg} />
       <Main marginTop={`${HEADER_HEIGHT}px`}>
         <div
           css={css`
@@ -47,7 +44,9 @@ const DailyPuzzle = ({ data, pageContext }) => {
             }
           `}
         >
-          <SectionHeading fontSize={`1rem`}>Puzzle Scores for {date}</SectionHeading>
+          <SectionHeading fontSize={`1rem`}>
+            Puzzle Scores for {date}
+          </SectionHeading>
         </div>
 
         <AutoFitGrid marginTop={`50px`}>
@@ -57,10 +56,13 @@ const DailyPuzzle = ({ data, pageContext }) => {
                 <h3>
                   {node.puzzle} {node.dayNumber}
                 </h3>
-                <div dangerouslySetInnerHTML={{ __html: newlineToBr(node.resultText) }} />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: newlineToBr(node.resultText),
+                  }}
+                />
               </div>
-            ))
-          }
+            ))}
         </AutoFitGrid>
       </Main>
       <Footer />
