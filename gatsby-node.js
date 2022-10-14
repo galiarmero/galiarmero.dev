@@ -82,13 +82,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPages(graphql, actions)
+  // await createPuzzleScorePages(graphql, actions)
 }
 
 const createBlogPages = async (graphql, actions) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    query loadBlogPostSlugs {
+    query loadBlogPostIdentifiers {
       allMarkdownRemark {
         edges {
           node {
@@ -140,6 +141,34 @@ const createBlogPages = async (graphql, actions) => {
       component: path.resolve(`./src/templates/sharing-card.js`),
     })
   }
+}
+
+const createPuzzleScorePages = async (graphql, actions) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    query loadPuzzleScoreDatesPlayed {
+      allPuzzleScores {
+        distinct(field: datePlayed)
+      }
+    }
+  `)
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  result.data.allPuzzleScores.distinct.forEach((date, index) => {
+    const slug = `/daily-puzzles/${date}`
+    createPage({
+      path: slug,
+      component: path.resolve(`./src/templates/daily-puzzle.js`),
+      context: {
+        slug: slug,
+        date: date,
+      },
+    })
+  })
 }
 
 exports.onCreateWebpackConfig = ({
