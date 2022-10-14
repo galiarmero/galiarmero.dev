@@ -1,5 +1,59 @@
 const path = require(`path`)
+const axios = require('axios')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.sourceNodes = async ({ actions, createContentDigest }) => {
+  const { createNode } = actions
+
+  const {
+    NENOY_API_BASE_URL,
+    NENOY_API_USER,
+    NENOY_API_PASS,
+    PUZZLE_SCORES_PER_PAGE,
+  } = process.env
+
+  const nenoyApi = axios.create({
+      baseURL: NENOY_API_BASE_URL,
+      auth: {
+        username: NENOY_API_USER,
+        password: NENOY_API_PASS,
+      },
+      timeout: 2000,
+  })
+
+  console.log(`Fetching puzzle scores from Nenoy API, ${PUZZLE_SCORES_PER_PAGE} at a time`)
+  let startAt
+  while (true) {
+    let url = `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` + (startAt ? `&startAt=${startAt}` : '')
+    let response
+    try {
+      response = await nenoyApi.get(url)
+    } catch (e) {
+      console.error(e)
+      throw e
+    }
+    console.log(`Got ${response.data.puzzleScores.length} records with startAt=${startAt}`)
+
+    response.data.puzzleScores.forEach((item) => {
+      createNode({
+        ...item,
+        internal: {
+          type: 'PuzzleScores',
+          contentDigest: createContentDigest(item)
+        }
+      })
+    })
+
+    startAt = response.headers['x-next-page-start-id']
+
+    if (startAt == 'null' || !startAt) {
+      hasNextPage = false
+      console.log('No more records left')
+      break
+    }
+  }
+
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -16,9 +70,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     createNodeField({
-      name: 'editUrl',
       node,
-      value: `https://github.com/galiarmero/galiarmero.dev/edit/master${node.fileAbsolutePath.replace(
+      name: 'editUrl',
+      value: `https://github.com/galiarmero/galiarmero.dev/edit/main${node.fileAbsolutePath.replace(
         __dirname.replace(/\\/g, '/'),
         ''
       )}`,
