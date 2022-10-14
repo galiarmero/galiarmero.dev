@@ -13,6 +13,7 @@ export const throttle = (func, wait = 100) => {
 }
 
 export const formatDate = (date) => dayjs(date).format("DD MMMM YYYY")
+export const formatDateWithDayName = (date) => dayjs(date).format("dddd, DD MMM YYYY")
 
 export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
   onChange: ({ isIntersecting }) => {
@@ -22,3 +23,11 @@ export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
   },
   threshold,
 })
+
+export const newlineToBr = (string) => {
+  if (typeof string !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+
+  return string.replace(/\r?\n/g, '<br>$&');
+}
