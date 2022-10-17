@@ -43,16 +43,16 @@ profile:
     where I worked on a suite of troubleshooting and analytics tools for telecom service providers worldwide.
 
 
-    Most recently, I worked as a Software Development Engineer at <a href="https://www.remitly.com/">Remitly</a>,
-    a digital payments company offering international money transfers to over 135 countries
-    (<a href="https://www.google.com/finance/quote/RELY:NASDAQ">RELY:NASDAQ</a>, since Sep 2021).
+    Most recently, I worked as a Software Development Engineer at <a href="https://www.remitly.com/">Remitly</a>
+    (<a href="https://www.google.com/finance/quote/RELY:NASDAQ">NASDAQ:RELY</a>),
+    a digital payments company offering international money transfers to over 135 countries.
     I was part of the Destination Experience team that expands the global disbursement network
     to give customers a diverse set of receiving-end options while ensuring that the system
     that moves billions of dollars a year is fast, reliable, and scalable.
 
 
-    When not coding, I enjoy eating, exploring new places, biking, listening to podcasts,
-    playing basketball, and following my Lakers.
+    When not coding, I enjoy biking, exploring new places, listening to podcasts,
+    playing basketball, following my Lakers, and solving <a href='/daily-puzzles'>daily puzzles</a>.
 
 
     I also write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
@@ -64,6 +64,9 @@ menuOptions:
     isInternal: true
   - title: Contact
     link: '#contact'
+  - title: Puzzle Scores
+    link: '/daily-puzzles'
+    isInternal: true
 socialMediaLinks:
   - id: github
     link: https://github.com/galiarmero
@@ -71,6 +74,7 @@ socialMediaLinks:
     link: https://www.linkedin.com/in/galileoarmero
   - id: stackoverflow
     link: https://stackoverflow.com/users/8712967/galiarmero
+    isHidden: true
   - id: twitter
     link: https://twitter.com/galiarmero
     username: galiarmero
