@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/react"
-// import { Twemoji } from 'react-emoji-render'
+import Twemoji from "react-twemoji"
 
 import Helmet from "../components/helmet"
 import Header from "../components/header"
@@ -9,6 +9,7 @@ import Footer from "../components/footer"
 // import Engage from "../components/engage"
 import { Main, AutoFitGrid } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
+import DailyPuzzleStyles from "../styles/DailyPuzzleStyles"
 import { SectionHeading } from "../styles/Headings"
 import { colors, breakpoint } from "../styles/theme"
 import siteData from "../config/site-data.yml"
@@ -33,6 +34,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
         // sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles />
+      <DailyPuzzleStyles />
       <Header height={HEADER_HEIGHT} navBackground={colors.lighterBg} />
       <Main marginTop={`${HEADER_HEIGHT}px`}>
         <div
@@ -56,11 +58,9 @@ const DailyPuzzle = ({ data, pageContext }) => {
                 <h3>
                   {node.puzzle} {node.dayNumber}
                 </h3>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: newlineToBr(node.resultText),
-                  }}
-                />
+                <div class="puzzle-score">
+                  {renderPuzzleResult(node.resultText)}
+                </div>
               </div>
             ))}
         </AutoFitGrid>
@@ -68,6 +68,18 @@ const DailyPuzzle = ({ data, pageContext }) => {
       <Footer />
     </div>
   )
+}
+
+const renderPuzzleResult = (text) => {
+  const lines = text.split("\n")
+  const result = lines.map((line) => (
+    <Twemoji
+      options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg" }}
+    >
+      {line}
+    </Twemoji>
+  ))
+  return result
 }
 
 export default DailyPuzzle
