@@ -1,42 +1,57 @@
 profile:
   greeting: Hi, I am
   name: Gali Armero
-  tagline: I build things that simplify.
+  tagline: I love building things that simplify.
+  title: Software Engineer
   briefBio: >-
-    Gali Armero is a full stack software engineer.
-    He enjoys building performant backends and
+    Gali Armero is a software engineer.
+    He enjoys building performant distributed systems and
     hiding complexity with clean, intuitive user interfaces.
   blogBioAfterName: >-
-    is a full stack software engineer from the Philippines. He is amused
+    is a software engineer from the Philippines. He is amused
     by elegant software solutions, new places, ugly delicious food,
     and the sound of a basketball swishing through the hoop.
   blogDescription: Insights of a tech guy in perpetual search for answers.
   aboutIntro: >-
     Hello! My name is Gali -- short for Galileo.
-    I'm a full stack software engineer from the Philippines.
+    I'm a software engineer from the Philippines.
     I find joy in creating applications that make people's lives easier.
-    I specialize in building performant backends and hiding complexity
-    with clean, intuitive user interfaces.
-    Here are some of the technologies I work with:
+    Building high-load distributed systems piques my interest. I also relish
+    the art of hiding complexity with clean, intuititve user interfaces.
+    Here are some of the tech I've worked on:
   techSkills:
+    - Java
+    - Spring Boot
     - JavaScript
     - Node.js
     - Express
-    - GraphQL
+    - Python
     - React
     - Gatsby
-    - Docker
     - HTML & CSS
-    - Java & Spring
-    - Python
+    - MongoDB
+    - MySQL
+    - GraphQL
+    - Docker
+    - Humio
+    - Grafana
+    - Jaeger
   aboutPersonal: >-
     I grew up in the small town of <a href="https://en.wikipedia.org/wiki/Canaman,_Camarines_Sur">Canaman</a>
     in Camarines Sur province. Soon after graduating at the <a href="https://www.adnu.edu.ph/">Ateneo de Naga University</a>
     in 2014, I took my printed maps and talents to Manila and joined <a href="https://www.nokia.com/networks/">Nokia</a>
-    where I am currently working on a suite of troubleshooting and analytics tools for telecom service providers worldwide.
+    where I worked on a suite of troubleshooting and analytics tools for telecom service providers worldwide.
 
 
-    When not coding, I enjoy eating, exploring new places, listening to podcasts,
+    Most recently, I worked as a Software Development Engineer at <a href="https://www.remitly.com/">Remitly</a>,
+    a digital payments company offering international money transfers to over 135 countries
+    (<a href="https://www.google.com/finance/quote/RELY:NASDAQ">RELY:NASDAQ</a>, since Sep 2021).
+    I was part of the Destination Experience team that expands the global disbursement network
+    to give customers a diverse set of receiving-end options while ensuring that the system
+    that moves billions of dollars a year is fast, reliable, and scalable.
+
+
+    When not coding, I enjoy eating, exploring new places, biking, listening to podcasts,
     playing basketball, and following my Lakers.
 
 

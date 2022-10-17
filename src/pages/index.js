@@ -81,7 +81,7 @@ const Index = () => {
   return (
     <div>
       <Helmet
-        pageTitle={`${profile.name} · Full Stack Software Engineer`}
+        pageTitle={`${profile.name} · ${profile.title}`}
         title={`${profile.name}`}
         description={`${profile.briefBio}`}
         pageUrl={`${siteBaseUrl}`}
