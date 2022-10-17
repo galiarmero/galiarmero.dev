@@ -2,6 +2,7 @@ profile:
   greeting: Hi, I am
   name: Gali Armero
   tagline: I love building things that simplify.
+  title: Software Engineer
   briefBio: >-
     Gali Armero is a software engineer.
     He enjoys building performant distributed systems and
