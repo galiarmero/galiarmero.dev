@@ -19,7 +19,7 @@ const DailyPuzzleStyles = () => (
         line-height: 1.2em;
         margin-right: 0.075em;
         margin-left: 0.075em;
-        vertical-align: -30%;
+        vertical-align: -32%;
       }
     `}
   />

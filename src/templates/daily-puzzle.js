@@ -1,6 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/react"
+import Linkify from "linkify-react"
+import "linkify-plugin-mention"
+import "linkify-plugin-hashtag"
 import Twemoji from "react-twemoji"
 
 import Helmet from "../components/helmet"
@@ -59,7 +62,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
                   {node.puzzle} {node.dayNumber}
                 </h3>
                 <div class="puzzle-score">
-                  {renderPuzzleResult(node.resultText)}
+                  {renderPuzzleResult(node.puzzle, node.resultText)}
                 </div>
               </div>
             ))}
@@ -70,16 +73,36 @@ const DailyPuzzle = ({ data, pageContext }) => {
   )
 }
 
-const renderPuzzleResult = (text) => {
+const renderPuzzleResult = (puzzle, text) => {
+  text = overridePuzzleResult(puzzle, text)
   const lines = text.split("\n")
+  const linkifyOpts = {
+    formatHref: {
+      mention: (href) => `https://twitter.com/${href}`,
+      hashtag: (href) => `https://twitter.com/hashtag/${href.substr(1)}`,
+    },
+    attributes: {
+      target: '_blank',
+    }
+  }
   const result = lines.map((line) => (
-    <Twemoji
-      options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg" }}
-    >
-      {line}
-    </Twemoji>
+    <Linkify options={linkifyOpts}>
+      <Twemoji
+        options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg" }}
+      >
+        {line}
+      </Twemoji>
+    </Linkify>
   ))
   return result
+}
+
+const overridePuzzleResult = (puzzle, text) => {
+  if (puzzle === 'wordle') {
+    return text.replaceAll('⬛', '⬜')
+  }
+
+  return text
 }
 
 export default DailyPuzzle
