@@ -82,8 +82,8 @@ const renderPuzzleResult = (puzzle, text) => {
       hashtag: (href) => `https://twitter.com/hashtag/${href.substr(1)}`,
     },
     attributes: {
-      target: '_blank',
-    }
+      target: "_blank",
+    },
   }
   const result = lines.map((line) => (
     <Linkify options={linkifyOpts}>
@@ -98,8 +98,8 @@ const renderPuzzleResult = (puzzle, text) => {
 }
 
 const overridePuzzleResult = (puzzle, text) => {
-  if (puzzle === 'wordle') {
-    return text.replaceAll('⬛', '⬜')
+  if (puzzle === "wordle") {
+    return text.replaceAll("⬛", "⬜")
   }
 
   return text
