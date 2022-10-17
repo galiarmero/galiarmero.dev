@@ -21,16 +21,25 @@ import { formatDateWithDayName } from "../utils"
 
 const { profile, siteBaseUrl } = siteData
 const HEADER_HEIGHT = 75
-const PUZZLE_ORDER = ['wordle', 'quordle', 'worldle', 'saltong', 'saltong-mini', 'waffle']
+const PUZZLE_ORDER = [
+  "wordle",
+  "quordle",
+  "worldle",
+  "saltong",
+  "saltong-mini",
+  "waffle",
+]
 
 const PuzzleBox = styled(Card)`
   justify-content: flex-start;
-  grid-row: span ${props => props.rowSpan};
+  grid-row: span ${(props) => props.rowSpan};
 `
 
 const DailyPuzzle = ({ data, pageContext }) => {
   const puzzles = data.allPuzzleScores.edges.sort((a, b) => {
-    return PUZZLE_ORDER.indexOf(a.node.puzzle) - PUZZLE_ORDER.indexOf(b.node.puzzle)
+    return (
+      PUZZLE_ORDER.indexOf(a.node.puzzle) - PUZZLE_ORDER.indexOf(b.node.puzzle)
+    )
   })
   const { slug, date } = pageContext
   const displayDate = formatDateWithDayName(date)
@@ -115,7 +124,7 @@ const overridePuzzleResult = (puzzle, text) => {
 }
 
 const calculateSpan = (text) => {
-  return text.split('\n').length + 4
+  return text.split("\n").length + 4
 }
 
 export default DailyPuzzle
