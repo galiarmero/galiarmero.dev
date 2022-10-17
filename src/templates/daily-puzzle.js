@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/react"
-import Twemoji from 'react-twemoji'
+import Twemoji from "react-twemoji"
 
 import Helmet from "../components/helmet"
 import Header from "../components/header"
@@ -58,7 +58,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
                 <h3>
                   {node.puzzle} {node.dayNumber}
                 </h3>
-                <div class='puzzle-score'>
+                <div class="puzzle-score">
                   {renderPuzzleResult(node.resultText)}
                 </div>
               </div>
@@ -71,9 +71,15 @@ const DailyPuzzle = ({ data, pageContext }) => {
 }
 
 const renderPuzzleResult = (text) => {
-  const lines = text.split('\n')
-  const result = lines.map((line) => <Twemoji options={{ className: 'twemoji-puzzle', folder: 'svg', ext: '.svg' }}>{line}</Twemoji>)
-  return result;
+  const lines = text.split("\n")
+  const result = lines.map((line) => (
+    <Twemoji
+      options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg" }}
+    >
+      {line}
+    </Twemoji>
+  ))
+  return result
 }
 
 export default DailyPuzzle
