@@ -38,6 +38,12 @@ export const AutoFitGrid = styled.div`
   margin-top: ${(props) => props.marginTop || `0`};
 `
 
+export const Masonry = styled(AutoFitGrid)`
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-auto-rows: min-content;
+  grid-auto-flow: dense;
+`
+
 export const AppearingContainer = styled.div`
   opacity: ${(props) => (props.hasNotAppeared ? `0` : `1`)};
   transform: ${(props) =>
@@ -46,4 +52,14 @@ export const AppearingContainer = styled.div`
     transform 300ms ${transitionTiming};
   transition-delay: 400ms;
   margin: 30px 0;
+`
+
+export const Card = styled.article`
+  display: flex;
+  flex-direction: column;
+  background: var(--lighterBgColor);
+  border-radius: 4px;
+  padding: 32px 25px;
+  box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
+  height: 100%;
 `

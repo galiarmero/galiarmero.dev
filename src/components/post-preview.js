@@ -3,21 +3,15 @@ import { navigate, Link } from "gatsby"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
+import { Card } from "../styles/Containers"
 import PostDetails from "../components/post-details"
 import { linkReset } from "../styles/Links"
 import Heading from "../styles/Headings"
 import { breakpoint } from "../styles/theme"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
-const PreviewBox = styled.article`
-  display: flex;
-  flex-direction: column;
+const PreviewBox = styled(Card)`
   justify-content: space-between;
-  background: var(--lighterBgColor);
-  border-radius: 4px;
-  padding: 32px 25px;
-  box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
-  height: 100%;
 `
 
 const PostPreview = ({ key, data }) => {

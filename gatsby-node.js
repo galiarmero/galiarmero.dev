@@ -82,7 +82,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPages(graphql, actions)
-  // await createPuzzleScorePages(graphql, actions)
+  await createPuzzleScorePages(graphql, actions)
 }
 
 const createBlogPages = async (graphql, actions) => {
