@@ -10,12 +10,6 @@ const isScreenMobile = () => {
 }
 
 const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
-  // Force the succeeding logic to run when the page loads
-  // and window is available
-  if (typeof window === `undefined`) {
-    return <></>
-  }
-
   const [isMobile, setMobile] = useState(isScreenMobile())
 
   const updateMedia = () => {
