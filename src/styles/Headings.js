@@ -5,6 +5,23 @@ import { css } from "@emotion/react"
 import { breakpoint, transitionTiming } from "../styles/theme"
 
 export default styled.h1`
+  font-size: 2rem;
+  letter-spacing: 0.08rem;
+
+  ${breakpoint.media4} {
+    font-size: 2.4rem;
+  }
+
+  ${breakpoint.media7} {
+    font-size: 2.6rem;
+  }
+
+  ${breakpoint.media12} {
+    font-size: 2.8rem;
+  }
+`
+
+export const BoxHeading = styled.h1`
   font-size: 1.3rem;
   letter-spacing: 0.08rem;
 

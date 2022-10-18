@@ -21,7 +21,7 @@ const PairLabel = ({ left, right }) => (
     <Label
       css={css`
         border-radius: 8px 0 0 8px;
-        padding: 0.04rem 0.3rem 0.04rem 0.5rem;
+        padding: 0.05rem 0.3rem 0.04rem 0.5rem;
         background-color: var(--softTextColor);
         color: var(--bgColor);
       `}
@@ -31,7 +31,7 @@ const PairLabel = ({ left, right }) => (
     <Label
       css={css`
         border-radius: 0 8px 8px 0;
-        padding: 0.04rem 0.35rem 0.04rem 0.3rem;
+        padding: 0.05rem 0.35rem 0.04rem 0.3rem;
         background-color: #57a44d;
         color: var(--softTextColor);
       `}
