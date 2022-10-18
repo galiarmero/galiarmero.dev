@@ -31,12 +31,12 @@ const PUZZLE_ORDER = [
   "waffle",
 ]
 const PUZZLE_LABELS = {
-  "wordle": "Wordle",
-  "quordle": "Quordle",
-  "worldle": "Worldle",
-  "saltong": "Saltong",
+  wordle: "Wordle",
+  quordle: "Quordle",
+  worldle: "Worldle",
+  saltong: "Saltong",
   "saltong-mini": "Saltong Mini",
-  "waffle": "Waffle",
+  waffle: "Waffle",
 }
 
 const PuzzleBox = styled(Card)`
@@ -87,7 +87,10 @@ const DailyPuzzle = ({ data, pageContext }) => {
           {puzzles.length > 0 &&
             puzzles.map(({ node }, i) => (
               <PuzzleBox key={node.id} rowSpan={calculateSpan(node.resultText)}>
-                <PairLabel left={PUZZLE_LABELS[node.puzzle]} right={node.dayNumber} />
+                <PairLabel
+                  left={PUZZLE_LABELS[node.puzzle]}
+                  right={node.dayNumber}
+                />
                 <div class="puzzle-score">
                   {renderPuzzleResult(node.puzzle, node.resultText)}
                 </div>
