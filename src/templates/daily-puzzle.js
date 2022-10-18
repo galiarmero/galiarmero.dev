@@ -48,12 +48,6 @@ const PuzzleBox = styled(Card)`
 `
 
 const DailyPuzzle = ({ data, pageContext }) => {
-  // Force the succeeding logic to run when the page loads
-  // and window is available
-  if (typeof window === `undefined`) {
-    return <></>
-  }
-
   const puzzles = data.allPuzzleScores.edges.sort((a, b) => {
     return (
       PUZZLE_ORDER.indexOf(a.node.puzzle) - PUZZLE_ORDER.indexOf(b.node.puzzle)
