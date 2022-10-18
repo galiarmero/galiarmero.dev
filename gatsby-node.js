@@ -149,7 +149,7 @@ const createBlogPages = async (graphql, actions) => {
 }
 
 const createPuzzleScorePages = async (graphql, actions) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const PUZZLES_PATH = "/puzzle-scores"
 
   const result = await graphql(`
@@ -185,6 +185,13 @@ const createPuzzleScorePages = async (graphql, actions) => {
       },
     })
   })
+
+  if (sortedDates.length > 0) {
+    createRedirect({
+      fromPath: PUZZLES_PATH,
+      toPath: `${PUZZLES_PATH}/${sortedDates[0]}`,
+    })
+  }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
