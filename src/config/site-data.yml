@@ -52,7 +52,7 @@ profile:
 
 
     When not coding, I enjoy biking, exploring new places, listening to podcasts,
-    playing basketball, following my Lakers, and solving <a href='/daily-puzzles'>daily puzzles</a>.
+    playing basketball, following my Lakers, and solving <a href='/puzzle-scores'>daily puzzles</a>.
 
 
     I also write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
@@ -65,7 +65,7 @@ menuOptions:
   - title: Contact
     link: '#contact'
   - title: Puzzle Scores
-    link: '/daily-puzzles'
+    link: '/puzzle-scores'
     isInternal: true
 socialMediaLinks:
   - id: github
