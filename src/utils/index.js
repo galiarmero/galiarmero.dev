@@ -16,6 +16,7 @@ export const formatDate = (date) => dayjs(date).format("DD MMMM YYYY")
 export const formatDateWithDayName = (date) =>
   dayjs(date).format("dddd, DD MMM YYYY")
 export const formatDateEu = (date) => dayjs(date).format("DD MMM YYYY")
+export const formatDateEuNoYear = (date) => dayjs(date).format("DD MMM")
 export const getDayName = (date) => dayjs(date).format("dddd")
 export const getRelativeDayName = (date) => {
   date = dayjs(date)

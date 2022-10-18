@@ -13,27 +13,37 @@ const DailyPuzzleStyles = () => (
         justify-content: center;
       }
 
+      .puzzle-scores-nav > nav {
+        display: grid;
+        grid-template-columns: 1fr 2.5fr 1fr;
+
+        ${breakpoint.media7} {
+          grid-template-columns: 1fr 3fr 1fr;
+        }
+      }
+
       .puzzle-scores-nav div.intro {
         color: var(--accentColor);
         font-family: "JetBrainsMono-Regular";
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-transform: uppercase;
         font-size: 0.6rem;
 
-        ${breakpoint.media4} {
+        ${breakpoint.media7} {
+          margin-bottom: 20px;
           font-size: 0.7rem;
         }
       }
 
       .puzzle-scores-nav div.date-label {
-        align-items: flex-end;
+        align-items: center;
       }
 
       .puzzle-scores-nav .date-label.date-nav {
         font-size: 0.7rem;
 
         ${breakpoint.media9} {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
       }
 
