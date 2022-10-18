@@ -190,6 +190,7 @@ const createPuzzleScorePages = async (graphql, actions) => {
     createRedirect({
       fromPath: PUZZLES_PATH,
       toPath: `${PUZZLES_PATH}/${sortedDates[0]}`,
+      redirectInBrowser: true,
     })
   }
 }
