@@ -7,7 +7,7 @@ import Heading from "../styles/Headings"
 import { formatDateEu, getRelativeDayName } from "../utils"
 
 const isScreenMobile = () => {
-  if (typeof window === "undefined") return true
+  if (typeof window === "undefined") return false
   return window.innerWidth < 768
 }
 
