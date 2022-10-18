@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   plugins: [
@@ -18,30 +18,30 @@ module.exports = {
             options: {
               maxWidth: 750,
               quality: 100,
-            }
+            },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: 'linked-files/',
-            }
+              destinationDir: "linked-files/",
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               showLineNumbers: true,
-            }
+            },
           },
-        ]
+        ],
       },
     },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /icons/
-        }
-      }
+          include: /icons/,
+        },
+      },
     },
     {
       resolve: "gatsby-plugin-ackee-tracker",
@@ -55,7 +55,7 @@ module.exports = {
         // Enable or disable the tracking of your own visits (as identified by your login to the Ackee dashboard).
         ignoreOwnVisits: true,
         // If enabled it will collect info on OS, BrowserInfo, Device  & ScreenSize
-        detailed: true
+        detailed: true,
       },
     },
     `gatsby-plugin-sharp`,

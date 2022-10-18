@@ -11,7 +11,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         src: url("/fonts/Gilroy-ExtraBold.woff2") format("woff2"),
           url("/fonts/Gilroy-ExtraBold.woff") format("woff");
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       @font-face {
@@ -19,7 +19,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         src: url("/fonts/Gilroy-Light.woff2") format("woff2"),
           url("/fonts/Gilroy-Light.woff") format("woff");
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       @font-face {
@@ -27,7 +27,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2"),
           url("/fonts/JetBrainsMono-Regular.woff") format("woff");
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       @font-face {
@@ -35,7 +35,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         src: url("/fonts/ClearSans-Light.woff2") format("woff2"),
           url("/fonts/ClearSans-Light.woff") format("woff");
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       @font-face {
@@ -43,7 +43,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         src: url("/fonts/ClearSans-Thin.woff2") format("woff2"),
           url("/fonts/ClearSans-Thin.woff") format("woff");
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
 
       :root {

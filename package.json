@@ -9,8 +9,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "check-format": "prettier --check src/**/*.{js,jsx}",
+    "format": "prettier --write {*,src/**/*}.{js,jsx}",
+    "check-format": "prettier --check {*,src/**/*}.{js,jsx}",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "new-post": "node ./scripts/new-post.js",
     "generate-sharing-cards": "node ./scripts/generate-sharing-cards.js"
