@@ -6,16 +6,20 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Heading from "../styles/Headings"
 import { formatDateEu, getRelativeDayName } from "../utils"
 
-const isForMobile = (innerWidth) => innerWidth < 768
+const isScreenMobile = () => {
+  if (typeof window === "undefined") return true
+  return window.innerWidth < 768
+}
 
 const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
-  const [isMobile, setMobile] = useState(isForMobile(window.innerWidth))
+  const [isMobile, setMobile] = useState(isScreenMobile())
 
   const updateMedia = () => {
-    setMobile(isForMobile(window.innerWidth))
+    setMobile(isScreenMobile())
   }
 
   useEffect(() => {
+    if (typeof window === "undefined") return
     window.addEventListener("resize", updateMedia)
     return () => window.removeEventListener("resize", updateMedia)
   })
@@ -25,7 +29,7 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
 
   return (
     <div className="puzzle-scores-nav">
-      <div className="intro">Puzzle scores for {isMobile}</div>
+      <div className="intro">Puzzle scores for</div>
       <nav>
         <div>
           {prevDate && (
