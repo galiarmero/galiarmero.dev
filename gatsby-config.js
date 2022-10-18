@@ -62,6 +62,6 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-netlify',
+    "gatsby-plugin-netlify",
   ],
 }
