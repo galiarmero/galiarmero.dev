@@ -6,11 +6,16 @@ import Heading from "../styles/Headings"
 import { formatDateEu, formatDateEuNoYear, getRelativeDayName } from "../utils"
 
 const isScreenMobile = () => {
-  if (typeof window === "undefined") return false
   return window.innerWidth < 768
 }
 
 const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
+  // Force the succeeding logic to run when the page loads
+  // and window is available
+  if (typeof window === `undefined`) {
+    return <></>
+  }
+
   const [isMobile, setMobile] = useState(isScreenMobile())
 
   const updateMedia = () => {
@@ -18,7 +23,6 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
   }
 
   useEffect(() => {
-    if (typeof window === "undefined") return
     window.addEventListener("resize", updateMedia)
     return () => window.removeEventListener("resize", updateMedia)
   })
