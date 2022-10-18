@@ -6,7 +6,8 @@ const DailyPuzzleStyles = () => (
   <Global
     styles={css`
       .puzzle-score {
-        line-height: 1.2em;
+        line-height: 1.2rem;
+        margin-top: 2rem;
       }
 
       .puzzle-score > div {

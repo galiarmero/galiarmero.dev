@@ -10,6 +10,7 @@ import Twemoji from "react-twemoji"
 import Helmet from "../components/helmet"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import PairLabel from "../components/pair-label"
 // import Engage from "../components/engage"
 import { Main, Masonry, Card } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
@@ -29,10 +30,20 @@ const PUZZLE_ORDER = [
   "saltong-mini",
   "waffle",
 ]
+const PUZZLE_LABELS = {
+  "wordle": "Wordle",
+  "quordle": "Quordle",
+  "worldle": "Worldle",
+  "saltong": "Saltong",
+  "saltong-mini": "Saltong Mini",
+  "waffle": "Waffle",
+}
 
 const PuzzleBox = styled(Card)`
   justify-content: flex-start;
   grid-row: span ${(props) => props.rowSpan};
+  padding-top: 28px;
+  padding-bottom: 28px;
 `
 
 const DailyPuzzle = ({ data, pageContext }) => {
@@ -76,9 +87,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
           {puzzles.length > 0 &&
             puzzles.map(({ node }, i) => (
               <PuzzleBox key={node.id} rowSpan={calculateSpan(node.resultText)}>
-                <h3>
-                  {node.puzzle} {node.dayNumber}
-                </h3>
+                <PairLabel left={PUZZLE_LABELS[node.puzzle]} right={node.dayNumber} />
                 <div class="puzzle-score">
                   {renderPuzzleResult(node.puzzle, node.resultText)}
                 </div>
@@ -124,7 +133,7 @@ const overridePuzzleResult = (puzzle, text) => {
 }
 
 const calculateSpan = (text) => {
-  return text.split("\n").length + 4
+  return text.split("\n").length + 3
 }
 
 export default DailyPuzzle
