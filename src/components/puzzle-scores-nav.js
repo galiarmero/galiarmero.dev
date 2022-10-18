@@ -5,28 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Heading from "../styles/Headings"
 import { formatDateEu, formatDateEuNoYear, getRelativeDayName } from "../utils"
 
-const isScreenMobile = () => {
-  if (typeof window === "undefined") return false
-  return window.innerWidth < 768
-}
-
 const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
-  const [isMobile, setMobile] = useState(isScreenMobile())
-
-  const updateMedia = () => {
-    setMobile(isScreenMobile())
-  }
-
-  useEffect(() => {
-    updateMedia()
-    window.addEventListener("resize", updateMedia)
-    return () => window.removeEventListener("resize", updateMedia)
-  })
-
-  useEffect(() => {
-    updateMedia()
-  }, [isMobile])
-
   const onClickPrev = () => navigate(prevSlug)
   const onClickNext = () => navigate(nextSlug)
 
@@ -37,7 +16,7 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
         <div>
           {prevDate && (
             <FaChevronLeft
-              size={isMobile ? 28 : 42}
+              size={36}
               className="clickable-icon"
               onClick={onClickPrev}
             />
@@ -50,7 +29,7 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
           <div>
             {nextDate && (
               <FaChevronRight
-                size={isMobile ? 28 : 42}
+                size={36}
                 className="clickable-icon"
                 onClick={onClickNext}
               />
