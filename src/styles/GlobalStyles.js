@@ -16,28 +16,32 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
 
       @font-face {
         font-family: "Gilroy-Light";
-        src: url("/fonts/Gilroy-Light.woff2") format("woff2");
+        src: url("/fonts/Gilroy-Light.woff2") format("woff2"),
+          url("/fonts/Gilroy-Light.woff") format("woff");
         font-style: normal;
         font-display: block;
       }
 
       @font-face {
         font-family: "JetBrainsMono-Regular";
-        src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+        src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2"),
+          url("/fonts/JetBrainsMono-Regular.woff") format("woff");
         font-style: normal;
         font-display: block;
       }
 
       @font-face {
         font-family: "ClearSans-Light";
-        src: url("/fonts/ClearSans-Light.woff2") format("woff2");
+        src: url("/fonts/ClearSans-Light.woff2") format("woff2"),
+          url("/fonts/ClearSans-Light.woff") format("woff");
         font-style: normal;
         font-display: block;
       }
 
       @font-face {
         font-family: "ClearSans-Thin";
-        src: url("/fonts/ClearSans-Thin.woff2") format("woff2");
+        src: url("/fonts/ClearSans-Thin.woff2") format("woff2"),
+          url("/fonts/ClearSans-Thin.woff") format("woff");
         font-style: normal;
         font-display: block;
       }
