@@ -1,5 +1,5 @@
 const path = require(`path`)
-const axios = require('axios')
+const axios = require("axios")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.sourceNodes = async ({ actions, createContentDigest }) => {
@@ -13,18 +13,22 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
   } = process.env
 
   const nenoyApi = axios.create({
-      baseURL: NENOY_API_BASE_URL,
-      auth: {
-        username: NENOY_API_USER,
-        password: NENOY_API_PASS,
-      },
-      timeout: 2000,
+    baseURL: NENOY_API_BASE_URL,
+    auth: {
+      username: NENOY_API_USER,
+      password: NENOY_API_PASS,
+    },
+    timeout: 2000,
   })
 
-  console.log(`Fetching puzzle scores from Nenoy API, ${PUZZLE_SCORES_PER_PAGE} at a time`)
+  console.log(
+    `Fetching puzzle scores from Nenoy API, ${PUZZLE_SCORES_PER_PAGE} at a time`
+  )
   let startAt
   while (true) {
-    let url = `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` + (startAt ? `&startAt=${startAt}` : '')
+    let url =
+      `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` +
+      (startAt ? `&startAt=${startAt}` : "")
     let response
     try {
       response = await nenoyApi.get(url)
@@ -32,33 +36,34 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       console.error(e)
       throw e
     }
-    console.log(`Got ${response.data.puzzleScores.length} records with startAt=${startAt}`)
+    console.log(
+      `Got ${response.data.puzzleScores.length} records with startAt=${startAt}`
+    )
 
     response.data.puzzleScores.forEach((item) => {
       createNode({
         ...item,
         internal: {
-          type: 'PuzzleScores',
-          contentDigest: createContentDigest(item)
-        }
+          type: "PuzzleScores",
+          contentDigest: createContentDigest(item),
+        },
       })
     })
 
-    startAt = response.headers['x-next-page-start-id']
+    startAt = response.headers["x-next-page-start-id"]
 
-    if (startAt == 'null' || !startAt) {
+    if (startAt == "null" || !startAt) {
       hasNextPage = false
-      console.log('No more records left')
+      console.log("No more records left")
       break
     }
   }
-
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    if (!node.fileAbsolutePath.includes('content/')) {
+    if (!node.fileAbsolutePath.includes("content/")) {
       throw Exception("Markdowns expected to be in content/")
     }
 
@@ -71,10 +76,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     createNodeField({
       node,
-      name: 'editUrl',
+      name: "editUrl",
       value: `https://github.com/galiarmero/galiarmero.dev/edit/main${node.fileAbsolutePath.replace(
-        __dirname.replace(/\\/g, '/'),
-        ''
+        __dirname.replace(/\\/g, "/"),
+        ""
       )}`,
     })
   }
@@ -118,13 +123,13 @@ const createBlogPages = async (graphql, actions) => {
       context: {
         slug: node.fields.slug,
         previousPost: index === 0 ? null : posts[index - 1].node,
-        nextPost: index === (posts.length - 1) ? null : posts[index + 1].node,
+        nextPost: index === posts.length - 1 ? null : posts[index + 1].node,
       },
     })
 
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
       createPage({
-        path: node.fields.slug.replace('/blog', '/cards'),
+        path: node.fields.slug.replace("/blog", "/cards"),
         component: path.resolve(`./src/templates/sharing-card-blog.js`),
         context: {
           slug: node.fields.slug,
@@ -135,9 +140,9 @@ const createBlogPages = async (graphql, actions) => {
     }
   })
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === "development") {
     createPage({
-      path: '/cards',
+      path: "/cards",
       component: path.resolve(`./src/templates/sharing-card.js`),
     })
   }
@@ -145,7 +150,7 @@ const createBlogPages = async (graphql, actions) => {
 
 const createPuzzleScorePages = async (graphql, actions) => {
   const { createPage } = actions
-  const PUZZLES_PATH = '/daily-puzzles'
+  const PUZZLES_PATH = "/daily-puzzles"
 
   const result = await graphql(`
     query loadPuzzleScoreDatesPlayed {
@@ -159,11 +164,14 @@ const createPuzzleScorePages = async (graphql, actions) => {
     throw result.errors
   }
 
-  const sortedDates = result.data.allPuzzleScores.distinct.sort((a,b) => new Date(b) - new Date(a))
+  const sortedDates = result.data.allPuzzleScores.distinct.sort(
+    (a, b) => new Date(b) - new Date(a)
+  )
   sortedDates.forEach((date, index) => {
     const slug = `${PUZZLES_PATH}/${date}`
-    const prevDate = (index < sortedDates.length - 1) ? sortedDates[index + 1] : null
-    const nextDate = (index > 0) ? sortedDates[index - 1] : null
+    const prevDate =
+      index < sortedDates.length - 1 ? sortedDates[index + 1] : null
+    const nextDate = index > 0 ? sortedDates[index - 1] : null
     createPage({
       path: slug,
       component: path.resolve(`./src/templates/daily-puzzle.js`),
@@ -179,17 +187,15 @@ const createPuzzleScorePages = async (graphql, actions) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({
-  actions,
-}) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
         {
           test: /\.ya?ml$/,
-          use: 'yaml-loader'
+          use: "yaml-loader",
         },
       ],
     },
-  });
+  })
 }
