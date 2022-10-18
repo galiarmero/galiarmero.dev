@@ -153,6 +153,15 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
           fill: var(--accentColor);
         }
       }
+
+      svg.clickable-icon {
+        color: var(--accentColor);
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+          transition: 100ms ease-out;
+        }
+      }
     `}
   />
 )

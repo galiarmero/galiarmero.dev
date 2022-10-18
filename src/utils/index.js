@@ -15,6 +15,23 @@ export const throttle = (func, wait = 100) => {
 export const formatDate = (date) => dayjs(date).format("DD MMMM YYYY")
 export const formatDateWithDayName = (date) =>
   dayjs(date).format("dddd, DD MMM YYYY")
+export const formatDateEu = (date) => dayjs(date).format("DD MMM YYYY")
+export const getDayName = (date) => dayjs(date).format("dddd")
+export const getRelativeDayName = (date) => {
+  date = dayjs(date)
+  if (dayjs().format("DD MMM YYYY") === date.format("DD MMM YYYY")) {
+    return "Today"
+  }
+
+  if (
+    dayjs().subtract(1, "day").format("DD MMM YYYY") ===
+    date.format("DD MMM YYYY")
+  ) {
+    return "Yesterday"
+  }
+
+  return date.format("dddd")
+}
 
 export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
   onChange: ({ isIntersecting }) => {

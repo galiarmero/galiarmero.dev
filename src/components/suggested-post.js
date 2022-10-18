@@ -18,17 +18,7 @@ const SuggestedPost = ({ isPrevious, slug, title }) => {
       `}
     >
       <span>
-        <Icon
-          css={css`
-            color: var(--accentColor);
-            cursor: pointer;
-            &:hover {
-              opacity: 0.8;
-              transition: 100ms ease-out;
-            }
-          `}
-          onClick={onClick}
-        />
+        <Icon className="clickable-icon" onClick={onClick} />
       </span>
       <SubHeading
         onClick={onClick}

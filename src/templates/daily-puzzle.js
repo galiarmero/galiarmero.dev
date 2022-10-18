@@ -11,6 +11,7 @@ import Helmet from "../components/helmet"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import PairLabel from "../components/pair-label"
+import PuzzleScoresNav from "../components/puzzle-scores-nav"
 // import Engage from "../components/engage"
 import { Main, Masonry, Card } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
@@ -52,7 +53,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
       PUZZLE_ORDER.indexOf(a.node.puzzle) - PUZZLE_ORDER.indexOf(b.node.puzzle)
     )
   })
-  const { slug, date } = pageContext
+  const { slug, date, prevDate, nextDate, prevSlug, nextSlug } = pageContext
   const displayDate = formatDateWithDayName(date)
 
   return (
@@ -74,13 +75,17 @@ const DailyPuzzle = ({ data, pageContext }) => {
             margin: 35px 0 60px;
 
             ${breakpoint.media9} {
-              margin: 70px 0;
+              margin: 50px 0 70px;
             }
           `}
         >
-          <SectionHeading fontSize={`1rem`}>
-            Puzzle Scores for {date}
-          </SectionHeading>
+          <PuzzleScoresNav
+            date={date}
+            prevDate={prevDate}
+            nextDate={nextDate}
+            prevSlug={prevSlug}
+            nextSlug={nextSlug}
+          />
         </div>
 
         <Masonry marginTop={`50px`}>
@@ -136,7 +141,7 @@ const overridePuzzleResult = (puzzle, text) => {
 }
 
 const calculateSpan = (text) => {
-  return text.split("\n").length + 3
+  return text.split("\n").length + 5
 }
 
 export default DailyPuzzle

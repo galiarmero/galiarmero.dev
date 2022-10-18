@@ -145,6 +145,7 @@ const createBlogPages = async (graphql, actions) => {
 
 const createPuzzleScorePages = async (graphql, actions) => {
   const { createPage } = actions
+  const PUZZLES_PATH = '/daily-puzzles'
 
   const result = await graphql(`
     query loadPuzzleScoreDatesPlayed {
@@ -158,14 +159,21 @@ const createPuzzleScorePages = async (graphql, actions) => {
     throw result.errors
   }
 
-  result.data.allPuzzleScores.distinct.forEach((date, index) => {
-    const slug = `/daily-puzzles/${date}`
+  const sortedDates = result.data.allPuzzleScores.distinct.sort((a,b) => new Date(b) - new Date(a))
+  sortedDates.forEach((date, index) => {
+    const slug = `${PUZZLES_PATH}/${date}`
+    const prevDate = (index < sortedDates.length - 1) ? sortedDates[index + 1] : null
+    const nextDate = (index > 0) ? sortedDates[index - 1] : null
     createPage({
       path: slug,
       component: path.resolve(`./src/templates/daily-puzzle.js`),
       context: {
-        slug: slug,
-        date: date,
+        slug,
+        date,
+        prevDate,
+        nextDate,
+        prevSlug: prevDate ? `${PUZZLES_PATH}/${prevDate}` : null,
+        nextSlug: nextDate ? `${PUZZLES_PATH}/${nextDate}` : null,
       },
     })
   })

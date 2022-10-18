@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 import { Card } from "../styles/Containers"
 import PostDetails from "../components/post-details"
 import { linkReset } from "../styles/Links"
-import Heading from "../styles/Headings"
+import { BoxHeading } from "../styles/Headings"
 import { breakpoint } from "../styles/theme"
 import IconRightArrow from "../../static/icons/right-arrow.svg"
 
@@ -19,7 +19,7 @@ const PostPreview = ({ key, data }) => {
   return (
     <PreviewBox key={key}>
       <div>
-        <Heading
+        <BoxHeading
           onClick={() => navigate(slug)}
           css={css`
             cursor: pointer;
@@ -29,7 +29,7 @@ const PostPreview = ({ key, data }) => {
           `}
         >
           {data.frontmatter.title}
-        </Heading>
+        </BoxHeading>
         <PostDetails
           datePublished={data.frontmatter.datePublished}
           timeToRead={data.timeToRead}
