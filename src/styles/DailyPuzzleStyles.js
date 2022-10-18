@@ -40,10 +40,10 @@ const DailyPuzzleStyles = () => (
       }
 
       .puzzle-scores-nav .date-label.date-nav {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
 
         ${breakpoint.media9} {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
       }
 

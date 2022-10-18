@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
-import { css } from "@emotion/react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 import Heading from "../styles/Headings"
-import { formatDateEu, getRelativeDayName } from "../utils"
+import { formatDateEu, formatDateEuNoYear, getRelativeDayName } from "../utils"
 
 const isScreenMobile = () => {
   if (typeof window === "undefined") return false
@@ -23,6 +22,10 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
     window.addEventListener("resize", updateMedia)
     return () => window.removeEventListener("resize", updateMedia)
   })
+
+  useEffect(() => {
+    updateMedia()
+  }, [isMobile])
 
   const onClickPrev = () => navigate(prevSlug)
   const onClickNext = () => navigate(nextSlug)
@@ -55,11 +58,11 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
           </div>
         </div>
         <div className="date-label date-nav">
-          {prevDate && formatDateEu(prevDate)}
+          {prevDate && formatDateEuNoYear(prevDate)}
         </div>
         <div className="date-label">{formatDateEu(date)}</div>
         <div className="date-label date-nav">
-          {nextDate && formatDateEu(nextDate)}
+          {nextDate && formatDateEuNoYear(nextDate)}
         </div>
       </nav>
     </div>
