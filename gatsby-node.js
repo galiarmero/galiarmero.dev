@@ -150,7 +150,7 @@ const createBlogPages = async (graphql, actions) => {
 
 const createPuzzleScorePages = async (graphql, actions) => {
   const { createPage } = actions
-  const PUZZLES_PATH = "/daily-puzzles"
+  const PUZZLES_PATH = "/puzzle-scores"
 
   const result = await graphql(`
     query loadPuzzleScoreDatesPlayed {
@@ -174,7 +174,7 @@ const createPuzzleScorePages = async (graphql, actions) => {
     const nextDate = index > 0 ? sortedDates[index - 1] : null
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/daily-puzzle.js`),
+      component: path.resolve(`./src/templates/puzzle-scores.js`),
       context: {
         slug,
         date,
