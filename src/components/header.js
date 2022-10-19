@@ -11,7 +11,7 @@ import SliderBurger from "./slider-burger"
 import Logo from "../../static/icons/logo.svg"
 import siteData from "../config/site-data.yml"
 
-let { menuOptions } = siteData
+const { menuOptions } = siteData
 
 const Header = ({
   currentPage,
