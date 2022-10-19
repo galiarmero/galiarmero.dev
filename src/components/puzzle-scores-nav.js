@@ -34,17 +34,14 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
           <Heading>{getRelativeDayName(date)}</Heading>
         </div>
         <div>
-          <div>
-            {nextDate && (
-              <FaChevronRight
-                size={36}
-                className="clickable-icon"
-                onClick={onClickNext}
-                onKeyDown={(e) => onEnter(e, onClickNext)}
-                tabIndex={0}
-              />
-            )}
-          </div>
+          {nextDate && (
+            <FaChevronRight
+              size={36}
+              className="clickable-icon"
+              onClick={onClickNext}
+              onKeyDown={(e) => onEnter(e, onClickNext)}
+            />
+          )}
         </div>
         <div className="date-label date-nav">
           <span
@@ -52,7 +49,6 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
             onClick={onClickPrev}
             onKeyDown={(e) => onEnter(e, onClickPrev)}
             role="button"
-            tabIndex={0}
           >
             {prevDate && formatDateEuNoYear(prevDate)}
           </span>
