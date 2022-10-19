@@ -10,19 +10,20 @@ const Bio = (props) => (
       align-items: start;
     `}
   >
-    <StaticImage
-      src="../../static/images/profile-pic.jpg"
-      alt={props.author}
-      placeholder="blurred"
-      layout="constrained"
-      onClick={() => navigate("/")}
-      aspectRatio={1 / 1}
-      style={{
-        margin: "0.2rem 1rem 0 0",
-        "border-radius": "50%",
-        width: "3.75rem",
-      }}
-    />
+    <div css={css`width: 64px; margin: 0.2rem 1rem 0 0;`}>
+      <StaticImage
+        src="../../static/images/profile-pic.jpg"
+        alt={props.author}
+        placeholder="blurred"
+        layout="constrained"
+        onClick={() => navigate("/")}
+        aspectRatio={1/1}
+        style={{
+          "border-radius": "50%",
+          width: "3.75rem",
+        }}
+      />
+    </div>
 
     <span
       css={css`
