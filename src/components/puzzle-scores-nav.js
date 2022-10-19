@@ -26,7 +26,6 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
               className="clickable-icon"
               onClick={onClickPrev}
               onKeyDown={(e) => onEnter(e, onClickPrev)}
-              tabIndex={0}
             />
           )}
         </div>
