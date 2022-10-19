@@ -47,6 +47,10 @@ const DailyPuzzleStyles = () => (
         }
       }
 
+      .puzzle-scores-nav .date-label.date.nav > a {
+        color: var(--textColor);
+      }
+
       .puzzle-score {
         line-height: 1.2rem;
         margin-top: 2rem;

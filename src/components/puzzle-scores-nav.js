@@ -5,6 +5,12 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Heading from "../styles/Headings"
 import { formatDateEu, formatDateEuNoYear, getRelativeDayName } from "../utils"
 
+const onEnter = (e, handle) => {
+  if (e.keyCode === 13) {
+    handle(e)
+  }
+}
+
 const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
   const onClickPrev = () => navigate(prevSlug)
   const onClickNext = () => navigate(nextSlug)
@@ -19,6 +25,8 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
               size={36}
               className="clickable-icon"
               onClick={onClickPrev}
+              onKeyDown={(e) => onEnter(e, onClickPrev)}
+              tabIndex={0}
             />
           )}
         </div>
@@ -32,16 +40,34 @@ const PuzzleScoresNav = ({ date, prevDate, nextDate, prevSlug, nextSlug }) => {
                 size={36}
                 className="clickable-icon"
                 onClick={onClickNext}
+                onKeyDown={(e) => onEnter(e, onClickNext)}
+                tabIndex={0}
               />
             )}
           </div>
         </div>
         <div className="date-label date-nav">
-          {prevDate && formatDateEuNoYear(prevDate)}
+          <span
+            className="text-link"
+            onClick={onClickPrev}
+            onKeyDown={(e) => onEnter(e, onClickPrev)}
+            role="button"
+            tabIndex={0}
+          >
+            {prevDate && formatDateEuNoYear(prevDate)}
+          </span>
         </div>
         <div className="date-label">{formatDateEu(date)}</div>
         <div className="date-label date-nav">
-          {nextDate && formatDateEuNoYear(nextDate)}
+          <span
+            className="text-link"
+            onClick={onClickNext}
+            onKeyDown={(e) => onEnter(e, onClickNext)}
+            role="button"
+            tabIndex={0}
+          >
+            {nextDate && formatDateEuNoYear(nextDate)}
+          </span>
         </div>
       </nav>
     </div>
