@@ -58,10 +58,11 @@ module.exports = {
         detailed: true,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-netlify",
+    `gatsby-plugin-netlify`,
   ],
 }
