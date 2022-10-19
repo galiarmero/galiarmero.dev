@@ -95,7 +95,7 @@ const createBlogPages = async (graphql, actions) => {
 
   const result = await graphql(`
     query loadBlogPostIdentifiers {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {fields: frontmatter___datePublished}) {
         edges {
           node {
             fields {
@@ -122,8 +122,8 @@ const createBlogPages = async (graphql, actions) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         slug: node.fields.slug,
-        previousPost: index === 0 ? null : posts[index - 1].node,
-        nextPost: index === posts.length - 1 ? null : posts[index + 1].node,
+        previousPost: index > 0 ? posts[index - 1].node : null,
+        nextPost: index < posts.length - 1 ? posts[index + 1].node : null,
       },
     })
 
