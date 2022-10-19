@@ -1,8 +1,7 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
 import { css } from "@emotion/react"
-
-import profilePic from "../../static/images/profile-pic.jpg"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Bio = (props) => (
   <aside
@@ -11,15 +10,18 @@ const Bio = (props) => (
       align-items: start;
     `}
   >
-    <img
-      src={profilePic}
+    <StaticImage
+      src="../../static/images/profile-pic.jpg"
       alt={props.author}
+      placeholder="blurred"
+      layout="constrained"
       onClick={() => navigate("/")}
-      css={css`
-        margin: 0.2rem 1rem 0 0;
-        height: 3.75rem;
-        border-radius: 50%;
-      `}
+      aspectRatio={1 / 1}
+      style={{
+        margin: "0.2rem 1rem 0 0",
+        "border-radius": "50%",
+        width: "3.75rem",
+      }}
     />
 
     <span
