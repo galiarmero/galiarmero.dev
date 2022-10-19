@@ -2,7 +2,6 @@ import React from "react"
 import { css } from "@emotion/react"
 
 import { NavLinkItem } from "../styles/Links"
-import siteData from "../config/site-data.yml"
 
 const itemStyle = css`
   font-size: 0.8rem;
@@ -19,10 +18,9 @@ const NavList = (props) => (
       ${props.customCss};
     `}
   >
-    {siteData.menuOptions.map(({ title, link, isInternal }) => (
+    {props.menuOptions.map(({ title, link }) => (
       <NavLinkItem
         link={link}
-        isInternal={isInternal}
         onClick={props.onToggleMenu}
         customCss={itemStyle}
       >

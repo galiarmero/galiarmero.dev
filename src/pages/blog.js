@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import { css } from "@emotion/react"
 
@@ -17,6 +17,8 @@ import sharingCard from "../../static/images/sharing-card.png"
 const { profile, siteBaseUrl } = siteData
 
 const Blog = ({ data }) => {
+  const [isMenuOpen, toggleMenu] = useState(false)
+
   const author = profile.name
   const headerHeight = 75
   const posts = data.allMarkdownRemark.edges
@@ -32,9 +34,13 @@ const Blog = ({ data }) => {
       />
       <GlobalStyles />
       <Header
+        currentPage={`/blog`}
         height={headerHeight}
         navBackground={colors.lighterBg}
         logoSuffix="blog"
+        hasMenu={true}
+        isMenuOpen={isMenuOpen}
+        onToggleMenu={() => toggleMenu(!isMenuOpen)}
       />
       <Main marginTop={`${headerHeight}px`}>
         <div

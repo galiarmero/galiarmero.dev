@@ -5,7 +5,7 @@ import IconLink from "./icon-link"
 import { NavLinkItem } from "../styles/Links"
 import siteData from "../config/site-data.yml"
 
-const { menuOptions, socialMediaLinks } = siteData
+const { socialMediaLinks } = siteData
 
 const itemStyle = css`
   margin: 1rem 0;
@@ -35,10 +35,9 @@ const NavOverlay = (props) => (
       align-items: center;
     `}
   >
-    {menuOptions.map(({ title, link, isInternal }) => (
+    {props.menuOptions.map(({ title, link }) => (
       <NavLinkItem
         link={link}
-        isInternal={isInternal}
         onClick={props.onToggleMenu}
         customCss={itemStyle}
       >

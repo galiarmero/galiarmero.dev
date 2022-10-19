@@ -95,7 +95,7 @@ const LoaderLine = styled.div`
 
 const Loader = ({ finishLoading }) => {
   useEffect(() => {
-    const timeout = setTimeout(() => finishLoading(), 1500)
+    const timeout = setTimeout(() => finishLoading(), 800)
     return () => clearTimeout(timeout)
   }, [finishLoading])
 
