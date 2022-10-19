@@ -107,7 +107,8 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         border-bottom: 0;
       }
 
-      a {
+      a,
+      span.text-link {
         display: inline-block;
         position: relative;
         text-decoration: none;
@@ -131,8 +132,15 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
           &:after {
             transform: scaleX(1);
             transform-origin: bottom left;
+            color: var(--accentColor);
           }
+          color: var(--accentColor);
         }
+      }
+
+      span.text-link {
+        color: var(--textColor);
+        cursor: pointer;
       }
 
       h1 > a {
