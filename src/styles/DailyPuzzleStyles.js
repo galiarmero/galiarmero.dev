@@ -15,11 +15,7 @@ const DailyPuzzleStyles = () => (
 
       .puzzle-scores-nav > nav {
         display: grid;
-        grid-template-columns: 1fr 2.5fr 1fr;
-
-        ${breakpoint.media7} {
-          grid-template-columns: 1fr 3fr 1fr;
-        }
+        grid-template-columns: 1fr 3fr 1fr;
       }
 
       .puzzle-scores-nav div.intro {
