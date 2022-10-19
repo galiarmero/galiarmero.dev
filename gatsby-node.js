@@ -95,7 +95,7 @@ const createBlogPages = async (graphql, actions) => {
 
   const result = await graphql(`
     query loadBlogPostIdentifiers {
-      allMarkdownRemark(sort: {fields: frontmatter___datePublished}) {
+      allMarkdownRemark(sort: { fields: frontmatter___datePublished }) {
         edges {
           node {
             fields {
