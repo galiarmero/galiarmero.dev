@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/react"
 import Linkify from "linkify-react"
@@ -47,6 +47,8 @@ const PuzzleBox = styled(Card)`
 `
 
 const DailyPuzzle = ({ data, pageContext }) => {
+  const [isMenuOpen, toggleMenu] = useState(false)
+
   const puzzles = data.allPuzzleScores.edges.sort((a, b) => {
     return (
       PUZZLE_ORDER.indexOf(a.node.puzzle) - PUZZLE_ORDER.indexOf(b.node.puzzle)
@@ -67,7 +69,14 @@ const DailyPuzzle = ({ data, pageContext }) => {
       />
       <GlobalStyles />
       <DailyPuzzleStyles />
-      <Header height={HEADER_HEIGHT} navBackground={colors.lighterBg} />
+      <Header
+        currentPage={`/puzzle-scores`}
+        height={HEADER_HEIGHT}
+        navBackground={colors.lighterBg}
+        hasMenu={true}
+        isMenuOpen={isMenuOpen}
+        onToggleMenu={() => toggleMenu(!isMenuOpen)}
+      />
       <Main marginTop={`${HEADER_HEIGHT}px`}>
         <div
           css={css`

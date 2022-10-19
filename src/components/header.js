@@ -9,8 +9,12 @@ import { breakpoint, transitionTiming } from "../styles/theme"
 import { throttle } from "../utils"
 import SliderBurger from "./slider-burger"
 import Logo from "../../static/icons/logo.svg"
+import siteData from "../config/site-data.yml"
+
+let { menuOptions } = siteData
 
 const Header = ({
+  currentPage,
   height,
   isSticky,
   hasMenu,
@@ -49,6 +53,10 @@ const Header = ({
       window.removeEventListener("resize", () => handleResize())
     }
   })
+
+  menuOptions = menuOptions.filter(
+    (o) => o.link !== currentPage && (!o.anchorIn || o.anchorIn === currentPage)
+  )
 
   return (
     <header
@@ -122,6 +130,7 @@ const Header = ({
         </div>
         {hasMenu && (
           <NavList
+            menuOptions={menuOptions}
             customCss={css`
               ${breakpoint.maxMedia7} {
                 display: none;
@@ -144,6 +153,7 @@ const Header = ({
 
       {hasMenu && (
         <NavOverlay
+          menuOptions={menuOptions}
           onToggleMenu={onToggleMenu}
           backgroundColor={navBackground}
           isVisible={isMenuOpen}

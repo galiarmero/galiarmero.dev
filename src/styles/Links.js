@@ -1,18 +1,17 @@
 import React from "react"
-import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { css } from "@emotion/react"
 
 export const NavLinkItem = (props) => (
   <div css={props.customCss}>
-    {props.isInternal ? (
-      <Link to={props.link} onClick={props.onClick} css={navLinkStyle}>
-        {props.children}
-      </Link>
-    ) : (
-      <a href={props.link} onClick={props.onClick} css={navLinkStyle}>
-        {props.children}
-      </a>
-    )}
+    <AnchorLink
+      to={props.link}
+      onClick={props.onClick}
+      css={navLinkStyle}
+      duration={2000}
+    >
+      {props.children}
+    </AnchorLink>
   </div>
 )
 

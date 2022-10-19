@@ -96,6 +96,7 @@ const Index = () => {
       ) : (
         <div>
           <Header
+            currentPage={`/`}
             height={headerHeight}
             isSticky={true}
             hasMenu={true}
