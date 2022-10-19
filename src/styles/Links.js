@@ -6,7 +6,7 @@ export const NavLinkItem = (props) => (
   <div css={props.customCss}>
     <AnchorLink
       to={props.link}
-      onClick={props.onClick}
+      onAnchorLinkClick={props.onClick}
       css={navLinkStyle}
       duration={2000}
     >

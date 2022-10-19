@@ -54,7 +54,7 @@ const Header = ({
     }
   })
 
-  menuOptions = menuOptions.filter(
+  let filteredMenu = menuOptions.filter(
     (o) => o.link !== currentPage && (!o.anchorIn || o.anchorIn === currentPage)
   )
 
@@ -130,7 +130,7 @@ const Header = ({
         </div>
         {hasMenu && (
           <NavList
-            menuOptions={menuOptions}
+            menuOptions={filteredMenu}
             customCss={css`
               ${breakpoint.maxMedia7} {
                 display: none;
@@ -153,7 +153,7 @@ const Header = ({
 
       {hasMenu && (
         <NavOverlay
-          menuOptions={menuOptions}
+          menuOptions={filteredMenu}
           onToggleMenu={onToggleMenu}
           backgroundColor={navBackground}
           isVisible={isMenuOpen}
