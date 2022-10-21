@@ -136,6 +136,10 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
           }
           color: var(--accentColor);
         }
+
+        &:focus {
+          outline: 0;
+        }
       }
 
       span.text-link {
