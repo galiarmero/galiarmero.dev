@@ -1,5 +1,6 @@
 const path = require(`path`)
-const axios = require("axios")
+const { performance } = require(`perf_hooks`)
+const axios = require(`axios`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.sourceNodes = async ({ actions, createContentDigest }) => {
@@ -31,6 +32,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` +
       (startAt ? `&startAt=${startAt}` : "")
     let response
+    let requestStartTime = performance.now()
     try {
       response = await nenoyApi.get(url)
     } catch (e) {
@@ -38,7 +40,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       throw e
     }
     console.log(
-      `Got ${response.data.puzzleScores.length} records with startAt=${startAt}`
+      `Got ${response.data.puzzleScores.length} records with startAt=${startAt} in ${performance.now() - requestStartTime}ms`
     )
 
     response.data.puzzleScores.forEach((item) => {
