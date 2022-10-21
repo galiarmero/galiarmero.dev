@@ -9,6 +9,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
     NENOY_API_BASE_URL,
     NENOY_API_USER,
     NENOY_API_PASS,
+    NENOY_API_TIMEOUT,
     PUZZLE_SCORES_PER_PAGE,
   } = process.env
 
@@ -18,7 +19,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       username: NENOY_API_USER,
       password: NENOY_API_PASS,
     },
-    timeout: 2000,
+    timeout: NENOY_API_TIMEOUT,
   })
 
   console.log(
