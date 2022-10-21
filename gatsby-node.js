@@ -40,7 +40,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       throw e
     }
     console.log(
-      `Got ${response.data.puzzleScores.length} records with startAt=${startAt} in ${performance.now() - requestStartTime}ms`
+      `Got ${response.data.puzzleScores.length} records with startAt=${startAt} in ${(performance.now() - requestStartTime).toFixed(3)}ms`
     )
 
     response.data.puzzleScores.forEach((item) => {
