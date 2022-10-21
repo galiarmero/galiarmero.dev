@@ -1,5 +1,6 @@
 const path = require(`path`)
-const axios = require("axios")
+const { performance } = require(`perf_hooks`)
+const axios = require(`axios`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.sourceNodes = async ({ actions, createContentDigest }) => {
@@ -9,6 +10,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
     NENOY_API_BASE_URL,
     NENOY_API_USER,
     NENOY_API_PASS,
+    NENOY_API_TIMEOUT,
     PUZZLE_SCORES_PER_PAGE,
   } = process.env
 
@@ -18,7 +20,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       username: NENOY_API_USER,
       password: NENOY_API_PASS,
     },
-    timeout: 2000,
+    timeout: NENOY_API_TIMEOUT,
   })
 
   console.log(
@@ -30,6 +32,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` +
       (startAt ? `&startAt=${startAt}` : "")
     let response
+    let requestStartTime = performance.now()
     try {
       response = await nenoyApi.get(url)
     } catch (e) {
@@ -37,7 +40,11 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
       throw e
     }
     console.log(
-      `Got ${response.data.puzzleScores.length} records with startAt=${startAt}`
+      `Got ${
+        response.data.puzzleScores.length
+      } records with startAt=${startAt} in ${(
+        performance.now() - requestStartTime
+      ).toFixed(3)}ms`
     )
 
     response.data.puzzleScores.forEach((item) => {
