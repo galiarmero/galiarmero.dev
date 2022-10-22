@@ -18,7 +18,7 @@ import GlobalStyles from "../styles/GlobalStyles"
 import DailyPuzzleStyles from "../styles/DailyPuzzleStyles"
 import { colors, breakpoint } from "../styles/theme"
 import siteData from "../config/site-data.yml"
-import puzzleConfig, { PUZZLE_ORDER  } from "../config/puzzles"
+import puzzleConfig, { PUZZLE_ORDER } from "../config/puzzles"
 import { formatDateWithDayName } from "../utils"
 
 const { profile, siteBaseUrl } = siteData
