@@ -18,18 +18,11 @@ import GlobalStyles from "../styles/GlobalStyles"
 import DailyPuzzleStyles from "../styles/DailyPuzzleStyles"
 import { colors, breakpoint } from "../styles/theme"
 import siteData from "../config/site-data.yml"
+import puzzleConfig, { PUZZLE_ORDER  } from "../config/puzzles"
 import { formatDateWithDayName } from "../utils"
 
 const { profile, siteBaseUrl } = siteData
 const HEADER_HEIGHT = 75
-const PUZZLE_ORDER = [
-  "wordle",
-  "quordle",
-  "worldle",
-  "saltong",
-  "saltong-mini",
-  "waffle",
-]
 const PUZZLE_LABELS = {
   wordle: "Wordle",
   quordle: "Quordle",
@@ -101,7 +94,7 @@ const DailyPuzzle = ({ data, pageContext }) => {
             puzzles.map(({ node }, i) => (
               <PuzzleBox key={node.id} rowSpan={calculateSpan(node.resultText)}>
                 <PairLabel
-                  left={PUZZLE_LABELS[node.puzzle]}
+                  left={puzzleConfig[node.puzzle]?.label}
                   right={node.dayNumber}
                 />
                 <div class="puzzle-score">
@@ -141,7 +134,7 @@ const renderPuzzleResult = (puzzle, text) => {
 }
 
 const overridePuzzleResult = (puzzle, text) => {
-  if (puzzle === "wordle") {
+  if (puzzleConfig[puzzle]?.isScoreDarkMode) {
     return text.replaceAll("⬛", "⬜")
   }
 
