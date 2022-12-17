@@ -107,11 +107,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
         border-bottom: 0;
       }
 
-      a {
-        text-decoration: none;
-      }
-
-      a:not(.no-style),
+      a,
       span.text-link {
         display: inline-block;
         position: relative;

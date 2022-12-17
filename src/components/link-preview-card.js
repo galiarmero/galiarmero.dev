@@ -4,6 +4,8 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+import { linkReset } from "../styles/Links"
+
 const CardWrapper = styled.div`
   align-items: stretch;
   box-sizing: border-box;
@@ -36,7 +38,7 @@ const LinkPreviewCard = ({ image, title, description, url, domain }) => {
           target="_blank"
           rel="noopener noreferrer"
           href={url}
-          className="no-style"
+          css={linkReset}
         >
           <div
             css={css`
