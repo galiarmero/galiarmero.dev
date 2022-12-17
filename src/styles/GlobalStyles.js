@@ -111,6 +111,7 @@ const GlobalStyles = ({ scrollBehavior, bgColor }) => (
       span.text-link {
         display: inline-block;
         position: relative;
+        text-decoration: none;
         color: var(--accentColor);
 
         &:after {
