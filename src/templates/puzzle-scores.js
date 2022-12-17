@@ -13,13 +13,14 @@ import Footer from "../components/footer"
 import PairLabel from "../components/pair-label"
 import PuzzleScoresNav from "../components/puzzle-scores-nav"
 // import Engage from "../components/engage"
+import LinkPreviewCard from "../components/link-preview-card"
 import { Main, Masonry, Card } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import DailyPuzzleStyles from "../styles/DailyPuzzleStyles"
 import { colors, breakpoint } from "../styles/theme"
 import siteData from "../config/site-data.yml"
 import puzzleConfig, { PUZZLE_ORDER } from "../config/puzzles"
-import { formatDateWithDayName } from "../utils"
+import { formatDateWithDayName, formatDateEuNoYear } from "../utils"
 
 const { profile, siteBaseUrl } = siteData
 const HEADER_HEIGHT = 75
@@ -92,14 +93,15 @@ const DailyPuzzle = ({ data, pageContext }) => {
         <Masonry marginTop={`50px`}>
           {puzzles.length > 0 &&
             puzzles.map(({ node }, i) => (
-              <PuzzleBox key={node.id} rowSpan={calculateSpan(node.resultText)}>
+              <PuzzleBox
+                key={node.id}
+                rowSpan={calculateSpan(node.puzzle, node.resultText)}
+              >
                 <PairLabel
                   left={puzzleConfig[node.puzzle]?.label}
-                  right={node.dayNumber}
+                  right={node.dayNumber ?? formatDateEuNoYear(date)}
                 />
-                <div class="puzzle-score">
-                  {renderPuzzleResult(node.puzzle, node.resultText)}
-                </div>
+                <div className="puzzle-score">{renderPuzzleResult(node)}</div>
               </PuzzleBox>
             ))}
         </Masonry>
@@ -109,8 +111,22 @@ const DailyPuzzle = ({ data, pageContext }) => {
   )
 }
 
-const renderPuzzleResult = (puzzle, text) => {
-  text = overridePuzzleResult(puzzle, text)
+const renderPuzzleResult = ({ puzzle, resultText, fields }) => {
+  if (fields && fields.linkPreview) {
+    console.log(fields.linkPreview)
+    const { image, title, description, url, domain } = fields.linkPreview
+    return (
+      <LinkPreviewCard
+        image={image}
+        title={title}
+        description={description}
+        url={url}
+        domain={domain}
+      ></LinkPreviewCard>
+    )
+  }
+
+  const text = overridePuzzleResult(puzzle, resultText)
   const lines = text.split("\n")
   const linkifyOpts = {
     formatHref: {
@@ -141,7 +157,8 @@ const overridePuzzleResult = (puzzle, text) => {
   return text
 }
 
-const calculateSpan = (text) => {
+const calculateSpan = (puzzle, text) => {
+  if (puzzle === "nytimes-mini-crossword") return 17
   return text.split("\n").length + 5
 }
 
@@ -157,6 +174,15 @@ export const query = graphql`
           puzzle
           dayNumber
           resultText
+          fields {
+            linkPreview {
+              title
+              description
+              image
+              url
+              domain
+            }
+          }
         }
       }
     }
