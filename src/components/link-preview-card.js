@@ -34,12 +34,7 @@ const LinkPreviewCard = ({ image, title, description, url, domain }) => {
           ${hover}
         `}
       >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={url}
-          css={linkReset}
-        >
+        <a target="_blank" rel="noopener noreferrer" href={url} css={linkReset}>
           <div
             css={css`
               max-width: 100%;
