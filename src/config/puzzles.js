@@ -1,10 +1,11 @@
 export const PUZZLE_ORDER = [
   "wordle",
   "quordle",
+  "waffle",
+  "nytimes-mini-crossword",
   "worldle",
   "saltong",
   "saltong-mini",
-  "waffle",
 ]
 
 export default {
@@ -27,5 +28,8 @@ export default {
   },
   waffle: {
     label: "Waffle",
+  },
+  "nytimes-mini-crossword": {
+    label: "NY Times Mini",
   },
 }

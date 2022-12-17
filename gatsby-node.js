@@ -67,7 +67,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
   }
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     if (!node.fileAbsolutePath.includes("content/")) {
@@ -89,6 +89,25 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         ""
       )}`,
     })
+  } else if (node.internal.type === `PuzzleScores`) {
+    if (node.puzzle === `nytimes-mini-crossword`) {
+      const url = node.resultText.match(/\bhttps?:\/\/\S+/gi)[0]
+      const response = await axios.get(
+        `https://jsonlink.io/api/extract?url=${encodeURIComponent(url)}`
+      )
+      const { title, description, images, domain } = response.data
+      createNodeField({
+        node,
+        name: `linkPreview`,
+        value: {
+          title,
+          description,
+          image: images[0],
+          url,
+          domain,
+        },
+      })
+    }
   }
 }
 
