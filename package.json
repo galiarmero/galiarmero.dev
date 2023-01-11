@@ -36,7 +36,7 @@
     "gatsby-remark-images": "^6.19.0",
     "gatsby-remark-prismjs": "^6.19.0",
     "gatsby-source-filesystem": "^4.19.0",
-    "gatsby-transformer-remark": "^5.19.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "linkify-plugin-hashtag": "^4.0.2",
     "linkify-plugin-mention": "^4.0.2",
     "linkify-react": "^4.0.2",
