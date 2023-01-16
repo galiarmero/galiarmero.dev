@@ -140,7 +140,7 @@ const renderPuzzleResult = ({ puzzle, resultText, fields }) => {
   const result = lines.map((line) => (
     <Linkify options={linkifyOpts}>
       <Twemoji
-        options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg" }}
+        options={{ className: "twemoji-puzzle", folder: "svg", ext: ".svg", base: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/" }}
       >
         {line}
       </Twemoji>
