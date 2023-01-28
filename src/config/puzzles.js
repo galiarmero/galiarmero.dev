@@ -1,11 +1,14 @@
 export const PUZZLE_ORDER = [
   "wordle",
-  "quordle",
   "waffle",
+  "quordle",
   "nytimes-mini-crossword",
   "worldle",
   "saltong",
   "saltong-mini",
+  "octordle",
+  "octordle-sequence",
+  "octordle-rescue",
 ]
 
 export default {
@@ -31,5 +34,14 @@ export default {
   },
   "nytimes-mini-crossword": {
     label: "NY Times Mini",
+  },
+  octordle: {
+    label: "Octordle",
+  },
+  "octordle-sequence": {
+    label: "Sequence Octordle",
+  },
+  "octordle-rescue": {
+    label: "Rescue Octordle",
   },
 }
