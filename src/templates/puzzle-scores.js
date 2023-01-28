@@ -113,7 +113,6 @@ const DailyPuzzle = ({ data, pageContext }) => {
 
 const renderPuzzleResult = ({ puzzle, resultText, fields }) => {
   if (fields && fields.linkPreview) {
-    console.log(fields.linkPreview)
     const { image, title, description, url, domain } = fields.linkPreview
     return (
       <LinkPreviewCard
