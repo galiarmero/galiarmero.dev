@@ -6,6 +6,7 @@ export const PUZZLE_ORDER = [
   "worldle",
   "saltong",
   "saltong-mini",
+  "wheretaken",
   "octordle",
   "octordle-sequence",
   "octordle-rescue",
@@ -43,5 +44,8 @@ export default {
   },
   "octordle-rescue": {
     label: "Rescue Octordle",
+  },
+  wheretaken: {
+    label: "WhereTaken",
   },
 }
