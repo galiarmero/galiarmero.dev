@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.9.3",
     "@researchgate/react-intersection-observer": "^1.1.2",
     "axios": "^1.1.2",
+    "axios-retry": "^3.4.0",
     "dayjs": "^1.8.20",
     "dotenv": "^16.0.1",
     "gatsby": "^4.19.2",

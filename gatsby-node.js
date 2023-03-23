@@ -1,44 +1,23 @@
 const path = require(`path`)
 const { performance } = require(`perf_hooks`)
 const axios = require(`axios`)
+const nenoyApi = require("./src/utils/nenoy-api")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.sourceNodes = async ({ actions, createContentDigest }) => {
   const { createNode } = actions
-
-  const {
-    NENOY_API_BASE_URL,
-    NENOY_API_USER,
-    NENOY_API_PASS,
-    NENOY_API_TIMEOUT,
-    PUZZLE_SCORES_PER_PAGE,
-  } = process.env
-
-  const nenoyApi = axios.create({
-    baseURL: NENOY_API_BASE_URL,
-    auth: {
-      username: NENOY_API_USER,
-      password: NENOY_API_PASS,
-    },
-    timeout: NENOY_API_TIMEOUT,
-  })
+  const { PUZZLE_SCORES_PER_PAGE } = process.env
 
   console.log(
     `Fetching puzzle scores from Nenoy API, ${PUZZLE_SCORES_PER_PAGE} at a time`
   )
   let startAt
   while (true) {
-    let url =
-      `/puzzle-scores?limit=${PUZZLE_SCORES_PER_PAGE}` +
-      (startAt ? `&startAt=${startAt}` : "")
-    let response
     let requestStartTime = performance.now()
-    try {
-      response = await nenoyApi.get(url)
-    } catch (e) {
-      console.error(e)
-      throw e
-    }
+    let response = await nenoyApi.getPuzzleScores(
+      PUZZLE_SCORES_PER_PAGE,
+      startAt
+    )
     console.log(
       `Got ${
         response.data.puzzleScores.length
