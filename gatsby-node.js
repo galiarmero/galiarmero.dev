@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { performance } = require(`perf_hooks`)
 const axios = require(`axios`)
-const nenoyApi = require('./src/utils/nenoy-api')
+const nenoyApi = require("./src/utils/nenoy-api")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.sourceNodes = async ({ actions, createContentDigest }) => {
@@ -14,7 +14,10 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
   let startAt
   while (true) {
     let requestStartTime = performance.now()
-    let response = await nenoyApi.getPuzzleScores(PUZZLE_SCORES_PER_PAGE, startAt)
+    let response = await nenoyApi.getPuzzleScores(
+      PUZZLE_SCORES_PER_PAGE,
+      startAt
+    )
     console.log(
       `Got ${
         response.data.puzzleScores.length

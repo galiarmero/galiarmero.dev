@@ -1,4 +1,3 @@
-
 const axios = require(`axios`)
 const axiosRetry = require(`axios-retry`)
 
@@ -14,8 +13,8 @@ const {
 const nenoyApi = axios.create({
   baseURL: NENOY_API_BASE_URL,
   auth: {
-      username: NENOY_API_USER,
-      password: NENOY_API_PASS,
+    username: NENOY_API_USER,
+    password: NENOY_API_PASS,
   },
   timeout: NENOY_API_TIMEOUT,
 })
@@ -25,20 +24,22 @@ axiosRetry(nenoyApi, {
   retryDelay: () => NENOY_API_RETRY_DELAY,
   shouldResetTimeout: true,
   retryCondition: (error) => {
-      console.log(`[DEBUG] Error found: ${error}`)
-      console.log(`[DEBUG] Error code found: ${error.code}`)
-      return axiosRetry.isNetworkOrIdempotentRequestError(error)
-              || error.code === 'ECONNABORTED'
+    console.log(`[DEBUG] Error found: ${error}`)
+    console.log(`[DEBUG] Error code found: ${error.code}`)
+    return (
+      axiosRetry.isNetworkOrIdempotentRequestError(error) ||
+      error.code === "ECONNABORTED"
+    )
   },
   onRetry: (retryCount, error, requestConfig) => {
-      console.log(`Attempting retry number ${retryCount} after error: ${error}`)
-      return
+    console.log(`Attempting retry number ${retryCount} after error: ${error}`)
+    return
   },
 })
 
 const getPuzzleScores = async (limit, startAt = null) => {
-  let url = `/puzzle-scores?limit=${limit}` +
-              (startAt ? `&startAt=${startAt}` : "")
+  let url =
+    `/puzzle-scores?limit=${limit}` + (startAt ? `&startAt=${startAt}` : "")
   try {
     return nenoyApi.get(url)
   } catch (e) {
