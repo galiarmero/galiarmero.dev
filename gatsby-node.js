@@ -70,20 +70,19 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     })
   } else if (node.internal.type === `PuzzleScores`) {
     if (node.puzzle === `nytimes-mini-crossword`) {
-      const url = node.resultText.match(/\bhttps?:\/\/\S+/gi)[0]
-      const response = await axios.get(
-        `https://jsonlink.io/api/extract?url=${encodeURIComponent(url)}`
-      )
-      const { title, description, images, domain } = response.data
+      const url = new URL(node.resultText.match(/\bhttps?:\/\/\S+/gi)[0])
+      const date = url.searchParams.get("d")
+      const solveTime = url.searchParams.get("t")
+      const c = url.searchParams.get("c")
       createNodeField({
         node,
         name: `linkPreview`,
         value: {
-          title,
-          description,
-          image: images[0],
-          url,
-          domain,
+          title: `Play The Mini Crossword`,
+          description: `All the fun of the larger New York Times Crossword, but you can solve it in seconds.`,
+          image: `https://www.nytimes.com/badges/games/mini.jpg?d=${date}&t=${solveTime}&c=${c}`,
+          url: url.toString(),
+          domain: `www.nytimes.com`,
         },
       })
     }
