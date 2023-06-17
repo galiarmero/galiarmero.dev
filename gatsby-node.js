@@ -71,9 +71,9 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   } else if (node.internal.type === `PuzzleScores`) {
     if (node.puzzle === `nytimes-mini-crossword`) {
       const url = new URL(node.resultText.match(/\bhttps?:\/\/\S+/gi)[0])
-      const date = url.searchParams.get('d')
-      const solveTime = url.searchParams.get('t')
-      const c = url.searchParams.get('c')
+      const date = url.searchParams.get("d")
+      const solveTime = url.searchParams.get("t")
+      const c = url.searchParams.get("c")
       createNodeField({
         node,
         name: `linkPreview`,
