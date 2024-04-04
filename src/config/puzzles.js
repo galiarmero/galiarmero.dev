@@ -48,4 +48,7 @@ export default {
   wheretaken: {
     label: "WhereTaken",
   },
+  connections: {
+    label: "NY Times Connections",
+  },
 }
