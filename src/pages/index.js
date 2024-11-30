@@ -115,8 +115,9 @@ const Index = () => {
             <About
               handleIntersection={handleIntersection}
               intro={profile.aboutIntro}
+              body={profile.aboutBody}
               techSkills={profile.techSkills}
-              more={profile.aboutPersonal}
+              closing={profile.aboutClosing}
             />
             <LatestBlogPosts handleIntersection={handleIntersection} />
             <Contact handleIntersection={handleIntersection} />
