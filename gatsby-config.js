@@ -46,7 +46,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-ackee-tracker",
       options: {
-        // Domatin ID found when adding a domain in the admin panel.
+        // Domain ID found when adding a domain in the admin panel.
         domainId: process.env.ACKEE_DOMAIN_ID,
         // URL to Server eg: "https://analytics.test.com".
         server: process.env.ACKEE_SERVER_URL,
