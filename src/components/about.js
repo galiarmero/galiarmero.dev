@@ -93,7 +93,9 @@ const About = ({ handleIntersection, intro, body, techSkills, closing }) => {
 
           <IntersectionObserver {...appearanceObserverOpts(setClosingAppeared)}>
             <AppearingContainer hasNotAppeared={!hasClosingAppeared}>
-              <div dangerouslySetInnerHTML={{ __html: paragraphify(closing) }} />
+              <div
+                dangerouslySetInnerHTML={{ __html: paragraphify(closing) }}
+              />
             </AppearingContainer>
           </IntersectionObserver>
         </SectionBody>
