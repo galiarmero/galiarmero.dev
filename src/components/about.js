@@ -9,11 +9,12 @@ import settings from "../config/settings"
 import { breakpoint } from "../styles/theme"
 import { appearanceObserverOpts } from "../utils"
 
-const About = ({ handleIntersection, intro, techSkills, more }) => {
+const About = ({ handleIntersection, intro, body, techSkills, closing }) => {
   const [hasHeaderAppeared, setHeaderAppeared] = useState(false)
   const [hasIntroAppeared, setIntroAppeared] = useState(false)
   const [hasDividerAppeared, setDividerAppeared] = useState(false)
-  const [hasMoreAppeared, setMoreAppeared] = useState(false)
+  const [hasBodyAppeared, setBodyAppeared] = useState(false)
+  const [hasClosingAppeared, setClosingAppeared] = useState(false)
 
   const sectionObserverOpts = {
     onChange: ({ time, isIntersecting, intersectionRatio }) => {
@@ -48,6 +49,24 @@ const About = ({ handleIntersection, intro, techSkills, more }) => {
           >
             <AppearingContainer hasNotAppeared={!hasIntroAppeared}>
               <div dangerouslySetInnerHTML={{ __html: paragraphify(intro) }} />
+            </AppearingContainer>
+          </IntersectionObserver>
+
+          <IntersectionObserver
+            {...appearanceObserverOpts(setDividerAppeared, 0.2)}
+          >
+            <hr
+              css={css`
+                width: ${hasDividerAppeared ? `100%` : `0.1px`};
+                transition: width 400ms;
+                transition-delay: 200ms;
+              `}
+            />
+          </IntersectionObserver>
+
+          <IntersectionObserver {...appearanceObserverOpts(setBodyAppeared)}>
+            <AppearingContainer hasNotAppeared={!hasBodyAppeared}>
+              <div dangerouslySetInnerHTML={{ __html: paragraphify(body) }} />
 
               <ul
                 css={css`
@@ -72,23 +91,12 @@ const About = ({ handleIntersection, intro, techSkills, more }) => {
             </AppearingContainer>
           </IntersectionObserver>
 
-          <IntersectionObserver
-            {...appearanceObserverOpts(setDividerAppeared, 0.2)}
-          >
-            <hr
-              css={css`
-                width: ${hasDividerAppeared ? `100%` : `0.1px`};
-                transition: width 400ms;
-                transition-delay: 200ms;
-              `}
-            />
-          </IntersectionObserver>
-
-          <IntersectionObserver {...appearanceObserverOpts(setMoreAppeared)}>
-            <AppearingContainer
-              hasNotAppeared={!hasMoreAppeared}
-              dangerouslySetInnerHTML={{ __html: paragraphify(more) }}
-            />
+          <IntersectionObserver {...appearanceObserverOpts(setClosingAppeared)}>
+            <AppearingContainer hasNotAppeared={!hasClosingAppeared}>
+              <div
+                dangerouslySetInnerHTML={{ __html: paragraphify(closing) }}
+              />
+            </AppearingContainer>
           </IntersectionObserver>
         </SectionBody>
       </Section>
