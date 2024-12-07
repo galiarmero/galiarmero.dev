@@ -30,7 +30,7 @@ Your data can come from pretty much any source: Markdown files, APIs, [headless 
 ![How Gatsby Works](how-gatsby-works.png)
 _The workflow. Screenshot from the [Gatsby](https://www.gatsbyjs.org/) page._
 
-Then, you define expressive GraphQL queries to get the data you need and use them to create pages the way you like it using HTML, CSS and [React](https://reactjs.org/). Gatsby generates static pages based on these and you can deploy them to your favorite static web host. They are awesome and they worry about maintenance, security and [content delivery](https://en.wikipedia.org/wiki/Content_delivery_network) for you, making deployment a walk in the park.
+Then, you define expressive GraphQL queries to get the data you need and insert them into your page templates through [React](https://reactjs.org/). Based on these data and templates, Gatsby generates static pages, which are ready to be deployed to your favorite static web host. They are awesome and they worry about maintenance, security and [content delivery](https://en.wikipedia.org/wiki/Content_delivery_network) for you, making deployment a walk in the park.
 
 
 ## Why I chose Gatsby
@@ -45,7 +45,7 @@ My interest and familiarity with the JavaScript ecosystem lead me to Gatsby.
 
 I wanted to create my pages with React because it's fun, I'm familiar with it and at the same time, I still have a lot to learn about it. Learning React is a big plus because it's also used to build dynamic web apps and native apps. GraphQL is another enticing tech that I wanted to get more comfortable with.
 
-Modern JavaScript tooling also gives you access to the future web standards without waiting for future browsers to keep up. I think the JavaScript community is predisposed to respond and adapt rapidly to changes in the web. I'd like to take advantage of that.
+Modern JavaScript tooling also gives you access to the future web standards without waiting for future browsers to keep up. I think the JavaScript community is predisposed to respond and adapt rapidly to the latest web standards. I'd like to take advantage of that.
 
 Overall, for me JavaScript is an enjoyable language to use and learn. If you enjoy working with Ruby, though, I recommend looking at [Jekyll](https://jekyllrb.com/). It pre-dated Gatsby and is still the most popular SSG. For Gophers, you have [Hugo](https://gohugo.io/), which I've read builds pages the fastest among the bunch. All these are great, but I'm sticking with Gatsby for more reasons.
 
@@ -81,7 +81,7 @@ As of writing, you need a lot of tinkering to do to achieve the same (if not sub
 
 ## Wrapping up
 
-I am creating my personal site for fun and learning, I elected to build it with Gatsby because it opens up opportunities to learn more about cutting edge tools in the JavaScript ecosystem. These include React, GraphQL and Gatsby itself. I find these tech interesting, dev-friendly and enjoyable to use.
+I am creating my personal site for fun and learning, I elected to build it with Gatsby because it opens up opportunities to learn more about cutting-edge tools in the JavaScript ecosystem. These include React, GraphQL and Gatsby itself. I find these tech interesting, dev-friendly and enjoyable to use.
 
 Most importantly, I like Gatsby's thoughtful focus on making the fastest websites. Performance is central to Gatsby. It enables sites to have an app-like feel with zero configuration. It just works.
 
