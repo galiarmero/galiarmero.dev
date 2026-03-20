@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Global, css } from "@emotion/core"
+import { Global, css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import Logo from "../../static/icons/logo.svg"
@@ -39,7 +39,7 @@ const VerticallyCenteredBox = styled.div`
   }
 
   :after {
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -78,7 +78,11 @@ const LoaderLineMask = styled.div`
   overflow: hidden;
   transform-origin: 60px 60px;
   mask-image: linear-gradient(top, #fff, rgba(255, 255, 255, 0));
-  -webkit-mask-image: -webkit-linear-gradient(top, #fff, rgba(255, 255, 255, 0));
+  -webkit-mask-image: -webkit-linear-gradient(
+    top,
+    #fff,
+    rgba(255, 255, 255, 0)
+  );
   animation: rotate 1.2s infinite linear;
 `
 
@@ -89,11 +93,11 @@ const LoaderLine = styled.div`
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
 `
 
-export default ({ finishLoading }) => {
+const Loader = ({ finishLoading }) => {
   useEffect(() => {
-    const timeout = setTimeout(() => finishLoading(), 500)
+    const timeout = setTimeout(() => finishLoading(), 800)
     return () => clearTimeout(timeout)
-  }, [])
+  }, [finishLoading])
 
   return (
     <div>
@@ -115,3 +119,5 @@ export default ({ finishLoading }) => {
     </div>
   )
 }
+
+export default Loader

@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import Helmet from "../components/helmet"
@@ -9,11 +9,10 @@ import { Main } from "../styles/Containers"
 import Button from "../styles/Buttons"
 import GlobalStyles from "../styles/GlobalStyles"
 import { colors, breakpoint } from "../styles/theme"
+import siteData from "../config/site-data.yml"
 
-import { profile } from "../config/site-meta.yml"
-
-export default ({ data }) => {
-  const author = profile.name
+const FourOhFour = ({ data }) => {
+  const author = siteData.profile.name
   const headerHeight = 75
 
   const CenteredContainer = styled.div`
@@ -25,7 +24,7 @@ export default ({ data }) => {
   `
 
   const textStyle = (sizeDivisor = 1) => css`
-    color: ${props => props.color || `inherit`};
+    color: ${(props) => props.color || `inherit`};
     font-size: calc(6rem / ${sizeDivisor});
     ${breakpoint.media4} {
       font-size: calc(7rem / ${sizeDivisor});
@@ -57,7 +56,9 @@ export default ({ data }) => {
             css={css`
               ${textStyle()};
             `}
-          >404</h1>
+          >
+            404
+          </h1>
           <Divider />
 
           <span
@@ -65,10 +66,14 @@ export default ({ data }) => {
               margin-bottom: 3rem;
               ${textStyle(4)};
             `}
-          >Page Not Found</span>
+          >
+            Page Not Found
+          </span>
           <Button onClick={() => navigate(`/`)}>Go Home</Button>
         </CenteredContainer>
       </Main>
     </div>
   )
 }
+
+export default FourOhFour

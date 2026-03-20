@@ -1,6 +1,12 @@
 import React from "react"
-import { css } from "@emotion/core"
-import { FaGithub, FaLinkedinIn, FaStackOverflow, FaTwitter, FaInstagram } from "react-icons/fa"
+import { css } from "@emotion/react"
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaStackOverflow,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa"
 
 import { linkReset } from "../styles/Links"
 
@@ -12,7 +18,7 @@ const iconMappings = {
   instagram: FaInstagram,
 }
 
-export default ({ icon, link, onClick, customCss }) => {
+const IconLink = ({ icon, link, onClick, customCss }) => {
   const Icon = iconMappings[icon]
   return (
     <a
@@ -36,3 +42,5 @@ export default ({ icon, link, onClick, customCss }) => {
     </a>
   )
 }
+
+export default IconLink

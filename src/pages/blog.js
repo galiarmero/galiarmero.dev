@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 import Helmet from "../components/helmet"
 import Header from "../components/header"
@@ -11,10 +11,14 @@ import GlobalStyles from "../styles/GlobalStyles"
 import { SectionHeading } from "../styles/Headings"
 import PostPreview from "../components/post-preview"
 import { colors, breakpoint } from "../styles/theme"
-import { profile, siteUrl } from "../config/site-meta.yml"
+import siteData from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
-export default ({ data }) => {
+const { profile, siteBaseUrl } = siteData
+
+const Blog = ({ data }) => {
+  const [isMenuOpen, toggleMenu] = useState(false)
+
   const author = profile.name
   const headerHeight = 75
   const posts = data.allMarkdownRemark.edges
@@ -24,17 +28,41 @@ export default ({ data }) => {
         pageTitle={`Blog · ${author}`}
         title={`Blog · ${author}`}
         description={profile.blogDescription}
-        pageUrl={`${siteUrl}/blog`}
-        sharingCard={`${siteUrl}${sharingCard}`}
+        pageUrl={`${siteBaseUrl}/blog`}
+        sharingCard={`${siteBaseUrl}${sharingCard}`}
         sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles />
-      <Header height={headerHeight} navBackground={colors.lighterBg} logoSuffix="blog" />
+      <Header
+        currentPage={`/blog`}
+        height={headerHeight}
+        navBackground={colors.lighterBg}
+        logoSuffix="blog"
+        hasMenu={true}
+        isMenuOpen={isMenuOpen}
+        onToggleMenu={() => toggleMenu(!isMenuOpen)}
+      />
       <Main marginTop={`${headerHeight}px`}>
-        <div css={css`margin: 25px 0;`}>
+        <div
+          css={css`
+            margin: 25px 0;
+          `}
+        >
           <Bio>
-            <p css={css`margin-bottom: 0.4rem;`}>Personal blog by <Link to="/">{author}</Link>.</p>
-            <p css={css`margin-bottom: 0;`}>{profile.blogDescription}</p>
+            <p
+              css={css`
+                margin-bottom: 0.4rem;
+              `}
+            >
+              Personal blog by <Link to="/">{author}</Link>.
+            </p>
+            <p
+              css={css`
+                margin-bottom: 0;
+              `}
+            >
+              {profile.blogDescription}
+            </p>
           </Bio>
         </div>
 
@@ -51,9 +79,9 @@ export default ({ data }) => {
         </div>
 
         <AutoFitGrid marginTop={`50px`}>
-          {
-            posts.map(({ node }, index) => <PostPreview key={index} data={node} />)
-          }
+          {posts.map(({ node }, index) => (
+            <PostPreview key={index} data={node} />
+          ))}
         </AutoFitGrid>
       </Main>
       <Footer />
@@ -61,9 +89,14 @@ export default ({ data }) => {
   )
 }
 
+export default Blog
+
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___datePublished], order: DESC }, limit: 3) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___datePublished], order: DESC }
+      limit: 6
+    ) {
       edges {
         node {
           frontmatter {

@@ -1,0 +1,72 @@
+profile:
+  greeting: Hi, I am
+  name: Gali Armero
+  tagline: I love building things that simplify.
+  title: Software Engineer
+  briefBio: >-
+    Gali Armero is a software engineer.
+    He enjoys building performant distributed systems and
+    hiding complexity with clean, intuitive user interfaces.
+  blogBioAfterName: >-
+    is a software engineer from the Philippines currently based in Berlin. He is amused
+    by elegant software solutions, new places, ugly delicious food,
+    and the sound of a basketball swishing through the hoop.
+  blogDescription: Insights of a tech guy in perpetual search for answers.
+  aboutIntro: >-
+    Hello! My name is Gali – short for Galileo.
+    I'm a software engineer from the Philippines 🇵🇭 currently based in Berlin 🇩🇪.
+    This is my own little corner on the Internet where I share things that excite me like
+    writing simple concise code, learning system design and solving puzzles.
+  aboutBody: >-
+    I grew up in the small town called <a href="https://en.wikipedia.org/wiki/Canaman,_Camarines_Sur">Canaman</a>
+    in Camarines Sur. Soon after uni years, my journey took me from there to busy Manila and eventually to vibrant Berlin.
+
+
+    Lately, I have been building distributed systems in the fintech space. Here are some of the tech I've recently worked with:
+  techSkills:
+    - Kotlin
+    - Java
+    - Spring Boot
+    - Python
+    - React
+    - MongoDB
+    - PostgreSQL
+    - GraphQL
+    - Docker
+  aboutClosing: >-
+    When not coding, I enjoy biking, exploring new places, listening to podcasts,
+    playing basketball, following my Lakers, and solving <a href='/puzzle-scores'>daily puzzles</a>.
+
+    I also write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
+menuOptions:
+  - title: Home
+    link: '/'
+  - title: About
+    link: '/#about'
+    anchorIn: '/'
+  - title: Blog
+    link: '/blog'
+  - title: Contact
+    link: '/#contact'
+    anchorIn: '/'
+  - title: Puzzle Scores
+    link: '/puzzle-scores'
+socialMediaLinks:
+  - id: github
+    link: https://github.com/galiarmero
+  - id: linkedin
+    link: https://www.linkedin.com/in/galileoarmero
+  - id: stackoverflow
+    link: https://stackoverflow.com/users/8712967/galiarmero
+    isHidden: true
+  - id: twitter
+    link: https://twitter.com/galiarmero
+    username: galiarmero
+    isHidden: true
+  - id: instagram
+    link: https://www.instagram.com/galiarmero/
+    isHidden: true
+siteBaseUrl: https://galiarmero.dev
+nakedDomain: galiarmero.dev
+projectSourceUrl: https://github.com/galiarmero/galiarmero.dev
+copyrightYear: 2024

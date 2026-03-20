@@ -1,24 +1,34 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
+import { StaticImage } from "gatsby-plugin-image"
 
-import profilePic from "../../static/images/profile-pic.jpg"
-
-export default (props) => (
-  <aside css={css`
-    display: flex;
-    align-items: start;
-  `}>
-    <img
-      src={profilePic}
-      alt={props.author}
-      onClick={() => navigate("/")}
+const Bio = (props) => (
+  <aside
+    css={css`
+      display: flex;
+      align-items: start;
+    `}
+  >
+    <div
       css={css`
+        width: 64px;
         margin: 0.2rem 1rem 0 0;
-        height: 3.75rem;
-        border-radius: 50%;
       `}
-    />
+    >
+      <StaticImage
+        src="../../static/images/profile-pic.jpg"
+        alt={props.author}
+        placeholder="blurred"
+        layout="constrained"
+        onClick={() => navigate("/")}
+        aspectRatio={1 / 1}
+        style={{
+          "border-radius": "50%",
+          width: "3.75rem",
+        }}
+      />
+    </div>
 
     <span
       css={css`
@@ -29,14 +39,21 @@ export default (props) => (
         flex-direction: column;
         justify-content: space-between;
         align-content: center;
-    `}>
-      { props.children
-        ? props.children
-        : <p css={css`margin-bottom: 0;`}>
-            <Link to="/">{props.author}</Link> is a full stack software engineer from the Philippines.
-            He is amused by elegant software solutions, new places, ugly delicious food, and the sound of a basketball swishing through the hoop.
-          </p>
-      }
+      `}
+    >
+      {props.children ? (
+        props.children
+      ) : (
+        <p
+          css={css`
+            margin-bottom: 0;
+          `}
+        >
+          <Link to="/">{props.author}</Link> {props.descriptionAfterName}
+        </p>
+      )}
     </span>
   </aside>
 )
+
+export default Bio

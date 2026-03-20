@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   plugins: [
     {
@@ -16,47 +18,52 @@ module.exports = {
             options: {
               maxWidth: 750,
               quality: 100,
-            }
+            },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: 'linked-files/',
-            }
+              destinationDir: "linked-files/",
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               showLineNumbers: true,
-            }
+            },
           },
-        ]
+        ],
       },
     },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /icons/
-        }
-      }
+          include: /icons/,
+        },
+      },
     },
     {
       resolve: "gatsby-plugin-ackee-tracker",
       options: {
-        // Domatin ID found when adding a domain in the admin panel.
+        // Domain ID found when adding a domain in the admin panel.
         domainId: process.env.ACKEE_DOMAIN_ID,
         // URL to Server eg: "https://analytics.test.com".
         server: process.env.ACKEE_SERVER_URL,
         // Disabled analytic tracking when running locally
-        ignoreLocalhost: false,
+        ignoreLocalhost: true,
+        // Enable or disable the tracking of your own visits (as identified by your login to the Ackee dashboard).
+        ignoreOwnVisits: true,
         // If enabled it will collect info on OS, BrowserInfo, Device  & ScreenSize
-        detailed: false
+        detailed: true,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-anchor-links`,
   ],
 }

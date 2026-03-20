@@ -13,10 +13,12 @@ import { Main } from "../styles/Containers"
 import GlobalStyles from "../styles/GlobalStyles"
 import TransitionStyles from "../styles/TransitionStyles"
 import { colors } from "../styles/theme"
-import { profile, siteUrl } from "../config/site-meta.yml"
+import siteData from "../config/site-data.yml"
 import sharingCard from "../../static/images/sharing-card.png"
 
-export default () => {
+const { profile, siteBaseUrl } = siteData
+
+const Index = () => {
   const headerHeight = 75
   const sections = ["hero", "about", "latestBlogPosts", "contact"]
 
@@ -31,7 +33,7 @@ export default () => {
     contact: { time: 0, isIntersecting: true, intersectionRatio: 0 },
   })
 
-  const onFooterVisibilityChange = isVisible => {
+  const onFooterVisibilityChange = (isVisible) => {
     toggleMarkers(!isVisible)
   }
   const sectionMarkerProps = {
@@ -44,10 +46,10 @@ export default () => {
     visibleSection,
   }
 
-  const handleIntersection = entry => {
+  const handleIntersection = (entry) => {
     setIntersectionData({ ...intersectionData, ...entry })
     let visibleSections = Object.keys(intersectionData).filter(
-      k => intersectionData[k].intersectionRatio > 0
+      (k) => intersectionData[k].intersectionRatio > 0
     )
 
     if (visibleSections.length === 1) {
@@ -79,14 +81,11 @@ export default () => {
   return (
     <div>
       <Helmet
-        pageTitle={`${profile.name} · Full Stack Software Engineer`}
+        pageTitle={`${profile.name} · ${profile.title}`}
         title={`${profile.name}`}
-        description={`${profile.name} is a full stack software engineer. \
-                      He enjoys building performant backends and \
-                      hiding complexity with clean, intuitive user interfaces.`
-                    }
-        pageUrl={`${siteUrl}`}
-        sharingCard={`${siteUrl}${sharingCard}`}
+        description={`${profile.briefBio}`}
+        pageUrl={`${siteBaseUrl}`}
+        sharingCard={`${siteBaseUrl}${sharingCard}`}
         sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
       />
       <GlobalStyles scrollBehavior={`smooth`} />
@@ -97,6 +96,7 @@ export default () => {
       ) : (
         <div>
           <Header
+            currentPage={`/`}
             height={headerHeight}
             isSticky={true}
             hasMenu={true}
@@ -115,8 +115,9 @@ export default () => {
             <About
               handleIntersection={handleIntersection}
               intro={profile.aboutIntro}
+              body={profile.aboutBody}
               techSkills={profile.techSkills}
-              more={profile.aboutPersonal}
+              closing={profile.aboutClosing}
             />
             <LatestBlogPosts handleIntersection={handleIntersection} />
             <Contact handleIntersection={handleIntersection} />
@@ -128,3 +129,5 @@ export default () => {
     </div>
   )
 }
+
+export default Index
