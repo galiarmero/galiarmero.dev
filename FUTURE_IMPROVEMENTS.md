@@ -33,6 +33,18 @@ Astro's default syntax highlighter is [Shiki](https://shiki.style/), which has s
 6. Review blog posts for Prism-specific line number syntax (`bash{1,2,4}`, `js{3-9}`, etc.) and convert to Shiki's format if needed
 7. Visually compare code blocks to ensure highlighting looks correct
 
+## Add standard meta description tag to BaseLayout
+
+`BaseLayout.astro` accepts a `description` prop and uses it for Twitter (`twitter:description`) and Open Graph (`og:description`) tags, but it doesn't emit a standard `<meta name="description" content="...">` tag. Many crawlers and SEO tools rely on this tag, so it should be included when `description` is provided.
+
+## Bug fixes
+
+### Fix CSS selector typo in puzzle scores nav
+
+In `src/styles/DailyPuzzleStyles.js` (and its migrated counterpart `src/styles/daily-puzzle.css`), the selector `.puzzle-scores-nav .date-label.date.nav > a` should be `.puzzle-scores-nav .date-label.date-nav > a`. The current selector matches an element with classes `date-label`, `date`, and `nav` instead of `date-label` and `date-nav`.
+
+---
+
 ## Use configurable breakpoints instead of hardcoded media queries
 
 The Gatsby project defined breakpoints in JS (`src/styles/theme.js`) and used them via Emotion. After the Astro migration, media queries are hardcoded directly in CSS (e.g., `@media (min-width: 480px)`). This works but means breakpoint values are scattered across many files.
