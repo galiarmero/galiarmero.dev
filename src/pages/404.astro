@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+---
+
+<BaseLayout pageTitle="404 - Page Not Found · Gali Armero">
+  <main class="main">
+    <div class="centered">
+      <h1 class="error-code">404</h1>
+      <div class="divider"></div>
+      <span class="error-message">Page Not Found</span>
+      <a href="/" class="go-home">Go Home</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .main {
+    margin-top: 0;
+    padding: 0 25px;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 480px) {
+    .main {
+      padding: 0 12%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main {
+      padding: 0 16%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .main {
+      padding: 0 20%;
+    }
+  }
+
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .error-code {
+    font-size: 6rem;
+  }
+
+  @media (min-width: 480px) {
+    .error-code {
+      font-size: 7rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .error-code {
+      font-size: 9rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .error-code {
+      font-size: 11rem;
+    }
+  }
+
+  .divider {
+    width: 20%;
+    height: 3px;
+    background: var(--accentColor);
+    margin: 0.5rem 0 1.4rem;
+  }
+
+  .error-message {
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 480px) {
+    .error-message {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .error-message {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .error-message {
+      font-size: 2.75rem;
+    }
+  }
+
+  .go-home {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    background-image: linear-gradient(
+      45deg,
+      var(--lighterBgColor) 50%,
+      transparent 50%
+    );
+    background-position: 100%;
+    background-size: 400%;
+    border: 1px solid var(--accentColor);
+    border-radius: 0.2rem;
+    color: var(--accentColor);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 0.9rem;
+    line-height: 1.1;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-family: "JetBrainsMono-Regular", monospace;
+    letter-spacing: 0.05rem;
+    transition: background 300ms ease-in-out;
+  }
+
+  .go-home::after {
+    content: none;
+  }
+
+  .go-home:hover {
+    background-position: 0;
+  }
+
+  .go-home:hover::after {
+    content: none;
+  }
+
+  .go-home:focus {
+    outline: 0;
+  }
+</style>

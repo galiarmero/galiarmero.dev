@@ -1,0 +1,105 @@
+---
+import "../styles/global.css"
+import "../styles/prismjs-night-owl.css"
+import "../styles/transitions.css"
+import { themes, defaultTheme, transitionTiming } from "../config/themes.js"
+
+interface Props {
+  pageTitle: string
+  title?: string
+  description?: string
+  pageUrl?: string
+  sharingCard?: string
+  sharingAltText?: string
+}
+
+const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText } =
+  Astro.props
+
+const theme = themes[defaultTheme]
+const themeStyle = `:root { ${Object.entries(theme).map(([k, v]) => `--${k}: ${v}`).join("; ")}; --transitionTiming: ${transitionTiming}; }`
+---
+
+<!doctype html>
+<html lang="en" data-theme={defaultTheme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+
+    <style set:html={themeStyle}></style>
+
+    <meta name="theme-color" content={theme.bgColor} />
+    <meta name="msapplication-navbutton-color" content={theme.bgColor} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.png" />
+    <link rel="mask-icon" href="/favicon-mask.svg" color={theme.bgColor} />
+    <link rel="apple-touch-icon" href="/favicon-apple-touch.png" />
+
+    <!-- Font preloads -->
+    <link
+      rel="preload"
+      href="/fonts/Gilroy-ExtraBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Gilroy-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ClearSans-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ClearSans-Thin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@galiarmero" />
+    <meta name="twitter:creator" content="@galiarmero" />
+    {title && <meta name="twitter:title" content={title} />}
+    {description && <meta name="twitter:description" content={description} />}
+    {sharingCard && <meta name="twitter:image" content={sharingCard} />}
+    {
+      sharingAltText && (
+        <meta name="twitter:image:alt" content={sharingAltText} />
+      )
+    }
+
+    <!-- Open Graph meta tags -->
+    {pageUrl && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:type" content="article" />
+    {title && <meta property="og:title" content={title} />}
+    {description && <meta property="og:description" content={description} />}
+    {sharingCard && <meta property="og:image" content={sharingCard} />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
