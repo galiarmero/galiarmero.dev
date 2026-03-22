@@ -82,7 +82,8 @@ const LatestBlogPosts = ({ handleIntersection }) => {
                       transform: ${hasPostAppeared[slug]
                         ? `translateY(0px)`
                         : `translateY(40px)`};
-                      transition: opacity 300ms ${transitionTiming},
+                      transition:
+                        opacity 300ms ${transitionTiming},
                         transform 300ms ${transitionTiming};
                       transition-delay: 200ms;
                     `}
