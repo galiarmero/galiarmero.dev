@@ -1,0 +1,115 @@
+---
+import PostDetails from "./PostDetails.astro"
+
+interface Props {
+  slug: string
+  title: string
+  datePublished: Date | string
+  timeToRead: number
+  teaser: string
+}
+
+const { slug, title, datePublished, timeToRead, teaser } = Astro.props
+---
+
+<article class="card">
+  <div>
+    <h1 class="card-heading">
+      <a href={slug} class="heading-link">{title}</a>
+    </h1>
+    <PostDetails datePublished={datePublished} timeToRead={timeToRead} />
+    <p class="teaser">{teaser}</p>
+  </div>
+
+  <a class="read-link" href={slug}>
+    read
+    <img
+      src="/icons/right-arrow.svg"
+      alt=""
+      class="arrow-icon"
+      aria-hidden="true"
+    />
+  </a>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--lighterBgColor);
+    border-radius: 4px;
+    padding: 32px 25px;
+    box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
+    height: 100%;
+  }
+
+  .card-heading {
+    font-size: 1.3rem;
+    letter-spacing: 0.8rem;
+  }
+
+  @media (min-width: 992px) {
+    .card-heading {
+      font-size: 1.5rem;
+    }
+  }
+
+  .heading-link {
+    color: var(--headingColor);
+    text-decoration: none;
+  }
+
+  .heading-link::after {
+    content: none;
+  }
+
+  .heading-link:hover {
+    color: var(--accentColor);
+  }
+
+  .heading-link:hover::after {
+    content: none;
+  }
+
+  .teaser {
+    margin: 30px 0;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    .teaser {
+      font-size: 1.05rem;
+    }
+  }
+
+  .read-link {
+    font-family: "JetBrainsMono-Regular";
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+
+  .read-link::after {
+    content: none;
+  }
+
+  .read-link:hover::after {
+    content: none;
+  }
+
+  .read-link:hover .arrow-icon {
+    margin-left: 12px;
+  }
+
+  .arrow-icon {
+    width: 1.4em;
+    height: 1.4em;
+    margin: 0 5px 0 7px;
+    position: relative;
+    top: 0.4rem;
+    transition: margin 100ms ease-out;
+  }
+</style>

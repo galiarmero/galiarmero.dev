@@ -1,0 +1,35 @@
+---
+import siteData from "../config/site-data.yml"
+
+interface Props {
+  marginTop?: string
+}
+
+const { marginTop = "90px" } = Astro.props
+const { profile, projectSourceUrl, copyrightYear } = siteData
+---
+
+<footer style={`margin-top: ${marginTop};`}>
+  <span>
+    Built with <a href="https://astro.build/">Astro</a> · Hosted on{" "}
+    <a href="https://www.netlify.com/">Netlify</a>
+  </span>
+  <span>
+    <a href={projectSourceUrl}>Crafted by {profile.name}</a>
+  </span>
+  <span>&copy; {copyrightYear}. All Rights Reserved.</span>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-height: 90px;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    background-color: var(--darkerBgColor);
+  }
+</style>

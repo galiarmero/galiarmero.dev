@@ -1,0 +1,132 @@
+---
+import { getCollection, render } from "astro:content"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Bio from "../../components/Bio.astro"
+import PostDetails from "../../components/PostDetails.astro"
+import SuggestedPost from "../../components/SuggestedPost.astro"
+import Engage from "../../components/Engage.jsx"
+import Footer from "../../components/Footer.astro"
+import "../../styles/blog.css"
+import { calculateTimeToRead } from "../../utils"
+import siteData from "../../config/site-data.yml"
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog")
+  const sorted = allPosts.sort(
+    (a, b) => a.data.datePublished.getTime() - b.data.datePublished.getTime()
+  )
+
+  return sorted.map((post, index) => {
+    const previousPost = index > 0 ? sorted[index - 1] : null
+    const nextPost = index < sorted.length - 1 ? sorted[index + 1] : null
+
+    return {
+      params: { slug: post.id },
+      props: { post, previousPost, nextPost },
+    }
+  })
+}
+
+const { post, previousPost, nextPost } = Astro.props
+const { Content } = await render(post)
+
+const { profile, siteBaseUrl, socialMediaLinks } = siteData
+const author = profile.name
+const postTitle = post.data.title
+const slug = `/blog/${post.id}/`
+const editUrl = `https://github.com/galiarmero/galiarmero.dev/edit/main/src/content/blog/${post.id}/index.md`
+const twitterUsername = socialMediaLinks.find(
+  ({ id }) => id === "twitter"
+)?.username
+
+const timeToRead = calculateTimeToRead(post.body || "")
+---
+
+<BaseLayout
+  pageTitle={`${postTitle} · ${author}`}
+  title={postTitle}
+  description={post.data.teaser}
+  pageUrl={`${siteBaseUrl}${slug}`}
+  sharingCard={post.data.sharingCard ? `${siteBaseUrl}${post.data.sharingCard.src}` : undefined}
+  sharingAltText={`${postTitle}. ${timeToRead} minute read. ${post.data.teaser}`}
+>
+  <main class="main">
+    <h1>{postTitle}</h1>
+    <PostDetails
+      datePublished={post.data.datePublished}
+      timeToRead={timeToRead}
+    />
+
+    <div class="post-content">
+      <Content />
+    </div>
+
+    <Engage
+      client:visible
+      slug={slug}
+      title={postTitle}
+      teaser={post.data.teaser}
+      editUrl={editUrl}
+      siteBaseUrl={siteBaseUrl}
+      twitterUsername={twitterUsername}
+    />
+
+    <div class="bio-section">
+      <Bio author={author} descriptionAfterName={profile.blogBioAfterName} />
+    </div>
+
+    {
+      previousPost && (
+        <SuggestedPost
+          isPrevious={true}
+          slug={`/blog/${previousPost.id}/`}
+          title={previousPost.data.title}
+        />
+      )
+    }
+
+    {
+      nextPost && (
+        <SuggestedPost
+          slug={`/blog/${nextPost.id}/`}
+          title={nextPost.data.title}
+        />
+      )
+    }
+  </main>
+  <Footer marginTop="50px" />
+</BaseLayout>
+
+<style>
+  .main {
+    margin-top: 110px;
+    padding: 0 25px;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 480px) {
+    .main {
+      padding: 0 12%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main {
+      padding: 0 16%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .main {
+      padding: 0 20%;
+    }
+  }
+
+  .post-content {
+    margin: 80px 0;
+  }
+
+  .bio-section {
+    margin: 40px 0 50px;
+  }
+</style>

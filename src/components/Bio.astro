@@ -1,0 +1,61 @@
+---
+interface Props {
+  author?: string
+  descriptionAfterName?: string
+}
+
+const { author, descriptionAfterName } = Astro.props
+---
+
+<aside class="bio">
+  <div class="bio-avatar">
+    <a href="/">
+      <img src="/images/profile-pic.jpg" alt={author} class="bio-img" />
+    </a>
+  </div>
+  <span class="bio-text">
+    {
+      Astro.slots.has("default") ? (
+        <slot />
+      ) : (
+        <p>
+          <a href="/">{author}</a> {descriptionAfterName}
+        </p>
+      )
+    }
+  </span>
+</aside>
+
+<style>
+  .bio {
+    display: flex;
+    align-items: start;
+  }
+
+  .bio-avatar {
+    width: 64px;
+    margin: 0.2rem 1rem 0 0;
+    flex-shrink: 0;
+  }
+
+  .bio-img {
+    border-radius: 50%;
+    width: 3.75rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .bio-text {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .bio-text p {
+    margin-bottom: 0;
+  }
+</style>
