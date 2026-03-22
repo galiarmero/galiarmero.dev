@@ -17,7 +17,9 @@ const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText } =
   Astro.props
 
 const theme = themes[defaultTheme]
-const themeStyle = `:root { ${Object.entries(theme).map(([k, v]) => `--${k}: ${v}`).join("; ")}; --transitionTiming: ${transitionTiming}; }`
+const themeStyle = `:root { ${Object.entries(theme)
+  .map(([k, v]) => `--${k}: ${v}`)
+  .join("; ")}; --transitionTiming: ${transitionTiming}; }`
 ---
 
 <!doctype html>

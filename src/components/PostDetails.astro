@@ -1,0 +1,41 @@
+---
+import dayjs from "dayjs"
+
+interface Props {
+  datePublished: Date | string
+  timeToRead: number
+}
+
+const { datePublished, timeToRead } = Astro.props
+const formattedDate = dayjs(datePublished).format("DD MMMM YYYY")
+---
+
+<span class="post-details">
+  <span class="date">{formattedDate}</span>
+  <img
+    src="/icons/circular-eyeglasses.svg"
+    alt=""
+    class="eyeglasses-icon"
+    aria-hidden="true"
+  />
+  {timeToRead} min read
+</span>
+
+<style>
+  .post-details {
+    font-size: 0.7rem;
+  }
+
+  .date {
+    margin-right: 15px;
+  }
+
+  .eyeglasses-icon {
+    position: relative;
+    top: 0.3rem;
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 5px;
+    font-family: "ClearSans-Thin", sans-serif;
+  }
+</style>
