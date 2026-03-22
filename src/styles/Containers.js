@@ -48,7 +48,8 @@ export const AppearingContainer = styled.div`
   opacity: ${(props) => (props.hasNotAppeared ? `0` : `1`)};
   transform: ${(props) =>
     props.hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
-  transition: opacity 300ms ${transitionTiming},
+  transition:
+    opacity 300ms ${transitionTiming},
     transform 300ms ${transitionTiming};
   transition-delay: 400ms;
   margin: 30px 0;

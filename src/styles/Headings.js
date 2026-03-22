@@ -44,7 +44,8 @@ export const SectionHeading = ({ hasNotAppeared, isCentered, children }) => (
       position: relative;
       opacity: ${hasNotAppeared ? `0` : `1`};
       transform: ${hasNotAppeared ? `translateY(40px)` : `translateY(0px)`};
-      transition: opacity 300ms ${transitionTiming},
+      transition:
+        opacity 300ms ${transitionTiming},
         transform 300ms ${transitionTiming};
       transition-delay: 400ms;
       ${isCentered ? `text-align: center` : null};
