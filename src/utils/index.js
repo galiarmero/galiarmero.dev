@@ -44,7 +44,7 @@ export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
 })
 
 export const calculateTimeToRead = (body) => {
-  const words = body.trim().split(/\s+/).filter(Boolean).length
+  const words = body.split(/\s+/).length
   return Math.max(1, Math.round(words / 200))
 }
 

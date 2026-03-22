@@ -47,7 +47,6 @@ const timeToRead = calculateTimeToRead(post.body || "")
   title={postTitle}
   description={post.data.teaser}
   pageUrl={`${siteBaseUrl}${slug}`}
-  sharingCard={post.data.sharingCard ? `${siteBaseUrl}${post.data.sharingCard.src}` : undefined}
   sharingAltText={`${postTitle}. ${timeToRead} minute read. ${post.data.teaser}`}
 >
   <main class="main">
