@@ -29,6 +29,9 @@ todos:
   - id: milestone-8-syntax-highlighting
     content: "Milestone 8: Switch syntax highlighting from Prism to Shiki with line highlighting support"
     status: pending
+  - id: milestone-9-readme
+    content: "Milestone 9: Create README with project docs (setup, dev workflow, new post, sharing cards, deployment)"
+    status: pending
 isProject: false
 ---
 
@@ -464,6 +467,23 @@ If Shiki's output doesn't match the Gatsby appearance closely enough, `rehype-pr
 - Verify line highlighting works on posts that use `{1,2,4}` notation
 - Verify inline code styling is preserved
 - **Deploy checkpoint:** All code blocks render with Night Owl colors, highlighted lines have accent border
+
+---
+
+## Milestone 9: README Documentation
+
+**Goal:** Create a project README that documents the Astro site setup, development workflow, and common tasks.
+
+Base the structure on Astro's default README but tailor it to this specific project. Include:
+
+- **Project overview** -- what this site is, tech stack (Astro, React islands, Content Collections)
+- **Getting started** -- prerequisites (Node version), install, dev server, build, preview
+- **Project structure** -- key directories and their purpose (`src/pages`, `src/content`, `src/components`, `src/styles`, `src/config`, `scripts`)
+- **Creating a new blog post** -- where to add the markdown, frontmatter schema, content collections
+- **Generating sharing cards** -- how to run `generate-sharing-cards.js`, the `--overwrite` flag, how the Puppeteer script works
+- **Deployment** -- Netlify setup, environment variables required (Nenoy API vars), build command
+- **Scripts reference** -- `npm run` commands, formatting, card generation
+- **Deploy checkpoint:** N/A (documentation only)
 
 ---
 
