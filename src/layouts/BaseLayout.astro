@@ -11,9 +11,10 @@ interface Props {
   pageUrl?: string
   sharingCard?: string
   sharingAltText?: string
+  scrollBehavior?: string
 }
 
-const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText } =
+const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText, scrollBehavior } =
   Astro.props
 
 const theme = themes[defaultTheme]
@@ -23,7 +24,7 @@ const themeStyle = `:root { ${Object.entries(theme)
 ---
 
 <!doctype html>
-<html lang="en" data-theme={defaultTheme}>
+<html lang="en" data-theme={defaultTheme} style={scrollBehavior ? `scroll-behavior: ${scrollBehavior}` : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
