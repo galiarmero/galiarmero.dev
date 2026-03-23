@@ -12,13 +12,22 @@ Benefits:
 - Access to thousands of icon sets via Iconify
 - Automatic SVG optimization
 
+### Inline SVGs to update
+
+- `src/components/PostDetails.astro` -- eyeglasses icon (from `static/icons/circular-eyeglasses.svg`)
+- `src/components/PostPreview.astro` -- right arrow icon (from `static/icons/right-arrow.svg`)
+- `src/components/SuggestedPost.astro` -- left/right arrow icons (Font Awesome)
+- `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`)
+- `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
+
 ### Steps
 
 1. Install: `npm install astro-icon @iconify-json/fa-solid`
 2. Replace inline SVGs with `<Icon>` components, e.g.:
    - `<Icon name="fa-solid:arrow-left" />` (replaces `FaArrowLeft`)
    - `<Icon name="fa-solid:arrow-right" />` (replaces `FaArrowRight`)
-3. Visually verify icons match the current appearance
+3. For the site logo, use a local SVG source with `astro-icon` or a dedicated `<Logo />` component that references `static/icons/logo.svg`
+4. Visually verify icons match the current appearance
 
 ## Replace `react-share` to remove SSR workaround
 
