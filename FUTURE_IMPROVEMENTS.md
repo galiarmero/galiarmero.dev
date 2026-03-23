@@ -17,7 +17,8 @@ Benefits:
 - `src/components/PostDetails.astro` -- eyeglasses icon (from `static/icons/circular-eyeglasses.svg`)
 - `src/components/PostPreview.astro` -- right arrow icon (from `static/icons/right-arrow.svg`)
 - `src/components/SuggestedPost.astro` -- left/right arrow icons (Font Awesome)
-- `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`)
+- `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`). Also uses a fixed `id="logo"` for CSS color targeting, which results in duplicate IDs when the logo appears in both the loader and header. Replace with a CSS class (e.g., `.site-logo`) and update selectors in `global.css`.
+- `src/components/PuzzleScoresNav.astro` -- left/right chevron icons (Font Awesome `FaChevronLeft`/`FaChevronRight`)
 - `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
 
 ### Steps

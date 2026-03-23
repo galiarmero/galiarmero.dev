@@ -13,7 +13,7 @@ export default defineConfig({
   vite: {
     plugins: [yaml()],
     ssr: {
-      noExternal: ["react-share"],
+      noExternal: ["react-share", "linkify-react", "linkify-plugin-mention", "linkify-plugin-hashtag"],
     },
   },
 })

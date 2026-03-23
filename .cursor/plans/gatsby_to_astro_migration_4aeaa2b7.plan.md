@@ -13,7 +13,7 @@ todos:
     status: completed
   - id: milestone-3-homepage
     content: "Milestone 3: React islands + homepage (full interactive homepage)"
-    status: pending
+    status: completed
   - id: milestone-4-puzzles
     content: "Milestone 4: Puzzle scores pages with API fetch + redirect index page"
     status: pending

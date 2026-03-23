@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import PuzzlePageHeader from "../../components/PuzzlePageHeader.jsx"
+import PuzzleScoresNav from "../../components/PuzzleScoresNav.astro"
+import PairLabel from "../../components/PairLabel.astro"
+import LinkPreviewCard from "../../components/LinkPreviewCard.astro"
+import PuzzleResult from "../../components/PuzzleResult.jsx"
+import Footer from "../../components/Footer.astro"
+import { getAllPuzzleScores } from "../../utils/nenoy-api-fetch"
+import { formatDateWithDayName, formatDateEuNoYear } from "../../utils"
+import puzzleConfig, { PUZZLE_ORDER } from "../../config/puzzles"
+import siteData from "../../config/site-data.yml"
+import "../../styles/homepage.css"
+import "../../styles/puzzle-scores.css"
+
+export async function getStaticPaths() {
+  const PUZZLES_PATH = "/puzzle-scores"
+  const allScores = await getAllPuzzleScores()
+
+  const scoresByDate = new Map()
+  for (const score of allScores) {
+    const date = score.datePlayed
+    if (!scoresByDate.has(date)) {
+      scoresByDate.set(date, [])
+    }
+
+    const enriched = { ...score }
+
+    if (score.puzzle === "nytimes-mini-crossword") {
+      try {
+        const url = new URL(score.resultText.match(/\bhttps?:\/\/\S+/gi)[0])
+        const d = url.searchParams.get("d")
+        const t = url.searchParams.get("t")
+        const c = url.searchParams.get("c")
+        enriched.linkPreview = {
+          title: "Play The Mini Crossword",
+          description:
+            "All the fun of the larger New York Times Crossword, but you can solve it in seconds.",
+          image: `https://www.nytimes.com/badges/games/mini.jpg?d=${d}&t=${t}&c=${c}`,
+          url: url.toString(),
+          domain: "www.nytimes.com",
+        }
+      } catch {
+        // URL parsing failed — render as text
+      }
+    }
+
+    scoresByDate.get(date).push(enriched)
+  }
+
+  const sortedDates = [...scoresByDate.keys()].sort(
+    (a, b) => new Date(b).getTime() - new Date(a).getTime()
+  )
+
+  return sortedDates.map((date, index) => {
+    const prevDate = index < sortedDates.length - 1 ? sortedDates[index + 1] : null
+    const nextDate = index > 0 ? sortedDates[index - 1] : null
+
+    return {
+      params: { date },
+      props: {
+        date,
+        puzzles: scoresByDate.get(date),
+        prevDate,
+        nextDate,
+        prevSlug: prevDate ? `${PUZZLES_PATH}/${prevDate}` : null,
+        nextSlug: nextDate ? `${PUZZLES_PATH}/${nextDate}` : null,
+      },
+    }
+  })
+}
+
+const { date, puzzles, prevDate, nextDate, prevSlug, nextSlug } = Astro.props
+const { profile, siteBaseUrl, menuOptions, socialMediaLinks } = siteData
+const displayDate = formatDateWithDayName(date)
+
+const sortedPuzzles = [...puzzles].sort(
+  (a, b) => PUZZLE_ORDER.indexOf(a.puzzle) - PUZZLE_ORDER.indexOf(b.puzzle)
+)
+
+function calculateSpan(puzzle, text) {
+  if (puzzle === "nytimes-mini-crossword") return 17
+  return text.split("\n").length + 5
+}
+
+function overridePuzzleResult(puzzle, text) {
+  if (puzzleConfig[puzzle]?.isScoreDarkMode) {
+    return text.replaceAll("⬛", "⬜")
+  }
+  return text
+}
+---
+
+<BaseLayout
+  pageTitle={`Puzzle Scores - ${displayDate} · ${profile.name}`}
+  title={`Puzzle Scores for ${displayDate} · ${profile.name}`}
+  description="Puzzles iz life"
+  pageUrl={`${siteBaseUrl}/puzzle-scores/${date}`}
+>
+  <PuzzlePageHeader
+    client:load
+    menuOptions={menuOptions}
+    socialMediaLinks={socialMediaLinks}
+  />
+
+  <main class="main" style="margin-top: 75px;">
+    <div class="nav-section">
+      <PuzzleScoresNav
+        date={date}
+        prevDate={prevDate}
+        nextDate={nextDate}
+        prevSlug={prevSlug}
+        nextSlug={nextSlug}
+      />
+    </div>
+
+    <div class="puzzle-masonry" style="margin-top: 50px;">
+      {sortedPuzzles.map((node) => (
+        <article
+          class="puzzle-box"
+          style={`grid-row: span ${calculateSpan(node.puzzle, node.resultText)};`}
+        >
+          <PairLabel
+            left={puzzleConfig[node.puzzle]?.label}
+            right={node.dayNumber ?? formatDateEuNoYear(date)}
+          />
+          {node.linkPreview ? (
+            <div class="puzzle-score">
+              <LinkPreviewCard
+                image={node.linkPreview.image}
+                title={node.linkPreview.title}
+                description={node.linkPreview.description}
+                url={node.linkPreview.url}
+                domain={node.linkPreview.domain}
+              />
+            </div>
+          ) : (
+            <PuzzleResult
+              client:visible
+              resultText={overridePuzzleResult(node.puzzle, node.resultText)}
+            />
+          )}
+        </article>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .main {
+    padding: 0 25px;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 480px) {
+    .main {
+      padding: 0 12%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main {
+      padding: 0 16%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .main {
+      padding: 0 20%;
+    }
+  }
+
+  .nav-section {
+    margin: 35px 0 60px;
+  }
+
+  @media (min-width: 992px) {
+    .nav-section {
+      margin: 50px 0 70px;
+    }
+  }
+</style>
