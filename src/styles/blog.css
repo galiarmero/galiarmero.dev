@@ -26,6 +26,13 @@ p {
 p > img {
   margin: auto;
   display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 blockquote {
@@ -44,6 +51,15 @@ blockquote p {
 :not(h2):not(h3):not(h4) > code,
 pre {
   font-size: 0.9rem;
+}
+
+:not(pre) > code {
+  font-family: "JetBrainsMono-Regular";
+  border-radius: 0.3em;
+  background: var(--lightestBgColor);
+  color: var(--textColor);
+  padding: 0.15em 0.2em 0.05em;
+  white-space: normal;
 }
 
 h2,

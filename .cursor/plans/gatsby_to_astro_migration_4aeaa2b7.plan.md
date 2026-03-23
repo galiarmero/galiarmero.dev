@@ -26,6 +26,9 @@ todos:
   - id: milestone-7-cleanup
     content: "Milestone 7: Remove Gatsby deps/config, update scripts/CI, merge to main and switch production build"
     status: pending
+  - id: milestone-8-syntax-highlighting
+    content: "Milestone 8: Switch syntax highlighting from Prism to Shiki with line highlighting support"
+    status: pending
 isProject: false
 ---
 
@@ -147,6 +150,7 @@ Work happens on a long-lived `astro-migration` branch. Each milestone is merged 
 - Milestone 5: `/cards` routes working in dev (not visible in deploy)
 - Milestone 6: Ackee tracking active, Twitter embeds rendering
 - Milestone 7: Final site -- merge `astro-migration` to `main`, switch production
+- Milestone 8: All code blocks render with Night Owl colors and line highlighting
 
 ---
 
@@ -405,11 +409,69 @@ All three replacements below preserve identical behavior to the Gatsby plugins.
 
 ---
 
+## Milestone 8: Syntax Highlighting (Prism -> Shiki)
+
+**Goal:** Restore full syntax highlighting parity with the Gatsby site, including line highlighting.
+
+**Background:** Gatsby used `gatsby-remark-prismjs` which supported:
+
+- Language-based syntax highlighting
+- Line highlighting via `{1,2,4}` notation after the language tag (e.g., ``
+
+```bash{1,2,4} ``)
+
+- Line numbers (`showLineNumbers: true`)
+- Night Owl theme via `prismjs-night-owl.css`
+- Wrapper `<div class="gatsby-highlight">` with custom styling
+
+Astro's built-in Prism mode does not support the `{1,2,4}` line highlighting syntax and treats it as part of the language name, breaking both highlighting and line markers.
+
+### Option A: Switch to Shiki (recommended)
+
+Shiki is Astro's default and preferred syntax highlighter. It runs at build time, outputs pre-colored HTML (zero client-side JS), and uses VS Code's TextMate grammar engine for accurate highlighting.
+
+- Remove `syntaxHighlight: "prism"` from `astro.config.mjs` (Shiki is the default)
+- Configure the `night-owl` theme (built into Shiki): `shikiConfig: { theme: 'night-owl' }`
+- Add `@shikijs/transformers` and configure `transformerMetaHighlight()` to support `{1,2,4}` line highlighting syntax
+- Replace `prismjs-night-owl.css` Prism token styles with Shiki-compatible styles (Shiki inlines colors, so most token styles are not needed)
+- Add CSS for Shiki's line highlighting (`.line.highlighted` or equivalent)
+- Replicate the `.gatsby-highlight-code-line` appearance (left border accent, background highlight)
+- Replicate the `.gatsby-highlight` container styling (background, border-radius, margins, scrolling)
+- Update selectors from `pre[class*='language-']` / `code[class*='language-']` to Shiki's output selectors (`.astro-code` / `pre > code`)
+
+### Option B: Stay with Prism using `rehype-prism-plus`
+
+If Shiki's output doesn't match the Gatsby appearance closely enough, `rehype-prism-plus` is a drop-in rehype plugin that extends Prism with the features `gatsby-remark-prismjs` had.
+
+- Install `rehype-prism-plus` and add it to `astro.config.mjs` via `markdown.rehypePlugins`
+- Set `syntaxHighlight: false` in Astro config (let the rehype plugin handle it instead)
+- `rehype-prism-plus` supports the `{1,2,4}` line highlighting syntax, line numbers, and outputs Prism-compatible CSS classes
+- The existing `prismjs-night-owl.css` can be reused with minimal changes (replace `.gatsby-highlight-code-line` with the plugin's equivalent class)
+
+### 8b. Choose approach and implement
+
+- Try Option A first (Shiki) since it's Astro-native and lower maintenance
+- Fall back to Option B if visual fidelity with the Gatsby site is hard to achieve with Shiki
+
+### 8c. Clean up workaround
+
+- Remove `src/plugins/remark-strip-line-meta.mjs` (temporary remark plugin that strips `{n}` notation from code fence language tags so Prism doesn't break)
+- Remove the `remarkPlugins: [remarkStripLineMeta]` entry from `astro.config.mjs`
+
+### 8d. Verify
+
+- Check all blog posts for correct syntax highlighting
+- Verify line highlighting works on posts that use `{1,2,4}` notation
+- Verify inline code styling is preserved
+- **Deploy checkpoint:** All code blocks render with Night Owl colors, highlighted lines have accent border
+
+---
+
 ## Plugin/Feature Migration Reference
 
 - `gatsby-source-filesystem` + `gatsby-transformer-remark` -> Astro Content Collections
 - `gatsby-remark-images` -> Astro image optimization or `remark-images`
-- `gatsby-remark-prismjs` -> `markdown.syntaxHighlight: 'prism'` in astro config
+- `gatsby-remark-prismjs` -> Shiki (Astro default) with `night-owl` theme + `@shikijs/transformers` for line highlighting (Milestone 8)
 - `gatsby-remark-copy-linked-files` -> Handle in remark plugin or manual asset management
 - `gatsby-plugin-image` / `gatsby-plugin-sharp` -> `astro:assets` `<Image />` component
 - `gatsby-plugin-react-svg` -> `astro-icon` or Vite SVG plugin
