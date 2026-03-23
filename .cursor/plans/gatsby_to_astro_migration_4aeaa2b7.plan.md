@@ -16,10 +16,10 @@ todos:
     status: completed
   - id: milestone-4-puzzles
     content: "Milestone 4: Puzzle scores pages with API fetch + redirect index page"
-    status: pending
+    status: completed
   - id: milestone-5-sharing-cards
     content: "Milestone 5: Sharing card dev-only routes + update Puppeteer script"
-    status: pending
+    status: completed
   - id: milestone-6-third-party
     content: "Milestone 6: Ackee analytics + Twitter embed script (identical behavior to Gatsby plugins)"
     status: pending

@@ -4,10 +4,10 @@ const glob = require('glob')
 const puppeteer = require('puppeteer')
 
 const CARD_PREFIX = `sharing-card`
-const CARD_URL = `http://localhost:8000/cards`
+const CARD_URL = `http://localhost:4321/cards`
 
 const getBlogPosts = () => {
-  return glob.sync(path.join(process.cwd(), 'content', 'blog', '*'))
+  return glob.sync(path.join(process.cwd(), 'src', 'content', 'blog', '*'))
 }
 
 const getSharingCardPath = (dir, slug) => path.join(dir, `${CARD_PREFIX}-${slug}.png`)
@@ -34,6 +34,8 @@ const takeScreenshot = async (url, width, height, destination) => {
   await browser.close()
 }
 
+const overwrite = process.argv.includes('--overwrite')
+
 const main = async () => {
   const blogPosts = getBlogPosts()
 
@@ -41,15 +43,18 @@ const main = async () => {
     const slug = path.basename(dir)
     const cardPath = getSharingCardPath(dir, slug)
 
-    if (fs.existsSync(cardPath)) {
-      await takeScreenshot(
-        `${CARD_URL}/${slug}`,
-        1200,
-        628,
-        cardPath
-      )
-      console.log(`Created ${cardPath}`)
+    if (!overwrite && fs.existsSync(cardPath)) {
+      console.log(`Skipped ${cardPath} (already exists)`)
+      continue
     }
+
+    await takeScreenshot(
+      `${CARD_URL}/${slug}`,
+      1200,
+      628,
+      cardPath
+    )
+    console.log(`Created ${cardPath}`)
   }
 }
 

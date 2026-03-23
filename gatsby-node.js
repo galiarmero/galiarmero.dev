@@ -123,7 +123,7 @@ const createBlogPages = async (graphql, actions) => {
   posts.forEach(({ node }, index) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      component: path.resolve(`./src/templates-gatsby/blog-post.js`),
       context: {
         slug: node.fields.slug,
         previousPost: index > 0 ? posts[index - 1].node : null,
@@ -134,7 +134,7 @@ const createBlogPages = async (graphql, actions) => {
     if (process.env.NODE_ENV === "development") {
       createPage({
         path: node.fields.slug.replace("/blog", "/cards"),
-        component: path.resolve(`./src/templates/sharing-card-blog.js`),
+        component: path.resolve(`./src/templates-gatsby/sharing-card-blog.js`),
         context: {
           slug: node.fields.slug,
           width: 1200,
@@ -147,7 +147,7 @@ const createBlogPages = async (graphql, actions) => {
   if (process.env.NODE_ENV === "development") {
     createPage({
       path: "/cards",
-      component: path.resolve(`./src/templates/sharing-card.js`),
+      component: path.resolve(`./src/templates-gatsby/sharing-card.js`),
     })
   }
 }
@@ -178,7 +178,7 @@ const createPuzzleScorePages = async (graphql, actions) => {
     const nextDate = index > 0 ? sortedDates[index - 1] : null
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/puzzle-scores.js`),
+      component: path.resolve(`./src/templates-gatsby/puzzle-scores.js`),
       context: {
         slug,
         date,
