@@ -9,7 +9,7 @@ const Twemoji = TwemojiModule.default || TwemojiModule
 const linkifyOpts = {
   formatHref: {
     mention: (href) => `https://twitter.com/${href}`,
-    hashtag: (href) => `https://twitter.com/hashtag/${href.substr(1)}`,
+    hashtag: (href) => `https://twitter.com/hashtag/${href.slice(1)}`,
   },
   attributes: {
     target: "_blank",

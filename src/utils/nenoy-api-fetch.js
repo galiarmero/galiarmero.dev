@@ -1,11 +1,3 @@
-import dotenv from "dotenv"
-import { fileURLToPath } from "url"
-import path from "path"
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const envPath = path.resolve(__dirname, "../../.env")
-dotenv.config({ path: envPath, override: true })
-
 const {
   NENOY_API_BASE_URL,
   NENOY_API_USER,
@@ -14,7 +6,7 @@ const {
   NENOY_API_RETRY_MAX,
   NENOY_API_RETRY_DELAY,
   PUZZLE_SCORES_PER_PAGE,
-} = process.env
+} = import.meta.env
 
 const AUTH_HEADER =
   "Basic " +
