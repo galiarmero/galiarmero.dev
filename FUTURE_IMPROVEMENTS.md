@@ -18,6 +18,7 @@ Benefits:
 - `src/components/PostPreview.astro` -- right arrow icon (from `static/icons/right-arrow.svg`)
 - `src/components/SuggestedPost.astro` -- left/right arrow icons (Font Awesome)
 - `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`)
+- `src/components/PuzzleScoresNav.astro` -- left/right chevron icons (Font Awesome `FaChevronLeft`/`FaChevronRight`)
 - `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
 
 ### Steps

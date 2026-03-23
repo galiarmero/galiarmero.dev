@@ -1,0 +1,42 @@
+---
+interface Props {
+  left: string
+  right: string
+}
+
+const { left, right } = Astro.props
+---
+
+<div class="pair-label">
+  <span class="label label-left">{left}</span><span class="label label-right">{right}</span>
+</div>
+
+<style>
+  .pair-label {
+    line-height: 1;
+  }
+
+  .label {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1.5;
+    vertical-align: center;
+    font-family: "JetBrainsMono-Regular", monospace;
+  }
+
+  .label-left {
+    border-radius: 8px 0 0 8px;
+    padding: 0.05rem 0.3rem 0.04rem 0.5rem;
+    background-color: var(--softTextColor);
+    color: var(--bgColor);
+  }
+
+  .label-right {
+    border-radius: 0 8px 8px 0;
+    padding: 0.05rem 0.35rem 0.04rem 0.3rem;
+    background-color: #57a44d;
+    color: var(--softTextColor);
+  }
+</style>

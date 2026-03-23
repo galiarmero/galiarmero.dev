@@ -2,6 +2,7 @@ import React from "react"
 
 const Logo = ({ className, style, onClick }) => (
   <svg
+    id="logo"
     className={className}
     style={style}
     onClick={onClick}
