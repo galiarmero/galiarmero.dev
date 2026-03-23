@@ -6,6 +6,7 @@ import siteData from "../../config/site-data.yml"
 import { calculateTimeToRead } from "../../utils"
 
 export async function getStaticPaths() {
+  if (!import.meta.env.DEV) return []
   const allPosts = await getCollection("blog")
   return allPosts.map((post) => ({
     params: { slug: post.id },

@@ -45,6 +45,16 @@ Options:
 
 `BaseLayout.astro` accepts a `description` prop and uses it for Twitter (`twitter:description`) and Open Graph (`og:description`) tags, but it doesn't emit a standard `<meta name="description" content="...">` tag. Many crawlers and SEO tools rely on this tag, so it should be included when `description` is provided.
 
+## Exclude `/cards` index page from production builds
+
+The blog sharing card routes (`src/pages/cards/[...slug].astro`) are already gated to dev-only via `getStaticPaths` returning `[]` in production. However, the site sharing card (`src/pages/cards/index.astro`) is a static route with no `getStaticPaths`, so Astro always builds it. The page is harmless (only contains public info and isn't linked from anywhere), but ideally it should not be deployed.
+
+Possible approaches:
+
+- Merge both card pages into the `[...slug].astro` catch-all route (handle `slug: undefined` as the site card)
+- Post-build script to remove `dist/cards/index.html`
+- Astro integration hook to exclude the route during build
+
 ## Bug fixes
 
 ### Fix CSS selector typo in puzzle scores nav
