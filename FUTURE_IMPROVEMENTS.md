@@ -20,6 +20,8 @@ Benefits:
 - `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`). Also uses a fixed `id="logo"` for CSS color targeting, which results in duplicate IDs when the logo appears in both the loader and header. Replace with a CSS class (e.g., `.site-logo`) and update selectors in `global.css`.
 - `src/components/PuzzleScoresNav.astro` -- left/right chevron icons (Font Awesome `FaChevronLeft`/`FaChevronRight`)
 - `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
+- `src/pages/cards/index.astro` -- site logo (inline SVG)
+- `src/pages/cards/[...slug].astro` -- site logo + eyeglasses icon (inline SVGs)
 
 ### Steps
 
