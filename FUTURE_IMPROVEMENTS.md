@@ -20,6 +20,8 @@ Benefits:
 - `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`). Also uses a fixed `id="logo"` for CSS color targeting, which results in duplicate IDs when the logo appears in both the loader and header. Replace with a CSS class (e.g., `.site-logo`) and update selectors in `global.css`.
 - `src/components/PuzzleScoresNav.astro` -- left/right chevron icons (Font Awesome `FaChevronLeft`/`FaChevronRight`)
 - `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
+- `src/pages/cards/index.astro` -- site logo (inline SVG)
+- `src/pages/cards/[...slug].astro` -- site logo + eyeglasses icon (inline SVGs)
 
 ### Steps
 
@@ -42,6 +44,16 @@ Options:
 ## Add standard meta description tag to BaseLayout
 
 `BaseLayout.astro` accepts a `description` prop and uses it for Twitter (`twitter:description`) and Open Graph (`og:description`) tags, but it doesn't emit a standard `<meta name="description" content="...">` tag. Many crawlers and SEO tools rely on this tag, so it should be included when `description` is provided.
+
+## Exclude `/cards` index page from production builds
+
+The blog sharing card routes (`src/pages/cards/[...slug].astro`) are already gated to dev-only via `getStaticPaths` returning `[]` in production. However, the site sharing card (`src/pages/cards/index.astro`) is a static route with no `getStaticPaths`, so Astro always builds it. The page is harmless (only contains public info and isn't linked from anywhere), but ideally it should not be deployed.
+
+Possible approaches:
+
+- Merge both card pages into the `[...slug].astro` catch-all route (handle `slug: undefined` as the site card)
+- Post-build script to remove `dist/cards/index.html`
+- Astro integration hook to exclude the route during build
 
 ## Bug fixes
 

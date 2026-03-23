@@ -1,0 +1,115 @@
+---
+import "../../styles/global.css"
+import { themes, defaultTheme, transitionTiming } from "../../config/themes.js"
+import siteData from "../../config/site-data.yml"
+
+const theme = themes[defaultTheme]
+const themeStyle = `:root { ${Object.entries(theme)
+  .map(([k, v]) => `--${k}: ${v}`)
+  .join("; ")}; --transitionTiming: ${transitionTiming}; }`
+
+const WIDTH = 1200
+const HEIGHT = 628
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sharing Card</title>
+    <style set:html={themeStyle}></style>
+  </head>
+  <body>
+    <div class="card" style={`width: ${WIDTH}px; height: ${HEIGHT}px;`}>
+      <main class="card-main">
+        <div class="card-body">
+          <span class="greeting">Hi, I'm</span>
+          <h1 class="name">Gali Armero.</h1>
+          <h1 class="tagline">I build things that simplify.</h1>
+        </div>
+        <footer class="card-footer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="56"
+            height="56"
+            viewBox="0 0 79.614475 147.2322"
+            id="logo"
+          >
+            <g transform="translate(-76.598554,-26.925642)">
+              <path
+                style="opacity:1;stroke-width:0.254407"
+                d="m 116.28627,55.292215 a 39.6875,39.6875 0 0 0 -0.48679,0.0031 39.6875,39.6875 0 0 0 -39.200706,39.684398 39.6875,39.6875 0 0 0 39.687496,39.687497 39.6875,39.6875 0 0 0 39.6875,-39.687497 39.6875,39.6875 0 0 0 -9.53637,-25.807209 34.263541,19.840764 0 0 0 9.77563,-13.877189 h -39.441 a 39.6875,39.6875 0 0 0 -0.48576,-0.0031 z m 0,19.843749 a 19.843751,19.843751 0 0 1 19.84375,19.84375 19.843751,19.843751 0 0 1 -19.84375,19.843746 19.843751,19.843751 0 0 1 -19.843747,-19.843746 19.843751,19.843751 0 0 1 19.843747,-19.84375 z"
+              />
+              <circle
+                style="opacity:1;stroke-width:0.196684"
+                cx="146.0448"
+                cy="36.879642"
+                r="9.9490004"
+              />
+              <path
+                style="opacity:1;stroke-width:0.207831"
+                d="m 155.97355,137.13942 -79.374996,16.68581 v 20.33261 l 79.374996,-16.68581 z"
+              />
+            </g>
+          </svg>
+          <span class="domain">{siteData.nakedDomain}</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    background: #fff;
+  }
+
+  .card {
+    background: var(--bgColor);
+    padding: 75px 85px 70px;
+  }
+
+  .card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-body {
+    padding: 0 12px 0;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .domain {
+    font-size: 1.5rem;
+    color: var(--headingColor);
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+  }
+
+  .greeting {
+    padding: 0 0 10px 3px;
+    color: var(--accentColor);
+    font-family: "JetBrainsMono-Regular";
+    font-size: 1.2rem;
+  }
+
+  .name {
+    font-size: 4.3rem;
+  }
+
+  .tagline {
+    font-family: "Gilroy-Light", sans-serif;
+    font-weight: 300;
+    color: var(--textColor);
+    font-size: 4.3rem;
+  }
+</style>
