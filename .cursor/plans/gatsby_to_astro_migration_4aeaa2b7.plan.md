@@ -22,7 +22,7 @@ todos:
     status: completed
   - id: milestone-6-third-party
     content: "Milestone 6: Ackee analytics + Twitter embed script (identical behavior to Gatsby plugins)"
-    status: pending
+    status: completed
   - id: milestone-7-cleanup
     content: "Milestone 7: Remove Gatsby deps/config, update scripts/CI, merge to main and switch production build"
     status: pending

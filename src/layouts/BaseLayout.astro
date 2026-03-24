@@ -17,6 +17,9 @@ interface Props {
 const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText, scrollBehavior } =
   Astro.props
 
+const ackeeServer = import.meta.env.ACKEE_SERVER_URL
+const ackeeDomainId = import.meta.env.ACKEE_DOMAIN_ID
+
 const theme = themes[defaultTheme]
 const themeStyle = `:root { ${Object.entries(theme)
   .map(([k, v]) => `--${k}: ${v}`)
@@ -104,5 +107,17 @@ const themeStyle = `:root { ${Object.entries(theme)
   </head>
   <body>
     <slot />
+
+    {ackeeServer && ackeeDomainId && (
+      <script
+        is:inline
+        async
+        src={`${ackeeServer}/tracker.js`}
+        data-ackee-server={ackeeServer}
+        data-ackee-domain-id={ackeeDomainId}
+        data-ackee-opts='{"detailed":true,"ignoreLocalhost":true,"ignoreOwnVisits":true}'
+      ></script>
+    )}
+
   </body>
 </html>

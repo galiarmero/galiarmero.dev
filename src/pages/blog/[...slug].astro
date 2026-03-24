@@ -40,6 +40,7 @@ const twitterUsername = socialMediaLinks.find(
 )?.username
 
 const timeToRead = calculateTimeToRead(post.body || "")
+const hasTwitterEmbed = (post.body || "").includes("twitter-tweet")
 ---
 
 <BaseLayout
@@ -95,6 +96,7 @@ const timeToRead = calculateTimeToRead(post.body || "")
     }
   </main>
   <Footer marginTop="50px" />
+  {hasTwitterEmbed && <script is:inline async src="https://platform.twitter.com/widgets.js"></script>}
 </BaseLayout>
 
 <style>
