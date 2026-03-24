@@ -9,7 +9,7 @@ const BlogPageHeader = ({ menuOptions = [], socialMediaLinks = [], hasMenu = fal
     <Header
       currentPage="/blog"
       height={headerHeight}
-      navBackground="#071D2D"
+      navBackground="var(--lighterBgColor)"
       logoSuffix="blog"
       suffixLink="/blog"
       hasMenu={hasMenu}
