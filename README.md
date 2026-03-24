@@ -88,8 +88,6 @@ npm run generate-sharing-cards -- --overwrite
 
 The site deploys to **Netlify** as a static site.
 
-- **Build command:** `npx astro build`
+- **Build command:** `npx astro build` (configured in `netlify.toml`)
 - **Publish directory:** `dist`
 - **Environment variables:** Set the variables from `.env` in Netlify's site settings
-
-Branch deploys are configured in `netlify.toml` for preview branches.
