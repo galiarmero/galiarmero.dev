@@ -13,7 +13,7 @@ Over the past weeks, I've been ~~building my personal site to play with Gatsby~~
 
 Provided that you have Git and npm already installed, getting a site running with Gatsby is as fast as running these:
 
-```bash{1,2,4}
+```bash {1,2,4}
 npm install -g gatsby-cli
 gatsby new my-hello-world-site https://github.com/gatsbyjs/gatsby-starter-hello-world
 cd my-hello-world-starter/
@@ -41,7 +41,7 @@ The most straightforward way to add pages is to create React components inside `
 
 Here's a sample React component.
 
-```jsx{5,6}
+```jsx {5,6}
 import React from "react"
 
 export default () => (
@@ -87,7 +87,7 @@ npm install gatsby-source-filesystem
 
 Next, you have to declare your intent to use it by adding it as a plugin in `gatsby-config.js`. In the code below, we are also instructing the plugin to read files inside `content/blog` directory.
 
-```js{3-9}
+```js {3-9}
 module.exports = {
   plugins: [
     {
@@ -161,7 +161,7 @@ npm install gatsby-transformer-remark
 
 Then, add it as a plugin in `gatsby-config.js`:
 
-```js{10}
+```js {10}
 module.exports = {
   plugins: [
     {
@@ -217,7 +217,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 Next, we have to query for all the posts using the `graphql` function passed by Gatsby. Let's get the `slug` property of each post, since we need something that will identify each one uniquely. `graphql` returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that, when fulfilled, passes along the result of the query. Let's log the result in the console.
 
-```js{19}
+```js {19}
 exports.createPages = ({ graphql, actions }) => {
   return graphql(`
     query {
@@ -263,7 +263,7 @@ When you execute `gatsby develop`, you should see the result logged:
 
 The `edges` array contains the individual posts. By iterating over the each `node` in this array through `Array.map`, we can get the `slug` value and work on each post.
 
-```js{19-21}
+```js {19-21}
 exports.createPages = ({ graphql, actions }) => {
   return graphql(`
     query {
@@ -307,7 +307,7 @@ export default () => {
 
 Now that we have the stuff ready, let's create a page for each post. This is done using one of the `actions` provided by Gatsby to our `createPages` function. The `actions` object is actually a collection of functions that we can use to change state on our site. The specific function we need is `createPage`. We can extract it by destructuring the object.
 
-```js{2}
+```js {2}
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -337,7 +337,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 When calling `createPage`, you need to specify the path for the page, the component page template and some context data for the page. The `path` should start with a forward slash. The `component` should be an absolute path, so we'll use the Node.js `Path` module to resolve it. `context` is where you put data that identifies or tells something about the page. It will be used as GraphQL variables in page queries. For this, we are putting `slug` since it distinguishes one post from another.
 
-```js{1,25-31}
+```js {1,25-31}
 const path = require(`path`)
 
 exports.createPages = ({graphql, actions}) => {
@@ -379,7 +379,7 @@ Now, it's time to tweak the template, `blog-post.js`. First, we need to specify 
 On bootstrap, Gatsby extracts page queries from the `query` property exported by the component. You need to use the `graphql` tag function and specify the query in-between the backticks. Gatsby runs this query, and passes the result to the render function as the `data` property.
 
 
-```jsx{2,4-14,16-17}
+```jsx {2,4-14,16-17}
 import React from "react"
 import { graphql } from "gatsby"
 
@@ -409,7 +409,7 @@ export default ({ data }) => {
 
 Inside the render function is where you define the structure of the page using the `data` passed. In this example, we display the `title` as a header, show the `date` and `timeToRead` as subheader and the `html` as paragraph.
 
-```jsx{19-27}
+```jsx {19-27}
 import React from "react"
 import { graphql } from "gatsby"
 

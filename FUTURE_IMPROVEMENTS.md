@@ -66,6 +66,17 @@ Known occurrences:
 
 Fix by replacing `outline: none` with a `:focus-visible` style (e.g., `outline: 2px solid var(--accentColor)` or `box-shadow`) so focus is visible for keyboard users but hidden for mouse clicks.
 
+## Upgrade Node to 20+ and Shiki to v4
+
+The project pins Node 18 (`.nvmrc`, `.node-version`) and CI uses `cimg/node:16.16.0`. Astro 5 requires Node >= 18.14.1, but `@shikijs/transformers` v4 and newer Shiki releases require Node >= 20. Currently pinned at `@shikijs/transformers@^3` to stay aligned with Astro's bundled `shiki@3.x`.
+
+When upgrading:
+
+- Bump `.nvmrc` and `.node-version` to 20 (or latest LTS)
+- Update CI image to `cimg/node:20.x`
+- Upgrade `@shikijs/transformers` to `^4`
+- Verify Astro's bundled Shiki version is compatible (Astro may also bump to Shiki v4)
+
 ## Bug fixes
 
 ### Fix CSS selector typo in puzzle scores nav

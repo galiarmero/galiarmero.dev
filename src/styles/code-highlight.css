@@ -1,0 +1,51 @@
+.astro-code,
+.astro-code code {
+  font-family: "JetBrainsMono-Regular";
+  font-feature-settings: normal;
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+.astro-code {
+  padding: 1.3125rem;
+  margin-bottom: 1.75rem;
+  margin-left: -1.3125rem;
+  margin-right: -1.3125rem;
+  border-radius: 10px;
+  border: 1px solid var(--subtleLineColor);
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+@media (max-width: 672px) {
+  .astro-code {
+    border-radius: 0;
+  }
+}
+
+.astro-code code {
+  float: left;
+  min-width: 100%;
+}
+
+.astro-code::selection,
+.astro-code ::selection {
+  text-shadow: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+.astro-code .line.highlighted {
+  display: inline-block;
+  background-color: hsla(207, 95%, 15%, 1);
+  border-left: 0.25em solid #ffa7c4;
+  margin-left: -1.3125rem;
+  margin-right: -1.3125rem;
+  padding-left: calc(1.3125rem - 0.25em);
+  padding-right: 1.3125rem;
+  width: calc(100% + 2 * 1.3125rem);
+}
