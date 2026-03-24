@@ -33,7 +33,8 @@ src/
 │   └── blog/          # Blog posts (each post is a folder with index.md)
 ├── layouts/           # BaseLayout.astro (shared head, meta, analytics)
 ├── pages/             # File-based routing
-│   ├── blog/          # Blog index and [..slug] post pages
+│   ├── blog.astro     # Blog index page
+│   ├── blog/          # Blog post pages ([...slug].astro)
 │   ├── cards/         # Sharing card routes (dev-only)
 │   └── puzzle-scores/ # Puzzle score pages (fetched from Nenoy API)
 ├── styles/            # Global and page-specific CSS
@@ -91,6 +92,6 @@ The site deploys to **Netlify** as a static site.
 
 - **Build command:** `npx astro build`
 - **Publish directory:** `dist`
-- **Environment variables:** Set the variables listed above in Netlify's site settings
+- **Environment variables:** Set the variables from `.env` in Netlify's site settings
 
 Branch deploys are configured in `netlify.toml` for preview branches.
