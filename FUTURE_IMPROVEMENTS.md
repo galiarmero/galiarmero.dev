@@ -55,6 +55,17 @@ Possible approaches:
 - Post-build script to remove `dist/cards/index.html`
 - Astro integration hook to exclude the route during build
 
+## Restore focus indicators removed by Gatsby-era CSS
+
+Several elements suppress `outline` without providing an alternative focus style, making them unusable for keyboard navigation. Carried over from the original Gatsby codebase.
+
+Known occurrences:
+
+- `src/styles/header.css` -- `.slider-burger:focus, .slider-burger:active { outline: none; }`
+- `src/styles/homepage.css` -- `.hp-button:hover, .hp-button:focus { outline: 0; }`
+
+Fix by replacing `outline: none` with a `:focus-visible` style (e.g., `outline: 2px solid var(--accentColor)` or `box-shadow`) so focus is visible for keyboard users but hidden for mouse clicks.
+
 ## Bug fixes
 
 ### Fix CSS selector typo in puzzle scores nav
