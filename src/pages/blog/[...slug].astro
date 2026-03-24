@@ -1,12 +1,14 @@
 ---
 import { getCollection, render } from "astro:content"
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import BlogPageHeader from "../../components/BlogPageHeader.jsx"
 import Bio from "../../components/Bio.astro"
 import PostDetails from "../../components/PostDetails.astro"
 import SuggestedPost from "../../components/SuggestedPost.astro"
 import Engage from "../../components/Engage.jsx"
 import Footer from "../../components/Footer.astro"
 import "../../styles/blog.css"
+import "../../styles/header.css"
 import { calculateTimeToRead } from "../../utils"
 import siteData from "../../config/site-data.yml"
 
@@ -51,6 +53,7 @@ const hasTwitterEmbed = (post.body || "").includes("twitter-tweet")
   sharingCard={post.data.sharingCard ? `${siteBaseUrl}${post.data.sharingCard.src}` : undefined}
   sharingAltText={`${postTitle}. ${timeToRead} minute read. ${post.data.teaser}`}
 >
+  <BlogPageHeader client:load />
   <main class="main">
     <h1>{postTitle}</h1>
     <PostDetails

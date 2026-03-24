@@ -1,13 +1,15 @@
 ---
 import { getCollection } from "astro:content"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import BlogPageHeader from "../components/BlogPageHeader.jsx"
 import Bio from "../components/Bio.astro"
 import PostPreview from "../components/PostPreview.astro"
 import Footer from "../components/Footer.astro"
 import { calculateTimeToRead } from "../utils"
+import "../styles/header.css"
 import siteData from "../config/site-data.yml"
 
-const { profile, siteBaseUrl } = siteData
+const { profile, siteBaseUrl, menuOptions, socialMediaLinks } = siteData
 
 const allPosts = await getCollection("blog")
 const posts = allPosts
@@ -25,6 +27,12 @@ const posts = allPosts
   sharingCard={`${siteBaseUrl}/images/sharing-card.png`}
   sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
 >
+  <BlogPageHeader
+    client:load
+    hasMenu={true}
+    menuOptions={menuOptions}
+    socialMediaLinks={socialMediaLinks}
+  />
   <main class="main">
     <div class="bio-section">
       <Bio author={profile.name}>
@@ -60,6 +68,7 @@ const posts = allPosts
 
 <style>
   .main {
+    margin-top: 75px;
     padding: 0 25px;
     overflow-x: hidden;
   }
