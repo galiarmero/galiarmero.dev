@@ -1,5 +1,4 @@
-import { readdir, readFile, writeFile } from "node:fs/promises"
-import { existsSync } from "node:fs"
+import { readdir, writeFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
 import path from "node:path"
 
@@ -37,12 +36,7 @@ async function generatePuzzleScoresRedirect(outDir, logger) {
   ].join("\n")
 
   const redirectsPath = path.join(outDir, "_redirects")
-  let existing = ""
-  if (existsSync(redirectsPath)) {
-    existing = (await readFile(redirectsPath, "utf-8")).trimEnd() + "\n"
-  }
-
-  await writeFile(redirectsPath, existing + redirectRules + "\n")
+  await writeFile(redirectsPath, redirectRules + "\n")
   logger.info(`Generated redirect: /puzzle-scores -> ${target}`)
 }
 
