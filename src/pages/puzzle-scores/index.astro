@@ -1,4 +1,8 @@
 ---
+// In production, Netlify intercepts /puzzle-scores with a server-side
+// redirect (see src/integrations/netlify-redirects.mjs) so this page is
+// never served. It is still built but exists as a fallback for local dev
+// and preview, where _redirects is not processed.
 import { getAllPuzzleScores } from "../../utils/nenoy-api-fetch"
 
 const allScores = await getAllPuzzleScores()
