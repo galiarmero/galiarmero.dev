@@ -23,14 +23,14 @@ todos:
   - id: milestone-6-third-party
     content: "Milestone 6: Ackee analytics + Twitter embed script (identical behavior to Gatsby plugins)"
     status: completed
-  - id: milestone-7-cleanup
-    content: "Milestone 7: Remove Gatsby deps/config, update scripts/CI, merge to main and switch production build"
+  - id: milestone-7-syntax-highlighting
+    content: "Milestone 7: Switch syntax highlighting from Prism to Shiki with line highlighting support"
     status: pending
-  - id: milestone-8-syntax-highlighting
-    content: "Milestone 8: Switch syntax highlighting from Prism to Shiki with line highlighting support"
+  - id: milestone-8-readme
+    content: "Milestone 8: Create README with project docs (setup, dev workflow, new post, sharing cards, deployment)"
     status: pending
-  - id: milestone-9-readme
-    content: "Milestone 9: Create README with project docs (setup, dev workflow, new post, sharing cards, deployment)"
+  - id: milestone-9-cleanup
+    content: "Milestone 9: Remove Gatsby deps/config, update scripts/CI, merge to main and switch production build"
     status: pending
 isProject: false
 ---
@@ -152,8 +152,9 @@ Work happens on a long-lived `astro-migration` branch. Each milestone is merged 
 - Milestone 4: `/puzzle-scores/{date}` pages, `/puzzle-scores` redirect
 - Milestone 5: `/cards` routes working in dev (not visible in deploy)
 - Milestone 6: Ackee tracking active, Twitter embeds rendering
-- Milestone 7: Final site -- merge `astro-migration` to `main`, switch production
-- Milestone 8: All code blocks render with Night Owl colors and line highlighting
+- Milestone 7: All code blocks render with Night Owl colors and line highlighting
+- Milestone 8: README documentation (no deploy impact)
+- Milestone 9: Final site -- merge `astro-migration` to `main`, switch production
 
 ---
 
