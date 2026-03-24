@@ -1,14 +1,16 @@
 import { defineConfig } from "astro/config"
 import react from "@astrojs/react"
 import yaml from "@rollup/plugin-yaml"
-import remarkStripLineMeta from "./src/plugins/remark-strip-line-meta.mjs"
+import { transformerMetaHighlight } from "@shikijs/transformers"
 
 export default defineConfig({
   site: "https://galiarmero.dev",
   integrations: [react()],
   markdown: {
-    syntaxHighlight: "prism",
-    remarkPlugins: [remarkStripLineMeta],
+    shikiConfig: {
+      theme: "night-owl",
+      transformers: [transformerMetaHighlight()],
+    },
   },
   vite: {
     plugins: [yaml()],
