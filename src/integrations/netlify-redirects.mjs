@@ -30,7 +30,11 @@ async function generatePuzzleScoresRedirect(outDir, logger) {
   }
 
   const latestDate = dates[0]
-  const redirectRule = `/puzzle-scores  /puzzle-scores/${latestDate}  302!`
+  const target = `/puzzle-scores/${latestDate}`
+  const redirectRules = [
+    `/puzzle-scores   ${target}  302!`,
+    `/puzzle-scores/  ${target}  302!`,
+  ].join("\n")
 
   const redirectsPath = path.join(outDir, "_redirects")
   let existing = ""
@@ -38,10 +42,8 @@ async function generatePuzzleScoresRedirect(outDir, logger) {
     existing = (await readFile(redirectsPath, "utf-8")).trimEnd() + "\n"
   }
 
-  await writeFile(redirectsPath, existing + redirectRule + "\n")
-  logger.info(
-    `Generated redirect: /puzzle-scores -> /puzzle-scores/${latestDate}`
-  )
+  await writeFile(redirectsPath, existing + redirectRules + "\n")
+  logger.info(`Generated redirect: /puzzle-scores -> ${target}`)
 }
 
 export default function netlifyRedirects() {
