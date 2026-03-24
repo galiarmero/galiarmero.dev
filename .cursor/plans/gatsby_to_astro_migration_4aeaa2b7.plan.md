@@ -25,13 +25,13 @@ todos:
     status: completed
   - id: milestone-7-syntax-highlighting
     content: "Milestone 7: Switch syntax highlighting from Prism to Shiki with line highlighting support"
-    status: pending
+    status: completed
   - id: milestone-8-readme
     content: "Milestone 8: Create README with project docs (setup, dev workflow, new post, sharing cards, deployment)"
-    status: pending
+    status: completed
   - id: milestone-9-cleanup
     content: "Milestone 9: Remove Gatsby deps/config, update scripts/CI, merge to main and switch production build"
-    status: pending
+    status: completed
 isProject: false
 ---
 

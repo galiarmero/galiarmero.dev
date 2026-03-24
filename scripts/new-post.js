@@ -8,7 +8,7 @@ if (!title)
   throw "Missing title!"
 
 // Possibly configurable variables
-let parentDir = 'content/blog/'
+let parentDir = 'src/content/blog/'
 let postExtension = 'md'
 
 const slug = slugify(title, {

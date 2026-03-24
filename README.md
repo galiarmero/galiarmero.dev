@@ -51,8 +51,6 @@ Each blog post is a folder under `src/content/blog/` containing an `index.md` fi
 npm run new-post -- "My Post Title"
 ```
 
-> **Note:** This script currently writes to `content/blog/` at the project root. Move the generated folder to `src/content/blog/` after running it.
-
 **Frontmatter schema:**
 
 ```yaml
@@ -90,8 +88,6 @@ npm run generate-sharing-cards -- --overwrite
 
 The site deploys to **Netlify** as a static site.
 
-- **Build command:** `npx astro build`
+- **Build command:** `npx astro build` (configured in `netlify.toml`)
 - **Publish directory:** `dist`
 - **Environment variables:** Set the variables from `.env` in Netlify's site settings
-
-Branch deploys are configured in `netlify.toml` for preview branches.
