@@ -376,43 +376,7 @@ All three replacements below preserve identical behavior to the Gatsby plugins.
 
 ---
 
-## Milestone 7: Cleanup & Production Cutover
-
-**Goal:** Remove all Gatsby artifacts, merge to main, switch production build.
-
-**Remove Gatsby artifacts:**
-
-- Delete `gatsby-config.js`, `gatsby-node.js`, `gatsby-browser.js`, `gatsby-ssr.js`
-- Remove all `gatsby-`* packages from `package.json`
-- Remove `@emotion/react`, `@emotion/styled`, `gatsby-plugin-emotion`
-- Remove `react-helmet`, `gatsby-plugin-react-helmet`
-- Remove `yaml-loader` (Astro/Vite handles YAML natively with a plugin, or convert to TS)
-- Remove `gatsby-plugin-anchor-links`
-- Keep `@researchgate/react-intersection-observer` -- it's a standalone React library (not Gatsby-specific) and is already used by the React island components (Hero, About, Contact, LatestBlogPosts, Footer)
-
-**Update scripts:**
-
-- `package.json` scripts: `astro dev`, `astro build`, `astro preview`
-- Update `[scripts/new-post.js](scripts/new-post.js)` to create posts in `src/content/blog/` instead of `content/blog/`
-
-**Update CI:**
-
-- Update `[.circleci/config.yml](.circleci/config.yml)` build command from `gatsby build` to `astro build`
-
-**Deployment:**
-
-- Remove the branch-deploy `netlify.toml` overrides (or update to be the default build)
-- Update Netlify production build command to `npx astro build`, publish directory to `dist/`
-- No adapter needed -- fully static site. `gatsby-plugin-netlify`'s auto-generated caching/security headers can be replicated with a `public/_headers` or `netlify.toml` if needed, or rely on Netlify defaults.
-
-**Final cutover:**
-
-- Merge `astro-migration` branch to `main`
-- Production site now builds with Astro
-
----
-
-## Milestone 8: Syntax Highlighting (Prism -> Shiki)
+## Milestone 7: Syntax Highlighting (Prism -> Shiki)
 
 **Goal:** Restore full syntax highlighting parity with the Gatsby site, including line highlighting.
 
@@ -451,17 +415,17 @@ If Shiki's output doesn't match the Gatsby appearance closely enough, `rehype-pr
 - `rehype-prism-plus` supports the `{1,2,4}` line highlighting syntax, line numbers, and outputs Prism-compatible CSS classes
 - The existing `prismjs-night-owl.css` can be reused with minimal changes (replace `.gatsby-highlight-code-line` with the plugin's equivalent class)
 
-### 8b. Choose approach and implement
+### 7b. Choose approach and implement
 
 - Try Option A first (Shiki) since it's Astro-native and lower maintenance
 - Fall back to Option B if visual fidelity with the Gatsby site is hard to achieve with Shiki
 
-### 8c. Clean up workaround
+### 7c. Clean up workaround
 
 - Remove `src/plugins/remark-strip-line-meta.mjs` (temporary remark plugin that strips `{n}` notation from code fence language tags so Prism doesn't break)
 - Remove the `remarkPlugins: [remarkStripLineMeta]` entry from `astro.config.mjs`
 
-### 8d. Verify
+### 7d. Verify
 
 - Check all blog posts for correct syntax highlighting
 - Verify line highlighting works on posts that use `{1,2,4}` notation
@@ -470,7 +434,7 @@ If Shiki's output doesn't match the Gatsby appearance closely enough, `rehype-pr
 
 ---
 
-## Milestone 9: README Documentation
+## Milestone 8: README Documentation
 
 **Goal:** Create a project README that documents the Astro site setup, development workflow, and common tasks.
 
@@ -484,6 +448,42 @@ Base the structure on Astro's default README but tailor it to this specific proj
 - **Deployment** -- Netlify setup, environment variables required (Nenoy API vars), build command
 - **Scripts reference** -- `npm run` commands, formatting, card generation
 - **Deploy checkpoint:** N/A (documentation only)
+
+---
+
+## Milestone 9: Cleanup & Production Cutover
+
+**Goal:** Remove all Gatsby artifacts, merge to main, switch production build. Done last so the Gatsby site remains runnable for comparison throughout the migration.
+
+**Remove Gatsby artifacts:**
+
+- Delete `gatsby-config.js`, `gatsby-node.js`, `gatsby-browser.js`, `gatsby-ssr.js`
+- Remove all `gatsby-`* packages from `package.json`
+- Remove `@emotion/react`, `@emotion/styled`, `gatsby-plugin-emotion`
+- Remove `react-helmet`, `gatsby-plugin-react-helmet`
+- Remove `yaml-loader` (Astro/Vite handles YAML natively with a plugin, or convert to TS)
+- Remove `gatsby-plugin-anchor-links`
+- Keep `@researchgate/react-intersection-observer` -- it's a standalone React library (not Gatsby-specific) and is already used by the React island components (Hero, About, Contact, LatestBlogPosts, Footer)
+
+**Update scripts:**
+
+- `package.json` scripts: `astro dev`, `astro build`, `astro preview`
+- Update `[scripts/new-post.js](scripts/new-post.js)` to create posts in `src/content/blog/` instead of `content/blog/`
+
+**Update CI:**
+
+- Update `[.circleci/config.yml](.circleci/config.yml)` build command from `gatsby build` to `astro build`
+
+**Deployment:**
+
+- Remove the branch-deploy `netlify.toml` overrides (or update to be the default build)
+- Update Netlify production build command to `npx astro build`, publish directory to `dist/`
+- No adapter needed -- fully static site. `gatsby-plugin-netlify`'s auto-generated caching/security headers can be replicated with a `public/_headers` or `netlify.toml` if needed, or rely on Netlify defaults.
+
+**Final cutover:**
+
+- Merge `astro-migration` branch to `main`
+- Production site now builds with Astro
 
 ---
 
