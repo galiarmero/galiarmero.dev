@@ -427,14 +427,14 @@
 .hp-card-heading a {
   color: inherit;
   text-decoration: none;
-  display: inline;
 }
 
 .hp-card-heading a::after {
   display: none;
 }
 
-.hp-card-heading a:hover {
+.hp-card-heading a:hover,
+.hp-card-heading a:focus-visible {
   color: var(--accentColor);
 }
 
