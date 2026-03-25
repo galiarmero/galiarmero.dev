@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useCallback } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import NavList from "./NavList"
 import NavOverlay from "./NavOverlay"
 import SliderBurger from "./SliderBurger"
@@ -30,7 +30,7 @@ const Header = ({
     }
   }, [isMenuOpen, onToggleMenu])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true })
     window.addEventListener("resize", handleResize)
     return () => {

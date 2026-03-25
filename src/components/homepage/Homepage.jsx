@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Loader from "./Loader"
+import usePageHasBeenVisible from "../../hooks/usePageHasBeenVisible"
 import Header from "./Header"
 import Hero from "./Hero"
 import About from "./About"
@@ -24,7 +24,7 @@ const Homepage = ({
   const headerHeight = 75
   const sections = ["hero", "about", "latestBlogPosts", "contact"]
 
-  const [isLoading, setIsLoading] = useState(true)
+  const isPageReady = usePageHasBeenVisible()
   const [isMenuOpen, toggleMenu] = useState(false)
   const [visibleSection, setVisibleSection] = useState("")
   const [isMarkersVisible, toggleMarkers] = useState(true)
@@ -87,10 +87,6 @@ const Homepage = ({
     })
   }
 
-  if (isLoading) {
-    return <Loader finishLoading={() => setIsLoading(false)} />
-  }
-
   return (
     <div>
       <Header
@@ -113,6 +109,7 @@ const Homepage = ({
           headerHeight={headerHeight}
           socialMediaLinks={socialMediaLinks}
           intersectionThreshold={intersectionThreshold}
+          isPageReady={isPageReady}
         />
         <About
           handleIntersection={handleIntersection}

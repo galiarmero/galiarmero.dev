@@ -3,7 +3,7 @@ import Logo from "./Logo"
 
 const Loader = ({ finishLoading }) => {
   useEffect(() => {
-    const timeout = setTimeout(() => finishLoading(), 800)
+    const timeout = setTimeout(() => finishLoading(), 0)
     return () => clearTimeout(timeout)
   }, [finishLoading])
 

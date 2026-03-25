@@ -13,13 +13,15 @@ const Hero = ({
   headerHeight,
   socialMediaLinks,
   intersectionThreshold,
+  isPageReady,
 }) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    if (!isPageReady) return
     const timeout = setTimeout(() => setIsMounted(true), 200)
     return () => clearTimeout(timeout)
-  }, [])
+  }, [isPageReady])
 
   const onChange = ({ time, isIntersecting, intersectionRatio }) => {
     handleIntersection({

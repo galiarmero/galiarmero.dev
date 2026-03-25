@@ -16,7 +16,7 @@ export default defineConfig({
   vite: {
     plugins: [yaml()],
     ssr: {
-      noExternal: ["react-share", "linkify-react", "linkify-plugin-mention", "linkify-plugin-hashtag"],
+      noExternal: ["react-share", "linkify-react", "linkify-plugin-mention", "linkify-plugin-hashtag", "@researchgate/react-intersection-observer"],
     },
   },
 })
