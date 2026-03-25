@@ -30,7 +30,8 @@
     "react-share": "^4.1.0",
     "react-transition-group": "^4.3.0",
     "react-twemoji": "^0.5.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "twemoji": "^14.0.2"
   },
   "devDependencies": {
     "date-fns": "^1.30.1",
