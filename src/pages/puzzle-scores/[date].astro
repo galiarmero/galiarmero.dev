@@ -39,9 +39,19 @@ export async function getStaticPaths() {
           image: `https://www.nytimes.com/badges/games/mini.jpg?d=${d}&t=${t}&c=${c}`,
           url: url.toString(),
           domain: "www.nytimes.com",
+          hideResultText: true,
         }
       } catch {
         // URL parsing failed — render as text
+      }
+    }
+
+    if (score.puzzle === "minute-cryptic") {
+      enriched.linkPreview = {
+        title: "Minute Cryptic",
+        description: "Solve a clue with a hidden meaning",
+        url: "https://www.minutecryptic.com",
+        domain: "www.minutecryptic.com",
       }
     }
 
@@ -80,6 +90,7 @@ const sortedPuzzles = [...puzzles].sort(
 
 function calculateSpan(puzzle, text) {
   if (puzzle === "nytimes-mini-crossword") return 17
+  if (puzzle === "minute-cryptic") return text.split("\n").length + 11
   return text.split("\n").length + 5
 }
 
@@ -125,15 +136,22 @@ function overridePuzzleResult(puzzle, text) {
             right={node.dayNumber ?? formatDateEuNoYear(date)}
           />
           {node.linkPreview ? (
-            <div class="puzzle-score">
-              <LinkPreviewCard
-                image={node.linkPreview.image}
-                title={node.linkPreview.title}
-                description={node.linkPreview.description}
-                url={node.linkPreview.url}
-                domain={node.linkPreview.domain}
-              />
-            </div>
+            <Fragment>
+              {!node.linkPreview.hideResultText && (
+                <PuzzleResult
+                  resultText={overridePuzzleResult(node.puzzle, node.resultText)}
+                />
+              )}
+              <div class="puzzle-score">
+                <LinkPreviewCard
+                  image={node.linkPreview.image}
+                  title={node.linkPreview.title}
+                  description={node.linkPreview.description}
+                  url={node.linkPreview.url}
+                  domain={node.linkPreview.domain}
+                />
+              </div>
+            </Fragment>
           ) : (
             <PuzzleResult
               resultText={overridePuzzleResult(node.puzzle, node.resultText)}

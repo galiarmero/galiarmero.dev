@@ -10,6 +10,7 @@ export const PUZZLE_ORDER = [
   "octordle",
   "octordle-sequence",
   "octordle-rescue",
+  "minute-cryptic",
 ]
 
 export default {
@@ -50,5 +51,8 @@ export default {
   },
   connections: {
     label: "NY Times Connections",
+  },
+  "minute-cryptic": {
+    label: "Minute Cryptic",
   },
 }
