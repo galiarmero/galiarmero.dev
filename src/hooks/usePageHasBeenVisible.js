@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export default function usePageVisible() {
+export default function usePageHasBeenVisible() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
