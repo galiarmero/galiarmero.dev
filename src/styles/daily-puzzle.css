@@ -38,7 +38,7 @@
   }
 }
 
-.puzzle-scores-nav .date-label.date.nav > a {
+.puzzle-scores-nav .date-label.date-nav > a {
   color: var(--textColor);
 }
 

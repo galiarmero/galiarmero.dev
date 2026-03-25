@@ -3,8 +3,6 @@ import IntersectionObserver from "@researchgate/react-intersection-observer"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import IconLink from "./IconLink"
 
-const TRANSITION_TIMING = "cubic-bezier(0.645, 0.045, 0.355, 1)"
-
 const Hero = ({
   handleIntersection,
   greeting,

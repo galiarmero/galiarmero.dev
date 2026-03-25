@@ -422,17 +422,26 @@
 .hp-card-heading {
   font-size: 1.3rem;
   letter-spacing: 0.08rem;
-  cursor: pointer;
+}
+
+.hp-card-heading a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hp-card-heading a::after {
+  display: none;
+}
+
+.hp-card-heading a:hover,
+.hp-card-heading a:focus-visible {
+  color: var(--accentColor);
 }
 
 @media (min-width: 992px) {
   .hp-card-heading {
     font-size: 1.5rem;
   }
-}
-
-.hp-card-heading:hover {
-  color: var(--accentColor);
 }
 
 .hp-card-teaser {

@@ -7,11 +7,8 @@ const PostPreview = ({ slug, title, datePublished, timeToRead, teaser }) => {
   return (
     <article className="hp-card">
       <div>
-        <h1
-          className="hp-card-heading"
-          onClick={() => (window.location = slug)}
-        >
-          {title}
+        <h1 className="hp-card-heading">
+          <a href={slug}>{title}</a>
         </h1>
         <span className="hp-post-details">
           <span className="date">{formattedDate}</span>
