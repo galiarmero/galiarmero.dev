@@ -1,0 +1,59 @@
+---
+import twemoji from "twemoji"
+import { find } from "linkifyjs"
+import "linkify-plugin-mention"
+import "linkify-plugin-hashtag"
+
+interface Props {
+  resultText: string
+}
+
+const { resultText } = Astro.props
+
+const twemojiOpts = {
+  className: "twemoji-puzzle",
+  folder: "svg",
+  ext: ".svg",
+  base: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/",
+}
+
+function escapeHtml(text: string) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+}
+
+function linkifyText(text: string) {
+  const matches = find(text)
+  if (matches.length === 0) return escapeHtml(text)
+
+  let result = ""
+  let lastIndex = 0
+
+  for (const match of matches) {
+    result += escapeHtml(text.slice(lastIndex, match.start))
+
+    let href = match.href
+    if (match.type === "mention") {
+      href = `https://twitter.com/${match.value.slice(1)}`
+    } else if (match.type === "hashtag") {
+      href = `https://twitter.com/hashtag/${match.value.slice(1)}`
+    }
+
+    result += `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(match.value)}</a>`
+    lastIndex = match.end
+  }
+
+  result += escapeHtml(text.slice(lastIndex))
+  return result
+}
+
+const lines = resultText.split("\n")
+const html = lines
+  .map((line) => `<div>${twemoji.parse(linkifyText(line), twemojiOpts)}</div>`)
+  .join("")
+---
+
+<div class="puzzle-score" set:html={html} />

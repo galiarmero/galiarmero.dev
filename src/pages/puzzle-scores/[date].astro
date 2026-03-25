@@ -4,7 +4,7 @@ import PuzzlePageHeader from "../../components/PuzzlePageHeader.jsx"
 import PuzzleScoresNav from "../../components/PuzzleScoresNav.astro"
 import PairLabel from "../../components/PairLabel.astro"
 import LinkPreviewCard from "../../components/LinkPreviewCard.astro"
-import PuzzleResult from "../../components/PuzzleResult.jsx"
+import PuzzleResult from "../../components/PuzzleResult.astro"
 import Footer from "../../components/Footer.astro"
 import { getAllPuzzleScores } from "../../utils/nenoy-api-fetch"
 import { formatDateWithDayName, formatDateEuNoYear } from "../../utils"
@@ -136,7 +136,6 @@ function overridePuzzleResult(puzzle, text) {
             </div>
           ) : (
             <PuzzleResult
-              client:visible
               resultText={overridePuzzleResult(node.puzzle, node.resultText)}
             />
           )}
