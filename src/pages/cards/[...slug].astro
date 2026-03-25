@@ -1,0 +1,153 @@
+---
+import { getCollection } from "astro:content"
+import "../../styles/global.css"
+import { themes, defaultTheme, transitionTiming } from "../../config/themes.js"
+import siteData from "../../config/site-data.yml"
+import { calculateTimeToRead } from "../../utils"
+
+export async function getStaticPaths() {
+  if (!import.meta.env.DEV) return []
+  const allPosts = await getCollection("blog")
+  return allPosts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const theme = themes[defaultTheme]
+const themeStyle = `:root { ${Object.entries(theme)
+  .map(([k, v]) => `--${k}: ${v}`)
+  .join("; ")}; --transitionTiming: ${transitionTiming}; }`
+
+const WIDTH = 1200
+const HEIGHT = 628
+const timeToRead = calculateTimeToRead(post.body || "")
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sharing Card – {post.data.title}</title>
+    <style set:html={themeStyle}></style>
+  </head>
+  <body>
+    <div class="card" style={`width: ${WIDTH}px; height: ${HEIGHT}px;`}>
+      <main class="card-main">
+        <div class="card-body">
+          <h1 class="title">{post.data.title}</h1>
+          <div class="post-details">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 61.625 61.625"
+              stroke="currentColor"
+              fill="currentColor"
+              class="eyeglasses-icon"
+            >
+              <g>
+                <path d="M1,29.957h1.787c-0.009,0.201-0.03,0.398-0.03,0.602c0,6.979,5.679,12.66,12.66,12.66s12.66-5.681,12.66-12.66c0-0.203-0.021-0.4-0.03-0.602h5.785c-0.031,0.367-0.056,0.736-0.056,1.111c0,6.98,5.679,12.66,12.659,12.66c6.981,0,12.66-5.68,12.66-12.66c0-0.375-0.023-0.744-0.056-1.111h1.585c0.553,0,1-0.447,1-1c0-0.553-0.447-1-1-1h-1.932c-1.393-5.479-6.352-9.549-12.258-9.549c-5.904,0-10.865,4.07-12.256,9.549h-6.374c-1.203-5.736-6.299-10.059-12.389-10.059c-6.09,0-11.186,4.322-12.389,10.059H1c-0.552,0-1,0.447-1,1S0.448,29.957,1,29.957z M46.436,20.409c5.879,0,10.66,4.781,10.66,10.66c0,5.878-4.781,10.66-10.66,10.66c-5.877,0-10.659-4.782-10.659-10.66C35.776,25.189,40.559,20.409,46.436,20.409z M15.417,19.898c5.878,0,10.66,4.781,10.66,10.66c0,5.877-4.782,10.66-10.66,10.66s-10.66-4.783-10.66-10.66C4.757,24.68,9.539,19.898,15.417,19.898z" />
+              </g>
+            </svg>{timeToRead} min read
+          </div>
+          <p class="teaser">{post.data.teaser}</p>
+        </div>
+        <footer class="card-footer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="56"
+            height="56"
+            viewBox="0 0 79.614475 147.2322"
+            id="logo"
+          >
+            <g transform="translate(-76.598554,-26.925642)">
+              <path
+                style="opacity:1;stroke-width:0.254407"
+                d="m 116.28627,55.292215 a 39.6875,39.6875 0 0 0 -0.48679,0.0031 39.6875,39.6875 0 0 0 -39.200706,39.684398 39.6875,39.6875 0 0 0 39.687496,39.687497 39.6875,39.6875 0 0 0 39.6875,-39.687497 39.6875,39.6875 0 0 0 -9.53637,-25.807209 34.263541,19.840764 0 0 0 9.77563,-13.877189 h -39.441 a 39.6875,39.6875 0 0 0 -0.48576,-0.0031 z m 0,19.843749 a 19.843751,19.843751 0 0 1 19.84375,19.84375 19.843751,19.843751 0 0 1 -19.84375,19.843746 19.843751,19.843751 0 0 1 -19.843747,-19.843746 19.843751,19.843751 0 0 1 19.843747,-19.84375 z"
+              />
+              <circle
+                style="opacity:1;stroke-width:0.196684"
+                cx="146.0448"
+                cy="36.879642"
+                r="9.9490004"
+              />
+              <path
+                style="opacity:1;stroke-width:0.207831"
+                d="m 155.97355,137.13942 -79.374996,16.68581 v 20.33261 l 79.374996,-16.68581 z"
+              />
+            </g>
+          </svg>
+          <span class="domain">{siteData.nakedDomain}</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    background: #fff;
+  }
+
+  .card {
+    background: var(--bgColor);
+    border-top: 15px solid var(--accentColor);
+    padding: 75px 85px 70px;
+  }
+
+  .card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-body {
+    padding: 0 12px 0;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 3.55rem;
+    overflow-wrap: break-word;
+  }
+
+  .post-details {
+    font-family: "ClearSans-Light", sans-serif;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .eyeglasses-icon {
+    position: relative;
+    top: -0.15rem;
+    font-size: 2.4rem;
+    margin-right: 10px;
+    color: var(--accentColor);
+    stroke-width: 2px;
+    vertical-align: middle;
+  }
+
+  .teaser {
+    font-size: 1.7rem;
+    width: 80%;
+    margin-top: 1.4rem;
+  }
+
+  .domain {
+    font-size: 1.5rem;
+    color: var(--headingColor);
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+  }
+</style>

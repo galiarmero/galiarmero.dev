@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Homepage from "../components/homepage/Homepage.jsx"
+import { calculateTimeToRead } from "../utils"
+import siteData from "../config/site-data.yml"
+import "../styles/header.css"
+import "../styles/homepage.css"
+
+const { profile, siteBaseUrl, menuOptions, socialMediaLinks, projectSourceUrl, copyrightYear } = siteData
+
+const allPosts = await getCollection("blog")
+const posts = allPosts
+  .sort(
+    (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime()
+  )
+  .slice(0, 6)
+  .map((post) => ({
+    slug: `/blog/${post.id}/`,
+    title: post.data.title,
+    datePublished: post.data.datePublished.toISOString(),
+    timeToRead: calculateTimeToRead(post.body || ""),
+    teaser: post.data.teaser,
+  }))
+
+const lighterBgColor = "var(--lighterBgColor)"
+---
+
+<BaseLayout
+  pageTitle={`${profile.name} · ${profile.title}`}
+  title={profile.name}
+  description={profile.briefBio}
+  pageUrl={siteBaseUrl}
+  sharingCard={`${siteBaseUrl}/images/sharing-card.png`}
+  sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
+  scrollBehavior="smooth"
+>
+  <Homepage
+    client:load
+    profile={profile}
+    menuOptions={menuOptions}
+    socialMediaLinks={socialMediaLinks}
+    projectSourceUrl={projectSourceUrl}
+    copyrightYear={copyrightYear}
+    posts={posts}
+    lighterBgColor={lighterBgColor}
+  />
+</BaseLayout>

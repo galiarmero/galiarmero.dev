@@ -43,6 +43,11 @@ export const appearanceObserverOpts = (setAppearedState, threshold = 0.2) => ({
   threshold,
 })
 
+export const calculateTimeToRead = (body) => {
+  const words = body.trim().split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.round(words / 200))
+}
+
 export const newlineToBr = (string) => {
   if (typeof string !== "string") {
     throw new TypeError("Expected a string")

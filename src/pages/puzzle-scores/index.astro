@@ -1,0 +1,27 @@
+---
+// In production, Netlify intercepts /puzzle-scores with a server-side
+// redirect (see src/integrations/netlify-redirects.mjs) so this page is
+// never served. It is still built but exists as a fallback for local dev
+// and preview, where _redirects is not processed.
+import { getAllPuzzleScores } from "../../utils/nenoy-api-fetch"
+
+const allScores = await getAllPuzzleScores()
+
+const dates = [...new Set(allScores.map((s) => s.datePlayed))].sort(
+  (a, b) => new Date(b).getTime() - new Date(a).getTime()
+)
+
+const latestDate = dates[0]
+const redirectUrl = latestDate ? `/puzzle-scores/${latestDate}` : "/404"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={redirectUrl}>latest puzzle scores</a>...</p>
+  </body>
+</html>

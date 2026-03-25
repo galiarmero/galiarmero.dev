@@ -1,0 +1,104 @@
+---
+interface Props {
+  image: string
+  title: string
+  description: string
+  url: string
+  domain: string
+}
+
+const { image, title, description, url, domain } = Astro.props
+---
+
+<div class="link-card-wrapper">
+  <div class="link-card">
+    <a target="_blank" rel="noopener noreferrer" href={url} class="link-reset">
+      <div class="link-card-image-wrapper">
+        <img src={image} alt={title} />
+      </div>
+      <div class="link-card-body">
+        <span class="link-card-domain">{domain.replace("www.", "")}</span>
+        <span class="link-card-title">{title}</span>
+        <span class="link-card-desc">{description}</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .link-card-wrapper {
+    align-items: stretch;
+    box-sizing: border-box;
+    display: flex;
+    flex-basis: auto;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0;
+    min-height: 0;
+    min-width: 0;
+  }
+
+  .link-card {
+    max-width: 100%;
+    border-radius: 1rem;
+  }
+
+  .link-card:hover {
+    background: var(--bgColor);
+  }
+
+  .link-reset {
+    text-decoration: none;
+  }
+
+  .link-reset::after {
+    content: none;
+  }
+
+  .link-reset:hover::after {
+    content: none;
+  }
+
+  .link-card-image-wrapper {
+    max-width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: 1px solid var(--lightestBgColor);
+    border-bottom: none;
+    margin: 0;
+  }
+
+  .link-card-image-wrapper img {
+    max-width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .link-card-body {
+    max-width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border: 1px solid var(--lightestBgColor);
+    border-top: none;
+    color: var(--textColor);
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0.2rem 0.8rem 0.7rem;
+  }
+
+  .link-card-body:hover {
+    background: var(--bgColor);
+  }
+
+  .link-card-domain {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .link-card-title {
+    color: var(--headingColor);
+    font-size: 1rem;
+  }
+
+  .link-card-desc {
+    font-size: 0.7rem;
+  }
+</style>

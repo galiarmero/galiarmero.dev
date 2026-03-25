@@ -1,0 +1,173 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import BlogPageHeader from "../components/BlogPageHeader.jsx"
+import Bio from "../components/Bio.astro"
+import PostPreview from "../components/PostPreview.astro"
+import Footer from "../components/Footer.astro"
+import { calculateTimeToRead } from "../utils"
+import "../styles/header.css"
+import siteData from "../config/site-data.yml"
+
+const { profile, siteBaseUrl, menuOptions, socialMediaLinks } = siteData
+
+const allPosts = await getCollection("blog")
+const posts = allPosts
+  .sort(
+    (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime()
+  )
+  .slice(0, 6)
+---
+
+<BaseLayout
+  pageTitle={`Blog · ${profile.name}`}
+  title={`Blog · ${profile.name}`}
+  description={profile.blogDescription}
+  pageUrl={`${siteBaseUrl}/blog`}
+  sharingCard={`${siteBaseUrl}/images/sharing-card.png`}
+  sharingAltText={`${profile.greeting} ${profile.name}. ${profile.tagline}`}
+>
+  <BlogPageHeader
+    client:load
+    hasMenu={true}
+    menuOptions={menuOptions}
+    socialMediaLinks={socialMediaLinks}
+  />
+  <main class="main">
+    <div class="bio-section">
+      <Bio author={profile.name}>
+        <p class="bio-intro">
+          Personal blog by <a href="/">{profile.name}</a>.
+        </p>
+        <p class="bio-desc">{profile.blogDescription}</p>
+      </Bio>
+    </div>
+
+    <div class="posts-heading-section">
+      <h1 class="section-heading">
+        Posts<span class="accent-dot">.</span>
+      </h1>
+    </div>
+
+    <div class="post-grid">
+      {
+        posts.map((post) => (
+          <PostPreview
+            slug={`/blog/${post.id}/`}
+            title={post.data.title}
+            datePublished={post.data.datePublished}
+            timeToRead={calculateTimeToRead(post.body || "")}
+            teaser={post.data.teaser}
+          />
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .main {
+    margin-top: 75px;
+    padding: 0 25px;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 480px) {
+    .main {
+      padding: 0 12%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main {
+      padding: 0 16%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .main {
+      padding: 0 20%;
+    }
+  }
+
+  .bio-section {
+    margin: 25px 0;
+  }
+
+  .bio-intro {
+    margin-bottom: 0.4rem;
+  }
+
+  .bio-desc {
+    margin-bottom: 0;
+  }
+
+  .posts-heading-section {
+    margin: 35px 0 60px;
+  }
+
+  @media (min-width: 992px) {
+    .posts-heading-section {
+      margin: 70px 0;
+    }
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  @media (min-width: 480px) {
+    .section-heading {
+      font-size: 2.4rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 2.6rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .section-heading {
+      font-size: 2.8rem;
+    }
+  }
+
+  .section-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    height: 2px;
+    width: 60px;
+    background: var(--accentColor);
+    border-radius: 6px;
+  }
+
+  .section-heading::after {
+    content: "";
+    position: absolute;
+    left: 30px;
+    bottom: -30px;
+    height: 2px;
+    width: 60px;
+    background: var(--accentColor);
+    border-radius: 6px;
+  }
+
+  .accent-dot {
+    color: var(--accentColor);
+    font-size: 50px;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 50px;
+  }
+</style>

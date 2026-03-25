@@ -11,7 +11,7 @@ workflows:
 
 defaults: &defaults
   docker:
-    - image: cimg/node:16.16.0
+    - image: cimg/node:18.20.8
 
 jobs:
   install-deps:

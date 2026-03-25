@@ -16,7 +16,7 @@ profile:
     Hello! My name is Gali – short for Galileo.
     I'm a software engineer from the Philippines 🇵🇭 currently based in Berlin 🇩🇪.
     This is my own little corner on the Internet where I share things that excite me like
-    writing simple concise code, learning system design and solving puzzles.
+    writing clean code, learning system design and solving puzzles.
   aboutBody: >-
     I grew up in the small town called <a href="https://en.wikipedia.org/wiki/Canaman,_Camarines_Sur">Canaman</a>
     in Camarines Sur. Soon after uni years, my journey took me from there to busy Manila and eventually to vibrant Berlin.
@@ -34,10 +34,10 @@ profile:
     - GraphQL
     - Docker
   aboutClosing: >-
-    When not coding, I enjoy biking, exploring new places, listening to podcasts,
-    playing basketball, following my Lakers, and solving <a href='/puzzle-scores'>daily puzzles</a>.
+    When not coding, I enjoy playing basketball, exploring new places, listening to podcasts,
+    following my Lakers, and solving <a href='/puzzle-scores'>daily puzzles</a>.
 
-    I also write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
+    I write about my learnings, insights and experiences in my <a href="#latestBlogPosts">blog</a>.
 menuOptions:
   - title: Home
     link: '/'
@@ -69,4 +69,4 @@ socialMediaLinks:
 siteBaseUrl: https://galiarmero.dev
 nakedDomain: galiarmero.dev
 projectSourceUrl: https://github.com/galiarmero/galiarmero.dev
-copyrightYear: 2024
+copyrightYear: 2026

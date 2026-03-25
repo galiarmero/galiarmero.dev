@@ -1,0 +1,106 @@
+---
+import PostDetails from "./PostDetails.astro"
+
+interface Props {
+  slug: string
+  title: string
+  datePublished: Date | string
+  timeToRead: number
+  teaser: string
+}
+
+const { slug, title, datePublished, timeToRead, teaser } = Astro.props
+---
+
+<article class="card">
+  <div>
+    <h1 class="card-heading">
+      <a href={slug} class="heading-link">{title}</a>
+    </h1>
+    <PostDetails datePublished={datePublished} timeToRead={timeToRead} />
+    <p class="teaser">{teaser}</p>
+  </div>
+
+  <a class="read-link" href={slug}>read<svg class="arrow-icon" aria-hidden="true" viewBox="0 0 476.213 476.213" xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" stroke="currentColor" fill="currentColor"><polygon points="405.606,167.5 384.394,188.713 418.787,223.106 0,223.106 0,253.106 418.787,253.106 384.394,287.5 405.606,308.713 476.213,238.106"></polygon></svg></a>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--lighterBgColor);
+    border-radius: 4px;
+    padding: 32px 25px;
+    box-shadow: 0px 8px 11px -6px var(--boxShadowColor);
+    height: 100%;
+  }
+
+  .card-heading {
+    font-size: 1.3rem;
+    letter-spacing: 0.08rem;
+  }
+
+  @media (min-width: 992px) {
+    .card-heading {
+      font-size: 1.5rem;
+    }
+  }
+
+  .heading-link {
+    color: var(--headingColor);
+    text-decoration: none;
+  }
+
+  .heading-link::after {
+    content: none;
+  }
+
+  .heading-link:hover {
+    color: var(--accentColor);
+  }
+
+  .heading-link:hover::after {
+    content: none;
+  }
+
+  .teaser {
+    margin: 30px 0;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    .teaser {
+      font-size: 1.05rem;
+    }
+  }
+
+  .read-link {
+    font-family: "JetBrainsMono-Regular";
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+
+  .read-link::after {
+    content: none;
+  }
+
+  .read-link:hover::after {
+    content: none;
+  }
+
+  .read-link:hover .arrow-icon {
+    margin-left: 12px;
+  }
+
+  .arrow-icon {
+    font-size: 1rem;
+    margin: 0 5px 0 7px;
+    position: relative;
+    top: 0.4rem;
+    transition: 100ms ease-out;
+  }
+</style>

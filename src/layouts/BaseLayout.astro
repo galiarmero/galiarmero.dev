@@ -1,0 +1,123 @@
+---
+import "../styles/global.css"
+import "../styles/transitions.css"
+import { themes, defaultTheme, transitionTiming } from "../config/themes.js"
+
+interface Props {
+  pageTitle: string
+  title?: string
+  description?: string
+  pageUrl?: string
+  sharingCard?: string
+  sharingAltText?: string
+  scrollBehavior?: string
+}
+
+const { pageTitle, title, description, pageUrl, sharingCard, sharingAltText, scrollBehavior } =
+  Astro.props
+
+const ackeeServer = import.meta.env.ACKEE_SERVER_URL
+const ackeeDomainId = import.meta.env.ACKEE_DOMAIN_ID
+
+const theme = themes[defaultTheme]
+const themeStyle = `:root { ${Object.entries(theme)
+  .map(([k, v]) => `--${k}: ${v}`)
+  .join("; ")}; --transitionTiming: ${transitionTiming}; }`
+---
+
+<!doctype html>
+<html lang="en" data-theme={defaultTheme} style={scrollBehavior ? `scroll-behavior: ${scrollBehavior}` : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+
+    <style set:html={themeStyle}></style>
+
+    <meta name="theme-color" content={theme.bgColor} />
+    <meta name="msapplication-navbutton-color" content={theme.bgColor} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.png" />
+    <link rel="mask-icon" href="/favicon-mask.svg" color={theme.bgColor} />
+    <link rel="apple-touch-icon" href="/favicon-apple-touch.png" />
+
+    <!-- Font preloads -->
+    <link
+      rel="preload"
+      href="/fonts/Gilroy-ExtraBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Gilroy-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ClearSans-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ClearSans-Thin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@galiarmero" />
+    <meta name="twitter:creator" content="@galiarmero" />
+    {title && <meta name="twitter:title" content={title} />}
+    {description && <meta name="twitter:description" content={description} />}
+    {sharingCard && <meta name="twitter:image" content={sharingCard} />}
+    {
+      sharingAltText && (
+        <meta name="twitter:image:alt" content={sharingAltText} />
+      )
+    }
+
+    <!-- Open Graph meta tags -->
+    {pageUrl && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:type" content="article" />
+    {title && <meta property="og:title" content={title} />}
+    {description && <meta property="og:description" content={description} />}
+    {sharingCard && <meta property="og:image" content={sharingCard} />}
+  </head>
+  <body>
+    <slot />
+
+    {ackeeServer && ackeeDomainId && (
+      <script
+        is:inline
+        async
+        src={`${ackeeServer}/tracker.js`}
+        data-ackee-server={ackeeServer}
+        data-ackee-domain-id={ackeeDomainId}
+        data-ackee-opts='{"detailed":true,"ignoreLocalhost":true,"ignoreOwnVisits":true}'
+      ></script>
+    )}
+
+  </body>
+</html>

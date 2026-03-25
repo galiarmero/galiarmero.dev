@@ -1,0 +1,102 @@
+# Future Improvements
+
+Post-migration improvements that were deferred to avoid visual changes during the Gatsby-to-Astro migration.
+
+## Use `astro-icon` for icons instead of inline SVGs
+
+During the migration, `react-icons/fa` (Font Awesome) icons were replaced with inline SVGs extracted from the same icon set. This works and renders identically, but `astro-icon` is the community-recommended approach for icons in Astro. It integrates with [Iconify](https://iconify.design/), which includes the full Font Awesome set and many others.
+
+Benefits:
+
+- Cleaner component API: `<Icon name="fa-solid:arrow-left" />` instead of raw SVG markup
+- Access to thousands of icon sets via Iconify
+- Automatic SVG optimization
+
+### Inline SVGs to update
+
+- `src/components/PostDetails.astro` -- eyeglasses icon (from `static/icons/circular-eyeglasses.svg`)
+- `src/components/PostPreview.astro` -- right arrow icon (from `static/icons/right-arrow.svg`)
+- `src/components/SuggestedPost.astro` -- left/right arrow icons (Font Awesome)
+- `src/components/homepage/Logo.jsx` -- site logo (from `static/icons/logo.svg`). Also uses a fixed `id="logo"` for CSS color targeting, which results in duplicate IDs when the logo appears in both the loader and header. Replace with a CSS class (e.g., `.site-logo`) and update selectors in `global.css`.
+- `src/components/PuzzleScoresNav.astro` -- left/right chevron icons (Font Awesome `FaChevronLeft`/`FaChevronRight`)
+- `src/components/homepage/PostPreview.jsx` -- eyeglasses + right arrow icons (same as blog versions)
+- `src/pages/cards/index.astro` -- site logo (inline SVG)
+- `src/pages/cards/[...slug].astro` -- site logo + eyeglasses icon (inline SVGs)
+
+### Steps
+
+1. Install: `npm install astro-icon @iconify-json/fa-solid`
+2. Replace inline SVGs with `<Icon>` components, e.g.:
+   - `<Icon name="fa-solid:arrow-left" />` (replaces `FaArrowLeft`)
+   - `<Icon name="fa-solid:arrow-right" />` (replaces `FaArrowRight`)
+3. For the site logo, use a local SVG source with `astro-icon` or a dedicated `<Logo />` component that references `static/icons/logo.svg`
+4. Visually verify icons match the current appearance
+
+## Replace `react-share` to remove SSR workaround
+
+The `Engage` component uses `react-share` for social share buttons. This library has a CJS/ESM compatibility issue that requires a `ssr: { noExternal: ["react-share"] }` workaround in `astro.config.mjs`. Replacing it would simplify the config and reduce the client-side JS bundle.
+
+Options:
+
+- **Plain share URLs** -- Twitter, Facebook, and LinkedIn all support share URLs (e.g., `https://twitter.com/intent/tweet?url=...&text=...`). This removes the React dependency entirely, allowing `Engage` to become a static Astro component with zero client-side JS.
+- **A lighter/ESM-compatible library** -- if a component-based API is preferred.
+
+## Add standard meta description tag to BaseLayout
+
+`BaseLayout.astro` accepts a `description` prop and uses it for Twitter (`twitter:description`) and Open Graph (`og:description`) tags, but it doesn't emit a standard `<meta name="description" content="...">` tag. Many crawlers and SEO tools rely on this tag, so it should be included when `description` is provided.
+
+## Exclude `/cards` index page from production builds
+
+The blog sharing card routes (`src/pages/cards/[...slug].astro`) are already gated to dev-only via `getStaticPaths` returning `[]` in production. However, the site sharing card (`src/pages/cards/index.astro`) is a static route with no `getStaticPaths`, so Astro always builds it. The page is harmless (only contains public info and isn't linked from anywhere), but ideally it should not be deployed.
+
+Possible approaches:
+
+- Merge both card pages into the `[...slug].astro` catch-all route (handle `slug: undefined` as the site card)
+- Post-build script to remove `dist/cards/index.html`
+- Astro integration hook to exclude the route during build
+
+## Restore focus indicators removed by Gatsby-era CSS
+
+Several elements suppress `outline` without providing an alternative focus style, making them unusable for keyboard navigation. Carried over from the original Gatsby codebase.
+
+Known occurrences:
+
+- `src/styles/header.css` -- `.slider-burger:focus, .slider-burger:active { outline: none; }`
+- `src/styles/homepage.css` -- `.hp-button:hover, .hp-button:focus { outline: 0; }`
+
+Fix by replacing `outline: none` with a `:focus-visible` style (e.g., `outline: 2px solid var(--accentColor)` or `box-shadow`) so focus is visible for keyboard users but hidden for mouse clicks.
+
+## Upgrade Node to 20+ and Shiki to v4
+
+The project pins Node 18 (`.nvmrc`, `.node-version`) and CI uses `cimg/node:16.16.0`. Astro 5 requires Node >= 18.14.1, but `@shikijs/transformers` v4 and newer Shiki releases require Node >= 20. Currently pinned at `@shikijs/transformers@^3` to stay aligned with Astro's bundled `shiki@3.x`.
+
+When upgrading:
+
+- Bump `.nvmrc` and `.node-version` to 20 (or latest LTS)
+- Update CI image to `cimg/node:20.x`
+- Upgrade `@shikijs/transformers` to `^4`
+- Verify Astro's bundled Shiki version is compatible (Astro may also bump to Shiki v4)
+
+## Bug fixes
+
+### Fix CSS selector typo in puzzle scores nav
+
+In `src/styles/DailyPuzzleStyles.js` (and its migrated counterpart `src/styles/daily-puzzle.css`), the selector `.puzzle-scores-nav .date-label.date.nav > a` should be `.puzzle-scores-nav .date-label.date-nav > a`. The current selector matches an element with classes `date-label`, `date`, and `nav` instead of `date-label` and `date-nav`.
+
+---
+
+## Use configurable breakpoints instead of hardcoded media queries
+
+The Gatsby project defined breakpoints in JS (`src/styles/theme.js`) and used them via Emotion. After the Astro migration, media queries are hardcoded directly in CSS (e.g., `@media (min-width: 480px)`). This works but means breakpoint values are scattered across many files.
+
+Options to make them configurable:
+
+- **PostCSS with `postcss-custom-media`** -- define `@custom-media --media4 (min-width: 480px)` once and use `@media (--media4)` everywhere. Astro supports PostCSS natively.
+- **Sass** -- variables can be used inside `@media` rules.
+
+Current breakpoint mapping for reference:
+
+- `media4` = `@media (min-width: 480px)`
+- `media7` = `@media (min-width: 768px)`
+- `media9` = `@media (min-width: 992px)`
+- `media12` = `@media (min-width: 1200px)`
