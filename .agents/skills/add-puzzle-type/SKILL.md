@@ -82,7 +82,7 @@ if (score.puzzle === "new-puzzle-slug") {
 | `image` | `string` | No | Card image URL; omit for a text-only card |
 | `hideResultText` | `boolean` | No | When `true`, only the card renders without the `PuzzleResult` above it (e.g. `nytimes-mini-crossword`). When `false`/omitted, `PuzzleResult` renders above the card (e.g. `minute-cryptic`). |
 
-No template changes are needed — the existing `linkPreview` branch handles both modes automatically. When using `showResult: true`, increase `calculateSpan` to account for the extra link preview height (typically `+ 11` instead of `+ 5`):
+No template changes are needed — the existing `linkPreview` branch handles both modes automatically. When `hideResultText` is `false` or omitted, increase `calculateSpan` to account for the extra link preview height (typically `+ 11` instead of `+ 5`):
 
 ```js
 if (puzzle === "new-puzzle-slug") return text.split("\n").length + 11
