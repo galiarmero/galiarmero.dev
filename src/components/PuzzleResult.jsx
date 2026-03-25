@@ -13,6 +13,7 @@ const linkifyOpts = {
   },
   attributes: {
     target: "_blank",
+    rel: "noopener noreferrer",
   },
 }
 
