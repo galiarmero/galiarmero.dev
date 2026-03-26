@@ -1,16 +1,23 @@
 export const PUZZLE_ORDER = [
   "wordle",
   "waffle",
-  "quordle",
   "nytimes-mini-crossword",
+  "connections",
+  "strands",
+  "minute-cryptic",
   "worldle",
+  "wheretaken",
   "saltong",
   "saltong-mini",
-  "wheretaken",
+  "maptap",
+  "clues-by-sam",
+  "quordle",
+  "quordle-sequence",
+  "quordle-extreme",
+  "quordle-rescue",
   "octordle",
   "octordle-sequence",
   "octordle-rescue",
-  "minute-cryptic",
 ]
 
 export default {
@@ -20,6 +27,15 @@ export default {
   },
   quordle: {
     label: "Quordle",
+  },
+  "quordle-sequence": {
+    label: "Sequence Quordle",
+  },
+  "quordle-extreme": {
+    label: "Extreme Quordle",
+  },
+  "quordle-rescue": {
+    label: "Rescue Quordle",
   },
   worldle: {
     label: "Worldle",
@@ -52,7 +68,16 @@ export default {
   connections: {
     label: "NY Times Connections",
   },
+  strands: {
+    label: "Strands",
+  },
+  maptap: {
+    label: "MapTap",
+  },
   "minute-cryptic": {
     label: "Minute Cryptic",
+  },
+  "clues-by-sam": {
+    label: "Clues by Sam",
   },
 }
