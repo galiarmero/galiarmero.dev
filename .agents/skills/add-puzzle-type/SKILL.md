@@ -12,34 +12,16 @@ The puzzle scores system displays daily puzzle results fetched from an external 
 
 ## Required Steps
 
-### 1. Register the slug in `src/config/puzzles.js`
+### 1. Register the puzzle in the Nenoy API
 
-Add the slug to `PUZZLE_ORDER` (controls display order on the page) and add a config entry in the default export:
+Puzzle config (display name, emoji, link, display order, `isScoreDarkMode`, `resultPattern`) is centralized in the **nenoy-api**. There is no static config file in this project — `src/pages/puzzle-scores/[date].astro` fetches the canonical puzzle list from `GET /puzzles` at build time via `getAllPuzzles()` in `src/utils/nenoy-api-fetch.js`.
 
-```js
-// PUZZLE_ORDER — add at desired position
-export const PUZZLE_ORDER = [
-  "wordle",
-  // ...existing slugs...
-  "new-puzzle-slug",
-]
+To add a new puzzle, create the entry in the nenoy-api's puzzles collection. The API response drives:
+- **Display order** — array position in the response
+- **Label** — `displayName` field, shown in the `PairLabel` badge
+- **Dark-mode override** — `isScoreDarkMode` field, when `true` replaces `⬛` with `⬜` in result text
 
-// Default export — add config object
-export default {
-  // ...existing entries...
-  "new-puzzle-slug": {
-    label: "Display Name",
-    isScoreDarkMode: true, // optional — set true if share text uses ⬛ for light squares
-  },
-}
-```
-
-**Config options:**
-
-| Property | Type | Required | Purpose |
-|----------|------|----------|---------|
-| `label` | `string` | Yes | Shown in the `PairLabel` badge on the card |
-| `isScoreDarkMode` | `boolean` | No | When `true`, `⬛` is replaced with `⬜` in result text |
+No changes to this project are needed for the puzzle to appear once the nenoy-api entry exists and the site is rebuilt.
 
 ### 2. Ensure the Nenoy API produces score records
 
@@ -146,10 +128,9 @@ Both projects live under the same parent directory (`../`). Share the puzzle nam
 
 | File | Role |
 |------|------|
-| `src/config/puzzles.js` | Slug registry, display order, labels, dark-mode flag |
-| `src/pages/puzzle-scores/[date].astro` | Page: fetches scores, enrichment logic, rendering, card sizing |
+| `src/pages/puzzle-scores/[date].astro` | Page: fetches scores + puzzle config, enrichment logic, rendering, card sizing |
 | `src/components/PuzzleResult.astro` | Default renderer: emoji grid with twemoji + linkify |
 | `src/components/PairLabel.astro` | Badge showing puzzle label + day number |
 | `src/components/LinkPreviewCard.astro` | Rich card with title/description/domain; image is optional |
-| `src/utils/nenoy-api-fetch.js` | API fetcher with pagination and caching |
+| `src/utils/nenoy-api-fetch.js` | API fetcher: `getAllPuzzleScores()` for scores, `getAllPuzzles()` for puzzle config |
 | `src/styles/puzzle-scores.css` | Shared puzzle page styles |
