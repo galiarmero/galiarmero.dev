@@ -38,6 +38,25 @@ async function fetchWithRetry(url, opts, retriesLeft = retryMax) {
   }
 }
 
+let cachedPuzzles = null
+
+export async function getAllPuzzles() {
+  if (cachedPuzzles) return cachedPuzzles
+
+  console.log("Fetching puzzles config from Nenoy API")
+  const res = await fetchWithRetry(`${NENOY_API_BASE_URL}/puzzles`, {
+    headers: { Authorization: AUTH_HEADER },
+  })
+
+  if (!res.ok) {
+    throw new Error(`Nenoy API error: ${res.status} ${res.statusText}`)
+  }
+
+  const data = await res.json()
+  cachedPuzzles = data.puzzles
+  return cachedPuzzles
+}
+
 let cachedScores = null
 
 export async function getAllPuzzleScores() {
