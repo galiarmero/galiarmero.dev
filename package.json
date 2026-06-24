@@ -14,11 +14,11 @@
     "generate-sharing-cards": "node ./scripts/generate-sharing-cards.js"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/react": "^6.0.0",
     "@researchgate/react-intersection-observer": "^1.1.2",
     "@rollup/plugin-yaml": "^4.1.2",
     "@shikijs/transformers": "^3.23.0",
-    "astro": "^5.18.1",
+    "astro": "^7.0.0",
     "dayjs": "^1.8.20",
     "linkify-plugin-hashtag": "^4.0.2",
     "linkify-plugin-mention": "^4.0.2",
